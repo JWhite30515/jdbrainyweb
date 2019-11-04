@@ -7,8 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - run `npm i` to install node_modules
 - when commiting, make sure your global gitignore excludes the 
   - node_modules/
-  - .DS_Store,
-  - package_lock.json
+  - .DS_Store
+- reference https://jayeshkawli.ghost.io/using-global-gitignore-on-mac/ if you need help
  
 
 ### `npm start`
