@@ -2,7 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
+### IMPORTANT
+- make sure you have node installed
+- run `npm i` to install node_modules
+- when commiting, make sure your global gitignore excludes the 
+  - node_modules/
+  - .DS_Store,
+  - package_lock.json
+ 
 
 ### `npm start`
 
