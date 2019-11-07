@@ -5,11 +5,11 @@ export default function WelcomePage() {
   return (
     <div>
       <h1>Brainy Make-a-Story Web</h1>
-      <button>
+      <h2><button>
         <Link to='/stories'>
           Start
       </Link>
-      </button>
+      </button></h2>
     </div>
   )
 }
