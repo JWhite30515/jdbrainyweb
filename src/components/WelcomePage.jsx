@@ -8,7 +8,7 @@ export default function WelcomePage() {
       <button>
         <Link to='/stories'>
           Start
-      </Link>
+        </Link>
       </button>
     </div>
   )
