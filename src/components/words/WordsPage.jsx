@@ -11,28 +11,37 @@ export default function WordsPage() {
 
   return (
     <div>
-      {words[params.id] && words[params.id].map(word => {
-        return (
-          <div     
-            key={`wordId-${word.id}`}
-            style={{ borderStyle: 'solid', borderWidth: 'medium' }}
-            onClick={() => {
-              if (!word.complete) {
-                history.push({
-                  pathname: '/quiz/' + word.name,
-                  state: {
-                    ...location.state,
-                    selectedWord: word,
-                    words: words[params.id]
-                  }
-                });
-              }
-            }}
-          >
-            <h1>{word.name}</h1>
-          </div>
-        );
-      })}
+      <h1>Words</h1>
+      <div className="flex-row list-row">
+        {words[params.id] && words[params.id].map(word => {
+          const disabled = word.name !== 'ape' ? true : false;
+          return (
+            <div     
+              className={disabled ? 'card-item flex-column' : 'card-item flex-column clickable'}
+              key={`wordId-${word.id}`}
+              onClick={disabled ? null : () => {
+                if (!word.complete) {
+                  history.push({
+                    pathname: '/quiz/' + word.name,
+                    state: {
+                      ...location.state,
+                      selectedWord: word,
+                      words: words[params.id]
+                    }
+                  });
+                }
+              }}
+            >
+              <h1>{word.name}</h1>
+              <img
+                className={disabled ? 'card-img grayscale' : 'card-img'}
+                src={word.img}
+                alt={word.name}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   )
 }

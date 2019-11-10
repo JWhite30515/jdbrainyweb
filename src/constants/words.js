@@ -1,27 +1,36 @@
-import kangaroo from '../static/audio/kangaroo.mp3';
+import apeAudio from '../static/audio/ape.mp3';
+
+import apeImg from '../static/img/categories/ape.png';
+import bearImg from '../static/img/words/bear.png';
+import catImg from '../static/img/words/cat.png';
+import cowImg from '../static/img/words/cow.png';
 
 export const words = {
   'animals': [
     {
       id: 1,
-      name: 'kangaroo',
+      name: 'ape',
       complete: false,
-      audio: kangaroo
+      audio: apeAudio,
+      img: apeImg
     },
     {
       id: 2,
       name: 'cat',
-      complete: false
+      complete: false,
+      img: catImg
     },
     {
       id: 3,
       name: 'cow',
       complete: false,
+      img: cowImg
     },
     {
       id: 4,
-      name: 'pig',
-      complete: false
+      name: 'bear',
+      complete: false,
+      img: bearImg
     }
   ]
 }

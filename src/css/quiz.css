@@ -1,0 +1,25 @@
+/* .quiz-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between;
+} */
+
+.quiz-item {
+  margin: 0 40px;
+}
+
+.star-row {
+  padding: 50px 0;
+}
+
+
+/* .quiz-item:nth-child(2n)::after {
+  content: '';
+  width: 100%;
+  break-after: always;
+} */
+
+/* .quiz-item:nth-child(2n) > div {
+  background: gold;
+} */

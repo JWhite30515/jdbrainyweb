@@ -13,8 +13,6 @@ import Layout from './Layout';
 import QuizPage from './QuizPage';
 import WelcomePage from './WelcomePage';
 
-import '../App.css';
-
 function App() {
   return (
     <Router>
