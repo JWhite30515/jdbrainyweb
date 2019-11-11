@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { IoIosStar, IoIosStarOutline } from 'react-icons/io';
+import { IoIosStar, IoIosStarOutline, IoIosVolumeHigh } from 'react-icons/io';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import '../css/common.css';
@@ -108,6 +108,9 @@ export default function QuizPage() {
             </div>
           );
         })}
+      </div>
+      <div onClick={() => correctWordAudio.play()}>
+        <IoIosVolumeHigh size={'3em'} />
       </div>
     </div>
   );
