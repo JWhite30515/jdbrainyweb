@@ -1,14 +1,19 @@
 import * as React from 'react';
 
-import HomeIcon from '@material-ui/icons/Home';
+import { IoIosHome } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+
+import '../css/layout.css';
+import '../css/common.css';
 
 export default function Layout(props) {
   return (
     <div>
-      <Link to='/'>
-        <HomeIcon />
-      </Link>
+      <div className="nav light-green-back">
+        <Link to='/'>
+          <IoIosHome size={'3em'} className="nav-icon"/>
+        </Link>
+      </div>
       {props.children}
     </div>
   );

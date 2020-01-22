@@ -6,10 +6,12 @@ import {
 } from 'react-router-dom';
 
 import StoriesPage from './stories/StoriesPage';
+import StoryPage from './stories/StoryPage';
+import CategoriesPage from './words/CategoriesPage';
+import WordsPage from './words/WordsPage';
 import Layout from './Layout';
+import QuizPage from './QuizPage';
 import WelcomePage from './WelcomePage';
-
-import '../App.css';
 
 function App() {
   return (
@@ -19,8 +21,20 @@ function App() {
           <WelcomePage />
         </Route>
         <Layout>
-          <Route path='/stories'>
+          <Route exact path='/stories'>
             <StoriesPage />
+          </Route>
+          <Route path='/stories/:id'>
+            <StoryPage />
+          </Route>
+          <Route exact path='/categories'>
+            <CategoriesPage />
+          </Route>
+          <Route path='/categories/:id'>
+            <WordsPage />
+          </Route>
+          <Route path='/quiz/:id'>
+            <QuizPage />
           </Route>
         </Layout>
       </Switch>

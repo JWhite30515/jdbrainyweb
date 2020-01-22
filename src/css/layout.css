@@ -1,0 +1,9 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  padding: 18px 0;
+}
+
+.nav-icon {
+  margin-left: 10px;
+}
