@@ -28,11 +28,7 @@ body {
   height: 100%;
 
   margin: 0;
-<<<<<<< Updated upstream
-  font-family: 'Comic-Sans', 'Comic-Sans MS', sans-serif;
-=======
   font-family: 'Comic Sans MS', 'Comic Sans', serif;
->>>>>>> Stashed changes
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
