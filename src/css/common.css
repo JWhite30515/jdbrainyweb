@@ -50,8 +50,10 @@
 }
 
 .story-text {
-  width: 1000px;
-  font-size: 36px;
+  /* width: 1000px; */
+  font-size: 28px;
   font-family: 'Comic Sans MS', 'Comic Sans', serif;
+  /* width: 800px; */
+  width: 30%;
 }
 
