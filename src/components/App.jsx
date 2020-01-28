@@ -5,12 +5,11 @@ import {
   Switch
 } from 'react-router-dom';
 
-import StoriesPage from './stories/StoriesPage';
 import StoryPage from './stories/StoryPage';
-import CategoriesPage from './words/CategoriesPage';
-import WordsPage from './words/WordsPage';
+import StorySelectPage from './stories/StorySelectPage';
+import WordSelectPage from './words/WordSelectPage';
 import Layout from './Layout';
-import QuizPage from './QuizPage';
+// import QuizPage from './QuizPage';
 import WelcomePage from './WelcomePage';
 
 function App() {
@@ -22,20 +21,20 @@ function App() {
         </Route>
         <Layout>
           <Route exact path='/stories'>
-            <StoriesPage />
+            <StorySelectPage />
           </Route>
           <Route path='/stories/:id'>
             <StoryPage />
           </Route>
-          <Route exact path='/categories'>
-            <CategoriesPage />
+          <Route exact path='/word-select'>
+            <WordSelectPage />
           </Route>
-          <Route path='/categories/:id'>
+          {/* <Route path='/categories/:id'>
             <WordsPage />
-          </Route>
-          <Route path='/quiz/:id'>
+          </Route> */}
+          {/* <Route path='/quiz/:id'>
             <QuizPage />
-          </Route>
+          </Route> */}
         </Layout>
       </Switch>
     </Router>

@@ -1,35 +1,45 @@
 import React, { useState, useEffect } from 'react';
 
 import { IoIosStar, IoIosStarOutline, IoIosVolumeHigh } from 'react-icons/io';
-import { useHistory, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+
+import IRootState from '../redux/state/rootState';
+import { IWord } from '../redux/state/wordState';
+import { masterWord } from '../redux/actions/wordActions';
 
 import '../css/common.css';
 import '../css/quiz.css';
 
-export default function QuizPage() {
+export interface IQuizPageProps {
+  word: IWord;
+  words: IWord[];
+  storyIdx: number;
+  masterWord: (word: IWord, storyIdx: number) => void
+}
+
+function QuizPage(props: IQuizPageProps) {
+  const { word, words, storyIdx } = props;
+
   const history = useHistory();
-  const location = useLocation();
-  // const params = useParams();
-  const correctWord = location.state.selectedWord;
-  const words = location.state.words;
 
   const [score, setScore] = useState(0);
   const [options, setOptions] = useState(randomizeOptions(words));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
 
-  const correctWordAudio = new Audio(correctWord.audio);
-  correctWordAudio.play();
+  const wordAudio = new Audio(word.audio);
+  wordAudio.play();
 
   useEffect(() => {
-    correctWordAudio.play();
-    if (score === 3) {
+    console.log(storyIdx);
+    wordAudio.play();
+    if (score === 3 && !(storyIdx < 0)) {
+      const newWord = { ...word, completed: true };
+      props.masterWord(newWord, storyIdx)
       history.push({
-        pathname: '/stories/' + location.state.storyId,
-        state: { 
-          ...location.state,
-          fromQuizPage: true
-        }
+        pathname: '/stories/' + storyIdx,
       });
     }
   })
@@ -75,13 +85,13 @@ export default function QuizPage() {
         {starRatings}
       </div>
       <div className="flex-row">
-        {options.map((option) => {
+        {options.map((option, idx) => {
           return (
             <div
               className="quiz-item card-item"
-              key={`option-${option.id}`}
+              key={`option-${idx + 1}`}
               onClick={() => {
-                if (option.id === correctWord.id) {
+                if (option.text === word.text) {
                   if (hasStreak) {
                     // increment points if make consecutive correct answer
                     const newScore = score + 1;
@@ -98,27 +108,27 @@ export default function QuizPage() {
                 setOptions(randomizeOptions(words));
               }}
             >
-              <h1>{option.name}</h1>
+              <h1>{option.text}</h1>
               <img
                 className={'card-img'}
                 style={{ maxWidth: '120px' }}
                 src={option.img}
-                alt={option.name}
+                alt={option.text}
               />
             </div>
           );
         })}
       </div>
-      <div onClick={() => correctWordAudio.play()}>
+      <div onClick={() => wordAudio.play()}>
         <IoIosVolumeHigh size={'3em'} />
       </div>
     </div>
   );
 }
 
-function randomizeOptions(words) {
+const randomizeOptions = (words: IWord[]) => {
   const randomizedOptions = [];
-  const usedIdxs = [];
+  const usedIdxs: number[] = [];
   for (let i = 0; i < 4; i += 1) {
     let randIdx = Math.floor(Math.random() * 4);
     while (usedIdxs.includes(randIdx)) {
@@ -129,3 +139,24 @@ function randomizeOptions(words) {
   }
   return randomizedOptions;
 }
+
+const mapStateToProps = (state: IRootState) => {
+  const storyIdx = state.storyState.stories.findIndex(
+    story => state.storyState.currStory ? story.title === state.storyState.currStory.title : false
+  );
+
+  return {
+    storyIdx,
+  }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    masterWord: bindActionCreators(masterWord, dispatch),
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(QuizPage);
