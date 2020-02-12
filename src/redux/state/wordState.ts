@@ -4,8 +4,12 @@ import burgerImg from '../../static/words/img/burger.png';
 import catImg from '../../static/words/img/cat.png';
 import clothesImg from '../../static/words/img/clothes.png';
 import cowImg from '../../static/words/img/cow.png';
+import yetiImg from '../../static/words/img/yeti.png';
+import elfImg from '../../static/words/img/elf.png';
 
 const apeAudio = require('../../static/words/audio/ape.mp3');
+const yetiAudio = require('../../static/words/audio/Yeti.mp3');
+const elfAudio = require('../../static/words/audio/elf.mp3');
 
 export interface IWord {
   completed: boolean;
@@ -18,7 +22,8 @@ export interface IWord {
 export enum WordType {
   CLOTHES = 'Clothes',
   ANIMALS = 'Animals',
-  FOOD = 'Food'
+  FOOD = 'Food',
+  PRETEND = 'Pretend'
 }
 
 export default interface IWordState {
@@ -64,5 +69,19 @@ export const initialWordState: IWordState = {
       img: cowImg,
       type: WordType.ANIMALS,
     },
+    {
+      completed: false,
+      text: 'elf',
+      img: elfImg,
+      audio: elfAudio,
+      type: WordType.PRETEND,
+    },
+    {
+      completed: false,
+      text: 'yeti',
+      img: yetiImg,
+      audio: yetiAudio,
+      type: WordType.PRETEND,
+    }
   ]
 };
