@@ -4,6 +4,9 @@ import burgerImg from '../../static/words/img/burger.png';
 import catImg from '../../static/words/img/cat.png';
 import clothesImg from '../../static/words/img/clothes.png';
 import cowImg from '../../static/words/img/cow.png';
+import jayImg from '../../static/words/img/jay.png';
+import owlImg from '../../static/words/img/owl.png';
+import swanImg from '../../static/words/img/swan.png';
 
 const apeAudio = require('../../static/words/audio/ape.mp3');
 
@@ -18,7 +21,8 @@ export interface IWord {
 export enum WordType {
   CLOTHES = 'Clothes',
   ANIMALS = 'Animals',
-  FOOD = 'Food'
+  FOOD = 'Food',
+  BIRDS = 'Birds'
 }
 
 export default interface IWordState {
@@ -63,6 +67,24 @@ export const initialWordState: IWordState = {
       text: 'cow',
       img: cowImg,
       type: WordType.ANIMALS,
+    },
+    {
+      completed: false,
+      text: 'jay',
+      img: jayImg,
+      type: WordType.BIRDS,
+    },
+    {
+      completed: false,
+      text: 'owl',
+      img: owlImg,
+      type: WordType.BIRDS,
+    },
+    {
+      completed: false,
+      text: 'swan',
+      img: swanImg,
+      type: WordType.BIRDS,
     },
   ]
 };
