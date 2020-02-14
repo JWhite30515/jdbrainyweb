@@ -31,7 +31,13 @@ import teaImg from '../../static/words/img/tea.png';
 import treeImg from '../../static/words/img/tree.png';
 import wallImg from '../../static/words/img/wall.png';
 import yellowImg from '../../static/words/img/yellow.png';
-
+import jayImg from '../../static/words/img/jay.png';
+import owlImg from '../../static/words/img/owl.png';
+import swanImg from '../../static/words/img/swan.png';
+import axeImg from '../../static/words/img/axe.png';
+import rakeImg from '../../static/words/img/rake.png';
+import nailImg from '../../static/words/img/nail.png';
+import sawImg from '../../static/words/img/saw.png';
 
 
 const apeAudio = require('../../static/words/audio/ape.mp3');
@@ -64,7 +70,12 @@ const teaAudio = require('../../static/words/audio/Tea.mp3');
 const treeAudio = require('../../static/words/audio/tree.mp3');
 const wallAudio = require('../../static/words/audio/wall.mp3');
 const yellowAudio = require('../../static/words/audio/yellow.mp3');
-
+const owlAudio = require('../../static/words/audio/owl.mp3');
+const swanAudio = require('../../static/words/audio/swan.mp3');
+const sawAudio = require('../../static/words/audio/saw.mp3');
+const nailAudio = require('../../static/words/audio/nail.mp3');
+const axeAudio = require('../../static/words/audio/axe.mp3');
+const rakeAudio = require('../../static/words/audio/rake.mp3');
 
 export interface IWord {
   completed: boolean;
@@ -79,7 +90,9 @@ export enum WordType {
   ANIMALS = 'Animals',
   FOOD = 'Food',
   COLORS = 'Colors',
-  OUTDOORS = 'Outdoors'
+  OUTDOORS = 'Outdoors',
+  BIRDS = 'Birds',
+  TOOLS = 'Tools'
 }
 
 export default interface IWordState {
@@ -315,6 +328,54 @@ export const initialWordState: IWordState = {
       img: yellowImg,
       audio: yellowAudio,
       type: WordType.COLORS,
+    },
+    {
+      completed: false,
+      text: 'jay',
+      img: jayImg,
+      type: WordType.BIRDS,
+    },
+    {
+      completed: false,
+      text: 'owl',
+      img: owlImg,
+      audio: owlAudio,
+      type: WordType.BIRDS,
+    },
+    {
+      completed: false,
+      text: 'swan',
+      img: swanImg,
+      audio: swanAudio,
+      type: WordType.BIRDS,
+    },
+    {
+      completed: false,
+      text: 'axe',
+      img: axeImg,
+      audio: axeAudio,
+      type: WordType.TOOLS,
+    },
+    {
+      completed: false,
+      text: 'nail',
+      img: nailImg,
+      audio: nailAudio,
+      type: WordType.TOOLS,
+    },
+    {
+      completed: false,
+      text: 'saw',
+      img: sawImg,
+      audio: sawAudio,
+      type: WordType.TOOLS,
+    },
+    {
+      completed: false,
+      text: 'rake',
+      img: rakeImg,
+      audio: rakeAudio,
+      type: WordType.TOOLS,
     },
   ]
 };
