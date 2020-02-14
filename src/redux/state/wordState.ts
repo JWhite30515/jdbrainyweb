@@ -1,3 +1,4 @@
+//image imports
 import apeImg from '../../static/words/img/ape.png';
 import bearImg from '../../static/words/img/bear.png';
 import burgerImg from '../../static/words/img/burger.png';
@@ -38,8 +39,6 @@ import axeImg from '../../static/words/img/axe.png';
 import rakeImg from '../../static/words/img/rake.png';
 import nailImg from '../../static/words/img/nail.png';
 import sawImg from '../../static/words/img/saw.png';
-
-
 import babyImg from '../../static/words/img/baby.png';
 import boyImg from '../../static/words/img/boy.png';
 import girlImg from '../../static/words/img/girl.png';
@@ -50,22 +49,20 @@ import jugglerImg from '../../static/words/img/juggler.png';
 import kingImg from '../../static/words/img/king.png';
 import manImg from '../../static/words/img/man.png';
 import queenImg from '../../static/words/img/queen.png';
-
 import faceImg from '../../static/words/img/face.png';
 import handImg from '../../static/words/img/hand.png';
 import lipImg from '../../static/words/img/lip.png';
 import mouthImg from '../../static/words/img/mouth.png';
 import noseImg from '../../static/words/img/nose.png';
 import toeImg from '../../static/words/img/toe.png';
-
 import beaverImg from '../../static/words/img/beaver.png';
-
 import bridgeImg from '../../static/words/img/bridge.png';
 import volcanoImg from '../../static/words/img/volcano.png';
 import zooImg from '../../static/words/img/zoo.png';
 import yetiImg from '../../static/words/img/yeti.png';
 import elfImg from '../../static/words/img/elf.png';
 
+//audio imports
 const apeAudio = require('../../static/words/audio/ape.mp3');
 const catAudio = require('../../static/words/audio/cat.mp3');
 const cowAudio = require('../../static/words/audio/cow.mp3');
@@ -102,35 +99,28 @@ const sawAudio = require('../../static/words/audio/saw.mp3');
 const nailAudio = require('../../static/words/audio/nail.mp3');
 const axeAudio = require('../../static/words/audio/axe.mp3');
 const rakeAudio = require('../../static/words/audio/rake.mp3');
-
-
 const yetiAudio = require('../../static/words/audio/Yeti.mp3');
 const elfAudio = require('../../static/words/audio/elf.mp3');
 const babyAudio = require('../../static/words/audio/baby.mp3');
 const boyAudio = require('../../static/words/audio/boy.mp3');
 const clownAudio = require('../../static/words/audio/clown.mp3');
-// const dancerAudio = require('../../static/words/audio/dancer.mp3');
 const familyAudio = require('../../static/words/audio/family.mp3');
 const girlAudio = require('../../static/words/audio/girl.mp3');
 const jugglerAudio = require('../../static/words/audio/juggler.mp3');
 const kingAudio = require('../../static/words/audio/king.mp3');
 const manAudio = require('../../static/words/audio/man.mp3');
 const queenAudio = require('../../static/words/audio/queen.mp3');
-
-
 const faceAudio = require('../../static/words/audio/face.mp3');
 const handAudio = require('../../static/words/audio/hand.mp3');
-// const lipAudio = require('../../static/words/audio/lip.mp3');
 const mouthAudio = require('../../static/words/audio/mouth.mp3');
 const noseAudio = require('../../static/words/audio/nose.mp3');
 const toeAudio = require('../../static/words/audio/toe.mp3');
-
 const beaverAudio = require('../../static/words/audio/beaver.mp3');
-
 const bridgeAudio = require('../../static/words/audio/bridge.mp3');
 const volcanoAudio = require('../../static/words/audio/volcano.mp3');
 // const zooAudio = require('../../static/words/audio/zoo.mp3');
-
+// const lipAudio = require('../../static/words/audio/lip.mp3');
+// const dancerAudio = require('../../static/words/audio/dancer.mp3');
 
 export interface IWord {
   completed: boolean;
