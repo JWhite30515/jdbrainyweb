@@ -18,6 +18,19 @@ import tailImg from '../../static/words/img/tail.png';
 import whaleImg from '../../static/words/img/whale.png';
 import wolfImg from '../../static/words/img/wolf.png';
 import zebraImg from '../../static/words/img/zebra.png';
+import candyImg from '../../static/words/img/candy.png';
+import goldImg from '../../static/words/img/gold.png';
+import grassImg from '../../static/words/img/grass.png';
+import iceImg from '../../static/words/img/ice.png';
+import nutsImg from '../../static/words/img/nuts.png';
+import plumImg from '../../static/words/img/plum.png';
+import rainbowImg from '../../static/words/img/rainbow.png';
+import silverImg from '../../static/words/img/silver.png';
+import teaImg from '../../static/words/img/Tea.png';
+import treeImg from '../../static/words/img/tree.png';
+import wallImg from '../../static/words/img/wall.png';
+import yellowImg from '../../static/words/img/yellow.png';
+
 
 
 const apeAudio = require('../../static/words/audio/ape.mp3');
@@ -38,7 +51,18 @@ const tailAudio = require('../../static/words/audio/tail.mp3');
 const whaleAudio = require('../../static/words/audio/whale.mp3');
 const wolfAudio = require('../../static/words/audio/wolf.mp3');
 const zebraAudio = require('../../static/words/audio/zebra.mp3');
-
+const candyAudio = require('../../static/words/audio/candy.mp3');
+const goldAudio = require('../../static/words/audio/gold.mp3');
+const grassAudio = require('../../static/words/audio/grass.mp3');
+const iceAudio = require('../../static/words/audio/ice.mp3');
+const nutsAudio = require('../../static/words/audio/nuts.mp3');
+const plumAudio = require('../../static/words/audio/plum.mp3');
+const rainbowAudio = require('../../static/words/audio/rainbow.mp3');
+const silverAudio = require('../../static/words/audio/silver.mp3');
+const teaAudio = require('../../static/words/audio/tea.mp3');
+const treeAudio = require('../../static/words/audio/tree.mp3');
+const wallAudio = require('../../static/words/audio/wall.mp3');
+const yellowAudio = require('../../static/words/audio/yellow.mp3');
 
 
 export interface IWord {
@@ -52,7 +76,9 @@ export interface IWord {
 export enum WordType {
   CLOTHES = 'Clothes',
   ANIMALS = 'Animals',
-  FOOD = 'Food'
+  FOOD = 'Food',
+  COLORS = 'Colors',
+  OUTDOORS = 'Outdoors'
 }
 
 export default interface IWordState {
@@ -197,6 +223,90 @@ export const initialWordState: IWordState = {
       img: zebraImg,
       audio: zebraAudio,
       type: WordType.ANIMALS,
+    },
+    {
+      completed: false,
+      text: 'candy',
+      img: candyImg,
+      audio: candyAudio,
+      type: WordType.FOOD,
+    },
+    {
+      completed: false,
+      text: 'gold',
+      img: goldImg,
+      audio: goldAudio,
+      type: WordType.COLORS,
+    },
+    {
+      completed: false,
+      text: 'grass',
+      img: grassImg,
+      audio: grassAudio,
+      type: WordType.OUTDOORS,
+    },
+    {
+      completed: false,
+      text: 'ice',
+      img: iceImg,
+      audio: iceAudio,
+      type: WordType.OUTDOORS,
+    },
+    {
+      completed: false,
+      text: 'nuts',
+      img: nutsImg,
+      audio: nutsAudio,
+      type: WordType.FOOD,
+    },
+    {
+      completed: false,
+      text: 'plum',
+      img: plumImg,
+      audio: plumAudio,
+      type: WordType.FOOD,
+    },
+    {
+      completed: false,
+      text: 'rainbow',
+      img: rainbowImg,
+      audio: rainbowAudio,
+      type: WordType.OUTDOORS,
+    },
+    {
+      completed: false,
+      text: 'silver',
+      img: silverImg,
+      audio: silverAudio,
+      type: WordType.COLORS,
+    },
+    {
+      completed: false,
+      text: 'tea',
+      img: teaImg,
+      audio: teaAudio,
+      type: WordType.FOOD,
+    },
+    {
+      completed: false,
+      text: 'tree',
+      img: treeImg,
+      audio: treeAudio,
+      type: WordType.OUTDOORS,
+    },
+    {
+      completed: false,
+      text: 'wall',
+      img: wallImg,
+      audio: wallAudio,
+      type: WordType.OUTDOORS,
+    },
+    {
+      completed: false,
+      text: 'yellow',
+      img: yellowImg,
+      audio: yellowAudio,
+      type: WordType.COLORS,
     },
   ]
 };
