@@ -76,6 +76,11 @@ const sawAudio = require('../../static/words/audio/saw.mp3');
 const nailAudio = require('../../static/words/audio/nail.mp3');
 const axeAudio = require('../../static/words/audio/axe.mp3');
 const rakeAudio = require('../../static/words/audio/rake.mp3');
+import yetiImg from '../../static/words/img/yeti.png';
+import elfImg from '../../static/words/img/elf.png';
+
+const yetiAudio = require('../../static/words/audio/Yeti.mp3');
+const elfAudio = require('../../static/words/audio/elf.mp3');
 
 export interface IWord {
   completed: boolean;
@@ -92,7 +97,8 @@ export enum WordType {
   COLORS = 'Colors',
   OUTDOORS = 'Outdoors',
   BIRDS = 'Birds',
-  TOOLS = 'Tools'
+  TOOLS = 'Tools',
+  PRETEND = 'Pretend'
 }
 
 export default interface IWordState {
@@ -377,5 +383,19 @@ export const initialWordState: IWordState = {
       audio: rakeAudio,
       type: WordType.TOOLS,
     },
+    {
+      completed: false,
+      text: 'elf',
+      img: elfImg,
+      audio: elfAudio,
+      type: WordType.PRETEND,
+    },
+    {
+      completed: false,
+      text: 'yeti',
+      img: yetiImg,
+      audio: yetiAudio,
+      type: WordType.PRETEND,
+    }
   ]
 };
