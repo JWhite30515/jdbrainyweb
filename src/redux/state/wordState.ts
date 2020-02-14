@@ -8,6 +8,7 @@ import camelImg from '../../static/words/img/camel.png';
 import dogImg from '../../static/words/img/dog.png';
 import dogsImg from '../../static/words/img/dog.png';
 import foxImg from '../../static/words/img/fox.png';
+import goatImg from '../../static/words/img/goat.png';
 import kittenImg from '../../static/words/img/kitten.png';
 import moleImg from '../../static/words/img/mole.png';
 import mothImg from '../../static/words/img/moth.png';
@@ -26,7 +27,7 @@ import nutsImg from '../../static/words/img/nuts.png';
 import plumImg from '../../static/words/img/plum.png';
 import rainbowImg from '../../static/words/img/rainbow.png';
 import silverImg from '../../static/words/img/silver.png';
-import teaImg from '../../static/words/img/Tea.png';
+import teaImg from '../../static/words/img/tea.png';
 import treeImg from '../../static/words/img/tree.png';
 import wallImg from '../../static/words/img/wall.png';
 import yellowImg from '../../static/words/img/yellow.png';
@@ -59,7 +60,7 @@ const nutsAudio = require('../../static/words/audio/nuts.mp3');
 const plumAudio = require('../../static/words/audio/plum.mp3');
 const rainbowAudio = require('../../static/words/audio/rainbow.mp3');
 const silverAudio = require('../../static/words/audio/silver.mp3');
-const teaAudio = require('../../static/words/audio/tea.mp3');
+const teaAudio = require('../../static/words/audio/Tea.mp3');
 const treeAudio = require('../../static/words/audio/tree.mp3');
 const wallAudio = require('../../static/words/audio/wall.mp3');
 const yellowAudio = require('../../static/words/audio/yellow.mp3');
@@ -152,6 +153,13 @@ export const initialWordState: IWordState = {
       text: 'fox',
       img: foxImg,
       audio: foxAudio,
+      type: WordType.ANIMALS,
+    },
+    {
+      completed: false,
+      text: 'goat',
+      img: goatImg,
+      audio: goatAudio,
       type: WordType.ANIMALS,
     },
     {
