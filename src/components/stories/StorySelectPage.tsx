@@ -2,17 +2,14 @@ import * as React from 'react';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
-import { selectStory } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 
 import '../../css/common.css';
 
 export interface IStorySelectPageProps {
   stories: IStory[];
-  selectStory: (story: IStory) => void;
 }
 
 function StorySelectPage(props: IStorySelectPageProps) {
@@ -26,7 +23,7 @@ function StorySelectPage(props: IStorySelectPageProps) {
           const disabled = !(idx === 0);
           return (
             <div
-              key={`storyId-${idx}`}
+              key={`story-${story.id}`}
               className="card-item flex-column"
             >
               <h2>{story.title}</h2>
@@ -37,10 +34,9 @@ function StorySelectPage(props: IStorySelectPageProps) {
               />
               <button
                 className={disabled ? 'grayscale' : ''}
-                onClick={() => props.selectStory(story)}
               >
                 <Link
-                  to={'/stories/' + idx}
+                  to={'/stories/' + story.id}
                   className={disabled ? 'disabled-link' : ''}
                 >
                   Start story
@@ -60,13 +56,7 @@ const mapStateToProps = (state: IRootState) => {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    selectStory: bindActionCreators(selectStory, dispatch),
-  }
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  () => ({})
 )(StorySelectPage);

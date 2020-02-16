@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../redux/state/rootState';
+import { IStory } from '../redux/state/storyState';
 import { IWord } from '../redux/state/wordState';
 import { masterWord } from '../redux/actions/wordActions';
 
@@ -13,36 +14,43 @@ import '../css/common.css';
 import '../css/quiz.css';
 
 export interface IQuizPageProps {
-  word: IWord;
+  // currSectionIdx: number;
+  word: IWord | null;
   words: IWord[];
-  storyIdx: number;
-  masterWord: (word: IWord, storyIdx: number) => void
+  // storyIdx: number;
+  currStory: IStory | null;
+  masterWord: (word: IWord, storyId: number) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
-  const { word, words, storyIdx } = props;
+  const { currStory, word, words } = props;
+
+  console.log(currStory);
 
   const history = useHistory();
 
   const [score, setScore] = useState(0);
-  const [options, setOptions] = useState(randomizeOptions(words));
+  const [options, setOptions] = useState(randomizeOptions(word, words));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
 
-  const wordAudio = new Audio(word.audio);
-  wordAudio.play();
-
   useEffect(() => {
-    console.log(storyIdx);
+    console.log(currStory);
+    if (!word || !currStory) return;
     wordAudio.play();
-    if (score === 3 && !(storyIdx < 0)) {
+    if (score === 3) {
       const newWord = { ...word, completed: true };
-      props.masterWord(newWord, storyIdx)
+      props.masterWord(newWord, currStory.id);
       history.push({
-        pathname: '/stories/' + storyIdx,
+        pathname: '/stories/' + currStory.id,
       });
     }
   })
+
+  if (!word) return <div>Error rendering quiz</div>
+
+  const wordAudio = new Audio(word.audio);
+  wordAudio.play();
 
   const starRatings = [];
   for (let i = 0; i < score; i += 1) {
@@ -105,7 +113,7 @@ function QuizPage(props: IQuizPageProps) {
                   setHasStreak(false);
                   setScore(0);
                 }
-                setOptions(randomizeOptions(words));
+                setOptions(randomizeOptions(word, words));
               }}
             >
               <h1>{option.text}</h1>
@@ -126,27 +134,58 @@ function QuizPage(props: IQuizPageProps) {
   );
 }
 
-const randomizeOptions = (words: IWord[]) => {
-  const randomizedOptions = [];
-  const usedIdxs: number[] = [];
-  for (let i = 0; i < 4; i += 1) {
-    let randIdx = Math.floor(Math.random() * 4);
-    while (usedIdxs.includes(randIdx)) {
-      randIdx = Math.floor(Math.random() * 4);
+const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
+  if (!word) return [];
+
+  const randomizedOptions: IWord[] = [];
+  // used indexes of words in words[] array
+  const usedWordIdxs: number[] = [];
+  // used indexes of options, 0 - 3
+  const usedOptionIdxs: number[] = []; 
+
+  // first randomize index of correct word option, 0 - 3
+  const correctIdx = Math.floor(Math.random() * 4);
+
+  randomizedOptions[correctIdx] = word;
+  usedOptionIdxs.push(correctIdx);
+
+  // then randomly select 3 other sight words
+  for (let i = 0; i < 3; i += 1) {
+    let randWordIdx = Math.floor(Math.random() * words.length);
+
+    // make sure idx has not already been used, and is not correct word
+    // also make sure no other duplicate words
+    while (
+      usedWordIdxs.includes(randWordIdx) ||
+      words[randWordIdx] === word ||
+      randomizedOptions.includes(words[randWordIdx])
+    ) {
+      randWordIdx = Math.floor(Math.random() * words.length);
     }
-    randomizedOptions.push(words[randIdx]);
-    usedIdxs.push(randIdx);
+
+    const randomOption = words[randWordIdx];
+
+    // now assign idx 0 - 3, !== correctIdx
+    let randOptionIdx = Math.floor(Math.random() * 4);
+    while (usedOptionIdxs.includes(randOptionIdx)) {
+      randOptionIdx = Math.floor(Math.random() * 4);
+    }
+    usedOptionIdxs.push(randOptionIdx);
+    randomizedOptions[randOptionIdx] = randomOption;
   }
+
   return randomizedOptions;
 }
 
 const mapStateToProps = (state: IRootState) => {
-  const storyIdx = state.storyState.stories.findIndex(
-    story => state.storyState.currStory ? story.title === state.storyState.currStory.title : false
-  );
+  // const storyIdx = state.storyState.stories.findIndex(
+  //   story => state.storyState.currStory ? story.title === state.storyState.currStory.title : false
+  // );
 
   return {
-    storyIdx,
+    currStory: state.storyState.currStory,
+    word: state.quizState.word,
+    words: state.wordState.words,
   }
 }
 

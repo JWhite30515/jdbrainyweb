@@ -11,7 +11,7 @@ export default function Layout(props) {
     <div>
       <div className="nav light-green-back">
         <Link to='/'>
-          <IoIosHome size={'3em'} className="nav-icon"/>
+          <IoIosHome size={'3em'} className="nav-icon clickable"/>
         </Link>
       </div>
       {props.children}

@@ -1,27 +1,39 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
+import { selectStory } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
+
+import WordModal from '../words/WordModal';
 
 import '../../css/common.css';
 import '../../css/story.css';
 
 export interface IStoryPageProps {
-  stories: IStory[];
+  story: IStory | null;
+  selectStory(id: number): void;
 }
 
 function StoryPage(props: IStoryPageProps) {
-  // get param of current path, story/:id
-  const params: any = useParams();
+  const params: { id?: string | undefined } = useParams();
   const history = useHistory();
 
-  const { stories } = props;
-  const story = stories[Number(params.id)];
-
   const [currWordIdx, setCurrWordIdx] = useState(0);
+  const [showWordModal, setShowWordModal] = useState(false);
+
+  useEffect(() => {
+    props.selectStory(Number(params.id));
+  }, []);
+
+  const { story } = props;
+  if (!story) return <div>No story selected</div>
+
+  const { currSectionIdx, sections } = story;
+  const currSection = story.sections[currSectionIdx];
 
   const words = [
     {
@@ -167,7 +179,7 @@ function StoryPage(props: IStoryPageProps) {
 
   words.forEach((word, idx) => {
     // secondary or condition is for DEMO purposes
-    if (idx <= currWordIdx || story.currSection > 0) {
+    if (idx <= currWordIdx || currSectionIdx > 0) {
       wordElts.push(
        <span key={`${word.text}_${idx}`} style={{ backgroundColor: 'yellow' }}>
          {word.text + ' '}
@@ -179,7 +191,11 @@ function StoryPage(props: IStoryPageProps) {
   });
 
   const masteredWordElts: any[] = [];
-  story.words.forEach((word, idx) => {
+  story.sections.forEach((section, idx) => {
+    const { word } = section;
+
+    if (!word) return;
+
     if (word.audio) {
       const aud = new Audio(word.audio);
       aud.play();
@@ -195,6 +211,11 @@ function StoryPage(props: IStoryPageProps) {
 
   return (
     <div className="flex-column">
+      {showWordModal &&
+        <WordModal
+          setShowWordModal={(open: boolean) => setShowWordModal(open)}
+        />
+      }
       <h1>{story.title}</h1>
       <div className="flex-row" style={{ margin: '0 10%'}}>
         <div className="parent" style={{ width: '50%' }}>
@@ -203,10 +224,10 @@ function StoryPage(props: IStoryPageProps) {
             src={story.img}
             alt={story.title}
           />
-          {story.currSection === 1 &&
+          {currSectionIdx === 1 &&
             <img
               className="image2"
-              src={story.words[0].img}
+              src={sections[0].word ? sections[0].word.img : undefined}
               style={{ maxWidth: '60px' }}
               alt={'alt text'}
             />
@@ -214,16 +235,11 @@ function StoryPage(props: IStoryPageProps) {
         </div>
         <audio
           id="storyAudio"
-          autoPlay
-          // controls={true}
-          src={story.audio ? story.audio[story.currSection] : ''}
+          autoPlay={true}
+          controls={true}
+          src={sections[currSectionIdx].audio}
           onEnded={() => {
-            // if clause for DEMO purposes
-            if (story.currSection === 0) {
-              history.push({
-                pathname: '/word-select',
-              });
-            }
+            setShowWordModal(true);
           }}
           onTimeUpdate={(e) => {
             const audio = e.target as unknown as { currentTime: any, duration: any };
@@ -242,7 +258,7 @@ function StoryPage(props: IStoryPageProps) {
         <div className="card-item story-text">
           {wordElts}
           {masteredWordElts}
-          {story.currSection > 0 && <span style={{ backgroundColor: 'yellow' }}>or...</span>}
+          {currSectionIdx > 0 && <span style={{ backgroundColor: 'yellow' }}>or...</span>}
         </div>
 
       </div>
@@ -252,11 +268,17 @@ function StoryPage(props: IStoryPageProps) {
 
 const mapStateToProps = (state: IRootState) => {
   return {
-    stories: state.storyState.stories,
+    story: state.storyState.currStory,
+  }
+}
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    selectStory: bindActionCreators(selectStory, dispatch),
   }
 }
 
 export default connect(
   mapStateToProps,
-  () => ({})
+  mapDispatchToProps
 )(StoryPage);

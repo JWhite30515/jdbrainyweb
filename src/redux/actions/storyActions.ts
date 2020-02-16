@@ -1,16 +1,14 @@
-import { IStory } from '../state/storyState';
-
 import keys from './keys';
 
-export function selectStory(story: IStory) {
+export function selectStory(id: number) {
   return (dispatch: any) => {
-    dispatch(selectStorySuccess(story));
+    dispatch(selectStorySuccess(id));
   }
 }
 
-export function selectStorySuccess(story: IStory) {
+export function selectStorySuccess(id: number) {
   return {
     type: keys.SELECT_STORY_SUCCESS,
-    story,
+    id,
   }
 }

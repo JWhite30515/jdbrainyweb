@@ -7,9 +7,8 @@ import {
 
 import StoryPage from './stories/StoryPage';
 import StorySelectPage from './stories/StorySelectPage';
-import WordSelectPage from './words/WordSelectPage';
 import Layout from './Layout';
-// import QuizPage from './QuizPage';
+import QuizPage from './QuizPage';
 import WelcomePage from './WelcomePage';
 
 function App() {
@@ -26,15 +25,9 @@ function App() {
           <Route path='/stories/:id'>
             <StoryPage />
           </Route>
-          <Route exact path='/word-select'>
-            <WordSelectPage />
-          </Route>
-          {/* <Route path='/categories/:id'>
-            <WordsPage />
-          </Route> */}
-          {/* <Route path='/quiz/:id'>
+          <Route path='/quiz'>
             <QuizPage />
-          </Route> */}
+          </Route>
         </Layout>
       </Switch>
     </Router>
