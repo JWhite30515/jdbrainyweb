@@ -42,7 +42,7 @@ function StoryPage(props: IStoryPageProps) {
     if (!story) return;
 
     const prevSection = story.sections[story.currSectionIdx - 1];
-    if (prevSection && prevSection.word && prevSection.word.audio) {
+    if (prevSection && prevSection.word && prevSection.word.audio && !showWordModal) {
       setWord(prevSection.word);
     } else {
       if (!showWordModal) setPlayStoryAudio(true);
@@ -55,8 +55,11 @@ function StoryPage(props: IStoryPageProps) {
     const storyAudio = new Audio(sections[currSectionIdx].audio);
 
     storyAudio.addEventListener('ended', () => {
-      setPlayStoryAudio(false);
-      setShowWordModal(true);
+      // if clause for DEMO purposes
+      if (currSectionIdx < 3) {
+        setPlayStoryAudio(false);
+        setShowWordModal(true);
+      }
     });
 
     // for DEMO purposes, this will be fixed up in future
@@ -128,7 +131,7 @@ function StoryPage(props: IStoryPageProps) {
         storyText.push(<span key={`text-${idx}`}>{section.text + ' '}</span>);
         storyText.push(
           <span
-            className="clickable"
+            className={currSectionIdx < 3 ? 'clickable' : ''}
             key={`word-${idx}`}
             onClick={() => {
               props.changeCurrentSection(story.id, idx);
@@ -147,6 +150,26 @@ function StoryPage(props: IStoryPageProps) {
   // for DEMO purposes
   const textToShow = currSectionIdx === 0 ? demoText : storyText;
 
+  const imgs: JSX.Element[] = [];
+
+  // TODO should do this in above loop but don't have the time
+  sections.forEach((section, idx) => {
+    if (section.word && section.word.img && section.imgPos) {
+      imgs.push(
+        <img
+          className="image"
+          src={section.word.img}
+          alt={section.word.text}
+          style={{ 
+            top: `${section.imgPos.top}px`,
+            left: `${section.imgPos.left}px`,
+            maxWidth: '60px',
+          }}
+        />
+      )
+    }
+  });
+
   return (
     <div className="flex-column">
       {showWordModal &&
@@ -163,62 +186,19 @@ function StoryPage(props: IStoryPageProps) {
             src={story.img}
             alt={story.title}
           />
-          {currSectionIdx === 1 &&
+          {/* {currSectionIdx === 1 &&
             <img
               className="image2"
               src={sections[0].word ? sections[0].word.img : undefined}
               style={{ maxWidth: '60px' }}
               alt={'alt text'}
             />
-          }
+          } */}
+          {imgs}
         </div>
         <div className="card-item story-text">
-          {/* {wordElts}
-          {masteredWordElts}
-          {currSectionIdx > 0 && <span style={{ backgroundColor: 'yellow' }}>or...</span>} */}
           {textToShow}
         </div>
-        {/* <audio
-          id="storyAudio"
-          autoPlay={playStoryAudio}
-          controls={true}
-          src={sections[currSectionIdx].audio}
-          onPlay={() => {
-            console.log('story audio is playing');
-          }}
-          onEnded={() => {
-            // setPlayStoryAudio(false);
-            if (currSection.word && currSection.word.completed) {
-            } else {
-              setShowWordModal(true);
-            }
-          }}
-          onTimeUpdate={(e) => {
-            const audio = e.target as unknown as { currentTime: any, duration: any };
-
-            let currWordFound = false;
-
-            for (let i = 0; i < words.length; i += 1) {
-              if (currWordFound) break;
-              if (audio.currentTime >= words[i].start && audio.currentTime <= words[i].end) {
-                currWordFound = true;
-                setCurrWordIdx(i);
-              }
-            }
-          }}
-        />
-        <audio
-          id="wordAudio"
-          src={word ? word.audio : null}
-          autoPlay={playWordAudio}
-          onPlay={() => {
-            console.log('playing here');
-          }}
-          onEnded={() => {
-            setPlayWordAudio(false);
-            setPlayStoryAudio(true);
-          }}
-        /> */}
       </div>
     </div>
   );

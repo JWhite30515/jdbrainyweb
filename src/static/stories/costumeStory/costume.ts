@@ -3,7 +3,7 @@ import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './wacky_costume.png';
 
-const a1 = require('./audio/SPS_1_1 Copy.mp3');
+const a1 = require('./audio/SPS_1_2 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
 const a3 = require('./audio/SPS_1_3 Copy.mp3');
 const a4 = require('./audio/SPS_1_4 Copy.mp3');
@@ -33,7 +33,11 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
         WordCategory.THINGS,
-      ]
+      ],
+      imgPos: {
+        top: 160,
+        left: 200,
+      }
     },
     {
       text: `or`,
@@ -44,7 +48,11 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
-      ]
+      ],
+      imgPos: {
+        top: 120,
+        left: 270,
+      }
     },
     {
       text: `or`,
@@ -55,7 +63,11 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
-      ]
+      ],
+      imgPos: {
+        top: 140,
+        left: 450,
+      }
     },
     {
       text: 

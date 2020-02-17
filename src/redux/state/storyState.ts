@@ -5,12 +5,9 @@ import s2 from '../../static/stories/alienStory/alien';
 import s3 from '../../static/stories/inventionStory/invention';
 
 export interface IStory {
-  // text: string | string[];
   img: any;
   title: string;
   id: number;
-  // words: IWord[];
-  // audio: any[];
   currSectionIdx: number;
   sections: ISection[];
 }
@@ -20,6 +17,10 @@ export interface ISection {
   audio?: any;
   word?: IWord;
   wordCategories: WordCategory[];
+  imgPos?: {
+    top: number;
+    left: number;
+  }
 }
 
 export const initialStoryState: IStoryState = {
