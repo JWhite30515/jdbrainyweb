@@ -6,9 +6,10 @@ import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../redux/state/rootState';
+import { masterWord } from '../redux/actions/wordActions';
+import { selectWord } from '../redux/actions/storyActions';
 import { IStory } from '../redux/state/storyState';
 import { IWord } from '../redux/state/wordState';
-import { masterWord } from '../redux/actions/wordActions';
 
 import '../css/common.css';
 import '../css/quiz.css';
@@ -19,13 +20,12 @@ export interface IQuizPageProps {
   words: IWord[];
   // storyIdx: number;
   currStory: IStory | null;
-  masterWord: (word: IWord, storyId: number) => void;
+  masterWord: (word: IWord) => void;
+  selectWord: (word: IWord, storyId: number) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
   const { currStory, word, words } = props;
-
-  console.log(currStory);
 
   const history = useHistory();
 
@@ -35,22 +35,27 @@ function QuizPage(props: IQuizPageProps) {
   const [maxScore, setMaxScore] = useState(0);
 
   useEffect(() => {
-    console.log(currStory);
     if (!word || !currStory) return;
+    
+    wordAudio.addEventListener('ended', async () => {
+      if (score === 3) {
+        const newWord = { ...word, completed: true };
+        console.log('how many times is this getting called');
+
+        props.masterWord(newWord);
+        props.selectWord(newWord, currStory.id);
+
+        history.push({
+          pathname: '/stories/' + currStory.id,
+        });
+      }
+    });
     wordAudio.play();
-    if (score === 3) {
-      const newWord = { ...word, completed: true };
-      props.masterWord(newWord, currStory.id);
-      history.push({
-        pathname: '/stories/' + currStory.id,
-      });
-    }
-  })
+  }, [score]);
 
   if (!word) return <div>Error rendering quiz</div>
 
   const wordAudio = new Audio(word.audio);
-  wordAudio.play();
 
   const starRatings = [];
   for (let i = 0; i < score; i += 1) {
@@ -178,10 +183,6 @@ const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
 }
 
 const mapStateToProps = (state: IRootState) => {
-  // const storyIdx = state.storyState.stories.findIndex(
-  //   story => state.storyState.currStory ? story.title === state.storyState.currStory.title : false
-  // );
-
   return {
     currStory: state.storyState.currStory,
     word: state.quizState.word,
@@ -192,6 +193,7 @@ const mapStateToProps = (state: IRootState) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     masterWord: bindActionCreators(masterWord, dispatch),
+    selectWord: bindActionCreators(selectWord, dispatch),
   }
 }
 

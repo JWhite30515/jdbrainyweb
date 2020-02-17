@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
-import { selectStory } from '../../redux/actions/storyActions';
+import { selectStory, changeCurrentSection } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
+import { IWord } from '../../redux/state/wordState';
 
 import WordModal from '../words/WordModal';
 
@@ -15,25 +16,78 @@ import '../../css/story.css';
 
 export interface IStoryPageProps {
   story: IStory | null;
+  changeCurrentSection(idx: number): void;
   selectStory(id: number): void;
 }
 
 function StoryPage(props: IStoryPageProps) {
   const params: { id?: string | undefined } = useParams();
-  const history = useHistory();
+
+  const { story } = props;
 
   const [currWordIdx, setCurrWordIdx] = useState(0);
+
   const [showWordModal, setShowWordModal] = useState(false);
+  const [playStoryAudio, setPlayStoryAudio] = useState(false);
+  const [selectedSectionIdx, setSelectedSectionIdx] = useState(story ? story.currSectionIdx : 0);
+
+  const [word, setWord] = useState<IWord | null>(null);
 
   useEffect(() => {
     props.selectStory(Number(params.id));
   }, []);
 
-  const { story } = props;
-  if (!story) return <div>No story selected</div>
+  useEffect(() => {
+    if (!story) return;
 
+    const prevSection = story.sections[story.currSectionIdx - 1];
+    if (prevSection && prevSection.word && prevSection.word.audio) {
+      // const wordAudio = new Audio(prevSection.word.audio);
+      // wordAudio.addEventListener('ended', () => {
+      //   setCanPlayStoryAudio(true);
+      // });
+      // wordAudio.play();
+      // setPlayStoryAudio(false);
+      console.log(story.currSectionIdx);
+      console.log(prevSection.word);
+      console.log('setting word');
+      setWord(prevSection.word);
+      // setPlayWordAudio(true);
+
+    } else {
+      setPlayStoryAudio(true);
+    }
+  }, [story]);
+
+  useEffect(() => {
+    if (!story) return;
+    const { sections } = story;
+    const storyAudio = new Audio(sections[currSectionIdx].audio);
+
+    storyAudio.addEventListener('ended', () => {
+      // if (currSection.word && currSection.word.completed) {
+      // } else {
+      // }
+      setPlayStoryAudio(false);
+      setShowWordModal(true);
+    });
+
+    if (playStoryAudio) storyAudio.autoplay = true;
+  }, [playStoryAudio])
+
+  useEffect(() => {
+    const wordAudio = new Audio(word ? word.audio : null);
+    wordAudio.addEventListener('ended', () => {
+      setPlayStoryAudio(true);
+    });
+    if (word) wordAudio.autoplay = true;
+  }, [word, story]);
+
+  if (!story) return <div>No story selected</div>
   const { currSectionIdx, sections } = story;
-  const currSection = story.sections[currSectionIdx];
+
+  const currSection = sections[currSectionIdx];
+  const currWord = currSection.word;
 
   const words = [
     {
@@ -196,10 +250,10 @@ function StoryPage(props: IStoryPageProps) {
 
     if (!word) return;
 
-    if (word.audio) {
-      const aud = new Audio(word.audio);
-      aud.play();
-    }
+    // if (word.audio) {
+    //   const aud = new Audio(word.audio);
+    //   aud.play();
+    // }
     masteredWordElts.push(
       <span
         key={`${word.text}_${idx}`} style={{ backgroundColor: 'yellow'}}
@@ -207,16 +261,38 @@ function StoryPage(props: IStoryPageProps) {
         <b>{word.text + ' '}</b>
       </span>
     );
-  })
+  });
+
+  let storyText: JSX.Element[] = [];
+
+  sections.forEach((section, idx) => {
+    if (idx <= currSectionIdx) {
+      storyText.push(<span key={`text-${idx}`}>{section.text + ' '}</span>);
+      if (section.word) storyText.push(
+        <span
+          className="clickable"
+          onClick={() => {
+            console.log(selectedSectionIdx);
+            // setShowWordModal(true);
+          }}
+          key={`word-${idx}`}
+        >
+          <b>{section.word.text + ' '}</b>
+        </span>
+      );
+    }
+  });
 
   return (
     <div className="flex-column">
       {showWordModal &&
         <WordModal
           setShowWordModal={(open: boolean) => setShowWordModal(open)}
+          selectedSectionIdx={selectedSectionIdx}
         />
       }
       <h1>{story.title}</h1>
+      <h1>{playStoryAudio}</h1>
       <div className="flex-row" style={{ margin: '0 10%'}}>
         <div className="parent" style={{ width: '50%' }}>
           <img
@@ -233,13 +309,26 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
         </div>
-        <audio
+        <div className="card-item story-text">
+          {/* {wordElts}
+          {masteredWordElts}
+          {currSectionIdx > 0 && <span style={{ backgroundColor: 'yellow' }}>or...</span>} */}
+          {storyText}
+        </div>
+        {/* <audio
           id="storyAudio"
-          autoPlay={true}
+          autoPlay={playStoryAudio}
           controls={true}
           src={sections[currSectionIdx].audio}
+          onPlay={() => {
+            console.log('story audio is playing');
+          }}
           onEnded={() => {
-            setShowWordModal(true);
+            // setPlayStoryAudio(false);
+            if (currSection.word && currSection.word.completed) {
+            } else {
+              setShowWordModal(true);
+            }
           }}
           onTimeUpdate={(e) => {
             const audio = e.target as unknown as { currentTime: any, duration: any };
@@ -255,12 +344,18 @@ function StoryPage(props: IStoryPageProps) {
             }
           }}
         />
-        <div className="card-item story-text">
-          {wordElts}
-          {masteredWordElts}
-          {currSectionIdx > 0 && <span style={{ backgroundColor: 'yellow' }}>or...</span>}
-        </div>
-
+        <audio
+          id="wordAudio"
+          src={word ? word.audio : null}
+          autoPlay={playWordAudio}
+          onPlay={() => {
+            console.log('playing here');
+          }}
+          onEnded={() => {
+            setPlayWordAudio(false);
+            setPlayStoryAudio(true);
+          }}
+        /> */}
       </div>
     </div>
   );
@@ -274,6 +369,7 @@ const mapStateToProps = (state: IRootState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
+    changeCurrentSection: bindActionCreators(changeCurrentSection, dispatch),
     selectStory: bindActionCreators(selectStory, dispatch),
   }
 }

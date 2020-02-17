@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
 import { selectQuizWord } from '../../redux/actions/quizActions';
+import { selectWord } from '../../redux/actions/storyActions';
+import { IStory } from '../../redux/state/storyState';
 import { IWord, WordCategory } from '../../redux/state/wordState';
 
 import '../../css/common.css';
@@ -19,13 +21,16 @@ export interface ICategorizedWord {
 }
 
 export interface IWordModalProps {
+  currStory: IStory | null;
+  selectedSectionIdx: number;
   wordsCategorized: ICategorizedWord[];
+  selectWord(word: IWord, storyId: number): void;
   selectQuizWord(word: IWord): void;
   setShowWordModal(open: boolean): void;
 }
 
 export function WordModal(props: IWordModalProps) {
-  const { wordsCategorized } = props;
+  const { currStory, wordsCategorized } = props;
   const history = useHistory();
 
   const [currCategory, setCurrCategory] = useState(wordsCategorized.length ?
@@ -83,8 +88,14 @@ export function WordModal(props: IWordModalProps) {
                       style={{ margin: '20px' }}
                       key={`${word.text}-${idx}`}
                       onClick={() => {
-                        props.selectQuizWord(word);
-                        history.push('/quiz');
+                        if (!word.completed) {
+                          props.selectQuizWord(word);
+                          history.push('/quiz');
+                        } else {
+                          if (!currStory) return;
+                          props.selectWord(word, currStory.id);
+                          props.setShowWordModal(false);
+                        }
                       }}
                     >
                       <h1>{word.text}</h1>
@@ -113,7 +124,7 @@ const mapStateToProps = (state: IRootState) => {
   const wordsCategorizedMap = new Map<WordCategory, IWord[]>();
   const wordsCategorized: ICategorizedWord[] = [];
 
-  if (!currStory) return { wordsCategorized };
+  if (!currStory) return { wordsCategorized, currStory: state.storyState.currStory };
 
   const currSectionIdx = currStory.currSectionIdx;
   const currSection = currStory.sections[currSectionIdx];
@@ -135,15 +146,15 @@ const mapStateToProps = (state: IRootState) => {
     wordsCategorized.push({ category: key, words: value });
   });
 
-  console.log(wordsCategorized);
-
   return {
     wordsCategorized,
+    currStory: state.storyState.currStory,
   }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
+    selectWord: bindActionCreators(selectWord, dispatch),
     selectQuizWord: bindActionCreators(selectQuizWord, dispatch),
   }
 }

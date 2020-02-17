@@ -22,7 +22,7 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
         ...state,
         currStory: newCurrStory
       }
-    case keys.MASTER_WORD_SUCCESS:
+    case keys.SELECT_WORD_SUCCESS:
       const { word, storyId } = action;
 
       const storyIdx = state.stories.findIndex(story => story.id === storyId);
@@ -47,8 +47,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
       const updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, updatedStory)
 
-      console.log(updatedStory);
-      console.log(updatedStories);
       return {
         ...state,
         stories: updatedStories,
@@ -66,7 +64,7 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   switch (action.type) {
     case keys.MASTER_WORD_SUCCESS:
       const { word } = action;
-      word.complete = true;
+      word.completed = true;
 
       const idxToUpdate = state.words.findIndex(word => word.text === action.word.text);
 

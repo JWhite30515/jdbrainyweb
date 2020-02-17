@@ -1,4 +1,5 @@
 import keys from './keys';
+import { IWord } from '../state/wordState';
 
 export function selectStory(id: number) {
   return (dispatch: any) => {
@@ -12,3 +13,31 @@ export function selectStorySuccess(id: number) {
     id,
   }
 }
+
+export function changeCurrentSection(idx: number) {
+  return (dispatch: any) => {
+    dispatch(changeCurrentSectionSuccess(idx));
+  }
+}
+
+export function changeCurrentSectionSuccess(idx: number) {
+  return {
+    type: keys.CHANGE_CURRENT_SECTION_SUCCESS,
+    idx,
+  }
+}
+
+export function selectWord(word: IWord, storyId: number) {
+  return (dispatch: any) => {
+    dispatch(selectWordSuccess(word, storyId));
+  }
+}
+
+export function selectWordSuccess(word: IWord, storyId: number) {
+  return {
+    type: keys.SELECT_WORD_SUCCESS,
+    word,
+    storyId,
+  }
+}
+
