@@ -76,6 +76,7 @@ import squaresImg from '../../static/words/img/squares.png';
 import tubaImg from '../../static/words/img/tuba.png';
 import zipperImg from '../../static/words/img/zipper.png';
 import ballImg from '../../static/words/img/ball.png';
+import carImg from '../../static/words/img/car.png';
 import jeepImg from '../../static/words/img/jeep.png';
 import slideImg from '../../static/words/img/slide.png';
 import unicycleImg from '../../static/words/img/unicycle.png';
@@ -188,7 +189,7 @@ const jeepAudio = require('../../static/words/audio/jeep.mp3');
 const slideAudio = require('../../static/words/audio/slide.mp3');
 const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
 const wagonAudio = require('../../static/words/audio/wagon.mp3');
-
+const carAudio = require('../../static/words/audio/car.mp3');
 
 export interface IWord {
   completed: boolean;
@@ -731,6 +732,146 @@ export const initialWordState: IWordState = {
       img: keyImg,
       audio: keyAudio,
       category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'light',
+      img: lightImg,
+      audio: lightAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'music',
+      img: musicImg,
+      audio: musicAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'net',
+      img: netImg,
+      audio: netAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'oven',
+      img: ovenImg,
+      audio: ovenAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'pearl',
+      img: pearlImg,
+      audio: pearlAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'pencil',
+      img: pencilImg,
+      audio: pencilAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'pot',
+      img: potImg,
+      audio: potAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'saucepan',
+      img: saucepanImg,
+      audio: saucepanAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'skis',
+      img: skisImg,
+      audio: skisAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'sofa',
+      img: sofaImg,
+      audio: sofaAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'squares',
+      img: squaresImg,
+      //audio: squaresAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'tuba',
+      img: tubaImg,
+      audio: tubaAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'zipper',
+      img: zipperImg,
+      audio: zipperAudio,
+      category: WordCategory.HOUSE_STUFF,
+    },
+    {
+      completed: false,
+      text: 'ball',
+      img: ballImg,
+      audio: ballAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'car',
+      img: carImg,
+      audio: carAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'jeep',
+      img: jeepImg,
+      audio: jeepAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'slide',
+      img: slideImg,
+      audio: slideAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'unicycle',
+      img: unicycleImg,
+      audio: unicycleAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'wagon',
+      img: wagonImg,
+      audio: wagonAudio,
+      category: WordCategory.TOYS,
+    },
+    {
+      completed: false,
+      text: 'yoyo',
+      img: yoyoImg,
+      //audio: yoyoAudio,
+      category: WordCategory.TOYS,
     },
   ]
 };
