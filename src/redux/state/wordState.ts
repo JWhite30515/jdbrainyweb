@@ -188,7 +188,6 @@ const jeepAudio = require('../../static/words/audio/jeep.mp3');
 const slideAudio = require('../../static/words/audio/slide.mp3');
 const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
 const wagonAudio = require('../../static/words/audio/wagon.mp3');
-const yoyoAudio = require('../../static/words/audio/yoyo.mp3');
 
 
 export interface IWord {
