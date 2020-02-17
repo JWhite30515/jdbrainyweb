@@ -23,7 +23,9 @@ export enum WordType {
   CLOTHES = 'Clothes',
   ANIMALS = 'Animals',
   FOOD = 'Food',
-  PRETEND = 'Pretend'
+  PRETEND = 'Pretend',
+  HOUSE_STUFF = 'House Stuff',
+  TOYS = 'Toys'
 }
 
 export default interface IWordState {
