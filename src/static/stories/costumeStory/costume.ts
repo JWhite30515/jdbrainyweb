@@ -3,7 +3,7 @@ import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './wacky_costume.png';
 
-const a1 = require('./audio/SPS_1_2 Copy.mp3');
+const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
 const a3 = require('./audio/SPS_1_3 Copy.mp3');
 const a4 = require('./audio/SPS_1_4 Copy.mp3');
