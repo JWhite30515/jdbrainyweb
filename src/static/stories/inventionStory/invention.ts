@@ -3,12 +3,11 @@ import { IStory } from '../../../redux/state/storyState';
 import img from './0Special_Inventions_1_without_templates.png';
 
 const story: IStory = {
-  title: 'The Boy Who Cried Vampire',
+  title: 'The Special Invention',
+  id: 2,
   img,
-  words: [],
-  text: '',
-  audio: [],
-  currSection: 0
+  sections: [],
+  currSectionIdx: 0
 }
 
 export default story;
