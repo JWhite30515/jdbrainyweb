@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
 }
+
 .image1 {
   position: relative;
   top: 0;
@@ -15,4 +16,8 @@
   position: absolute;
   top: 160px;
   left: 200px;
+}
+
+.image {
+  position: absolute;
 }

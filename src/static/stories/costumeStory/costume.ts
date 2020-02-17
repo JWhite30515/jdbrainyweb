@@ -33,7 +33,11 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
         WordCategory.THINGS,
-      ]
+      ],
+      imgPos: {
+        top: 160,
+        left: 200,
+      }
     },
     {
       text: `or`,
@@ -44,7 +48,11 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
-      ]
+      ],
+      imgPos: {
+        top: 120,
+        left: 270,
+      }
     },
     {
       text: `or`,
@@ -55,7 +63,11 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
-      ]
+      ],
+      imgPos: {
+        top: 140,
+        left: 450,
+      }
     },
     {
       text: 
