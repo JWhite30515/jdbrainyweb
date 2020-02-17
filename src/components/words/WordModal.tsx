@@ -22,7 +22,6 @@ export interface ICategorizedWord {
 
 export interface IWordModalProps {
   currStory: IStory | null;
-  selectedSectionIdx: number;
   wordsCategorized: ICategorizedWord[];
   selectWord(word: IWord, storyId: number): void;
   selectQuizWord(word: IWord): void;

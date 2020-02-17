@@ -14,15 +14,16 @@ export function selectStorySuccess(id: number) {
   }
 }
 
-export function changeCurrentSection(idx: number) {
+export function changeCurrentSection(id: number, idx: number) {
   return (dispatch: any) => {
-    dispatch(changeCurrentSectionSuccess(idx));
+    dispatch(changeCurrentSectionSuccess(id, idx));
   }
 }
 
-export function changeCurrentSectionSuccess(idx: number) {
+export function changeCurrentSectionSuccess(id: number, idx: number) {
   return {
     type: keys.CHANGE_CURRENT_SECTION_SUCCESS,
+    id,
     idx,
   }
 }

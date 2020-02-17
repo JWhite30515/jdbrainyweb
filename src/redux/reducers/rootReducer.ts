@@ -12,17 +12,18 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
   action
 ): IStoryState => {
   switch (action.type) {
-    case keys.SELECT_STORY_SUCCESS:
+    case keys.SELECT_STORY_SUCCESS: {
       const { id } = action;
-      let newCurrStory = state.stories.find(story => story.id === id);
+      const currStory = state.stories.find(story => story.id === id);
 
-      if (!newCurrStory) return { ...state };
+      if (!currStory) return { ...state };
 
       return {
         ...state,
-        currStory: newCurrStory
+        currStory,
       }
-    case keys.SELECT_WORD_SUCCESS:
+    }
+    case keys.SELECT_WORD_SUCCESS: {
       const { word, storyId } = action;
 
       const storyIdx = state.stories.findIndex(story => story.id === storyId);
@@ -44,7 +45,7 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
         console.log('fuck');
       }
   
-      const updatedStories = [...state.stories];
+      let updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, updatedStory)
 
       return {
@@ -52,6 +53,25 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
         stories: updatedStories,
         currStory: updatedStory,
       }
+    }
+    case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
+      const { id, idx } = action;
+
+      const storyIdx = state.stories.findIndex(story => story.id === id);
+
+      const storyToUpdate = { ...state.stories[storyIdx] };
+
+      storyToUpdate.currSectionIdx = idx;
+
+      const updatedStories = [...state.stories];
+      updatedStories.splice(storyIdx, 1, storyToUpdate);
+
+      return {
+        ...state,
+        stories: updatedStories,
+        currStory: storyToUpdate,
+      }
+    }
     default:
       return state
   }
@@ -62,7 +82,7 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   action
 ): IWordState => {
   switch (action.type) {
-    case keys.MASTER_WORD_SUCCESS:
+    case keys.MASTER_WORD_SUCCESS: {
       const { word } = action;
       word.completed = true;
 
@@ -77,6 +97,7 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
         ...state,
         words: newWords
       }
+    }
     default:
       return state
   }
@@ -87,12 +108,13 @@ const quizReducer: Reducer<IQuizState, AnyAction> = (
   action
 ): IQuizState => {
   switch (action.type) {
-    case keys.SELECT_QUIZ_WORD_SUCCESS:
+    case keys.SELECT_QUIZ_WORD_SUCCESS: {
       const { word } = action;
       return {
         ...state,
         word,
-      };
+      };      
+    }
     default:
       return state
   }

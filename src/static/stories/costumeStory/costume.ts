@@ -3,7 +3,7 @@ import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './wacky_costume.png';
 
-const a1 = require('./audio/SPS_1_2 Copy.mp3');
+const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
 const a3 = require('./audio/SPS_1_3 Copy.mp3');
 const a4 = require('./audio/SPS_1_4 Copy.mp3');
@@ -59,7 +59,7 @@ const story: IStory = {
     },
     {
       text: 
-        `, but the spelling kids shared and traded different costume parts so they all
+        `, but the spelling kids shared and traded different costume parts so their pets all
         looked really strange and weird and kind of especially — wondersome!  Except —`,
       audio: a4,
       wordCategories: [
