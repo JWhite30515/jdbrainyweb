@@ -61,6 +61,35 @@ import volcanoImg from '../../static/words/img/volcano.png';
 import zooImg from '../../static/words/img/zoo.png';
 import yetiImg from '../../static/words/img/yeti.png';
 import elfImg from '../../static/words/img/elf.png';
+import keyImg from '../../static/words/img/key.png';
+import lightImg from '../../static/words/img/light.png';
+import musicImg from '../../static/words/img/music.png';
+import netImg from '../../static/words/img/net.png';
+import ovenImg from '../../static/words/img/oven.png';
+import pearlImg from '../../static/words/img/pearl.png';
+import pencilImg from '../../static/words/img/pencil.png';
+import potImg from '../../static/words/img/pot.png';
+import saucepanImg from '../../static/words/img/saucepan.png';
+import skisImg from '../../static/words/img/skis.png';
+import sofaImg from '../../static/words/img/sofa.png';
+import squaresImg from '../../static/words/img/squares.png';
+import tubaImg from '../../static/words/img/tuba.png';
+import zipperImg from '../../static/words/img/zipper.png';
+import ballImg from '../../static/words/img/ball.png';
+import jeepImg from '../../static/words/img/jeep.png';
+import slideImg from '../../static/words/img/slide.png';
+import unicycleImg from '../../static/words/img/unicycle.png';
+import wagonImg from '../../static/words/img/wagon.png';
+import yoyoImg from '../../static/words/img/yoyo.png';
+
+
+
+
+
+
+
+
+
 
 // thing imgs
 import bagImg from '../../static/words/img/bag.png';
@@ -141,6 +170,26 @@ const toeAudio = require('../../static/words/audio/toe.mp3');
 const beaverAudio = require('../../static/words/audio/beaver.mp3');
 const bridgeAudio = require('../../static/words/audio/bridge.mp3');
 const volcanoAudio = require('../../static/words/audio/volcano.mp3');
+const keyAudio = require('../../static/words/audio/key.mp3');
+const lightAudio = require('../../static/words/audio/light.mp3');
+const musicAudio = require('../../static/words/audio/music.mp3');
+const netAudio = require('../../static/words/audio/net.mp3');
+const ovenAudio = require('../../static/words/audio/oven.mp3');
+const pearlAudio = require('../../static/words/audio/pearl.mp3');
+const pencilAudio = require('../../static/words/audio/pencil.mp3');
+const potAudio = require('../../static/words/audio/pot.mp3');
+const saucepanAudio = require('../../static/words/audio/saucepan.mp3');
+const skisAudio = require('../../static/words/audio/skis.mp3');
+const sofaAudio = require('../../static/words/audio/sofa.mp3');
+const tubaAudio = require('../../static/words/audio/tuba.mp3');
+const zipperAudio = require('../../static/words/audio/zipper.mp3');
+const ballAudio = require('../../static/words/audio/ball.mp3');
+const jeepAudio = require('../../static/words/audio/jeep.mp3');
+const slideAudio = require('../../static/words/audio/slide.mp3');
+const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
+const wagonAudio = require('../../static/words/audio/wagon.mp3');
+const yoyoAudio = require('../../static/words/audio/yoyo.mp3');
+
 
 export interface IWord {
   completed: boolean;
@@ -676,6 +725,13 @@ export const initialWordState: IWordState = {
       img: zooImg,
       // audio: zooAudio,
       category: WordCategory.BODY_PARTS,
+    },
+    {
+      completed: false,
+      text: 'key',
+      img: keyImg,
+      audio: keyAudio,
+      category: WordCategory.HOUSE_STUFF,
     },
   ]
 };
