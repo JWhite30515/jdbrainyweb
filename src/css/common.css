@@ -5,11 +5,28 @@
   justify-content: space-between;
 }
 
+.flex-start {
+  justify-content: flex-start;
+}
+
+.wrap-overflow {
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+.category-card {
+  width: 100%;
+}
+
+.category-selected {
+  background-color: #3dc487;
 }
 
 .welcome-page h1 {
@@ -57,3 +74,14 @@
   width: 30%;
 }
 
+.separator-bottom {
+  border-bottom: solid 0.8px #e2e2ea;
+}
+
+.separator-top {
+  border-top: solid 0.8px #e2e2ea;
+}
+
+.separator-right {
+  border-right: solid 0.8px #e2e2ea;
+}
