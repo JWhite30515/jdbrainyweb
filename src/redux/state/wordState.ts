@@ -11,6 +11,15 @@ import axeImg from '../../static/words/img/axe.png';
 import rakeImg from '../../static/words/img/rake.png';
 import nailImg from '../../static/words/img/nail.png';
 import sawImg from '../../static/words/img/saw.png';
+import wigImg from '../../static/words/img/wig.png';
+import suitImg from '../../static/words/img/suit.png';
+import tieImg from '../../static/words/img/tie.png';
+import purseImg from '../../static/words/img/purse.png';
+import gloveImg from '../../static/words/img/glove.png';
+import ambulanceImg from '../../static/words/img/ambulance.png';
+import bugImg from '../../static/words/img/bug.png';
+import busImg from '../../static/words/img/bus.png';
+import carImg from '../../static/words/img/car.png';
 
 const apeAudio = require('../../static/words/audio/ape.mp3');
 const owlAudio = require('../../static/words/audio/owl.mp3');
@@ -19,6 +28,15 @@ const sawAudio = require('../../static/words/audio/saw.mp3');
 const nailAudio = require('../../static/words/audio/nail.mp3');
 const axeAudio = require('../../static/words/audio/axe.mp3');
 const rakeAudio = require('../../static/words/audio/rake.mp3');
+const gloveAudio = require('../../static/words/audio/glove.mp3');
+const tieAudio = require('../../static/words/audio/tie.mp3');
+const wigAudio = require('../../static/words/audio/wig.mp3');
+const purseAudio = require('../../static/words/audio/purse.mp3');
+const suitAudio = require('../../static/words/audio/suit.mp3');
+const ambulanceAudio = require('../../static/words/audio/ambulance.mp3');
+const busAudio = require('../../static/words/audio/bus.mp3');
+const bugAudio = require('../../static/words/audio/bug.mp3');
+const carAudio = require('../../static/words/audio/car.mp3');
 
 export interface IWord {
   completed: boolean;
@@ -33,7 +51,8 @@ export enum WordType {
   ANIMALS = 'Animals',
   FOOD = 'Food',
   BIRDS = 'Birds',
-  TOOLS = 'Tools'
+  TOOLS = 'Tools',
+  VEHICLES  = 'Vehicles'
 }
 
 export default interface IWordState {
@@ -126,6 +145,69 @@ export const initialWordState: IWordState = {
       img: rakeImg,
       audio: rakeAudio,
       type: WordType.TOOLS,
+    },
+    {
+      completed: false,
+      text: 'glove',
+      img: gloveImg,
+      audio: gloveAudio,
+      type: WordType.CLOTHES
+    },
+    {
+      completed: false,
+      text: 'purse',
+      img: purseImg,
+      audio: purseAudio,
+      type: WordType.CLOTHES
+    },
+    {
+      completed: false,
+      text: 'suit',
+      img: suitImg,
+      audio: suitAudio,
+      type: WordType.CLOTHES
+    },
+    {
+      completed: false,
+      text: 'tie',
+      img: tieImg,
+      audio: tieAudio,
+      type: WordType.CLOTHES
+    },
+    {
+      completed: false,
+      text: 'wig',
+      img: wigImg,
+      audio: wigAudio,
+      type: WordType.CLOTHES
+    },
+    {
+      completed: false,
+      text: 'ambulance',
+      img: ambulanceImg,
+      audio: ambulanceAudio,
+      type: WordType.VEHICLES
+    },
+    {
+      completed: false,
+      text: 'bus',
+      img: busImg,
+      audio: busAudio,
+      type: WordType.VEHICLES
+    },
+    {
+      completed: false,
+      text: 'bug',
+      img: bugImg,
+      audio: bugAudio,
+      type: WordType.VEHICLES
+    },
+    {
+      completed: false,
+      text: 'car',
+      img: carImg,
+      audio: carAudio,
+      type: WordType.VEHICLES
     },
   ]
 };
