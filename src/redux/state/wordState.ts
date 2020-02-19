@@ -196,7 +196,7 @@ const tieAudio = require('../../static/words/audio/tie.mp3');
 const purseAudio = require('../../static/words/audio/purse.mp3');
 const gloveAudio = require('../../static/words/audio/glove.mp3');
 const ambulanceAudio = require('../../static/words/audio/ambulance.mp3');
-const bugAudio = require('../../static/words/audio/bugAudio.mp3');
+const bugAudio = require('../../static/words/audio/bug.mp3');
 
 export interface IWord {
   completed: boolean;
