@@ -122,12 +122,12 @@ function QuizPage(props: IQuizPageProps) {
               }}
             >
               <h1>{option.text}</h1>
-              <img
+              {/* <img
                 className={'card-img'}
                 style={{ maxWidth: '120px' }}
                 src={option.img}
                 alt={option.text}
-              />
+              /> */}
             </div>
           );
         })}
