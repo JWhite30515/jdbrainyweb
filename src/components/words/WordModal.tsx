@@ -11,6 +11,8 @@ import { selectWord } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 import { IWord, WordCategory } from '../../redux/state/wordState';
 
+import Modal from './Modal';
+
 import '../../css/common.css';
 import '../../css/layout.css';
 import '../../css/modal.css';
@@ -38,84 +40,71 @@ export function WordModal(props: IWordModalProps) {
   const currCategorizedWord = wordsCategorized.find(cw => cw.category === currCategory);
 
   return (
-    <div className="modal-background">
-      <div className="modal-content">
-        <div className="nav light-green-back flex-row" style={{ height: '20%' }}>
-          <span style={{ flex: 1 }}/>
-          <h1 style={{ flex: 1 }}>Choose a Word</h1>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-            <IoMdCloseCircle
-              className="clickable"
-              onClick={() => props.setShowWordModal(false)}
-              style={{ paddingRight: '10px' }}
-              size={'3em'}
-            />
-          </div>
-        </div>
-        <div className="flex-row" style={{ maxHeight: '80%', alignItems: 'flex-start' }}>
-          <div
-            className="flex-column flex-start separator-right"
-            style={{ flex: 1, height: '100%' }}
-          >
-            <h1>Categories</h1>
-            {wordsCategorized.map((categorizedWord, idx) => {
-              let catClass = 'category-card clickable flex-column separator-bottom';
-              if (currCategory === categorizedWord.category) catClass += ' category-selected';
-              if (idx === 0) catClass += ' separator-top';
+    <Modal
+      title="Choose a Word"
+      setModalOpen={(open: boolean) => props.setShowWordModal(open)}
+    >
+      <div
+        className="flex-column flex-start separator-right"
+        style={{ flex: 1, height: '100%' }}
+      >
+        <h1>Categories</h1>
+        {wordsCategorized.map((categorizedWord, idx) => {
+          let catClass = 'category-card clickable flex-column separator-bottom';
+          if (currCategory === categorizedWord.category) catClass += ' category-selected';
+          if (idx === 0) catClass += ' separator-top';
 
+          return (
+            <div
+              className={catClass}
+              key={`${categorizedWord.category}_${idx}`}
+              onClick={() => setCurrCategory(categorizedWord.category)}
+            >
+              <h2>
+                {categorizedWord.category}
+              </h2>
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex-column" style={{ flex: 2, maxHeight: '100%'}}>
+        <h1>Words</h1>
+        <div className="flex-row wrap-overflow separator-top">
+          {currCategorizedWord &&
+            currCategorizedWord.words.map((word, idx) => {
               return (
-                <div
-                  className={catClass}
-                  key={`${categorizedWord.category}_${idx}`}
-                  onClick={() => setCurrCategory(categorizedWord.category)}
+                <div     
+                  className={'card-item flex-column clickable'}
+                  style={{ margin: '20px' }}
+                  key={`${word.text}-${idx}`}
+                  onClick={() => {
+                    if (!word.completed) {
+                      props.selectQuizWord(word);
+                      history.push('/quiz');
+                    } else {
+                      if (!currStory) return;
+                      props.selectWord(word, currStory.id);
+                      props.setShowWordModal(false);
+                    }
+                  }}
                 >
-                  <h2>
-                    {categorizedWord.category}
-                  </h2>
+                  <h1>{word.text}</h1>
+                  <img
+                    className={word.completed ? 'card-img' : 'card-img grayscale'}
+                    src={word.img}
+                    alt={word.text}
+                  />
                 </div>
               );
-            })}
-          </div>
-          <div className="flex-column" style={{ flex: 2, maxHeight: '100%'}}>
-            <h1>Words</h1>
-            <div className="flex-row wrap-overflow separator-top">
-              {currCategorizedWord &&
-                currCategorizedWord.words.map((word, idx) => {
-                  return (
-                    <div     
-                      className={'card-item flex-column clickable'}
-                      style={{ margin: '20px' }}
-                      key={`${word.text}-${idx}`}
-                      onClick={() => {
-                        if (!word.completed) {
-                          props.selectQuizWord(word);
-                          history.push('/quiz');
-                        } else {
-                          if (!currStory) return;
-                          props.selectWord(word, currStory.id);
-                          props.setShowWordModal(false);
-                        }
-                      }}
-                    >
-                      <h1>{word.text}</h1>
-                      <img
-                        className={word.completed ? 'card-img' : 'card-img grayscale'}
-                        src={word.img}
-                        alt={word.text}
-                      />
-                    </div>
-                  );
-                })
-              }
-              {!currCategory &&
-                <p>No category selected</p>
-              }
-            </div>
-          </div>
+            })
+          }
+          {!currCategory &&
+            <p>No category selected</p>
+          }
         </div>
       </div>
-    </div>
-  )
+    </Modal>
+  );
 }
 
 const mapStateToProps = (state: IRootState) => {

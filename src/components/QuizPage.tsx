@@ -35,7 +35,7 @@ function QuizPage(props: IQuizPageProps) {
   const [maxScore, setMaxScore] = useState(0);
 
   useEffect(() => {
-    if (!word || !currStory) return;
+    if (!word || !currStory || !word.audio) return;
     
     wordAudio.addEventListener('ended', async () => {
       if (score === 3) {
@@ -53,9 +53,11 @@ function QuizPage(props: IQuizPageProps) {
     wordAudio.play();
   }, [score]);
 
-  if (!word) return <div>Error rendering quiz</div>
+
+  if (!word || !word.audio) return <div>Error rendering quiz</div>
 
   const wordAudio = new Audio(word.audio);
+
 
   const starRatings = [];
   for (let i = 0; i < score; i += 1) {

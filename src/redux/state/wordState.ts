@@ -218,7 +218,10 @@ export enum WordCategory {
   DOING = 'Doing',
   DESCRIBE = 'Describe',
   COLORS = 'Colors',
-  THINGS = 'Things'
+  THINGS = 'Things',
+  HEAD = 'Head',
+  MIDDLE = 'Middle',
+  TAIL = 'Tail',
 }
 
 export default interface IWordState {
