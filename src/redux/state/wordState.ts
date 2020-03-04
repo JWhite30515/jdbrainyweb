@@ -191,6 +191,7 @@ const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
 const wagonAudio = require('../../static/words/audio/wagon.mp3');
 const carAudio = require('../../static/words/audio/car.mp3');
 
+const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
 export interface IWord {
   completed: boolean;
   text: string;
@@ -241,12 +242,14 @@ export const initialWordState: IWordState = {
       completed: false,
       text: 'bear',
       img: bearImg,
+      audio: placeholderAudio,
       category: WordCategory.ANIMALS,
     },
     {
       completed: false,
       text: 'burger',
       img: burgerImg,
+      audio: placeholderAudio,
       category: WordCategory.FOOD,
     },
     {
@@ -260,6 +263,7 @@ export const initialWordState: IWordState = {
       completed: false,
       text: 'clothes',
       img: clothesImg,
+      audio: placeholderAudio,
       category: WordCategory.CLOTHES
     },
     {
@@ -287,6 +291,7 @@ export const initialWordState: IWordState = {
       completed: false,
       text: 'box',
       img: boxImg,
+      audio: placeholderAudio,
       category: WordCategory.THINGS
     },
     {
@@ -531,6 +536,7 @@ export const initialWordState: IWordState = {
       completed: false,
       text: 'jay',
       img: jayImg,
+      audio: placeholderAudio,
       category: WordCategory.BIRDS,
     },
     {
@@ -615,6 +621,7 @@ export const initialWordState: IWordState = {
       text: 'dancer',
       img: dancerImg,
       // audio: dancerAudio,
+      audio: placeholderAudio,
       category: WordCategory.PEOPLE,
     },
     {
@@ -678,6 +685,7 @@ export const initialWordState: IWordState = {
       text: 'lip',
       img: lipImg,
       // audio: lipAudio,
+      audio: placeholderAudio,
       category: WordCategory.BODY_PARTS,
     },
     {
@@ -727,6 +735,7 @@ export const initialWordState: IWordState = {
       text: 'zoo',
       img: zooImg,
       // audio: zooAudio,
+      audio: placeholderAudio,
       category: WordCategory.BODY_PARTS,
     },
     {
@@ -811,6 +820,7 @@ export const initialWordState: IWordState = {
       text: 'squares',
       img: squaresImg,
       //audio: squaresAudio,
+      audio: placeholderAudio,
       category: WordCategory.HOUSE_STUFF,
     },
     {
@@ -874,6 +884,7 @@ export const initialWordState: IWordState = {
       text: 'yoyo',
       img: yoyoImg,
       //audio: yoyoAudio,
+      audio: placeholderAudio,
       category: WordCategory.TOYS,
     },
   ]
