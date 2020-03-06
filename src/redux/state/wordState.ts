@@ -83,15 +83,6 @@ import unicycleImg from '../../static/words/img/unicycle.png';
 import wagonImg from '../../static/words/img/wagon.png';
 import yoyoImg from '../../static/words/img/yoyo.png';
 
-
-
-
-
-
-
-
-
-
 // thing imgs
 import bagImg from '../../static/words/img/bag.png';
 import bedImg from '../../static/words/img/bed.png';
@@ -223,6 +214,7 @@ export enum WordCategory {
   HEAD = 'Head',
   MIDDLE = 'Middle',
   TAIL = 'Tail',
+  BODY = 'Body'
 }
 
 export default interface IWordState {
