@@ -16,7 +16,7 @@ export default function Modal(props: IModalProps) {
       <div className="modal-content">
         <div className="nav light-green-back flex-row" style={{ height: '20%' }}>
           <span style={{ flex: 1 }}/>
-          <h1 style={{ flex: 1 }}>{title}}</h1>
+          <h1 style={{ flex: 1 }}>{title}</h1>
           <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
             <IoMdCloseCircle
               className="clickable"

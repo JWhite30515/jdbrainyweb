@@ -28,11 +28,9 @@ export const initialStoryState: IStoryState = {
     s1,
     s2,
     s3,
-  ],
-  currStory: null
+  ]
 }
 
 export default interface IStoryState {
   stories: IStory[];
-  currStory: IStory | null;
 }

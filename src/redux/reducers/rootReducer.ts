@@ -1,6 +1,6 @@
 import { combineReducers, AnyAction, Reducer } from 'redux';
 
-import IQuizState, { initialQuizState } from '../state/quizState';
+import IFriendState, { initialFriendState } from '../state/friendState';
 import IStoryState, { initialStoryState } from '../state/storyState';
 import IWordState, { initialWordState } from '../state/wordState';
 import IRootState from '../state/rootState';
@@ -12,17 +12,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
   action
 ): IStoryState => {
   switch (action.type) {
-    case keys.SELECT_STORY_SUCCESS: {
-      const { id } = action;
-      const currStory = state.stories.find(story => story.id === id);
-
-      if (!currStory) return { ...state };
-
-      return {
-        ...state,
-        currStory,
-      }
-    }
     case keys.SELECT_WORD_SUCCESS: {
       const { word, storyId } = action;
 
@@ -51,7 +40,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
       return {
         ...state,
         stories: updatedStories,
-        currStory: updatedStory,
       }
     }
     case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
@@ -69,7 +57,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
       return {
         ...state,
         stories: updatedStories,
-        currStory: storyToUpdate,
       }
     }
     default:
@@ -103,18 +90,11 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   }
 }
 
-const quizReducer: Reducer<IQuizState, AnyAction> = (
-  state = initialQuizState,
+const friendReducer: Reducer<IFriendState, AnyAction> = (
+  state = initialFriendState,
   action
-): IQuizState => {
+): IFriendState => {
   switch (action.type) {
-    case keys.SELECT_QUIZ_WORD_SUCCESS: {
-      const { word } = action;
-      return {
-        ...state,
-        word,
-      };      
-    }
     default:
       return state
   }
@@ -123,7 +103,7 @@ const quizReducer: Reducer<IQuizState, AnyAction> = (
 const rootReducer = combineReducers<IRootState>({
   storyState: storyReducer,
   wordState: wordReducer,
-  quizState: quizReducer,
+  friendState: friendReducer,
 });
 
 export default rootReducer;

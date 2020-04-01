@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+import { Route, useRouteMatch, RouteComponentProps, Switch } from 'react-router';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
-import { selectStory, changeCurrentSection } from '../../redux/actions/storyActions';
+import { changeCurrentSection } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 import { IWord } from '../../redux/state/wordState';
 
@@ -15,43 +16,44 @@ import '../../css/common.css';
 import '../../css/story.css';
 
 import words from './costumeWords';
+import QuizPage from '../QuizPage';
 
 export interface IStoryPageProps {
-  story: IStory | null;
+  stories: IStory[];
   changeCurrentSection(id: number, idx: number): void;
-  selectStory(id: number): void;
 }
 
 function StoryPage(props: IStoryPageProps) {
-  const params: { id?: string | undefined } = useParams();
+  const { stories, changeCurrentSection } = props;
+  console.log(props);
 
-  const { story } = props;
+  const { id } = useParams();
+  const { path } = useRouteMatch();
 
+  const currStory = stories.find(story => story.id === Number(id));
+
+  const [currSection, setCurrSection] = useState(0);
   const [currWordIdx, setCurrWordIdx] = useState(0);
-
-  const [showWordModal, setShowWordModal] = useState(false);
   const [playStoryAudio, setPlayStoryAudio] = useState(false);
+  const [quizWord, setQuizWord] = useState({} as IWord);
+  const [showWordModal, setShowWordModal] = useState(false);
 
   const [word, setWord] = useState<IWord | null>(null);
 
   useEffect(() => {
-    props.selectStory(Number(params.id));
-  }, []);
+    if (!currStory) return;
 
-  useEffect(() => {
-    if (!story) return;
-
-    const prevSection = story.sections[story.currSectionIdx - 1];
+    const prevSection = currStory.sections[currStory.currSectionIdx - 1];
     if (prevSection && prevSection.word && prevSection.word.audio && !showWordModal) {
       setWord(prevSection.word);
     } else {
       if (!showWordModal) setPlayStoryAudio(true);
     }
-  }, [story]);
+  }, [currStory, showWordModal]);
 
   useEffect(() => {
-    if (!story) return;
-    const { sections } = story;
+    if (!currStory) return;
+    const { sections } = currStory;
     const storyAudio = new Audio(sections[currSectionIdx].audio);
 
     storyAudio.addEventListener('ended', () => {
@@ -73,7 +75,7 @@ function StoryPage(props: IStoryPageProps) {
           if (audio.currentTime >= words[i].start && audio.currentTime <= words[i].end) {
             currWordFound = true;
             setCurrWordIdx(i);
-            console.log(currWordIdx);
+            // console.log(currWordIdx);
           }
         }
       });
@@ -88,10 +90,11 @@ function StoryPage(props: IStoryPageProps) {
       setPlayStoryAudio(true);
     });
     if (word) wordAudio.autoplay = true;
-  }, [word, story]);
+  }, [word, currStory]);
 
-  if (!story) return <div>No story selected</div>
-  const { currSectionIdx, sections } = story;
+  if (!currStory) return <div>No story selected</div>
+
+  const { currSectionIdx, sections } = currStory;
 
   let storyText: JSX.Element[] = [];
 
@@ -117,7 +120,7 @@ function StoryPage(props: IStoryPageProps) {
           className="clickable"
           key={`word-${idx}`}
           onClick={() => {
-            props.changeCurrentSection(story.id, idx);
+            props.changeCurrentSection(currStory.id, idx);
             setPlayStoryAudio(false);
             setWord(null);
             setShowWordModal(true);
@@ -134,7 +137,7 @@ function StoryPage(props: IStoryPageProps) {
             className={currSectionIdx < 3 ? 'clickable' : ''}
             key={`word-${idx}`}
             onClick={() => {
-              props.changeCurrentSection(story.id, idx);
+              props.changeCurrentSection(currStory.id, idx);
               setPlayStoryAudio(false);
               setWord(null);
               setShowWordModal(true);
@@ -169,51 +172,65 @@ function StoryPage(props: IStoryPageProps) {
       )
     }
   });
-
+  const basePath = `/stories/${id}`;
+  console.log(basePath);
+  console.log(path);
   return (
-    <div className="flex-column">
-      {showWordModal &&
-        <WordModal
-          setShowWordModal={(open: boolean) => setShowWordModal(open)}
-        />
-      }
-      <h1>{story.title}</h1>
-      <h1>{playStoryAudio}</h1>
-      <div className="flex-row" style={{ margin: '0 10%'}}>
-        <div className="parent" style={{ width: '50%' }}>
-          <img
-            style={{ maxWidth: '600px', margin: '20px 0'}}
-            src={story.img}
-            alt={story.title}
-          />
-          {/* {currSectionIdx === 1 &&
-            <img
-              className="image2"
-              src={sections[0].word ? sections[0].word.img : undefined}
-              style={{ maxWidth: '60px' }}
-              alt={'alt text'}
+    <Switch>
+      <Route
+        exact
+        path={basePath}
+      >
+        <div className="flex-column">
+          {showWordModal &&
+            <WordModal
+              currStory={currStory}
+              setQuizWord={(word: IWord) => setQuizWord(word)}
+              setShowWordModal={(open: boolean) => setShowWordModal(open)}
             />
-          } */}
-          {imgs}
+          }
+          <h1>{currStory.title}</h1>
+          <h1>{playStoryAudio}</h1>
+          <div className="flex-row" style={{ margin: '0 10%'}}>
+            <div className="parent" style={{ width: '50%' }}>
+              <img
+                style={{ maxWidth: '600px', margin: '20px 0'}}
+                src={currStory.img}
+                alt={currStory.title}
+              />
+              {/* {currSectionIdx === 1 &&
+                <img
+                  className="image2"
+                  src={sections[0].word ? sections[0].word.img : undefined}
+                  style={{ maxWidth: '60px' }}
+                  alt={'alt text'}
+                />
+              } */}
+              {imgs}
+            </div>
+            <div className="card-item story-text">
+              {textToShow}
+            </div>
+          </div>
         </div>
-        <div className="card-item story-text">
-          {textToShow}
-        </div>
-      </div>
-    </div>
+      </Route>
+      <Route
+        path={`${basePath}/quiz`}
+        render={() => <QuizPage currStory={currStory} quizWord={quizWord} />}
+      />
+    </Switch>
   );
 }
 
 const mapStateToProps = (state: IRootState) => {
   return {
-    story: state.storyState.currStory,
+    stories: state.storyState.stories,
   }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     changeCurrentSection: bindActionCreators(changeCurrentSection, dispatch),
-    selectStory: bindActionCreators(selectStory, dispatch),
   }
 }
 

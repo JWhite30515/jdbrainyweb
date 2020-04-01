@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
-import { IoMdCloseCircle } from 'react-icons/io';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router';
+import { useHistory, useRouteMatch } from 'react-router';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
@@ -11,6 +10,7 @@ import { selectWord } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 import { IWord, WordCategory } from '../../redux/state/wordState';
 
+import Card from '../common/Card';
 import Modal from './Modal';
 
 import '../../css/common.css';
@@ -23,16 +23,44 @@ export interface ICategorizedWord {
 }
 
 export interface IWordModalProps {
-  currStory: IStory | null;
-  wordsCategorized: ICategorizedWord[];
+  currStory: IStory;
+  words: IWord[];
   selectWord(word: IWord, storyId: number): void;
-  selectQuizWord(word: IWord): void;
+  setQuizWord(word: IWord): void;
   setShowWordModal(open: boolean): void;
 }
 
 export function WordModal(props: IWordModalProps) {
-  const { currStory, wordsCategorized } = props;
+  const { currStory, setQuizWord, setShowWordModal, words } = props;
   const history = useHistory();
+  const { path } = useRouteMatch();
+
+  const wordsCategorized = useMemo(() => {
+    const wordsCategorizedMap = new Map<WordCategory, IWord[]>();
+    const wordsCategorized: ICategorizedWord[] = [];
+  
+    const currSectionIdx = currStory.currSectionIdx;
+    const currSection = currStory.sections[currSectionIdx];
+    const categories = currSection.wordCategories;
+  
+    words.forEach((word) => {
+      if (categories.includes(word.category)) {
+        const updatedWordsList = wordsCategorizedMap.get(word.category);
+        if (updatedWordsList) {
+          updatedWordsList.push(word);
+          wordsCategorizedMap.set(word.category, updatedWordsList);
+        } else {
+          wordsCategorizedMap.set(word.category, [word])
+        }
+      }
+    });
+  
+    wordsCategorizedMap.forEach((value, key) => {
+      wordsCategorized.push({ category: key, words: value });
+    });
+
+    return wordsCategorized;
+  }, [currStory, words]);
 
   const [currCategory, setCurrCategory] = useState(wordsCategorized.length ?
     wordsCategorized[0].category : null);
@@ -73,20 +101,17 @@ export function WordModal(props: IWordModalProps) {
           {currCategorizedWord &&
             currCategorizedWord.words.map((word, idx) => {
               return (
-                <div     
-                  className={'card-item flex-column clickable'}
-                  style={{ margin: '20px' }}
-                  key={`${word.text}-${idx}`}
+                <Card
                   onClick={() => {
+                    setShowWordModal(false);
                     if (!word.completed) {
-                      props.selectQuizWord(word);
-                      history.push('/quiz');
+                      setQuizWord(word);
+                      history.push(`${path}/quiz`);
                     } else {
-                      if (!currStory) return;
                       props.selectWord(word, currStory.id);
-                      props.setShowWordModal(false);
                     }
                   }}
+                  style={{ margin: '20px' }}
                 >
                   <h1>{word.text}</h1>
                   <img
@@ -94,7 +119,7 @@ export function WordModal(props: IWordModalProps) {
                     src={word.img}
                     alt={word.text}
                   />
-                </div>
+                </Card>
               );
             })
           }
@@ -108,35 +133,8 @@ export function WordModal(props: IWordModalProps) {
 }
 
 const mapStateToProps = (state: IRootState) => {
-  const currStory = state.storyState.currStory;
-  const wordsCategorizedMap = new Map<WordCategory, IWord[]>();
-  const wordsCategorized: ICategorizedWord[] = [];
-
-  if (!currStory) return { wordsCategorized, currStory: state.storyState.currStory };
-
-  const currSectionIdx = currStory.currSectionIdx;
-  const currSection = currStory.sections[currSectionIdx];
-  const categories = currSection.wordCategories;
-
-  state.wordState.words.forEach((word) => {
-    if (categories.includes(word.category)) {
-      const updatedWordsList = wordsCategorizedMap.get(word.category);
-      if (updatedWordsList) {
-        updatedWordsList.push(word);
-        wordsCategorizedMap.set(word.category, updatedWordsList);
-      } else {
-        wordsCategorizedMap.set(word.category, [word])
-      }
-    }
-  });
-
-  wordsCategorizedMap.forEach((value, key) => {
-    wordsCategorized.push({ category: key, words: value });
-  });
-
   return {
-    wordsCategorized,
-    currStory: state.storyState.currStory,
+    words: state.wordState.words,
   }
 }
 

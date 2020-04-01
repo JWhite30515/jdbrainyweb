@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { IoIosStar, IoIosStarOutline, IoIosVolumeHigh } from 'react-icons/io';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../redux/state/rootState';
@@ -11,52 +11,53 @@ import { selectWord } from '../redux/actions/storyActions';
 import { IStory } from '../redux/state/storyState';
 import { IWord } from '../redux/state/wordState';
 
+import Card from './common/Card';
+
 import '../css/common.css';
 import '../css/quiz.css';
 
 export interface IQuizPageProps {
-  // currSectionIdx: number;
-  word: IWord | null;
   words: IWord[];
-  // storyIdx: number;
-  currStory: IStory | null;
+  currStory: IStory;
+  quizWord: IWord;
   masterWord: (word: IWord) => void;
   selectWord: (word: IWord, storyId: number) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
-  const { currStory, word, words } = props;
+  const { currStory, quizWord, words } = props;
+  console.log(props);
 
   const history = useHistory();
 
   const [score, setScore] = useState(0);
-  const [options, setOptions] = useState(randomizeOptions(word, words));
+  const [options, setOptions] = useState(randomizeOptions(quizWord, words));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
 
   useEffect(() => {
-    if (!word || !currStory || !word.audio) return;
+    if (!quizWord.audio) return;
+
+    const { id } = currStory;
     
-    wordAudio.addEventListener('ended', async () => {
+    quizWordAudio.addEventListener('ended', async () => {
       if (score === 3) {
-        const newWord = { ...word, completed: true };
+        const newWord = { ...quizWord, completed: true };
         console.log('how many times is this getting called');
 
         props.masterWord(newWord);
-        props.selectWord(newWord, currStory.id);
+        props.selectWord(newWord, id);
 
-        history.push({
-          pathname: '/stories/' + currStory.id,
-        });
+        history.push(`/stories/${id}`);
       }
     });
-    wordAudio.play();
+    quizWordAudio.play();
   }, [score]);
 
 
-  if (!word || !word.audio) return <div>Error rendering quiz</div>
+  if (!quizWord || !quizWord.audio) return <div>Error rendering quiz</div>
 
-  const wordAudio = new Audio(word.audio);
+  const quizWordAudio = new Audio(quizWord.audio);
 
 
   const starRatings = [];
@@ -102,11 +103,10 @@ function QuizPage(props: IQuizPageProps) {
       <div className="flex-row">
         {options.map((option, idx) => {
           return (
-            <div
-              className="quiz-item card-item"
-              key={`option-${idx + 1}`}
+            <Card
+              isQuizCard={true}
               onClick={() => {
-                if (option.text === word.text) {
+                if (option.text === quizWord.text) {
                   if (hasStreak) {
                     // increment points if make consecutive correct answer
                     const newScore = score + 1;
@@ -120,7 +120,7 @@ function QuizPage(props: IQuizPageProps) {
                   setHasStreak(false);
                   setScore(0);
                 }
-                setOptions(randomizeOptions(word, words));
+                setOptions(randomizeOptions(quizWord, words));
               }}
             >
               <h1>{option.text}</h1>
@@ -130,11 +130,11 @@ function QuizPage(props: IQuizPageProps) {
                 src={option.img}
                 alt={option.text}
               />
-            </div>
+            </Card>
           );
         })}
       </div>
-      <div onClick={() => wordAudio.play()}>
+      <div onClick={() => quizWordAudio.play()}>
         <IoIosVolumeHigh size={'3em'} />
       </div>
     </div>
@@ -186,8 +186,6 @@ const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
 
 const mapStateToProps = (state: IRootState) => {
   return {
-    currStory: state.storyState.currStory,
-    word: state.quizState.word,
     words: state.wordState.words,
   }
 }

@@ -14,7 +14,15 @@ export function FriendModal(props: IFriendModalProps) {
       title="Create a Friend"
       setModalOpen={(open: boolean) => setFriendModalOpen(open)}
     >
-      <span>what's up doc</span>
+      <div
+        className="flex-column flex-start separator-right"
+        style={{ flex: 1, height: '100%' }}
+      >
+        <h1>Choose a Friend</h1>
+      </div>
+      <div className="flex-column">
+        <h1>Choose a Name</h1>
+      </div>
     </Modal>
   )
 }
