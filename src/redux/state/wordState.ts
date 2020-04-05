@@ -187,8 +187,14 @@ export interface IWord {
   completed: boolean;
   text: string;
   img: any;
-  audio?: any;
+  audio: any;
   category: WordCategory;
+}
+
+export enum WordStatus {
+  NOT_SELECTED = 'not selected',
+  NULL = 'null',
+  SELECTED = 'selected',
 }
 
 export enum WordCategory {
@@ -224,7 +230,7 @@ export default interface IWordState {
 export const initialWordState: IWordState = {
   words: [
     {
-      completed: false,
+      completed: true,
       text: 'ape',
       img: apeImg,
       audio: apeAudio,

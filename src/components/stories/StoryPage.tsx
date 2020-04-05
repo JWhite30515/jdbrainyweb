@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { Route, useRouteMatch, RouteComponentProps, Switch } from 'react-router';
-import { bindActionCreators } from 'redux';
+import { useParams } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 
 import IRootState from '../../redux/state/rootState';
-import { changeCurrentSection } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 import { IWord } from '../../redux/state/wordState';
 
@@ -18,163 +16,181 @@ import '../../css/story.css';
 import words from './costumeWords';
 import QuizPage from '../QuizPage';
 
+import Section from './Section';
+
 export interface IStoryPageProps {
   stories: IStory[];
-  changeCurrentSection(id: number, idx: number): void;
 }
 
 function StoryPage(props: IStoryPageProps) {
-  const { stories, changeCurrentSection } = props;
-  console.log(props);
+  const { stories } = props;
 
   const { id } = useParams();
-  const { path } = useRouteMatch();
 
   const currStory = stories.find(story => story.id === Number(id));
 
-  const [currSection, setCurrSection] = useState(0);
-  const [currWordIdx, setCurrWordIdx] = useState(0);
-  const [playStoryAudio, setPlayStoryAudio] = useState(false);
+  const [currSectionIdx, setCurrSectionIdx] = useState(0);
+  const [playingSectionAudio, setPlayingSectionAudio] = useState(true);
   const [quizWord, setQuizWord] = useState({} as IWord);
   const [showWordModal, setShowWordModal] = useState(false);
-
-  const [word, setWord] = useState<IWord | null>(null);
+  const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (!currStory) return;
-
-    const prevSection = currStory.sections[currStory.currSectionIdx - 1];
-    if (prevSection && prevSection.word && prevSection.word.audio && !showWordModal) {
-      setWord(prevSection.word);
-    } else {
-      if (!showWordModal) setPlayStoryAudio(true);
+    if (currSectionIdx !== 0) {
+      if (wordAudio) {
+        wordAudio.autoplay = true;
+      }
     }
-  }, [currStory, showWordModal]);
+  }, [currSectionIdx, wordAudio]);
+
+  console.log(playingSectionAudio);
 
   useEffect(() => {
     if (!currStory) return;
     const { sections } = currStory;
-    const storyAudio = new Audio(sections[currSectionIdx].audio);
-
-    storyAudio.addEventListener('ended', () => {
-      // if clause for DEMO purposes
-      if (currSectionIdx < 3) {
-        setPlayStoryAudio(false);
-        setShowWordModal(true);
-      }
-    });
-
-    // for DEMO purposes, this will be fixed up in future
-    if (currSectionIdx === 0) {
-      storyAudio.addEventListener('timeupdate', (event) => {
-        const audio = event.target as unknown as { currentTime: any, duration: any };
-
-        let currWordFound = false;
-        for (let i = 0; i < words.length; i += 1) {
-          if (currWordFound) break;
-          if (audio.currentTime >= words[i].start && audio.currentTime <= words[i].end) {
-            currWordFound = true;
-            setCurrWordIdx(i);
-            // console.log(currWordIdx);
+  
+    if (playingSectionAudio) {
+      const currSection = sections[currSectionIdx];
+      const sectionAudio = new Audio(sections[currSectionIdx].audio);
+      sectionAudio.addEventListener('ended', () => {
+        setPlayingSectionAudio(false);
+        if (currSection.word) {
+          const wordAudio = new Audio(currSection.word.audio);
+          wordAudio.addEventListener('ended', () => {
+            if (currSectionIdx < sections.length - 1) {
+              setCurrSectionIdx(currSectionIdx + 1);
+            }
+            setPlayingSectionAudio(true);
+          });
+          wordAudio.play();
+        } else {
+          if (currSectionIdx !== sections.length - 1) {
+            setShowWordModal(true);
           }
         }
       });
+
+      sectionAudio.autoplay = true;
     }
-
-    if (playStoryAudio) storyAudio.autoplay = true;
-  }, [playStoryAudio])
-
-  useEffect(() => {
-    const wordAudio = new Audio(word ? word.audio : null);
-    wordAudio.addEventListener('ended', () => {
-      setPlayStoryAudio(true);
-    });
-    if (word) wordAudio.autoplay = true;
-  }, [word, currStory]);
+  }, [currSectionIdx, currStory, playingSectionAudio]);
 
   if (!currStory) return <div>No story selected</div>
 
-  const { currSectionIdx, sections } = currStory;
+  // useEffect(() => {
+  //   if (!currStory) return;
+  //   const { sections } = currStory;
+  //   const storyAudio = new Audio(sections[currSectionIdx].audio);
 
-  let storyText: JSX.Element[] = [];
+  //   storyAudio.addEventListener('ended', () => {
+  //     // if clause for DEMO purposes
+  //     if (currSectionIdx < 3) {
+  //       setPlayStoryAudio(false);
+  //       setShowWordModal(true);
+  //     }
+  //   });
 
-  let demoText: JSX.Element[] = [];
+  //   // for DEMO purposes, this will be fixed up in future
+  //   if (currSectionIdx === 0) {
+  //     storyAudio.addEventListener('timeupdate', (event) => {
+  //       const audio = event.target as unknown as { currentTime: any, duration: any };
 
-  sections.forEach((section, idx) => {
-    // this if case for DEMO purposes
-    if (currSectionIdx === 0 && idx === 0) {
-      words.forEach((word, wordIdx) => {
-        if (wordIdx === currWordIdx) {
-          demoText.push(
-          <span key={`demo-word-${wordIdx}`} style={{ backgroundColor: 'yellow' }}>
-            {word.text + ' '}
-            </span>
-          );
-       } else {
-          demoText.push(<span key={`demo-word-${wordIdx}`}>{word.text + ' '}</span>);
-        }
-      });
+  //       let currWordFound = false;
+  //       for (let i = 0; i < words.length; i += 1) {
+  //         if (currWordFound) break;
+  //         if (audio.currentTime >= words[i].start && audio.currentTime <= words[i].end) {
+  //           currWordFound = true;
+  //           setCurrWordIdx(i);
+  //           // console.log(currWordIdx);
+  //         }
+  //       }
+  //     });
+  //   }
 
-      demoText.push(
-        <span
-          className="clickable"
-          key={`word-${idx}`}
-          onClick={() => {
-            props.changeCurrentSection(currStory.id, idx);
-            setPlayStoryAudio(false);
-            setWord(null);
-            setShowWordModal(true);
-          }}
-        >
-          <b>{section.word ? section.word.text + ' ' : '_____'}</b>
-        </span>
-      );
-    } else {
-      if (idx <= currSectionIdx) {
-        storyText.push(<span key={`text-${idx}`}>{section.text + ' '}</span>);
-        storyText.push(
-          <span
-            className={currSectionIdx < 3 ? 'clickable' : ''}
-            key={`word-${idx}`}
-            onClick={() => {
-              props.changeCurrentSection(currStory.id, idx);
-              setPlayStoryAudio(false);
-              setWord(null);
-              setShowWordModal(true);
-            }}
-          >
-            <b>{section.word ? section.word.text + ' ' : '_____'}</b>
-          </span>
-        );
-      }
-    }
-  });
+  //   if (playStoryAudio) storyAudio.autoplay = true;
+  // }, [playStoryAudio])
 
-  // for DEMO purposes
-  const textToShow = currSectionIdx === 0 ? demoText : storyText;
+  // if (!currStory) return <div>No story selected</div>
 
-  const imgs: JSX.Element[] = [];
+  // const { currSectionIdx, sections } = currStory;
 
-  // TODO should do this in above loop but don't have the time
-  sections.forEach((section, idx) => {
-    if (section.word && section.word.img && section.imgPos) {
-      imgs.push(
-        <img
-          className="image"
-          src={section.word.img}
-          alt={section.word.text}
-          style={{ 
-            top: `${section.imgPos.top}px`,
-            left: `${section.imgPos.left}px`,
-            maxWidth: '60px',
-          }}
-        />
-      )
-    }
-  });
+  // let storyText: JSX.Element[] = [];
+
+  // let demoText: JSX.Element[] = [];
+
+  // sections.forEach((section, idx) => {
+  //   // this if case for DEMO purposes
+  //   if (currSectionIdx === 0 && idx === 0) {
+  //     words.forEach((word, wordIdx) => {
+  //       if (wordIdx === currWordIdx) {
+  //         demoText.push(
+  //         <span key={`demo-word-${wordIdx}`} style={{ backgroundColor: 'yellow' }}>
+  //           {word.text + ' '}
+  //           </span>
+  //         );
+  //      } else {
+  //         demoText.push(<span key={`demo-word-${wordIdx}`}>{word.text + ' '}</span>);
+  //       }
+  //     });
+
+  //     demoText.push(
+  //       <span
+  //         className="clickable"
+  //         key={`word-${idx}`}
+  //         onClick={() => {
+  //           props.changeCurrentSection(currStory.id, idx);
+  //           setPlayStoryAudio(false);
+  //           setWord(null);
+  //           setShowWordModal(true);
+  //         }}
+  //       >
+  //         <b>{section.word ? section.word.text + ' ' : '_____'}</b>
+  //       </span>
+  //     );
+  //   } else {
+  //     if (idx <= currSectionIdx) {
+  //       storyText.push(<span key={`text-${idx}`}>{section.text + ' '}</span>);
+  //       storyText.push(
+  //         <span
+  //           className={currSectionIdx < 3 ? 'clickable' : ''}
+  //           key={`word-${idx}`}
+  //           onClick={() => {
+  //             props.changeCurrentSection(currStory.id, idx);
+  //             setPlayStoryAudio(false);
+  //             setWord(null);
+  //             setShowWordModal(true);
+  //           }}
+  //         >
+  //           <b>{section.word ? section.word.text + ' ' : '_____'}</b>
+  //         </span>
+  //       );
+  //     }
+  //   }
+  // });
+
+  // // for DEMO purposes
+  // const textToShow = currSectionIdx === 0 ? demoText : storyText;
+
+  // const imgs: JSX.Element[] = [];
+
+  // // TODO should do this in above loop but don't have the time
+  // sections.forEach((section, idx) => {
+  //   if (section.word && section.word.img && section.imgPos) {
+  //     imgs.push(
+  //       <img
+  //         className="image"
+  //         src={section.word.img}
+  //         alt={section.word.text}
+  //         style={{ 
+  //           top: `${section.imgPos.top}px`,
+  //           left: `${section.imgPos.left}px`,
+  //           maxWidth: '60px',
+  //         }}
+  //       />
+  //     )
+  //   }
+  // });
+
   const basePath = `/stories/${id}`;
-  console.log(basePath);
-  console.log(path);
   return (
     <Switch>
       <Route
@@ -185,12 +201,15 @@ function StoryPage(props: IStoryPageProps) {
           {showWordModal &&
             <WordModal
               currStory={currStory}
+              currSectionIdx={currSectionIdx}
+              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
               setQuizWord={(word: IWord) => setQuizWord(word)}
               setShowWordModal={(open: boolean) => setShowWordModal(open)}
+              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
           <h1>{currStory.title}</h1>
-          <h1>{playStoryAudio}</h1>
           <div className="flex-row" style={{ margin: '0 10%'}}>
             <div className="parent" style={{ width: '50%' }}>
               <img
@@ -206,17 +225,32 @@ function StoryPage(props: IStoryPageProps) {
                   alt={'alt text'}
                 />
               } */}
-              {imgs}
+              {/* {imgs} */}
             </div>
             <div className="card-item story-text">
-              {textToShow}
+              {currStory.sections.map((section, idx) => 
+                <Section
+                  currSectionIdx={currSectionIdx}
+                  key={`section_${idx}`}
+                  section={section}
+                  sectionIdx={idx}
+                  setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                  setShowWordModal={(open: boolean) => setShowWordModal(open)}
+                />
+              )}
             </div>
           </div>
         </div>
       </Route>
       <Route
         path={`${basePath}/quiz`}
-        render={() => <QuizPage currStory={currStory} quizWord={quizWord} />}
+        render={() =>
+          <QuizPage
+            currSectionIdx={currSectionIdx}
+            currStory={currStory}
+            quizWord={quizWord}
+          />
+        }
       />
     </Switch>
   );
@@ -228,13 +262,7 @@ const mapStateToProps = (state: IRootState) => {
   }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    changeCurrentSection: bindActionCreators(changeCurrentSection, dispatch),
-  }
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  () => ({})
 )(StoryPage);

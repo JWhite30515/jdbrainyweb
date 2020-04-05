@@ -2,7 +2,7 @@ import { combineReducers, AnyAction, Reducer } from 'redux';
 
 import IFriendState, { initialFriendState } from '../state/friendState';
 import IStoryState, { initialStoryState } from '../state/storyState';
-import IWordState, { initialWordState } from '../state/wordState';
+import IWordState, { initialWordState, WordStatus } from '../state/wordState';
 import IRootState from '../state/rootState';
 
 import keys from '../actions/keys';
@@ -13,30 +13,30 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
 ): IStoryState => {
   switch (action.type) {
     case keys.SELECT_WORD_SUCCESS: {
-      const { word, storyId } = action;
+      const { word, storyId, currSectionIdx } = action;
 
       const storyIdx = state.stories.findIndex(story => story.id === storyId);
+
       const updatedStory = { ...state.stories[storyIdx] };
 
       if (!updatedStory) return { ...state };
 
-      const updatedSection = { ...updatedStory.sections[updatedStory.currSectionIdx] };
+      console.log(currSectionIdx);
+
+      const updatedSection = { ...updatedStory.sections[currSectionIdx] };
       updatedSection.word = word;
+      updatedSection.wordStatus = WordStatus.SELECTED;
 
       const updatedSections = [...updatedStory.sections];
-      updatedSections[updatedStory.currSectionIdx] = updatedSection;
+      updatedSections[currSectionIdx] = updatedSection;
 
       updatedStory.sections = updatedSections;
-      updatedStory.currSectionIdx += 1;
 
-      // TODO: fix this
-      if (updatedStory.currSectionIdx + 1 > updatedStory.sections.length) {
-        console.log('fuck');
-      }
-  
       let updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, updatedStory)
 
+      console.log('here are the updated stories\n');
+      console.log(updatedStories);
       return {
         ...state,
         stories: updatedStories,
@@ -49,7 +49,7 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
 
       const storyToUpdate = { ...state.stories[storyIdx] };
 
-      storyToUpdate.currSectionIdx = idx;
+      // storyToUpdate.currSectionIdx = idx;
 
       const updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, storyToUpdate);

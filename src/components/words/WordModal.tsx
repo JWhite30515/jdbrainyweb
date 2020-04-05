@@ -5,7 +5,6 @@ import { useHistory, useRouteMatch } from 'react-router';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
-import { selectQuizWord } from '../../redux/actions/quizActions';
 import { selectWord } from '../../redux/actions/storyActions';
 import { IStory } from '../../redux/state/storyState';
 import { IWord, WordCategory } from '../../redux/state/wordState';
@@ -24,22 +23,36 @@ export interface ICategorizedWord {
 
 export interface IWordModalProps {
   currStory: IStory;
+  currSectionIdx: number;
   words: IWord[];
-  selectWord(word: IWord, storyId: number): void;
+  selectWord(word: IWord, storyId: number, currSectionIdx: number): void;
+  setCurrSectionIdx(idx: number): void;
+  setPlayingSectionAudio(playing: boolean): void;
   setQuizWord(word: IWord): void;
   setShowWordModal(open: boolean): void;
+  setWordAudio(audio: HTMLAudioElement): void;
 }
 
 export function WordModal(props: IWordModalProps) {
-  const { currStory, setQuizWord, setShowWordModal, words } = props;
+  const {
+    currStory,
+    currSectionIdx,
+    words,
+    selectWord,
+    setCurrSectionIdx,
+    setPlayingSectionAudio,
+    setQuizWord,
+    setShowWordModal,
+    setWordAudio,
+  } = props;
+
   const history = useHistory();
   const { path } = useRouteMatch();
 
   const wordsCategorized = useMemo(() => {
     const wordsCategorizedMap = new Map<WordCategory, IWord[]>();
     const wordsCategorized: ICategorizedWord[] = [];
-  
-    const currSectionIdx = currStory.currSectionIdx;
+
     const currSection = currStory.sections[currSectionIdx];
     const categories = currSection.wordCategories;
   
@@ -60,7 +73,7 @@ export function WordModal(props: IWordModalProps) {
     });
 
     return wordsCategorized;
-  }, [currStory, words]);
+  }, [currSectionIdx, currStory, words]);
 
   const [currCategory, setCurrCategory] = useState(wordsCategorized.length ?
     wordsCategorized[0].category : null);
@@ -102,13 +115,23 @@ export function WordModal(props: IWordModalProps) {
             currCategorizedWord.words.map((word, idx) => {
               return (
                 <Card
+                  key={`word_card_${idx}`}
                   onClick={() => {
                     setShowWordModal(false);
                     if (!word.completed) {
                       setQuizWord(word);
                       history.push(`${path}/quiz`);
                     } else {
-                      props.selectWord(word, currStory.id);
+                      selectWord(word, currStory.id, currSectionIdx);
+
+                      const wordAudio = new Audio(word.audio);
+                      wordAudio.addEventListener('ended', () => {
+                        setPlayingSectionAudio(true);
+                      });
+              
+                      setWordAudio(wordAudio);
+
+                      setCurrSectionIdx(currSectionIdx + 1);
                     }
                   }}
                   style={{ margin: '20px' }}
@@ -141,7 +164,6 @@ const mapStateToProps = (state: IRootState) => {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     selectWord: bindActionCreators(selectWord, dispatch),
-    selectQuizWord: bindActionCreators(selectQuizWord, dispatch),
   }
 }
 

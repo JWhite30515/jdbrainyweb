@@ -1,5 +1,5 @@
 import { IStory } from '../../../redux/state/storyState';
-import { WordCategory } from '../../../redux/state/wordState';
+import { WordCategory, WordStatus } from '../../../redux/state/wordState';
 
 import img from './wacky_costume.png';
 
@@ -25,7 +25,7 @@ const story: IStory = {
         The spelling kids really do, and enjoyed the goofiest, silliest, craziest, wackiest
         mixed-up costume party-- ever! And had their pets dress up too! The only rule was
         — no... scary... costumes. Some kids dressed like a`,
-      audio: a1,
+      audio: a2,
       wordCategories: [
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
@@ -37,7 +37,8 @@ const story: IStory = {
       imgPos: {
         top: 160,
         left: 200,
-      }
+      },
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `or`,
@@ -52,7 +53,8 @@ const story: IStory = {
       imgPos: {
         top: 120,
         left: 270,
-      }
+      },
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `or`,
@@ -67,7 +69,8 @@ const story: IStory = {
       imgPos: {
         top: 140,
         left: 450,
-      }
+      },
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: 
@@ -76,7 +79,8 @@ const story: IStory = {
       audio: a4,
       wordCategories: [
         WordCategory.FRIENDS,
-      ]
+      ],
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text:
@@ -85,14 +89,16 @@ const story: IStory = {
       audio: a5,
       wordCategories: [
         WordCategory.FRIENDS,
-      ]
+      ],
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `convinced`,
       audio: a6,
       wordCategories: [
         WordCategory.FRIENDS,
-      ]
+      ],
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: 
@@ -101,23 +107,25 @@ const story: IStory = {
       audio: a7,
       wordCategories: [
         WordCategory.FRIENDS,
-      ]
+      ],
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `decided that`,
       audio: a8,
       wordCategories: [
         WordCategory.FRIENDS,
-      ]
+      ],
+      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
-      text: `wasn’t to blame.  Uh-hunh.`,
+      text: `wasn’t to blame. Uh-hunh.`,
       audio: a9,
       wordCategories: [],
+      wordStatus: WordStatus.NOT_SELECTED,
     }
   ],
   img,
-  currSectionIdx: 0
 }
 
 export default story;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { IoIosStar, IoIosStarOutline, IoIosVolumeHigh } from 'react-icons/io';
 import { connect } from 'react-redux';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../redux/state/rootState';
@@ -17,16 +17,21 @@ import '../css/common.css';
 import '../css/quiz.css';
 
 export interface IQuizPageProps {
-  words: IWord[];
+  currSectionIdx: number;
   currStory: IStory;
   quizWord: IWord;
+  words: IWord[];
   masterWord: (word: IWord) => void;
-  selectWord: (word: IWord, storyId: number) => void;
+  selectWord: (word: IWord, storyId: number, currSectionIdx: number) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
-  const { currStory, quizWord, words } = props;
-  console.log(props);
+  const {
+    currSectionIdx,
+    currStory,
+    quizWord,
+    words
+  } = props;
 
   const history = useHistory();
 
@@ -40,13 +45,14 @@ function QuizPage(props: IQuizPageProps) {
 
     const { id } = currStory;
     
-    quizWordAudio.addEventListener('ended', async () => {
+    quizWordAudio.addEventListener('ended', () => {
       if (score === 3) {
         const newWord = { ...quizWord, completed: true };
-        console.log('how many times is this getting called');
+
+        console.log(`Quiz word ${newWord.text} mastered!`);
 
         props.masterWord(newWord);
-        props.selectWord(newWord, id);
+        props.selectWord(newWord, id, currSectionIdx);
 
         history.push(`/stories/${id}`);
       }
@@ -104,6 +110,7 @@ function QuizPage(props: IQuizPageProps) {
         {options.map((option, idx) => {
           return (
             <Card
+              key={`quiz_card_${idx}`}
               isQuizCard={true}
               onClick={() => {
                 if (option.text === quizWord.text) {
