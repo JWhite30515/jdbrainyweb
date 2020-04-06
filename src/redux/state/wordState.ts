@@ -288,7 +288,7 @@ export default interface IWordState {
 
 const words: IWord[] = [
   {
-    completed: true,
+    completed: false,
     text: 'ape',
     img: apeImg,
     audio: apeAudio,
