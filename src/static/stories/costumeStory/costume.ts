@@ -54,7 +54,7 @@ const story: IStory = {
       },
     },
     {
-      text: `or`,
+      text: ` or`,
       audio: a2,
       wordCategories: [
         WordCategory.PEOPLE,
@@ -69,7 +69,7 @@ const story: IStory = {
       },
     },
     {
-      text: `or`,
+      text: ` or`,
       audio: a3,
       wordCategories: [
         WordCategory.PEOPLE,
@@ -100,32 +100,32 @@ const story: IStory = {
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `convinced`,
+      text: ` convinced`,
       audio: a2,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
     {
       text: 
-        `it would be okay if the costume wasn’t scary all by itself,
+        ` it would be okay if the costume wasn’t scary all by itself,
         only just scary if people decided to be frightened, and if people decided to,`,
       audio: a7,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `decided that`,
+      text: ` decided that`,
       audio: a8,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `wasn’t to blame. Uh-hunh.`,
+      text: ` wasn’t to blame. Uh-hunh.`,
       audio: a9,
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `went to the party dressed as a`,
+      text: ` went to the party dressed as a`,
       audio: a10,
       wordCategories: [
         WordCategory.PEOPLE,
@@ -140,21 +140,21 @@ const story: IStory = {
       ],
     },
     {
-      text: `who looked very interesting with a`,
+      text: ` who looked very interesting with a`,
       audio: a12,
       wordCategories: [
         WordCategory.MIDDLE,
       ],
     },
     {
-      text: `body and a`,
+      text: ` body and a`,
       audio: a13,
       wordCategories: [
         WordCategory.TAIL,
       ],
     },
     {
-      text: `tail.`,
+      text: ` tail.`,
       audio: a14,
       wordCategories: WordCategory.FRIENDS,
     },
@@ -174,26 +174,26 @@ const story: IStory = {
       ]
     },
     {
-      text: `who looked great with a`,
+      text: ` who looked great with a`,
       audio: a17,
       wordCategories: [
         WordCategory.TAIL,
       ]
     },
     {
-      text: `tail and a`,
+      text: ` tail and a`,
       audio: a18,
       wordCategories: [
         WordCategory.MIDDLE,
       ]
     },
     {
-      text: `middle.`,
+      text: ` middle.`,
       audio: a19,
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `thought and wondered and cogitated and finally decided to be a`,
+      text: ` thought and wondered and cogitated and finally decided to be a`,
       audio: a20,
       wordCategories: [
         WordCategory.PEOPLE,
@@ -208,27 +208,27 @@ const story: IStory = {
       ],
     },
     {
-      text: `with`,
+      text: ` with`,
       audio: a22,
       wordCategories: [
         WordCategory.MIDDLE,
       ],
     },
     {
-      text: `tummy parts and a`,
+      text: ` tummy parts and a`,
       audio: a23,
       wordCategories: [
         WordCategory.TAIL,
       ],
     },
     {
-      text: `tail part. And a wonderful time was had by all — until`,
+      text: ` tail part. And a wonderful time was had by all — until`,
       audio: a24,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
     {
-      text: `appeared in a Bigfoot Sasquatch costume!`,
+      text: ` appeared in a Bigfoot Sasquatch costume! Which didn't scare...`,
       audio: a25,
       wordCategories: []
     },

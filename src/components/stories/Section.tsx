@@ -35,27 +35,31 @@ export default function Section(props: ISectionProps) {
     }
   }
 
+  const isLastSection = (sectionIdx === sections.length - 1);
+
   return (
     <React.Fragment>
       {sectionTextVisible &&
         <React.Fragment>
           <span>
-            {text + ' '}
+            {text + (isLastSection ? '' : ' ')}
           </span>
-          <span
-            className="clickable"
-            key={`word-${sectionIdx}`}
-            onClick={() => {
-              setCurrSectionIdx(sectionIdx);
-              if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
-                setShowFriendModal(true);
-              } else {
-                setShowWordModal(true);
-              }
-            }}
-          >
-            <b>{word ? word.text + ' ' : '____'}</b>
-          </span>
+          {!isLastSection &&
+            <span
+              className="clickable"
+              key={`word-${sectionIdx}`}
+              onClick={() => {
+                setCurrSectionIdx(sectionIdx);
+                if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
+                  setShowFriendModal(true);
+                } else {
+                  setShowWordModal(true);
+                }
+              }}
+            >
+              <b>{word ? word.text : '____'}</b>
+            </span>
+          }
         </React.Fragment>
       }
     </React.Fragment>
