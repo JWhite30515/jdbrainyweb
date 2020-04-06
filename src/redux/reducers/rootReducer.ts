@@ -52,23 +52,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
         stories: updatedStories,
       }
     }
-    // case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
-    //   const { id, idx } = action;
-
-    //   const storyIdx = state.stories.findIndex(story => story.id === id);
-
-    //   const storyToUpdate = { ...state.stories[storyIdx] };
-
-    //   // storyToUpdate.currSectionIdx = idx;
-
-    //   const updatedStories = [...state.stories];
-    //   updatedStories.splice(storyIdx, 1, storyToUpdate);
-
-    //   return {
-    //     ...state,
-    //     stories: updatedStories,
-    //   }
-    // }
     default:
       return state
   }

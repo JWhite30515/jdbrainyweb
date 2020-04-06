@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img from './wacky_costume.png';
+import img from './Wacky-Costume-no-templates.png';
 
 const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
@@ -48,10 +48,6 @@ const story: IStory = {
         WordCategory.BIRDS,
         WordCategory.THINGS,
       ],
-      imgPos: {
-        top: 160,
-        left: 200,
-      },
     },
     {
       text: ` or`,
@@ -63,10 +59,6 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
-      imgPos: {
-        top: 120,
-        left: 270,
-      },
     },
     {
       text: ` or`,
@@ -78,10 +70,6 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
-      imgPos: {
-        top: 140,
-        left: 450,
-      },
     },
     {
       text: 
@@ -109,7 +97,7 @@ const story: IStory = {
       text: 
         ` it would be okay if the costume wasn’t scary all by itself,
         only just scary if people decided to be frightened, and if people decided to,`,
-      audio: a7,
+      audio: a2,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
@@ -124,6 +112,7 @@ const story: IStory = {
       audio: a9,
       wordCategories: WordCategory.FRIENDS,
     },
+    // friend costume 1
     {
       text: ` went to the party dressed as a`,
       audio: a10,
@@ -131,13 +120,23 @@ const story: IStory = {
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
       ],
+      imgPos: {
+        top: 25,
+        left: 44,
+      }
     },
+    // animal parts 1
     {
       text: `, and brought a pet`,
       audio: a11,
       wordCategories: [
         WordCategory.HEAD,
       ],
+      imgPos: {
+        top: 37,
+        left: 30.6,
+        width: 12.7,
+      }
     },
     {
       text: ` who looked very interesting with a`,
@@ -145,6 +144,11 @@ const story: IStory = {
       wordCategories: [
         WordCategory.MIDDLE,
       ],
+      imgPos: {
+        top: 37,
+        left: 30.6,
+        width: 12.7,
+      }
     },
     {
       text: ` body and a`,
@@ -152,60 +156,97 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TAIL,
       ],
+      imgPos: {
+        top: 37,
+        left: 30.6,
+        width: 12.7,
+      }
     },
     {
       text: ` tail.`,
       audio: a14,
       wordCategories: WordCategory.FRIENDS,
     },
+    // friend costume 2
     {
       text: ` came costumed as a`,
       audio: a15,
       wordCategories: [
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
-      ]
+      ],
+      imgPos: {
+        top: 31,
+        left: 76,
+      }
     },
+    // animal with parts 2
     {
       text: `, and had a pet`,
       audio: a16,
       wordCategories: [
         WordCategory.HEAD,
-      ]
+      ],
+      imgPos: {
+        top: 60,
+        left: 77.4,
+        width: 12.7,
+      }
     },
     {
       text: ` who looked great with a`,
       audio: a17,
       wordCategories: [
         WordCategory.TAIL,
-      ]
+      ],
+      imgPos: {
+        top: 60,
+        left: 77.4,
+        width: 12.7,
+      }
     },
     {
       text: ` tail and a`,
       audio: a18,
       wordCategories: [
         WordCategory.MIDDLE,
-      ]
+      ],
+      imgPos: {
+        top: 60,
+        left: 77.4,
+        width: 12.7,
+      }
     },
     {
       text: ` middle.`,
       audio: a19,
       wordCategories: WordCategory.FRIENDS,
     },
+    // friend costume 3
     {
       text: ` thought and wondered and cogitated and finally decided to be a`,
       audio: a20,
       wordCategories: [
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
-      ]
+      ],
+      imgPos: {
+        top: 40,
+        left: 88,
+      }
     },
+    // animal parts 3
     {
       text: `, and brought a strange pet`,
       audio: a21,
       wordCategories: [
         WordCategory.HEAD,
       ],
+      imgPos: {
+        top: 76,
+        left: 66,
+        width: 12.7,
+      }
     },
     {
       text: ` with`,
@@ -213,6 +254,11 @@ const story: IStory = {
       wordCategories: [
         WordCategory.MIDDLE,
       ],
+      imgPos: {
+        top: 76,
+        left: 66,
+        width: 12.7,
+      }
     },
     {
       text: ` tummy parts and a`,
@@ -220,6 +266,11 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TAIL,
       ],
+      imgPos: {
+        top: 76,
+        left: 66,
+        width: 12.7,
+      }
     },
     {
       text: ` tail part. And a wonderful time was had by all — until`,

@@ -24,6 +24,8 @@ function StoryPage(props: IStoryPageProps) {
 
   const { id } = useParams();
 
+  const basePath = `/stories/${id}`;
+
   const currStory = stories.find(story => story.id === Number(id));
 
   const [currSectionIdx, setCurrSectionIdx] = useState(0);
@@ -178,27 +180,28 @@ function StoryPage(props: IStoryPageProps) {
   // // for DEMO purposes
   // const textToShow = currSectionIdx === 0 ? demoText : storyText;
 
-  // const imgs: JSX.Element[] = [];
+  const wordImgs: JSX.Element[] = [];
 
-  // // TODO should do this in above loop but don't have the time
-  // sections.forEach((section, idx) => {
-  //   if (section.word && section.word.img && section.imgPos) {
-  //     imgs.push(
-  //       <img
-  //         className="image"
-  //         src={section.word.img}
-  //         alt={section.word.text}
-  //         style={{ 
-  //           top: `${section.imgPos.top}px`,
-  //           left: `${section.imgPos.left}px`,
-  //           maxWidth: '60px',
-  //         }}
-  //       />
-  //     )
-  //   }
-  // });
+  currStory.sections.forEach((section, idx) => {
+    const { word, imgPos } = section;
+  
+    if (word && word.img && imgPos) {
+      wordImgs.push(
+        <img
+          key={`img_${idx}`}
+          className="image"
+          src={word.img}
+          alt={word.text}
+          style={{ 
+            top: `${imgPos.top}%`,
+            left: `${imgPos.left}%`,
+            maxWidth: imgPos.width ? `${imgPos.width}%` : '10%',
+          }}
+        />
+      )
+    }
+  });
 
-  const basePath = `/stories/${id}`;
   return (
     <Switch>
       <Route
@@ -228,22 +231,14 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <h1>{currStory.title}</h1>
-          <div className="flex-row" style={{ margin: '0 10%' }}>
+          <div className="flex-row" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
             <div className="parent" style={{ width: '50%' }}>
               <img
-                style={{ maxWidth: '600px', margin: '20px 0' }}
+                style={{ width: '100%', margin: '20px 0' }}
                 src={currStory.img}
                 alt={currStory.title}
               />
-              {/* {currSectionIdx === 1 &&
-                <img
-                  className="image2"
-                  src={sections[0].word ? sections[0].word.img : undefined}
-                  style={{ maxWidth: '60px' }}
-                  alt={'alt text'}
-                />
-              } */}
-              {/* {imgs} */}
+              {wordImgs}
             </div>
             <div className="card-item story-text">
               {currStory.sections.map((section, idx) =>

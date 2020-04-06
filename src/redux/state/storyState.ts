@@ -21,6 +21,7 @@ export interface ISection {
   imgPos?: {
     top: number;
     left: number;
+    width?: number;
   }
 }
 
