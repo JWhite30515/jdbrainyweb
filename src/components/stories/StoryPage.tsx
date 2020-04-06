@@ -4,19 +4,16 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
 
+import Section from './Section';
+import QuizPage from '../QuizPage';
+import FriendModal from '../words/FriendModal';
+import WordModal from '../words/WordModal';
 import IRootState from '../../redux/state/rootState';
 import { IStory } from '../../redux/state/storyState';
-import { IWord } from '../../redux/state/wordState';
-
-import WordModal from '../words/WordModal';
+import { IWord, WordCategory } from '../../redux/state/wordState';
 
 import '../../css/common.css';
 import '../../css/story.css';
-
-import words from './costumeWords';
-import QuizPage from '../QuizPage';
-
-import Section from './Section';
 
 export interface IStoryPageProps {
   stories: IStory[];
@@ -30,25 +27,32 @@ function StoryPage(props: IStoryPageProps) {
   const currStory = stories.find(story => story.id === Number(id));
 
   const [currSectionIdx, setCurrSectionIdx] = useState(0);
+  const [fromQuiz, setFromQuiz] = useState(false);
   const [playingSectionAudio, setPlayingSectionAudio] = useState(true);
   const [quizWord, setQuizWord] = useState({} as IWord);
+  const [showFriendModal, setShowFriendModal] = useState(false);
   const [showWordModal, setShowWordModal] = useState(false);
   const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     if (currSectionIdx !== 0) {
       if (wordAudio) {
+        if (fromQuiz) {
+          // need to attach onEnded event listener here if from quiz page redirect
+          wordAudio.addEventListener('ended', () => {
+            setPlayingSectionAudio(true);
+          });
+        }
+
         wordAudio.autoplay = true;
       }
     }
-  }, [currSectionIdx, wordAudio]);
-
-  console.log(playingSectionAudio);
+  }, [currSectionIdx, fromQuiz, playingSectionAudio, wordAudio]);
 
   useEffect(() => {
     if (!currStory) return;
     const { sections } = currStory;
-  
+
     if (playingSectionAudio) {
       const currSection = sections[currSectionIdx];
       const sectionAudio = new Audio(sections[currSectionIdx].audio);
@@ -65,7 +69,11 @@ function StoryPage(props: IStoryPageProps) {
           wordAudio.play();
         } else {
           if (currSectionIdx !== sections.length - 1) {
-            setShowWordModal(true);
+            if (currSection.wordCategories === WordCategory.FRIENDS) {
+              setShowFriendModal(true);
+            } else {
+              setShowWordModal(true);
+            }
           }
         }
       });
@@ -198,6 +206,16 @@ function StoryPage(props: IStoryPageProps) {
         path={basePath}
       >
         <div className="flex-column">
+          {showFriendModal &&
+            <FriendModal
+              currStoryId={currStory.id}
+              currSectionIdx={currSectionIdx}
+              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+              setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
+              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
+            />
+          }
           {showWordModal &&
             <WordModal
               currStory={currStory}
@@ -210,10 +228,10 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <h1>{currStory.title}</h1>
-          <div className="flex-row" style={{ margin: '0 10%'}}>
+          <div className="flex-row" style={{ margin: '0 10%' }}>
             <div className="parent" style={{ width: '50%' }}>
               <img
-                style={{ maxWidth: '600px', margin: '20px 0'}}
+                style={{ maxWidth: '600px', margin: '20px 0' }}
                 src={currStory.img}
                 alt={currStory.title}
               />
@@ -228,13 +246,14 @@ function StoryPage(props: IStoryPageProps) {
               {/* {imgs} */}
             </div>
             <div className="card-item story-text">
-              {currStory.sections.map((section, idx) => 
+              {currStory.sections.map((section, idx) =>
                 <Section
                   currSectionIdx={currSectionIdx}
                   key={`section_${idx}`}
-                  section={section}
+                  sections={currStory.sections}
                   sectionIdx={idx}
                   setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                  setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
                   setShowWordModal={(open: boolean) => setShowWordModal(open)}
                 />
               )}
@@ -247,8 +266,12 @@ function StoryPage(props: IStoryPageProps) {
         render={() =>
           <QuizPage
             currSectionIdx={currSectionIdx}
-            currStory={currStory}
+            currStoryId={currStory.id}
             quizWord={quizWord}
+            setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+            setFromQuiz={(fromQuiz: boolean) => setFromQuiz(fromQuiz)}
+            setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+            setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
           />
         }
       />

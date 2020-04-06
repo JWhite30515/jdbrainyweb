@@ -2,7 +2,7 @@ import { combineReducers, AnyAction, Reducer } from 'redux';
 
 import IFriendState, { initialFriendState } from '../state/friendState';
 import IStoryState, { initialStoryState } from '../state/storyState';
-import IWordState, { initialWordState, WordStatus } from '../state/wordState';
+import IWordState, { initialWordState } from '../state/wordState';
 import IRootState from '../state/rootState';
 
 import keys from '../actions/keys';
@@ -24,11 +24,21 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
       console.log(currSectionIdx);
 
       const updatedSection = { ...updatedStory.sections[currSectionIdx] };
+
       updatedSection.word = word;
-      updatedSection.wordStatus = WordStatus.SELECTED;
 
       const updatedSections = [...updatedStory.sections];
-      updatedSections[currSectionIdx] = updatedSection;
+  
+      // if word has an id, set all sections with that id to have that word
+      if (updatedSection.id) {
+        for (let i = 0; i < updatedSections.length; i += 1) {
+          if (updatedSections[i].id === updatedSection.id) {
+            updatedSections[i].word = word;
+          }
+        }
+      } else {
+        updatedSections[currSectionIdx] = updatedSection;
+      }
 
       updatedStory.sections = updatedSections;
 
@@ -42,23 +52,23 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
         stories: updatedStories,
       }
     }
-    case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
-      const { id, idx } = action;
+    // case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
+    //   const { id, idx } = action;
 
-      const storyIdx = state.stories.findIndex(story => story.id === id);
+    //   const storyIdx = state.stories.findIndex(story => story.id === id);
 
-      const storyToUpdate = { ...state.stories[storyIdx] };
+    //   const storyToUpdate = { ...state.stories[storyIdx] };
 
-      // storyToUpdate.currSectionIdx = idx;
+    //   // storyToUpdate.currSectionIdx = idx;
 
-      const updatedStories = [...state.stories];
-      updatedStories.splice(storyIdx, 1, storyToUpdate);
+    //   const updatedStories = [...state.stories];
+    //   updatedStories.splice(storyIdx, 1, storyToUpdate);
 
-      return {
-        ...state,
-        stories: updatedStories,
-      }
-    }
+    //   return {
+    //     ...state,
+    //     stories: updatedStories,
+    //   }
+    // }
     default:
       return state
   }
@@ -71,14 +81,14 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   switch (action.type) {
     case keys.MASTER_WORD_SUCCESS: {
       const { word } = action;
-      word.completed = true;
-
-      const idxToUpdate = state.words.findIndex(word => word.text === action.word.text);
-
-      if (idxToUpdate < 0) return { ...state };
 
       const newWords = [...state.words];
-      newWords[idxToUpdate] = word;
+
+      for (const newWord of newWords) {
+        if (newWord.text === word.text) {
+          newWord.completed = true;
+        }
+      }
 
       return {
         ...state,
@@ -95,6 +105,17 @@ const friendReducer: Reducer<IFriendState, AnyAction> = (
   action
 ): IFriendState => {
   switch (action.type) {
+    case keys.CREATE_FRIEND_SUCCESS: {
+      const { friend } = action;
+
+      const friendsList = [...state.friends];
+      friendsList.push(friend);
+
+      return {
+        ...state,
+        friends: friendsList,
+      }
+    }
     default:
       return state
   }

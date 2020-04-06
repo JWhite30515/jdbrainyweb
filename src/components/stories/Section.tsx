@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 
 import { ISection } from '../../redux/state/storyState';
+import { WordCategory } from '../../redux/state/wordState';
 
 export interface ISectionProps {
   currSectionIdx: number;
-  section: ISection;
+  sections: ISection[];
   sectionIdx: number;
   setCurrSectionIdx(idx: number): void;
+  setShowFriendModal(open: boolean): void;
   setShowWordModal(open: boolean): void;
 }
 
 export default function Section(props: ISectionProps) {
-  const { text, word } = props.section;
-  const { 
+  const {
     currSectionIdx,
+    sections,
     sectionIdx,
     setCurrSectionIdx,
+    setShowFriendModal,
     setShowWordModal,
   } = props;
 
-  const sectionTextVisible = !!word || sectionIdx <= currSectionIdx;
+  const { text, word } = sections[sectionIdx];
+
+  let sectionTextVisible = false;
+
+  if (sectionIdx <= currSectionIdx) sectionTextVisible = true;
+
+  if (word) {
+    const prevSection = sections[sectionIdx - 1];
+    if (prevSection && prevSection.word) {
+      sectionTextVisible = true;
+    }
+  }
 
   return (
     <React.Fragment>
@@ -33,7 +47,11 @@ export default function Section(props: ISectionProps) {
             key={`word-${sectionIdx}`}
             onClick={() => {
               setCurrSectionIdx(sectionIdx);
-              setShowWordModal(true);
+              if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
+                setShowFriendModal(true);
+              } else {
+                setShowWordModal(true);
+              }
             }}
           >
             <b>{word ? word.text + ' ' : '____'}</b>

@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import IRootState from '../../redux/state/rootState';
 import { selectWord } from '../../redux/actions/storyActions';
+import { IFriendWord } from '../../redux/state/friendState';
 import { IStory } from '../../redux/state/storyState';
 import { IWord, WordCategory } from '../../redux/state/wordState';
 
@@ -25,7 +26,7 @@ export interface IWordModalProps {
   currStory: IStory;
   currSectionIdx: number;
   words: IWord[];
-  selectWord(word: IWord, storyId: number, currSectionIdx: number): void;
+  selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void;
   setCurrSectionIdx(idx: number): void;
   setPlayingSectionAudio(playing: boolean): void;
   setQuizWord(word: IWord): void;
@@ -55,7 +56,7 @@ export function WordModal(props: IWordModalProps) {
 
     const currSection = currStory.sections[currSectionIdx];
     const categories = currSection.wordCategories;
-  
+
     words.forEach((word) => {
       if (categories.includes(word.category)) {
         const updatedWordsList = wordsCategorizedMap.get(word.category);
@@ -67,7 +68,7 @@ export function WordModal(props: IWordModalProps) {
         }
       }
     });
-  
+
     wordsCategorizedMap.forEach((value, key) => {
       wordsCategorized.push({ category: key, words: value });
     });
@@ -83,7 +84,7 @@ export function WordModal(props: IWordModalProps) {
   return (
     <Modal
       title="Choose a Word"
-      setModalOpen={(open: boolean) => props.setShowWordModal(open)}
+      setModalOpen={(open: boolean) => setShowWordModal(open)}
     >
       <div
         className="flex-column flex-start separator-right"
@@ -108,7 +109,7 @@ export function WordModal(props: IWordModalProps) {
           );
         })}
       </div>
-      <div className="flex-column" style={{ flex: 2, maxHeight: '100%'}}>
+      <div className="flex-column" style={{ flex: 2, maxHeight: '100%' }}>
         <h1>Words</h1>
         <div className="flex-row wrap-overflow separator-top">
           {currCategorizedWord &&
@@ -128,9 +129,8 @@ export function WordModal(props: IWordModalProps) {
                       wordAudio.addEventListener('ended', () => {
                         setPlayingSectionAudio(true);
                       });
-              
-                      setWordAudio(wordAudio);
 
+                      setWordAudio(wordAudio);
                       setCurrSectionIdx(currSectionIdx + 1);
                     }
                   }}

@@ -19,10 +19,12 @@ html {
 
 button {
   padding: 4px 10px;
+  font-family: 'Comic Sans MS', 'Comic Sans', serif;
   font-size: 18px;
   line-height: 22px;
   background-color: #C1E5D6;
 }
+
 body {
   background-color: #91D0b6;
   height: 100%;

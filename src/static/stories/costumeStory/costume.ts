@@ -1,5 +1,5 @@
 import { IStory } from '../../../redux/state/storyState';
-import { WordCategory, WordStatus } from '../../../redux/state/wordState';
+import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './wacky_costume.png';
 
@@ -13,7 +13,21 @@ const a7 = require('./audio/SPS_1_7 Copy.mp3');
 const a8 = require('./audio/SPS_1_8 Copy.mp3');
 const a9 = require('./audio/SPS_1_9 Copy.mp3');
 const a10 = require('./audio/SPS_1_10 Copy.mp3');
-const a11 = require('./audio/SPS_1_10 Copy.mp3');
+const a11 = require('./audio/SPS_1_11 Copy.mp3');
+const a12 = require('./audio/SPS_1_12 Copy.mp3');
+const a13 = require('./audio/SPS_1_13 Copy.mp3');
+const a14 = require('./audio/SPS_1_14 Copy.mp3');
+const a15 = require('./audio/SPS_1_15 Copy.mp3');
+const a16 = require('./audio/SPS_1_16 Copy.mp3');
+const a17 = require('./audio/SPS_1_17 Copy.mp3');
+const a18 = require('./audio/SPS_1_18 Copy.mp3');
+const a19 = require('./audio/SPS_1_19 Copy.mp3');
+const a20 = require('./audio/SPS_1_20 Copy.mp3');
+const a21 = require('./audio/SPS_1_21 Copy.mp3');
+const a22 = require('./audio/SPS_1_22 Copy.mp3');
+const a23 = require('./audio/SPS_1_23 Copy.mp3');
+const a24 = require('./audio/SPS_1_24 Copy.mp3');
+const a25 = require('./audio/SPS_1_25 Copy.mp3');
 
 const story: IStory = {
   title: 'The Wacky Costume Party',
@@ -38,7 +52,6 @@ const story: IStory = {
         top: 160,
         left: 200,
       },
-      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `or`,
@@ -54,7 +67,6 @@ const story: IStory = {
         top: 120,
         left: 270,
       },
-      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: `or`,
@@ -70,60 +82,156 @@ const story: IStory = {
         top: 140,
         left: 450,
       },
-      wordStatus: WordStatus.NOT_SELECTED,
     },
     {
       text: 
         `, but the spelling kids shared and traded different costume parts so their pets all
         looked really strange and weird and kind of especially — wondersome!  Except —`,
-      audio: a4,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
-      wordStatus: WordStatus.NOT_SELECTED,
+      audio: a2,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
         ` didn’t plan to mean to intend to break the rule, or be really naughty,
-        just maybe a tiny bit mischievous, so `,
-      audio: a5,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
-      wordStatus: WordStatus.NOT_SELECTED,
+        just maybe a tiny bit mischievous, so`,
+      audio: a2,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text: `convinced`,
-      audio: a6,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
-      wordStatus: WordStatus.NOT_SELECTED,
+      audio: a2,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text: 
         `it would be okay if the costume wasn’t scary all by itself,
         only just scary if people decided to be frightened, and if people decided to,`,
       audio: a7,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
-      wordStatus: WordStatus.NOT_SELECTED,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text: `decided that`,
       audio: a8,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
-      wordStatus: WordStatus.NOT_SELECTED,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text: `wasn’t to blame. Uh-hunh.`,
       audio: a9,
-      wordCategories: [],
-      wordStatus: WordStatus.NOT_SELECTED,
-    }
+      wordCategories: WordCategory.FRIENDS,
+    },
+    {
+      text: `went to the party dressed as a`,
+      audio: a10,
+      wordCategories: [
+        WordCategory.PEOPLE,
+        WordCategory.PRETEND,
+      ],
+    },
+    {
+      text: `, and brought a pet`,
+      audio: a11,
+      wordCategories: [
+        WordCategory.HEAD,
+      ],
+    },
+    {
+      text: `who looked very interesting with a`,
+      audio: a12,
+      wordCategories: [
+        WordCategory.MIDDLE,
+      ],
+    },
+    {
+      text: `body and a`,
+      audio: a13,
+      wordCategories: [
+        WordCategory.TAIL,
+      ],
+    },
+    {
+      text: `tail.`,
+      audio: a14,
+      wordCategories: WordCategory.FRIENDS,
+    },
+    {
+      text: ` came costumed as a`,
+      audio: a15,
+      wordCategories: [
+        WordCategory.PEOPLE,
+        WordCategory.PRETEND,
+      ]
+    },
+    {
+      text: `, and had a pet`,
+      audio: a16,
+      wordCategories: [
+        WordCategory.HEAD,
+      ]
+    },
+    {
+      text: `who looked great with a`,
+      audio: a17,
+      wordCategories: [
+        WordCategory.TAIL,
+      ]
+    },
+    {
+      text: `tail and a`,
+      audio: a18,
+      wordCategories: [
+        WordCategory.MIDDLE,
+      ]
+    },
+    {
+      text: `middle.`,
+      audio: a19,
+      wordCategories: WordCategory.FRIENDS,
+    },
+    {
+      text: `thought and wondered and cogitated and finally decided to be a`,
+      audio: a20,
+      wordCategories: [
+        WordCategory.PEOPLE,
+        WordCategory.PRETEND,
+      ]
+    },
+    {
+      text: `, and brought a strange pet`,
+      audio: a21,
+      wordCategories: [
+        WordCategory.HEAD,
+      ],
+    },
+    {
+      text: `with`,
+      audio: a22,
+      wordCategories: [
+        WordCategory.MIDDLE,
+      ],
+    },
+    {
+      text: `tummy parts and a`,
+      audio: a23,
+      wordCategories: [
+        WordCategory.TAIL,
+      ],
+    },
+    {
+      text: `tail part. And a wonderful time was had by all — until`,
+      audio: a24,
+      id: 1,
+      wordCategories: WordCategory.FRIENDS,
+    },
+    {
+      text: `appeared in a Bigfoot Sasquatch costume!`,
+      audio: a25,
+      wordCategories: []
+    },
   ],
   img,
 }

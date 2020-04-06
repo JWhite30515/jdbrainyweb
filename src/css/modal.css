@@ -20,3 +20,15 @@
   margin: 0 50px;
   height: 80%;
 }
+
+.card-selected {
+  border-style: solid;
+  border-color: black;
+  border-width: thick;
+  background-color: #d5ede0;
+}
+
+.button-dark-green {
+  background-color: #91D0b6;
+  font-weight: bold;
+}

@@ -1,4 +1,5 @@
-import { IWord, WordCategory, WordStatus } from './wordState';
+import { IFriendWord } from './friendState';
+import { IWord, WordCategory } from './wordState';
 
 import s1 from '../../static/stories/costumeStory/costume';
 import s2 from '../../static/stories/alienStory/alien';
@@ -11,13 +12,12 @@ export interface IStory {
   sections: ISection[];
 }
 
-
 export interface ISection {
   text: string;
   audio: any;
-  wordStatus: WordStatus;
-  word?: IWord;
-  wordCategories: WordCategory[];
+  id?: number;
+  word?: IFriendWord | IWord;
+  wordCategories: WordCategory[] | WordCategory;
   imgPos?: {
     top: number;
     left: number;

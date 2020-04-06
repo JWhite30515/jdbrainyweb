@@ -1,5 +1,4 @@
 import { IStory } from '../../../redux/state/storyState';
-import { WordStatus } from '../../../redux/state/wordState';
 
 import img from './Santas-Elf-2-no_landings.png';
 
@@ -36,7 +35,6 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       wordCategories: [],
-      wordStatus: WordStatus.NOT_SELECTED,
     },
   ],
   img,

@@ -1,3 +1,5 @@
+import { IBaseWord } from './wordState';
+
 import boy_1 from '../../static/words/friends/img/boy_1.png';
 import boy_2 from '../../static/words/friends/img/boy_2.png';
 import boy_3 from '../../static/words/friends/img/boy_3.png';
@@ -31,60 +33,82 @@ import girl_12 from '../../static/words/friends/img/girl_12.png';
 import girl_13 from '../../static/words/friends/img/girl_13.png';
 import girl_14 from '../../static/words/friends/img/girl_14.png';
 
+const adam_audio = require('../../static/words/friends/audio/Adam.mp3');
+const alex_audio = require('../../static/words/friends/audio/Alex.mp3');
+const ann_audio = require('../../static/words/friends/audio/Ann.mp3');
+const ava_audio = require('../../static/words/friends/audio/Ava.mp3');
+const beth_audio = require('../../static/words/friends/audio/Beth.mp3');
+const bill_audio = require('../../static/words/friends/audio/Bill.mp3');
+const bob_audio = require('../../static/words/friends/audio/Bob.mp3');
+const deb_audio = require('../../static/words/friends/audio/Deb.mp3');
+const dev_audio = require('../../static/words/friends/audio/Dev.mp3');
+const eva_audio = require('../../static/words/friends/audio/Eva.mp3');
+
 export enum Gender {
   MALE = 'Male',
   FEMALE = 'Female'
 }
 
-export interface IFriend {
-  name: IName;
+export interface IFriendWord extends IBaseWord {
+  gender: Gender;
 }
 
 export interface IName {
-  name: string;
+  text: string;
   gender: Gender;
+  audio: any;
 }
 
 export const names: IName[] = [
   {
-    name: 'Adam',
-    gender: Gender.MALE
+    text: 'Adam',
+    gender: Gender.MALE,
+    audio: adam_audio,
   },
   {
-    name: 'Alex',
-    gender: Gender.MALE
+    text: 'Alex',
+    gender: Gender.MALE,
+    audio: alex_audio,
   },
   {
-    name: 'Bill',
-    gender: Gender.MALE
+    text: 'Bill',
+    gender: Gender.MALE,
+    audio: bill_audio,
   },
   {
-    name: 'Bob',
-    gender: Gender.MALE
+    text: 'Bob',
+    gender: Gender.MALE,
+    audio: bob_audio,
   },
   {
-    name: 'Dev',
-    gender: Gender.MALE
+    text: 'Dev',
+    gender: Gender.MALE,
+    audio: dev_audio,
   },
   {
-    name: 'Ann',
-    gender: Gender.FEMALE
+    text: 'Ann',
+    gender: Gender.FEMALE,
+    audio: ann_audio,
   },
   {
-    name: 'Ava',
-    gender: Gender.FEMALE
+    text: 'Ava',
+    gender: Gender.FEMALE,
+    audio: ava_audio,
   },
   {
-    name: 'Beth',
-    gender: Gender.FEMALE
+    text: 'Beth',
+    gender: Gender.FEMALE,
+    audio: beth_audio,
   },
   {
-    name: 'Deb',
-    gender: Gender.FEMALE
+    text: 'Deb',
+    gender: Gender.FEMALE,
+    audio: deb_audio,
   },
   {
-    name: 'Eva',
-    gender: Gender.FEMALE
+    text: 'Eva',
+    gender: Gender.FEMALE,
+    audio: eva_audio,
   },
 ];
 
@@ -125,7 +149,7 @@ export const imgs: any[] = [
 export default interface IFriendState {
   names: IName[];
   imgs: any[];
-  friends: IFriend[];
+  friends: IFriendWord[];
 }
 
 export const initialFriendState: IFriendState = {
