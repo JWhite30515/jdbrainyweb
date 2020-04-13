@@ -274,7 +274,8 @@ export enum WordCategory {
   HEAD = 'Head',
   MIDDLE = 'Middle',
   TAIL = 'Tail',
-  BODY = 'Body'
+  BODY = 'Body',
+  PEOPLE_HEAD =  'People Head'
 }
 
 export interface IWord extends IBaseWord {
@@ -288,7 +289,7 @@ export default interface IWordState {
 
 const words: IWord[] = [
   {
-    completed: true,
+    completed: false,
     text: 'ape',
     img: apeImg,
     audio: apeAudio,
@@ -1033,14 +1034,14 @@ const segmentedWords: IWord[] = [
     text: 'cop',
     img: copheadImg,
     audio: placeholderAudio,
-    category: WordCategory.BODY,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'cop',
     img: copbodyImg,
     audio: placeholderAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.BODY,
     completed: false,
   },
   {
@@ -1068,7 +1069,7 @@ const segmentedWords: IWord[] = [
     text: 'doctor',
     img: docheadImg,
     audio: placeholderAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
@@ -1103,7 +1104,7 @@ const segmentedWords: IWord[] = [
     text: 'elf',
     img: elfheadImg,
     audio: elfAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
@@ -1187,7 +1188,7 @@ const segmentedWords: IWord[] = [
     text: 'gal',
     img: galheadImg,
     audio: placeholderAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
@@ -1215,7 +1216,7 @@ const segmentedWords: IWord[] = [
     text: 'kid',
     img: kidheadImg,
     audio: placeholderAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
@@ -1271,7 +1272,7 @@ const segmentedWords: IWord[] = [
     text: 'referee',
     img: refheadImg,
     audio: placeholderAudio,
-    category: WordCategory.HEAD,
+    category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {

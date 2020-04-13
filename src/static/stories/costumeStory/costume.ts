@@ -39,7 +39,7 @@ const story: IStory = {
         The spelling kids really do, and enjoyed the goofiest, silliest, craziest, wackiest
         mixed-up costume party-- ever! And had their pets dress up too! The only rule was
         — no... scary... costumes. Some kids dressed like a`,
-      audio: a2,
+      audio: a1,
       wordCategories: [
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
@@ -75,7 +75,7 @@ const story: IStory = {
       text: 
         `, but the spelling kids shared and traded different costume parts so their pets all
         looked really strange and weird and kind of especially — wondersome!  Except —`,
-      audio: a2,
+      audio: a4,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
@@ -83,13 +83,13 @@ const story: IStory = {
       text:
         ` didn’t plan to mean to intend to break the rule, or be really naughty,
         just maybe a tiny bit mischievous, so`,
-      audio: a2,
+      audio: a5,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
     {
       text: ` convinced`,
-      audio: a2,
+      audio: a6,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
@@ -97,7 +97,7 @@ const story: IStory = {
       text: 
         ` it would be okay if the costume wasn’t scary all by itself,
         only just scary if people decided to be frightened, and if people decided to,`,
-      audio: a2,
+      audio: a7,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },

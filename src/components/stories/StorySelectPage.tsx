@@ -21,21 +21,23 @@ function StorySelectPage(props: IStorySelectPageProps) {
       <div className="list-row flex-row">
         {stories.map((story, idx) => {
           // only allow first item for demo purposes
-          const disabled = !(idx === 0);
+          // const disabled = !(idx === 0);
           return (
             <Card key={`story_card_${idx}`}>
               <h2>{story.title}</h2>
               <img
-                className={disabled ? 'grayscale card-img' : 'card-img'}
+                // className={disabled ? 'grayscale card-img' : 'card-img'}
+                className="card-img"
                 src={story.img}
                 alt={story.title}
               />
               <button
-                className={disabled ? 'grayscale' : ''}
+                // className={disabled ? 'grayscale' : ''}
               >
                 <Link
                   to={'/stories/' + story.id}
-                  className={disabled ? 'disabled-link' : ''}
+                  className="card-img"
+                  // className={disabled ? 'disabled-link' : ''}
                 >
                   Start story
                 </Link>

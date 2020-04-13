@@ -55,6 +55,7 @@ function StoryPage(props: IStoryPageProps) {
     if (!currStory) return;
     const { sections } = currStory;
 
+    if (sections.length === 0) return;
     if (playingSectionAudio) {
       const currSection = sections[currSectionIdx];
       const sectionAudio = new Audio(sections[currSectionIdx].audio);
@@ -85,100 +86,6 @@ function StoryPage(props: IStoryPageProps) {
   }, [currSectionIdx, currStory, playingSectionAudio]);
 
   if (!currStory) return <div>No story selected</div>
-
-  // useEffect(() => {
-  //   if (!currStory) return;
-  //   const { sections } = currStory;
-  //   const storyAudio = new Audio(sections[currSectionIdx].audio);
-
-  //   storyAudio.addEventListener('ended', () => {
-  //     // if clause for DEMO purposes
-  //     if (currSectionIdx < 3) {
-  //       setPlayStoryAudio(false);
-  //       setShowWordModal(true);
-  //     }
-  //   });
-
-  //   // for DEMO purposes, this will be fixed up in future
-  //   if (currSectionIdx === 0) {
-  //     storyAudio.addEventListener('timeupdate', (event) => {
-  //       const audio = event.target as unknown as { currentTime: any, duration: any };
-
-  //       let currWordFound = false;
-  //       for (let i = 0; i < words.length; i += 1) {
-  //         if (currWordFound) break;
-  //         if (audio.currentTime >= words[i].start && audio.currentTime <= words[i].end) {
-  //           currWordFound = true;
-  //           setCurrWordIdx(i);
-  //           // console.log(currWordIdx);
-  //         }
-  //       }
-  //     });
-  //   }
-
-  //   if (playStoryAudio) storyAudio.autoplay = true;
-  // }, [playStoryAudio])
-
-  // if (!currStory) return <div>No story selected</div>
-
-  // const { currSectionIdx, sections } = currStory;
-
-  // let storyText: JSX.Element[] = [];
-
-  // let demoText: JSX.Element[] = [];
-
-  // sections.forEach((section, idx) => {
-  //   // this if case for DEMO purposes
-  //   if (currSectionIdx === 0 && idx === 0) {
-  //     words.forEach((word, wordIdx) => {
-  //       if (wordIdx === currWordIdx) {
-  //         demoText.push(
-  //         <span key={`demo-word-${wordIdx}`} style={{ backgroundColor: 'yellow' }}>
-  //           {word.text + ' '}
-  //           </span>
-  //         );
-  //      } else {
-  //         demoText.push(<span key={`demo-word-${wordIdx}`}>{word.text + ' '}</span>);
-  //       }
-  //     });
-
-  //     demoText.push(
-  //       <span
-  //         className="clickable"
-  //         key={`word-${idx}`}
-  //         onClick={() => {
-  //           props.changeCurrentSection(currStory.id, idx);
-  //           setPlayStoryAudio(false);
-  //           setWord(null);
-  //           setShowWordModal(true);
-  //         }}
-  //       >
-  //         <b>{section.word ? section.word.text + ' ' : '_____'}</b>
-  //       </span>
-  //     );
-  //   } else {
-  //     if (idx <= currSectionIdx) {
-  //       storyText.push(<span key={`text-${idx}`}>{section.text + ' '}</span>);
-  //       storyText.push(
-  //         <span
-  //           className={currSectionIdx < 3 ? 'clickable' : ''}
-  //           key={`word-${idx}`}
-  //           onClick={() => {
-  //             props.changeCurrentSection(currStory.id, idx);
-  //             setPlayStoryAudio(false);
-  //             setWord(null);
-  //             setShowWordModal(true);
-  //           }}
-  //         >
-  //           <b>{section.word ? section.word.text + ' ' : '_____'}</b>
-  //         </span>
-  //       );
-  //     }
-  //   }
-  // });
-
-  // // for DEMO purposes
-  // const textToShow = currSectionIdx === 0 ? demoText : storyText;
 
   const wordImgs: JSX.Element[] = [];
 
