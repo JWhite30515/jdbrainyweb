@@ -55,6 +55,7 @@ function StoryPage(props: IStoryPageProps) {
     if (!currStory) return;
     const { sections } = currStory;
 
+    if (sections.length === 0) return;
     if (playingSectionAudio) {
       const currSection = sections[currSectionIdx];
       const sectionAudio = new Audio(sections[currSectionIdx].audio);
