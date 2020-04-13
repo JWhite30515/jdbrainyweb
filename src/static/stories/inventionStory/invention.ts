@@ -23,13 +23,13 @@ const a17 = require('./audio/SPS_2_17.mp3');
 
 const story: IStory = {
   title: 'The Special Invention',
-  id: 1,
+  id: 3,
   sections: [
     {
       text:
         `“Get dressed and come to breakfast right now!”  Mom called sweetly.  
         “I will,”`,
-      audio: a2,
+      audio: a1,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -40,7 +40,7 @@ const story: IStory = {
         ` said.
         “You said that twice already!  You’ll make me late for work.”
         “Okay!”`,
-      audio: a3,
+      audio: a2,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -50,7 +50,7 @@ const story: IStory = {
       text:
         ` said.	
         Great ideas kept`,
-      audio: a4,
+      audio: a3,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -59,7 +59,7 @@ const story: IStory = {
     {
       text:
         ` thinking till late at night, so every morning it was hard to wake up in time for school.`,
-      audio: a5,
+      audio: a4,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -68,7 +68,7 @@ const story: IStory = {
     {
       text:
         ` liked inventing things, and they always worked really well---while`,
-      audio: a6,
+      audio: a5,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -77,7 +77,7 @@ const story: IStory = {
     {
       text:
         ` was planning and imagining them---and sometimes almost worked after`,
-      audio: a7,
+      audio: a6,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -86,7 +86,7 @@ const story: IStory = {
     {
       text:
         ` actually made them. A funnel to toss toys in like the`,
-      audio: a8,
+      audio: a7,
       wordCategories: [
         WordCategory.TOYS,
       ],
@@ -94,7 +94,7 @@ const story: IStory = {
     {
       text:
         ` and the`,
-      audio: a9,
+      audio: a8,
       wordCategories: [
         WordCategory.TOYS,
       ],
@@ -104,7 +104,7 @@ const story: IStory = {
         ` so they’d slide into the toy box to save time cleaning up. A squirt-gun scraper to scrape dog poop off shoes and
         wash them at the same time. A special second string so a kite could drop a little
         parachute holding a toy`,
-      audio: a10,
+      audio: a9,
       wordCategories: [
         WordCategory.PRETEND,
         WordCategory.ANIMALS,
@@ -120,7 +120,7 @@ const story: IStory = {
       text:
         ` Interesting inventions. Helpful inventions!
         Wonderful inventions!!`,
-      audio: a11,
+      audio: a10,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -129,7 +129,7 @@ const story: IStory = {
     {
       text:
         ` needed a special stay-up-after-wake-up-in-the-morning invention.`,
-      audio: a12,
+      audio: a11,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
@@ -138,7 +138,7 @@ const story: IStory = {
     {
       text:
         ` thought about the`,
-      audio: a13,
+      audio: a12,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -153,7 +153,7 @@ const story: IStory = {
       text:
         ` part all through breakfast, and
         cogitated about the`,
-      audio: a14,
+      audio: a13,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -168,7 +168,7 @@ const story: IStory = {
       text:
         ` section on the way to school, and devised
         the`,
-      audio: a15,
+      audio: a14,
       wordCategories: [
         WordCategory.VEHICLES,
       ],
@@ -176,7 +176,7 @@ const story: IStory = {
     {
       text:
         ` unit at school, and imagined the`,
-      audio: a16,
+      audio: a15,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -190,7 +190,7 @@ const story: IStory = {
     {
       text:
         ` segment on the way home, and by after school snack time knew the`,
-      audio: a17,
+      audio: a16,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,

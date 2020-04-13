@@ -72,10 +72,19 @@ function StoryPage(props: IStoryPageProps) {
           wordAudio.play();
         } else {
           if (currSectionIdx !== sections.length - 1) {
-            if (currSection.wordCategories === WordCategory.FRIENDS) {
+            if (
+              currSection.wordCategories === WordCategory.FRIENDS
+            ) {
               setShowFriendModal(true);
             } else {
-              setShowWordModal(true);
+              if (
+                currSection.wordCategories.length &&
+                currSection.wordCategories[0] === WordCategory.FRIENDS
+              ) {
+                setShowFriendModal(true);
+              } else {
+                setShowWordModal(true);
+              }
             }
           }
         }
