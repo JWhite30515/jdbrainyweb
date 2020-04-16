@@ -4,21 +4,21 @@ import { WordCategory } from '../../../redux/state/wordState';
 import img from './Wacky-Costume-no-templates.png';
 
 const a1 = require('./audio/SPS_1_26 Copy.mp3');
-const a2 = require('./audio/SPS_1_27 Copy.mp3');
-const a3 = require('./audio/SPS_1_28 Copy.mp3');
-const a4 = require('./audio/SPS_1_29 Copy.mp3');
-const a5 = require('./audio/SPS_1_30 Copy.mp3');
-const a6 = require('./audio/SPS_1_31 Copy.mp3');
-const a7 = require('./audio/SPS_1_32 Copy.mp3');
-const a8 = require('./audio/SPS_1_33 Copy.mp3');
-const a9 = require('./audio/SPS_1_34 Copy.mp3');
-const a10 = require('./audio/SPS_1_35 Copy.mp3');
-const a11 = require('./audio/SPS_1_36 Copy.mp3');
-const a12 = require('./audio/SPS_1_37 Copy.mp3');
-const a13 = require('./audio/SPS_1_38 Copy.mp3');
-const a14 = require('./audio/SPS_1_39 Copy.mp3');
-const a15 = require('./audio/SPS_1_40 Copy.mp3');
-const a16 = require('./audio/SPS_1_16 Copy.mp3');
+const a2 = require('./audio/SPS_1_26 Copy.mp3');
+const a3 = require('./audio/SPS_1_27 Copy.mp3');
+const a4 = require('./audio/SPS_1_28 Copy.mp3');
+const a5 = require('./audio/SPS_1_29 Copy.mp3');
+const a6 = require('./audio/SPS_1_30 Copy.mp3');
+const a7 = require('./audio/SPS_1_31 Copy.mp3');
+const a8 = require('./audio/SPS_1_32 Copy.mp3');
+const a9 = require('./audio/SPS_1_33 Copy.mp3');
+const a10 = require('./audio/SPS_1_34 Copy.mp3');
+const a11 = require('./audio/SPS_1_35 Copy.mp3');
+const a12 = require('./audio/SPS_1_36 Copy.mp3');
+const a13 = require('./audio/SPS_1_37 Copy.mp3');
+const a14 = require('./audio/SPS_1_38 Copy.mp3');
+const a15 = require('./audio/SPS_1_39 Copy.mp3');
+const a16 = require('./audio/SPS_1_40 Copy.mp3');
 
 const story: IStory = {
   title: 'The Wacky Costume Party',
