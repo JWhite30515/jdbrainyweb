@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img from './Wacky-Costume-no-templates.png';
+import img from './Wacky-Costume2-no-templates.png';
 
 const a1 = require('./audio/SPS_1_26 Copy.mp3');
 const a2 = require('./audio/SPS_1_26 Copy.mp3');
@@ -29,17 +29,33 @@ const story: IStory = {
       id: 2,
        audio: a1,
       wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
       text: ` or [G-2]`,
       id: 3,
       audio: a2,
       wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
       text: ` or [K-2]`,
       id: 4,
       audio: a3,
       wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
+      //3parter at the top
       text:
       ` they didn’t decide to befrightened—but those poor pets didn’t know they could decide,
       and justgothowlishouslyscared without even thinking about it! The [E-H E-M E-T]`,
@@ -49,20 +65,32 @@ const story: IStory = {
         WordCategory.MIDDLE,
         WordCategory.TAIL,]
     },{
+      //3parter by cake
       text: `spilled the fruit punch bowl and the [J-H J-M J-T]`,
       audio: a5,
       wordCategories:  [
         WordCategory.HEAD,
         WordCategory.MIDDLE,
-        WordCategory.TAIL,]
+        WordCategory.TAIL,],
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
+      //3parter at bottom
       text:
       ` tumbled into the big party chocolate angel-food cake and the [L-H L-M L-T]`,
       audio: a6,
       wordCategories: [
         WordCategory.HEAD,
         WordCategory.MIDDLE,
-        WordCategory.TAIL,]
+        WordCategory.TAIL,],
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
       text:
       `  knocked over the treats table and in all the commotion [D-2]`,
@@ -70,25 +98,34 @@ const story: IStory = {
       audio: a7,
       wordCategories: WordCategory.FRIENDS,
     },{
+      //item being hid behind
       text: ` hid behind the [N-8_9]`,
       audio: a8,
       wordCategories:  [
         WordCategory.THINGS,
-        WordCategory.HOUSE_STUFF]
+        WordCategory.HOUSE_STUFF],
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
       text: ` , and [G-2]`,
       id: 3,
       audio: a9,
       wordCategories: WordCategory.FRIENDS,
-    },
-    {
+    },{
       text: ` peeeeked out of the [P-8_9]`,
       audio: a10,
       wordCategories:  [
         WordCategory.THINGS,
-        WordCategory.HOUSE_STUFF]
-    },
-    {
+        WordCategory.HOUSE_STUFF],
+        imgPos: {
+            top: 76,
+            left: 66,
+            width: 12.7,
+          }
+    },{
       text: ` ,and [K-2]`,
       id: 4,
       audio: a11,
@@ -98,12 +135,22 @@ const story: IStory = {
       audio: a12,
       wordCategories: [
         WordCategory.THINGS,
-        WordCategory.HOUSE_STUFF]
+        WordCategory.HOUSE_STUFF],
+        imgPos: {
+            top: 76,
+            left: 66,
+            width: 12.7,
+          }
     },{
       text: ` , and when the grown-ups rushed in [C-2]`,
       id: 5,
       audio: a13,
       wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
     },{
       text:
       ` thought it was a very good time to hide in a costume, 
