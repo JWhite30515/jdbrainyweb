@@ -2,6 +2,7 @@ import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './0Special_Inventions_1_without_templates.png';
+//import img from './Background-Special_Inventions_with_placeholders.png';
 
 const a1 = require('./audio/SPS_2_1.mp3');
 const a2 = require('./audio/SPS_2_2.mp3');
@@ -90,6 +91,11 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      imgPos: {
+        top: 61,
+        left: 56,
+        width: 8,
+      }
     },
     {
       text:
@@ -98,6 +104,11 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      imgPos: {
+        top: 61,
+        left: 65,
+        width: 6
+      }
     },
     {
       text:
@@ -115,6 +126,11 @@ const story: IStory = {
         WordCategory.TOOLS,
         WordCategory.VEHICLES,
       ],
+      imgPos: {
+        top: 85,
+        left: 63,
+        width: 8,
+      }
     },
     {
       text:
@@ -199,6 +215,17 @@ const story: IStory = {
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
         WordCategory.TOOLS, 
+      ],
+    },
+    {
+      text:
+        ` made the final step and then knew exactly how to create it!
+        Every morning on her way to the kitchen Mom opened the bedroom door to
+        politely say, “Wake up!”`,
+      audio: a17,
+      id: 1,
+      wordCategories: [
+        WordCategory.FRIENDS,
       ],
     },
   ],
