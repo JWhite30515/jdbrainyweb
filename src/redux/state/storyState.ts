@@ -2,7 +2,7 @@ import { IFriendWord } from './friendState';
 import { IWord, WordCategory } from './wordState';
 
 import s1 from '../../static/stories/costumeStory/costume';
-import s2 from '../../static/stories/alienStory/alien';
+import s2 from '../../static/stories/santaStory/santa';
 import s3 from '../../static/stories/inventionStory/invention';
 
 export interface IStory {
