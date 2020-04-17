@@ -41,9 +41,7 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       id: 1,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
@@ -72,9 +70,7 @@ const story: IStory = {
         ` big enough to sit and rock on and pretend to ride far away. The first request for`,
       audio: a4,
       id: 2,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
@@ -98,9 +94,7 @@ const story: IStory = {
         bump somebody’s shoes from behind.`,
       audio: a7,
       id: 3,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
@@ -134,9 +128,7 @@ const story: IStory = {
         poor timid Elmer had mistakenly loaded into Santa’s sleigh for`,
       audio: a10,
       id: 1,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
@@ -165,9 +157,7 @@ const story: IStory = {
         ` to ride, for`,
       audio: a13,
       id: 2,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
@@ -190,9 +180,7 @@ const story: IStory = {
         ` for`,
       audio: a16,
       id: 3,
-      wordCategories: [
-        WordCategory.FRIENDS,
-      ],
+      wordCategories: WordCategory.FRIENDS,
     },
     {
       text:
