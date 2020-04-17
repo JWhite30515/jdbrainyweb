@@ -7,7 +7,6 @@ const story: IStory = {
   title: 'The Space Alien',
   img,
   sections: [],
-  currSectionIdx: 0,
 }
 
 export default story;

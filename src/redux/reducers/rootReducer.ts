@@ -1,6 +1,6 @@
 import { combineReducers, AnyAction, Reducer } from 'redux';
 
-import IQuizState, { initialQuizState } from '../state/quizState';
+import IFriendState, { initialFriendState } from '../state/friendState';
 import IStoryState, { initialStoryState } from '../state/storyState';
 import IWordState, { initialWordState } from '../state/wordState';
 import IRootState from '../state/rootState';
@@ -12,64 +12,44 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
   action
 ): IStoryState => {
   switch (action.type) {
-    case keys.SELECT_STORY_SUCCESS: {
-      const { id } = action;
-      const currStory = state.stories.find(story => story.id === id);
-
-      if (!currStory) return { ...state };
-
-      return {
-        ...state,
-        currStory,
-      }
-    }
     case keys.SELECT_WORD_SUCCESS: {
-      const { word, storyId } = action;
+      const { word, storyId, currSectionIdx } = action;
 
       const storyIdx = state.stories.findIndex(story => story.id === storyId);
+
       const updatedStory = { ...state.stories[storyIdx] };
 
       if (!updatedStory) return { ...state };
 
-      const updatedSection = { ...updatedStory.sections[updatedStory.currSectionIdx] };
+      console.log(currSectionIdx);
+
+      const updatedSection = { ...updatedStory.sections[currSectionIdx] };
+
       updatedSection.word = word;
 
       const updatedSections = [...updatedStory.sections];
-      updatedSections[updatedStory.currSectionIdx] = updatedSection;
+  
+      // if word has an id, set all sections with that id to have that word
+      if (updatedSection.id) {
+        for (let i = 0; i < updatedSections.length; i += 1) {
+          if (updatedSections[i].id === updatedSection.id) {
+            updatedSections[i].word = word;
+          }
+        }
+      } else {
+        updatedSections[currSectionIdx] = updatedSection;
+      }
 
       updatedStory.sections = updatedSections;
-      updatedStory.currSectionIdx += 1;
 
-      // TODO: fix this
-      if (updatedStory.currSectionIdx + 1 > updatedStory.sections.length) {
-        console.log('fuck');
-      }
-  
       let updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, updatedStory)
 
+      console.log('here are the updated stories\n');
+      console.log(updatedStories);
       return {
         ...state,
         stories: updatedStories,
-        currStory: updatedStory,
-      }
-    }
-    case keys.CHANGE_CURRENT_SECTION_SUCCESS: {
-      const { id, idx } = action;
-
-      const storyIdx = state.stories.findIndex(story => story.id === id);
-
-      const storyToUpdate = { ...state.stories[storyIdx] };
-
-      storyToUpdate.currSectionIdx = idx;
-
-      const updatedStories = [...state.stories];
-      updatedStories.splice(storyIdx, 1, storyToUpdate);
-
-      return {
-        ...state,
-        stories: updatedStories,
-        currStory: storyToUpdate,
       }
     }
     default:
@@ -84,14 +64,14 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   switch (action.type) {
     case keys.MASTER_WORD_SUCCESS: {
       const { word } = action;
-      word.completed = true;
-
-      const idxToUpdate = state.words.findIndex(word => word.text === action.word.text);
-
-      if (idxToUpdate < 0) return { ...state };
 
       const newWords = [...state.words];
-      newWords[idxToUpdate] = word;
+
+      for (const newWord of newWords) {
+        if (newWord.text === word.text) {
+          newWord.completed = true;
+        }
+      }
 
       return {
         ...state,
@@ -103,17 +83,21 @@ const wordReducer: Reducer<IWordState, AnyAction> = (
   }
 }
 
-const quizReducer: Reducer<IQuizState, AnyAction> = (
-  state = initialQuizState,
+const friendReducer: Reducer<IFriendState, AnyAction> = (
+  state = initialFriendState,
   action
-): IQuizState => {
+): IFriendState => {
   switch (action.type) {
-    case keys.SELECT_QUIZ_WORD_SUCCESS: {
-      const { word } = action;
+    case keys.CREATE_FRIEND_SUCCESS: {
+      const { friend } = action;
+
+      const friendsList = [...state.friends];
+      friendsList.push(friend);
+
       return {
         ...state,
-        word,
-      };      
+        friends: friendsList,
+      }
     }
     default:
       return state
@@ -123,7 +107,7 @@ const quizReducer: Reducer<IQuizState, AnyAction> = (
 const rootReducer = combineReducers<IRootState>({
   storyState: storyReducer,
   wordState: wordReducer,
-  quizState: quizReducer,
+  friendState: friendReducer,
 });
 
 export default rootReducer;

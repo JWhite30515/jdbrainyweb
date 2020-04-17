@@ -7,7 +7,6 @@ const story: IStory = {
   id: 2,
   img,
   sections: [],
-  currSectionIdx: 0
 }
 
 export default story;

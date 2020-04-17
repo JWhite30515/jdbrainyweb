@@ -7,7 +7,6 @@ import '../css/common.css';
 import logoImg from '../static/img/brainy_logo.png';
 
 export default function WelcomePage() {
-
   return (
     <div className="flex-column welcome-page">
       <h1>Brainy Make-a-Story Web</h1>
@@ -18,5 +17,5 @@ export default function WelcomePage() {
         </Link>
       </button>
     </div>
-  )
+  );
 }

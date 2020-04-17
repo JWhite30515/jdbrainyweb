@@ -1,3 +1,53 @@
+// segmented imports
+import antheadImg from '../../static/words/Segimg/ant-head.png';
+import antmiddleImg from '../../static/words/Segimg/ant-middle.png';
+import anttailImg from '../../static/words/Segimg/ant-tail.png';
+import batheadImg from '../../static/words/Segimg/bat-head.png';
+import batmiddleImg from '../../static/words/Segimg/bat-middle.png';
+import battailImg from '../../static/words/Segimg/bat-tail.png';
+import bugheadImg from '../../static/words/Segimg/bug-head.png';
+import bugmiddleImg from '../../static/words/Segimg/bug-middle.png';
+import bugtailImg from '../../static/words/Segimg/bug-tail.png';
+import catheadImg from '../../static/words/Segimg/Cat-head.png';
+import catmiddleImg from '../../static/words/Segimg/Cat-middle.png';
+import cattailImg from '../../static/words/Segimg/Cat-tail.png';
+import copheadImg from '../../static/words/Segimg/Cop-Head.png';
+import copbodyImg from '../../static/words/Segimg/Cop-Body.png';
+import cubheadImg from '../../static/words/Segimg/cub-head.png';
+import cubmiddleImg from '../../static/words/Segimg/cub-middle.png';
+import cubtailImg from '../../static/words/Segimg/cub-tail.png';
+import dogheadImg from '../../static/words/Segimg/Dog-head.png';
+import dogmiddleImg from '../../static/words/Segimg/Dog-middle.png';
+import dogtailImg from '../../static/words/Segimg/Dog-tail.png';
+import elkheadImg from '../../static/words/Segimg/elk-head.png';
+import elkmiddleImg from '../../static/words/Segimg/elk-middle.png';
+import elktailImg from '../../static/words/Segimg/elk-tail.png';
+import flyheadImg from '../../static/words/Segimg/fly-head.png';
+import flymiddleImg from '../../static/words/Segimg/fly-middle.png';
+import flytailImg from '../../static/words/Segimg/fly-tail.png';
+import docheadImg from '../../static/words/Segimg/Doc-head.png';
+import docbodyImg from '../../static/words/Segimg/Doc-Body.png';
+import elfheadImg from '../../static/words/Segimg/Elf-Head.png';
+import elfbodyImg from '../../static/words/Segimg/Elf-Body.png';
+import foxheadImg from '../../static/words/Segimg/Fox-head.png';
+import foxmiddleImg from '../../static/words/Segimg/Fox-middle.png';
+import foxtailImg from '../../static/words/Segimg/Fox-tail.png';
+import galheadImg from '../../static/words/Segimg/Gal-Head.png';
+import galbodyImg from '../../static/words/Segimg/Gal-Body.png';
+import henheadImg from '../../static/words/Segimg/Hen-head.png';
+import henmiddleImg from '../../static/words/Segimg/Hen-middle.png';
+import hentailImg from '../../static/words/Segimg/Hen-Tail.png';
+import kidheadImg from '../../static/words/Segimg/Kid-Head.png';
+import kidbodyImg from '../../static/words/Segimg/Kid-Body.png';
+import pigheadImg from '../../static/words/Segimg/pig-head.png';
+import pigmiddleImg from '../../static/words/Segimg/Pig-middle.png';
+import pigtailImg from '../../static/words/Segimg/Pig-tail.png';
+import ramheadImg from '../../static/words/Segimg/Ram-head.png';
+import rammiddleImg from '../../static/words/Segimg/Ram-middle.png';
+import ramtailImg from '../../static/words/Segimg/Ram-tail.png';
+import refheadImg from '../../static/words/Segimg/Ref-Head.png';
+import refbodyImg from '../../static/words/Segimg/Ref-Body.png';
+
 //image imports
 import apeImg from '../../static/words/img/ape.png';
 import bearImg from '../../static/words/img/bear.png';
@@ -103,6 +153,17 @@ import fridgeImg from '../../static/words/img/fridge.png';
 import fringeImg from '../../static/words/img/fringe.png';
 import glassImg from '../../static/words/img/glass.png';
 
+// segmented words audio
+const batAudio = require('../../static/words/audio/bat.mp3');
+//const bugAudio = require('../../static/words/audio/bug.mp3');
+// const catAudio = require('../../static/words/audio/cat.mp3');
+// const dogAudio = require('../../static/words/audio/dog.mp3');
+// const elfAudio = require('../../static/words/audio/elf.mp3');
+const flyAudio = require('../../static/words/audio/fly.mp3');
+// const foxAudio = require('../../static/words/audio/fox.mp3');
+const pigAudio = require('../../static/words/audio/pig.mp3');
+// const ramAudio = require('../../static/words/audio/Ram.mp3');
+
 // thing audio
 const bagAudio = require('../../static/words/audio/bag.mp3');
 const bedAudio = require('../../static/words/audio/bed.mp3');
@@ -198,12 +259,12 @@ const gloveAudio = require('../../static/words/audio/glove.mp3');
 const ambulanceAudio = require('../../static/words/audio/ambulance.mp3');
 const bugAudio = require('../../static/words/audio/bug.mp3');
 
-export interface IWord {
-  completed: boolean;
+const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
+
+export interface IBaseWord {
   text: string;
   img: any;
-  audio?: any;
-  category: WordCategory;
+  audio: any;
 }
 
 export enum WordCategory {
@@ -225,723 +286,1022 @@ export enum WordCategory {
   DOING = 'Doing',
   DESCRIBE = 'Describe',
   COLORS = 'Colors',
-  THINGS = 'Things'
+  THINGS = 'Things',
+  HEAD = 'Head',
+  MIDDLE = 'Middle',
+  TAIL = 'Tail',
+  BODY = 'Body',
+  PEOPLE_HEAD =  'People Head'
+}
+
+export interface IWord extends IBaseWord {
+  completed: boolean;
+  category: WordCategory;
 }
 
 export default interface IWordState {
   words: IWord[];
 }
 
-export const initialWordState: IWordState = {
-  words: [
-    {
-      completed: false,
-      text: 'ape',
-      img: apeImg,
-      audio: apeAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'bear',
-      img: bearImg,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'burger',
-      img: burgerImg,
-      category: WordCategory.FOOD,
-    },
-    {
-      completed: false,
-      text: 'cat',
-      img: catImg,
-      audio: catAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'clothes',
-      img: clothesImg,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'cow',
-      img: cowImg,
-      category: WordCategory.ANIMALS,
-      audio: cowAudio,
-    },
-    {
-      completed: false,
-      text: 'bag',
-      img: bagImg,
-      audio: bagAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'bed',
-      img: bedImg,
-      audio: bedAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'box',
-      img: boxImg,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'bubble',
-      img: bubbleImg,
-      audio: bubbleAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'clarinet',
-      img: clarinetImg,
-      audio: clarinetAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'flute',
-      img: fluteImg,
-      audio: fluteAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'fork',
-      img: forkImg,
-      audio: forkAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'fridge',
-      img: fridgeImg,
-      audio: fridgeAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'fringe',
-      img: fringeImg,
-      audio: fringeAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'glass',
-      img: glassImg,
-      audio: glassAudio,
-      category: WordCategory.THINGS
-    },
-    {
-      completed: false,
-      text: 'camel',
-      img: camelImg,
-      audio: camelAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'dog',
-      img: dogImg,
-      audio: dogAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'dogs',
-      img: dogsImg,
-      audio: dogsAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'fox',
-      img: foxImg,
-      audio: foxAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'goat',
-      img: goatImg,
-      audio: goatAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'kitten',
-      img: kittenImg,
-      audio: kittenAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'mole',
-      img: moleImg,
-      audio: moleAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'moth',
-      img: mothImg,
-      audio: mothAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'mouse',
-      img: mouseImg,
-      audio: mouseAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'rabbit',
-      img: rabbitImg,
-      audio: rabbitAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'ram',
-      img: ramImg,
-      audio: ramAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'tail',
-      img: tailImg,
-      audio: tailAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'whale',
-      img: whaleImg,
-      audio: whaleAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'wolf',
-      img: wolfImg,
-      audio: wolfAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'zebra',
-      img: zebraImg,
-      audio: zebraAudio,
-      category: WordCategory.ANIMALS,
-    },
-    {
-      completed: false,
-      text: 'candy',
-      img: candyImg,
-      audio: candyAudio,
-      category: WordCategory.FOOD,
-    },
-    {
-      completed: false,
-      text: 'gold',
-      img: goldImg,
-      audio: goldAudio,
-      category: WordCategory.COLORS,
-    },
-    {
-      completed: false,
-      text: 'grass',
-      img: grassImg,
-      audio: grassAudio,
-      category: WordCategory.OUTDOORS,
-    },
-    {
-      completed: false,
-      text: 'ice',
-      img: iceImg,
-      audio: iceAudio,
-      category: WordCategory.OUTDOORS,
-    },
-    {
-      completed: false,
-      text: 'nuts',
-      img: nutsImg,
-      audio: nutsAudio,
-      category: WordCategory.FOOD,
-    },
-    {
-      completed: false,
-      text: 'plum',
-      img: plumImg,
-      audio: plumAudio,
-      category: WordCategory.FOOD,
-    },
-    {
-      completed: false,
-      text: 'rainbow',
-      img: rainbowImg,
-      audio: rainbowAudio,
-      category: WordCategory.OUTDOORS,
-    },
-    {
-      completed: false,
-      text: 'silver',
-      img: silverImg,
-      audio: silverAudio,
-      category: WordCategory.COLORS,
-    },
-    {
-      completed: false,
-      text: 'tea',
-      img: teaImg,
-      audio: teaAudio,
-      category: WordCategory.FOOD,
-    },
-    {
-      completed: false,
-      text: 'tree',
-      img: treeImg,
-      audio: treeAudio,
-      category: WordCategory.OUTDOORS,
-    },
-    {
-      completed: false,
-      text: 'wall',
-      img: wallImg,
-      audio: wallAudio,
-      category: WordCategory.OUTDOORS,
-    },
-    {
-      completed: false,
-      text: 'yellow',
-      img: yellowImg,
-      audio: yellowAudio,
-      category: WordCategory.COLORS,
-    },
-    {
-      completed: false,
-      text: 'jay',
-      img: jayImg,
-      category: WordCategory.BIRDS,
-    },
-    {
-      completed: false,
-      text: 'owl',
-      img: owlImg,
-      audio: owlAudio,
-      category: WordCategory.BIRDS,
-    },
-    {
-      completed: false,
-      text: 'swan',
-      img: swanImg,
-      audio: swanAudio,
-      category: WordCategory.BIRDS,
-    },
-    {
-      completed: false,
-      text: 'axe',
-      img: axeImg,
-      audio: axeAudio,
-      category: WordCategory.TOOLS,
-    },
-    {
-      completed: false,
-      text: 'nail',
-      img: nailImg,
-      audio: nailAudio,
-      category: WordCategory.TOOLS,
-    },
-    {
-      completed: false,
-      text: 'saw',
-      img: sawImg,
-      audio: sawAudio,
-      category: WordCategory.TOOLS,
-    },
-    {
-      completed: false,
-      text: 'rake',
-      img: rakeImg,
-      audio: rakeAudio,
-      category: WordCategory.TOOLS,
-    },
-    {
-      completed: false,
-      text: 'elf',
-      img: elfImg,
-      audio: elfAudio,
-      category: WordCategory.PRETEND,
-    },
-    {
-      completed: false,
-      text: 'yeti',
-      img: yetiImg,
-      audio: yetiAudio,
-      category: WordCategory.PRETEND,
-    },
-    {
-      completed: false,
-      text: 'baby',
-      img: babyImg,
-      audio: babyAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'boy',
-      img: boyImg,
-      audio: boyAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'clown',
-      img: clownImg,
-      audio: clownAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'dancer',
-      img: dancerImg,
-      // audio: dancerAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'family',
-      img: familyImg,
-      audio: familyAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'girl',
-      img: girlImg,
-      audio: girlAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'juggler',
-      img: jugglerImg,
-      audio: jugglerAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'king',
-      img: kingImg,
-      audio: kingAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'man',
-      img: manImg,
-      audio: manAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'queen',
-      img: queenImg,
-      audio: queenAudio,
-      category: WordCategory.PEOPLE,
-    },
-    {
-      completed: false,
-      text: 'face',
-      img: faceImg,
-      audio: faceAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'hand',
-      img: handImg,
-      audio: handAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'lip',
-      img: lipImg,
-      // audio: lipAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'mouth',
-      img: mouthImg,
-      audio: mouthAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'nose',
-      img: noseImg,
-      audio: noseAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'toe',
-      img: toeImg,
-      audio: toeAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'beaver',
-      img: beaverImg,
-      audio: beaverAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'bridge',
-      img: bridgeImg,
-      audio: bridgeAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'volcano',
-      img: volcanoImg,
-      audio: volcanoAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'zoo',
-      img: zooImg,
-      // audio: zooAudio,
-      category: WordCategory.BODY_PARTS,
-    },
-    {
-      completed: false,
-      text: 'key',
-      img: keyImg,
-      audio: keyAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'light',
-      img: lightImg,
-      audio: lightAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'music',
-      img: musicImg,
-      audio: musicAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'net',
-      img: netImg,
-      audio: netAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'oven',
-      img: ovenImg,
-      audio: ovenAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'pearl',
-      img: pearlImg,
-      audio: pearlAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'pencil',
-      img: pencilImg,
-      audio: pencilAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'pot',
-      img: potImg,
-      audio: potAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'saucepan',
-      img: saucepanImg,
-      audio: saucepanAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'skis',
-      img: skisImg,
-      audio: skisAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'sofa',
-      img: sofaImg,
-      audio: sofaAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'squares',
-      img: squaresImg,
-      //audio: squaresAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'tuba',
-      img: tubaImg,
-      audio: tubaAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'zipper',
-      img: zipperImg,
-      audio: zipperAudio,
-      category: WordCategory.HOUSE_STUFF,
-    },
-    {
-      completed: false,
-      text: 'ball',
-      img: ballImg,
-      audio: ballAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'car',
-      img: carImg,
-      audio: carAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'jeep',
-      img: jeepImg,
-      audio: jeepAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'slide',
-      img: slideImg,
-      audio: slideAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'unicycle',
-      img: unicycleImg,
-      audio: unicycleAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'wagon',
-      img: wagonImg,
-      audio: wagonAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'yoyo',
-      img: yoyoImg,
-      //audio: yoyoAudio,
-      category: WordCategory.TOYS,
-    },
-    {
-      completed: false,
-      text: 'glove',
-      img: gloveImg,
-      audio: gloveAudio,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'purse',
-      img: purseImg,
-      audio: purseAudio,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'suit',
-      img: suitImg,
-      audio: suitAudio,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'tie',
-      img: tieImg,
-      audio: tieAudio,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'wig',
-      img: wigImg,
-      audio: wigAudio,
-      category: WordCategory.CLOTHES
-    },
-    {
-      completed: false,
-      text: 'ambulance',
-      img: ambulanceImg,
-      audio: ambulanceAudio,
-      category: WordCategory.VEHICLES
-    },
-    {
-      completed: false,
-      text: 'bus',
-      img: busImg,
-      // audio: busAudio,
-      category: WordCategory.VEHICLES
-    },
-    {
-      completed: false,
-      text: 'bug',
-      img: bugImg,
-      audio: bugAudio,
-      category: WordCategory.VEHICLES
-    },
-    {
-      completed: false,
-      text: 'car',
-      img: carImg,
-      audio: carAudio,
-      category: WordCategory.VEHICLES
-    },
-  ]
+const words: IWord[] = [
+  {
+    completed: false,
+    text: 'ape',
+    img: apeImg,
+    audio: apeAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'bear',
+    img: bearImg,
+    audio: placeholderAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'burger',
+    img: burgerImg,
+    audio: placeholderAudio,
+    category: WordCategory.FOOD,
+  },
+  {
+    completed: false,
+    text: 'cat',
+    img: catImg,
+    audio: catAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'clothes',
+    img: clothesImg,
+    audio: placeholderAudio,
+    category: WordCategory.CLOTHES
+  },
+  {
+    completed: false,
+    text: 'cow',
+    img: cowImg,
+    category: WordCategory.ANIMALS,
+    audio: cowAudio,
+  },
+  {
+    completed: false,
+    text: 'bag',
+    img: bagImg,
+    audio: bagAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'bed',
+    img: bedImg,
+    audio: bedAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'box',
+    img: boxImg,
+    audio: placeholderAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'bubble',
+    img: bubbleImg,
+    audio: bubbleAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'clarinet',
+    img: clarinetImg,
+    audio: clarinetAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'flute',
+    img: fluteImg,
+    audio: fluteAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'fork',
+    img: forkImg,
+    audio: forkAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'fridge',
+    img: fridgeImg,
+    audio: fridgeAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'fringe',
+    img: fringeImg,
+    audio: fringeAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'glass',
+    img: glassImg,
+    audio: glassAudio,
+    category: WordCategory.THINGS
+  },
+  {
+    completed: false,
+    text: 'camel',
+    img: camelImg,
+    audio: camelAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'dog',
+    img: dogImg,
+    audio: dogAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'dogs',
+    img: dogsImg,
+    audio: dogsAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'fox',
+    img: foxImg,
+    audio: foxAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'goat',
+    img: goatImg,
+    audio: goatAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'kitten',
+    img: kittenImg,
+    audio: kittenAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'mole',
+    img: moleImg,
+    audio: moleAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'moth',
+    img: mothImg,
+    audio: mothAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'mouse',
+    img: mouseImg,
+    audio: mouseAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'rabbit',
+    img: rabbitImg,
+    audio: rabbitAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'ram',
+    img: ramImg,
+    audio: ramAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'tail',
+    img: tailImg,
+    audio: tailAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'whale',
+    img: whaleImg,
+    audio: whaleAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'wolf',
+    img: wolfImg,
+    audio: wolfAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'zebra',
+    img: zebraImg,
+    audio: zebraAudio,
+    category: WordCategory.ANIMALS,
+  },
+  {
+    completed: false,
+    text: 'candy',
+    img: candyImg,
+    audio: candyAudio,
+    category: WordCategory.FOOD,
+  },
+  {
+    completed: false,
+    text: 'gold',
+    img: goldImg,
+    audio: goldAudio,
+    category: WordCategory.COLORS,
+  },
+  {
+    completed: false,
+    text: 'grass',
+    img: grassImg,
+    audio: grassAudio,
+    category: WordCategory.OUTDOORS,
+  },
+  {
+    completed: false,
+    text: 'ice',
+    img: iceImg,
+    audio: iceAudio,
+    category: WordCategory.OUTDOORS,
+  },
+  {
+    completed: false,
+    text: 'nuts',
+    img: nutsImg,
+    audio: nutsAudio,
+    category: WordCategory.FOOD,
+  },
+  {
+    completed: false,
+    text: 'plum',
+    img: plumImg,
+    audio: plumAudio,
+    category: WordCategory.FOOD,
+  },
+  {
+    completed: false,
+    text: 'rainbow',
+    img: rainbowImg,
+    audio: rainbowAudio,
+    category: WordCategory.OUTDOORS,
+  },
+  {
+    completed: false,
+    text: 'silver',
+    img: silverImg,
+    audio: silverAudio,
+    category: WordCategory.COLORS,
+  },
+  {
+    completed: false,
+    text: 'tea',
+    img: teaImg,
+    audio: teaAudio,
+    category: WordCategory.FOOD,
+  },
+  {
+    completed: false,
+    text: 'tree',
+    img: treeImg,
+    audio: treeAudio,
+    category: WordCategory.OUTDOORS,
+  },
+  {
+    completed: false,
+    text: 'wall',
+    img: wallImg,
+    audio: wallAudio,
+    category: WordCategory.OUTDOORS,
+  },
+  {
+    completed: false,
+    text: 'yellow',
+    img: yellowImg,
+    audio: yellowAudio,
+    category: WordCategory.COLORS,
+  },
+  {
+    completed: false,
+    text: 'jay',
+    img: jayImg,
+    audio: placeholderAudio,
+    category: WordCategory.BIRDS,
+  },
+  {
+    completed: false,
+    text: 'owl',
+    img: owlImg,
+    audio: owlAudio,
+    category: WordCategory.BIRDS,
+  },
+  {
+    completed: false,
+    text: 'swan',
+    img: swanImg,
+    audio: swanAudio,
+    category: WordCategory.BIRDS,
+  },
+  {
+    completed: false,
+    text: 'axe',
+    img: axeImg,
+    audio: axeAudio,
+    category: WordCategory.TOOLS,
+  },
+  {
+    completed: false,
+    text: 'nail',
+    img: nailImg,
+    audio: nailAudio,
+    category: WordCategory.TOOLS,
+  },
+  {
+    completed: false,
+    text: 'saw',
+    img: sawImg,
+    audio: sawAudio,
+    category: WordCategory.TOOLS,
+  },
+  {
+    completed: false,
+    text: 'rake',
+    img: rakeImg,
+    audio: rakeAudio,
+    category: WordCategory.TOOLS,
+  },
+  {
+    completed: false,
+    text: 'elf',
+    img: elfImg,
+    audio: elfAudio,
+    category: WordCategory.PRETEND,
+  },
+  {
+    completed: false,
+    text: 'yeti',
+    img: yetiImg,
+    audio: yetiAudio,
+    category: WordCategory.PRETEND,
+  },
+  {
+    completed: false,
+    text: 'baby',
+    img: babyImg,
+    audio: babyAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'boy',
+    img: boyImg,
+    audio: boyAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'clown',
+    img: clownImg,
+    audio: clownAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'dancer',
+    img: dancerImg,
+    // audio: dancerAudio,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'family',
+    img: familyImg,
+    audio: familyAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'girl',
+    img: girlImg,
+    audio: girlAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'juggler',
+    img: jugglerImg,
+    audio: jugglerAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'king',
+    img: kingImg,
+    audio: kingAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'man',
+    img: manImg,
+    audio: manAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'queen',
+    img: queenImg,
+    audio: queenAudio,
+    category: WordCategory.PEOPLE,
+  },
+  {
+    completed: false,
+    text: 'face',
+    img: faceImg,
+    audio: faceAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'hand',
+    img: handImg,
+    audio: handAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'lip',
+    img: lipImg,
+    // audio: lipAudio,
+    audio: placeholderAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'mouth',
+    img: mouthImg,
+    audio: mouthAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'nose',
+    img: noseImg,
+    audio: noseAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'toe',
+    img: toeImg,
+    audio: toeAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'beaver',
+    img: beaverImg,
+    audio: beaverAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'bridge',
+    img: bridgeImg,
+    audio: bridgeAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'volcano',
+    img: volcanoImg,
+    audio: volcanoAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'zoo',
+    img: zooImg,
+    // audio: zooAudio,
+    audio: placeholderAudio,
+    category: WordCategory.BODY_PARTS,
+  },
+  {
+    completed: false,
+    text: 'key',
+    img: keyImg,
+    audio: keyAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'light',
+    img: lightImg,
+    audio: lightAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'music',
+    img: musicImg,
+    audio: musicAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'net',
+    img: netImg,
+    audio: netAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'oven',
+    img: ovenImg,
+    audio: ovenAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'pearl',
+    img: pearlImg,
+    audio: pearlAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'pencil',
+    img: pencilImg,
+    audio: pencilAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'pot',
+    img: potImg,
+    audio: potAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'saucepan',
+    img: saucepanImg,
+    audio: saucepanAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'skis',
+    img: skisImg,
+    audio: skisAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'sofa',
+    img: sofaImg,
+    audio: sofaAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'squares',
+    img: squaresImg,
+    //audio: squaresAudio,
+    audio: placeholderAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'tuba',
+    img: tubaImg,
+    audio: tubaAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'zipper',
+    img: zipperImg,
+    audio: zipperAudio,
+    category: WordCategory.HOUSE_STUFF,
+  },
+  {
+    completed: false,
+    text: 'ball',
+    img: ballImg,
+    audio: ballAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'car',
+    img: carImg,
+    audio: carAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'jeep',
+    img: jeepImg,
+    audio: jeepAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'slide',
+    img: slideImg,
+    audio: slideAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'unicycle',
+    img: unicycleImg,
+    audio: unicycleAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'wagon',
+    img: wagonImg,
+    audio: wagonAudio,
+    category: WordCategory.TOYS,
+  },
+  {
+    completed: false,
+    text: 'yoyo',
+    img: yoyoImg,
+    audio: placeholderAudio,
+    category: WordCategory.TOYS,
+  },
+];
+
+const segmentedWords: IWord[] = [
+  {
+    text: 'ant',
+    img: antheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'ant',
+    img: antmiddleImg,
+    audio: placeholderAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'ant',
+    img: anttailImg,
+    audio: placeholderAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'bat',
+    img: batheadImg,
+    audio: batAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'bat',
+    img: batmiddleImg,
+    audio: batAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'bat',
+    img: battailImg,
+    audio: batAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'bug',
+    img: bugheadImg,
+    audio: bugAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'bug',
+    img: bugmiddleImg,
+    audio: bugAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'bug',
+    img: bugtailImg,
+    audio: bugAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'cat',
+    img: catheadImg,
+    audio: catAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'cat',
+    img: catmiddleImg,
+    audio: catAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'cat',
+    img: cattailImg,
+    audio: catAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'cop',
+    img: copheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'cop',
+    img: copbodyImg,
+    audio: placeholderAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  },
+  {
+    text: 'cub',
+    img: cubheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'cub',
+    img: cubmiddleImg,
+    audio: placeholderAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'cub',
+    img: cubtailImg,
+    audio: placeholderAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'doctor',
+    img: docheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'doctor',
+    img: docbodyImg,
+    audio: placeholderAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  },
+  {
+    text: 'dog',
+    img: dogheadImg,
+    audio: dogAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'dog',
+    img: dogmiddleImg,
+    audio: dogAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'dog',
+    img: dogtailImg,
+    audio: dogAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'elf',
+    img: elfheadImg,
+    audio: elfAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'elf',
+    img: elfbodyImg,
+    audio: elfAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  },
+  {
+    text: 'elk',
+    img: elkheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'elk',
+    img: elkmiddleImg,
+    audio: placeholderAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'elk',
+    img: elktailImg,
+    audio: placeholderAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'fly',
+    img: flyheadImg,
+    audio: flyAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'fly',
+    img: flymiddleImg,
+    audio: flyAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'fly',
+    img: flytailImg,
+    audio: flyAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'fox',
+    img: foxheadImg,
+    audio: foxAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'fox',
+    img: foxmiddleImg,
+    audio: foxAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'fox',
+    img: foxtailImg,
+    audio: foxAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'gal',
+    img: galbodyImg,
+    audio: placeholderAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  },
+  {
+    text: 'gal',
+    img: galheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'hen',
+    img: henheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'hen',
+    img: henmiddleImg,
+    audio: placeholderAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'hen',
+    img: hentailImg,
+    audio: placeholderAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'kid',
+    img: kidheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'kid',
+    img: kidbodyImg,
+    audio: placeholderAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  },
+  {
+    text: 'pig',
+    img: pigheadImg,
+    audio: pigAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'pig',
+    img: pigmiddleImg,
+    audio: pigAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'pig',
+    img: pigtailImg,
+    audio: pigAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'ram',
+    img: ramheadImg,
+    audio: ramAudio,
+    category: WordCategory.HEAD,
+    completed: false,
+  },
+  {
+    text: 'ram',
+    img: rammiddleImg,
+    audio: ramAudio,
+    category: WordCategory.MIDDLE,
+    completed: false,
+  },
+  {
+    text: 'ram',
+    img: ramtailImg,
+    audio: ramAudio,
+    category: WordCategory.TAIL,
+    completed: false,
+  },
+  {
+    text: 'referee',
+    img: refheadImg,
+    audio: placeholderAudio,
+    category: WordCategory.PEOPLE_HEAD,
+    completed: false,
+  },
+  {
+    text: 'referee',
+    img: refbodyImg,
+    audio: placeholderAudio,
+    category: WordCategory.BODY,
+    completed: false,
+  }
+];
+
+const allWords: IWord[] = words.concat(segmentedWords);
+
+export const initialWordState = {
+  words: allWords,
 };

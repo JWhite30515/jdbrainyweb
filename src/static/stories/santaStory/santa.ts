@@ -35,10 +35,9 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       wordCategories: [],
-    }
+    },
   ],
   img,
-  currSectionIdx: 0
 };
 
 export default story;

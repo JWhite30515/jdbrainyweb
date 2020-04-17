@@ -1,15 +1,15 @@
-import IQuizState, { initialQuizState } from './quizState';
+import IFriendState, { initialFriendState } from './friendState';
 import IStoryState, { initialStoryState } from './storyState';
 import IWordState, { initialWordState } from './wordState';
 
 export default interface IRootState {
-  quizState: IQuizState;
+  friendState: IFriendState;
   storyState: IStoryState;
   wordState: IWordState;
 }
 
 export const initialState = {
-  quizState: initialQuizState,
+  friendState: initialFriendState,
   storyState: initialStoryState,
   wordState: initialWordState,
 }

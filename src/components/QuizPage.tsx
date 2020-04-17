@@ -8,54 +8,88 @@ import { bindActionCreators } from 'redux';
 import IRootState from '../redux/state/rootState';
 import { masterWord } from '../redux/actions/wordActions';
 import { selectWord } from '../redux/actions/storyActions';
-import { IStory } from '../redux/state/storyState';
+import { IFriendWord } from '../redux/state/friendState';
 import { IWord } from '../redux/state/wordState';
+
+import Card from './common/Card';
 
 import '../css/common.css';
 import '../css/quiz.css';
 
 export interface IQuizPageProps {
-  // currSectionIdx: number;
-  word: IWord | null;
+  currSectionIdx: number;
+  currStoryId: number;
+  quizWord: IWord;
   words: IWord[];
-  // storyIdx: number;
-  currStory: IStory | null;
   masterWord: (word: IWord) => void;
-  selectWord: (word: IWord, storyId: number) => void;
+  selectWord: (word: IWord | IFriendWord, storyId: number, currSectionIdx: number) => void;
+  setCurrSectionIdx: (idx: number) => void;
+  setFromQuiz: (fromQuiz: boolean) => void;
+  setPlayingSectionAudio: (playing: boolean) => void;
+  setWordAudio: (audio: HTMLAudioElement) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
-  const { currStory, word, words } = props;
+  const {
+    currSectionIdx,
+    currStoryId,
+    quizWord,
+    words,
+    masterWord,
+    selectWord,
+    setCurrSectionIdx,
+    setFromQuiz,
+    setPlayingSectionAudio,
+    setWordAudio,
+  } = props;
 
   const history = useHistory();
 
   const [score, setScore] = useState(0);
-  const [options, setOptions] = useState(randomizeOptions(word, words));
+  const [options, setOptions] = useState(randomizeOptions(quizWord, words));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
 
+  const quizWordAudio = new Audio(quizWord.audio);
+
   useEffect(() => {
-    if (!word || !currStory) return;
-    
-    wordAudio.addEventListener('ended', async () => {
+    quizWordAudio.addEventListener('ended', () => {
       if (score === 3) {
-        const newWord = { ...word, completed: true };
-        console.log('how many times is this getting called');
+        history.push(`/stories/${currStoryId}`);
+        const newWord = { ...quizWord, completed: true };
 
-        props.masterWord(newWord);
-        props.selectWord(newWord, currStory.id);
+        console.log(`Quiz word ${newWord.text} mastered!`);
 
-        history.push({
-          pathname: '/stories/' + currStory.id,
-        });
+        masterWord(newWord);
+        selectWord(newWord, currStoryId, currSectionIdx);
+
+        // separate audio instantion to add different onEnded event listener
+        const wordAudio = new Audio(newWord.audio);
+
+        setFromQuiz(true);
+        setPlayingSectionAudio(false);
+
+        setCurrSectionIdx(currSectionIdx + 1);
+        setWordAudio(wordAudio);
       }
     });
-    wordAudio.play();
-  }, [score]);
+    quizWordAudio.play();
+  }, [
+    currSectionIdx,
+    currStoryId,
+    history,
+    masterWord,
+    quizWord,
+    quizWordAudio,
+    score,
+    selectWord,
+    setCurrSectionIdx,
+    setFromQuiz,
+    setPlayingSectionAudio,
+    setWordAudio,
+  ]);
 
-  if (!word) return <div>Error rendering quiz</div>
-
-  const wordAudio = new Audio(word.audio);
+  if (!quizWord || !quizWord.audio) return <div>Error rendering quiz</div>
 
   const starRatings = [];
   for (let i = 0; i < score; i += 1) {
@@ -100,11 +134,11 @@ function QuizPage(props: IQuizPageProps) {
       <div className="flex-row">
         {options.map((option, idx) => {
           return (
-            <div
-              className="quiz-item card-item"
-              key={`option-${idx + 1}`}
+            <Card
+              key={`quiz_card_${idx}`}
+              isQuizCard
               onClick={() => {
-                if (option.text === word.text) {
+                if (option.text === quizWord.text) {
                   if (hasStreak) {
                     // increment points if make consecutive correct answer
                     const newScore = score + 1;
@@ -118,21 +152,21 @@ function QuizPage(props: IQuizPageProps) {
                   setHasStreak(false);
                   setScore(0);
                 }
-                setOptions(randomizeOptions(word, words));
+                setOptions(randomizeOptions(quizWord, words));
               }}
             >
               <h1>{option.text}</h1>
-              {/* <img
+              <img
                 className={'card-img'}
                 style={{ maxWidth: '120px' }}
                 src={option.img}
                 alt={option.text}
-              /> */}
-            </div>
+              />
+            </Card>
           );
         })}
       </div>
-      <div onClick={() => wordAudio.play()}>
+      <div onClick={() => quizWordAudio.play()}>
         <IoIosVolumeHigh size={'3em'} />
       </div>
     </div>
@@ -146,7 +180,7 @@ const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
   // used indexes of words in words[] array
   const usedWordIdxs: number[] = [];
   // used indexes of options, 0 - 3
-  const usedOptionIdxs: number[] = []; 
+  const usedOptionIdxs: number[] = [];
 
   // first randomize index of correct word option, 0 - 3
   const correctIdx = Math.floor(Math.random() * 4);
@@ -184,8 +218,6 @@ const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
 
 const mapStateToProps = (state: IRootState) => {
   return {
-    currStory: state.storyState.currStory,
-    word: state.quizState.word,
     words: state.wordState.words,
   }
 }
