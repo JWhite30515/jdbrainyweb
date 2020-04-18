@@ -60,9 +60,15 @@ export default function Section(props: ISectionProps) {
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
                   setShowFriendModal(true);
+                } else if (
+                  sections[sectionIdx].wordCategories.length &&
+                  sections[sectionIdx].wordCategories[0] === WordCategory.FRIENDS
+                ) {
+                  setShowFriendModal(true);
                 } else {
                   setShowWordModal(true);
                 }
+
               }}
             >
               <b>{word ? word.text : '____'}</b>
