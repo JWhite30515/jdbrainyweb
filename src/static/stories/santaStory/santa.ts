@@ -1,7 +1,8 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img from './Santas-Elf-2-no_landings.png';
+import img1 from './Santas-Elf-picture_1.png';
+import img2 from './Santas-Elf-picture_2.png';
 
 const a1 = require('./audio/SPS_3_1.mp3');
 const a2 = require('./audio/SPS_3_2.mp3');
@@ -40,6 +41,7 @@ const story: IStory = {
         much room, and usually can’t bring more than just one little toy.
         Their letter she sent from them to Santa said that`,
       audio: a1,
+      part: 1,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
     },
@@ -52,6 +54,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -64,6 +67,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES,
       ],
+      part: 1,
     },
     {
       text:
@@ -71,6 +75,7 @@ const story: IStory = {
       audio: a4,
       id: 2,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text:
@@ -79,6 +84,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      part: 1,
     },
     {
       text:
@@ -87,6 +93,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      part: 1,
     },
     {
       text:
@@ -95,6 +102,7 @@ const story: IStory = {
       audio: a7,
       id: 3,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text:
@@ -107,6 +115,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.CLOTHES,
       ],
+      part: 1,
     },
     {
       text:
@@ -118,6 +127,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -129,6 +139,7 @@ const story: IStory = {
       audio: a10,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text:
@@ -139,6 +150,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 2,
     },
     {
       text:
@@ -151,6 +163,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES,
       ],
+      part: 2,
     },
     {
       text:
@@ -158,6 +171,7 @@ const story: IStory = {
       audio: a13,
       id: 2,
       wordCategories: WordCategory.FRIENDS,
+      part: 2,
     },
     {
       text:
@@ -166,6 +180,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      part: 2,
     },
     {
       text:
@@ -174,6 +189,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      part: 2,
     },
     {
       text:
@@ -181,6 +197,7 @@ const story: IStory = {
       audio: a16,
       id: 3,
       wordCategories: WordCategory.FRIENDS,
+      part: 2,
     },
     {
       text:
@@ -193,6 +210,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.CLOTHES,
       ],
+      part: 2,
     },
     {
       text:
@@ -203,9 +221,19 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 2,
     },
   ],
-  img,
+  parts: [
+    {
+      backgroundImg: img1,
+      id: 1,
+    },
+    {
+      backgroundImg: img2,
+      id: 2,
+    }
+  ]
 };
 
 export default story;

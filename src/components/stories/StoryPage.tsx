@@ -96,12 +96,21 @@ function StoryPage(props: IStoryPageProps) {
 
   if (!currStory) return <div>No story selected</div>
 
+  const currSection = currStory.sections[currSectionIdx];
+  const currPart = currStory.parts.find(part => part.id === currSection.part);
+
+  if (!currPart) return <div>Error rendering story</div>;
+
   const wordImgs: JSX.Element[] = [];
 
   currStory.sections.forEach((section, idx) => {
-    const { word, imgPos } = section;
+    const { word, imgPositions } = section;
+
+    if (!imgPositions) return;
+
+    const currImg = imgPositions.find(img => img.part === currPart.id);
   
-    if (word && word.img && imgPos) {
+    if (word && word.img && currImg) {
       wordImgs.push(
         <img
           key={`img_${idx}`}
@@ -109,9 +118,10 @@ function StoryPage(props: IStoryPageProps) {
           src={word.img}
           alt={word.text}
           style={{ 
-            top: `${imgPos.top}%`,
-            left: `${imgPos.left}%`,
-            maxWidth: imgPos.width ? `${imgPos.width}%` : '10%',
+            top: `${currImg.top}%`,
+            left: `${currImg.left}%`,
+            maxWidth: currImg.width ? `${currImg.width}%` : '10%',
+            transform: `rotate(${currImg.rotate}deg)`,
           }}
         />
       )
@@ -151,7 +161,7 @@ function StoryPage(props: IStoryPageProps) {
             <div className="parent" style={{ width: '50%' }}>
               <img
                 style={{ width: '100%', margin: '20px 0' }}
-                src={currStory.img}
+                src={currPart.backgroundImg}
                 alt={currStory.title}
               />
               {wordImgs}

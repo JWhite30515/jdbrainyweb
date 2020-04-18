@@ -1,8 +1,7 @@
 import {IStory} from '../../../redux/state/storyState';
 import {WordCategory} from '../../../redux/state/wordState';
 
-import img from './0Special_Inventions_1_without_templates.png';
-//import img from './Background-Special_Inventions_with_placeholders.png';
+import img1 from './0Special_Inventions_1_without_templates.png';
 
 const a1 = require('./audio/SPS_2_1.mp3');
 const a2 = require('./audio/SPS_2_2.mp3');
@@ -52,6 +51,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -63,6 +63,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -73,6 +74,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -82,6 +84,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -91,6 +94,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -100,6 +104,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -108,11 +113,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
-      imgPos: {
-        top: 61,
-        left: 56,
-        width: 8,
-      }
+      part: 1,
+      imgPositions: [
+        {
+          top: 61,
+          left: 56,
+          width: 8,
+          part: 1,
+        }
+      ],
     },
     {
       text:
@@ -121,11 +130,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
-      imgPos: {
-        top: 61,
-        left: 65,
-        width: 6
-      }
+      part: 1,
+      imgPositions: [
+        {
+          top: 61,
+          left: 65,
+          width: 6,
+          part: 1,
+        }
+      ],
     },
     {
       text:
@@ -143,21 +156,26 @@ const story: IStory = {
         WordCategory.TOOLS,
         WordCategory.VEHICLES,
       ],
-      imgPos: {
-        top: 85,
-        left: 63,
-        width: 8,
-      }
+      part: 1,
+      imgPositions: [
+        {
+          top: 85,
+          left: 63,
+          width: 8,
+          part: 1,
+        }
+      ],
     },
     {
       text:
-        ` Interesting inventions. Helpful inventions!
+        `. Interesting inventions. Helpful inventions!
         Wonderful inventions!!`,
       audio: a10,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -167,6 +185,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -182,6 +201,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -198,6 +218,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -208,6 +229,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      part: 1,
     },
     {
       text:
@@ -221,8 +243,9 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
-        WordCategory.TOOLS, 
+        WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -236,8 +259,9 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
-        WordCategory.TOOLS, 
+        WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -249,6 +273,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -449,16 +474,12 @@ const story: IStory = {
       wordCategories: [],
     }
   ],
-  img,
+  parts: [
+    {
+      backgroundImg: img1,
+      id: 1,
+    }
+  ]
 }
 
 export default story;
-
-
-/* WordCategory.ANIMALS,
-        WordCategory.WATER_ANIMALS,
-        WordCategory.BIRDS,
-        WordCategory.THINGS,
-        WordCategory.HOUSE_STUFF,
-        WordCategory.TOYS,
-        WordCategory.TOOLS, */
