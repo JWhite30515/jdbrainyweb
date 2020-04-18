@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img from './0Special_Inventions_1_without_templates.png';
+import img1 from './0Special_Inventions_1_without_templates.png';
 
 const a1 = require('./audio/SPS_2_1.mp3');
 const a2 = require('./audio/SPS_2_2.mp3');
@@ -34,6 +34,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -45,6 +46,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -55,6 +57,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -64,6 +67,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -73,6 +77,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -82,6 +87,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -90,6 +96,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      part: 1,
     },
     {
       text:
@@ -98,6 +105,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      part: 1,
     },
     {
       text:
@@ -115,6 +123,7 @@ const story: IStory = {
         WordCategory.TOOLS,
         WordCategory.VEHICLES,
       ],
+      part: 1,
     },
     {
       text:
@@ -125,6 +134,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -134,6 +144,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 1,
     },
     {
       text:
@@ -148,6 +159,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -163,6 +175,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 1,
     },
     {
       text:
@@ -172,6 +185,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      part: 1,
     },
     {
       text:
@@ -186,6 +200,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS, 
       ],
+      part: 1,
     },
     {
       text:
@@ -200,9 +215,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS, 
       ],
+      part: 1,
     },
   ],
-  img,
+  parts: [
+    {
+      backgroundImg: img1,
+      id: 1,
+    }
+  ]
 }
 
 export default story;

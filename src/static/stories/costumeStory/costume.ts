@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img from './Wacky-Costume-no-templates.png';
+import img1 from './Wacky-Costume-no-templates.png';
 
 const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
@@ -48,6 +48,7 @@ const story: IStory = {
         WordCategory.BIRDS,
         WordCategory.THINGS,
       ],
+      part: 1,
     },
     {
       text: ` or`,
@@ -59,6 +60,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 1,
     },
     {
       text: ` or`,
@@ -70,6 +72,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 1,
     },
     {
       text: 
@@ -78,6 +81,7 @@ const story: IStory = {
       audio: a4,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text:
@@ -86,12 +90,14 @@ const story: IStory = {
       audio: a5,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text: ` convinced`,
       audio: a6,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text: 
@@ -100,17 +106,20 @@ const story: IStory = {
       audio: a7,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text: ` decided that`,
       audio: a8,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     {
       text: ` wasn’t to blame. Uh-hunh.`,
       audio: a9,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     // friend costume 1
     {
@@ -123,7 +132,8 @@ const story: IStory = {
       imgPos: {
         top: 25,
         left: 44,
-      }
+      },
+      part: 1,
     },
     // animal parts 1
     {
@@ -136,7 +146,8 @@ const story: IStory = {
         top: 37,
         left: 30.6,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` who looked very interesting with a`,
@@ -148,7 +159,8 @@ const story: IStory = {
         top: 37,
         left: 30.6,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` body and a`,
@@ -160,12 +172,14 @@ const story: IStory = {
         top: 37,
         left: 30.6,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` tail.`,
       audio: a14,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     // friend costume 2
     {
@@ -178,7 +192,8 @@ const story: IStory = {
       imgPos: {
         top: 31,
         left: 76,
-      }
+      },
+      part: 1,
     },
     // animal with parts 2
     {
@@ -191,7 +206,8 @@ const story: IStory = {
         top: 60,
         left: 77.4,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` who looked great with a`,
@@ -203,7 +219,8 @@ const story: IStory = {
         top: 60,
         left: 77.4,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` tail and a`,
@@ -215,12 +232,14 @@ const story: IStory = {
         top: 60,
         left: 77.4,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` middle.`,
       audio: a19,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
     // friend costume 3
     {
@@ -233,7 +252,8 @@ const story: IStory = {
       imgPos: {
         top: 40,
         left: 88,
-      }
+      },
+      part: 1,
     },
     // animal parts 3
     {
@@ -246,7 +266,8 @@ const story: IStory = {
         top: 76,
         left: 66,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` with`,
@@ -258,7 +279,8 @@ const story: IStory = {
         top: 76,
         left: 66,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` tummy parts and a`,
@@ -270,21 +292,30 @@ const story: IStory = {
         top: 76,
         left: 66,
         width: 12.7,
-      }
+      },
+      part: 1,
     },
     {
       text: ` tail part. And a wonderful time was had by all — until`,
       audio: a24,
       id: 1,
       wordCategories: WordCategory.FRIENDS,
+      part: 1,
     },
+    // philip's section starts here
     {
       text: ` appeared in a Bigfoot Sasquatch costume! Which didn't scare...`,
       audio: a25,
-      wordCategories: []
+      wordCategories: [],
+      part: 1,
     },
   ],
-  img,
+  parts: [
+    {
+      backgroundImg: img1,
+      id: 1,
+    }
+  ],
 }
 
 export default story;

@@ -28,7 +28,7 @@ function StorySelectPage(props: IStorySelectPageProps) {
               <img
                 // className={disabled ? 'grayscale card-img' : 'card-img'}
                 className="card-img"
-                src={story.img}
+                src={story.parts[0] ? story.parts[0].backgroundImg : null}
                 alt={story.title}
               />
               <button

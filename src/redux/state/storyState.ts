@@ -5,14 +5,20 @@ import s1 from '../../static/stories/costumeStory/costume';
 import s2 from '../../static/stories/santaStory/santa';
 import s3 from '../../static/stories/inventionStory/invention';
 
+export interface IPart {
+  backgroundImg: any;
+  id: number;
+}
+
 export interface IStory {
-  img: any;
   title: string;
   id: number;
   sections: ISection[];
+  parts: IPart[];
 }
 
 export interface ISection {
+  part: number;
   text: string;
   audio: any;
   id?: number;

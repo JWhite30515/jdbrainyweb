@@ -1,6 +1,6 @@
 import { IStory } from '../../../redux/state/storyState';
 
-import img from './Santas-Elf-2-no_landings.png';
+import img1 from './Santas-Elf-2-no_landings.png';
 
 const a1 = require('./audio/SPS_3_1.mp3');
 const a2 = require('./audio/SPS_3_2.wav');
@@ -23,9 +23,15 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       wordCategories: [],
+      part: 1,
     },
   ],
-  img,
+  parts: [
+    {
+      backgroundImg: img1,
+      id: 1,
+    },
+  ]
 };
 
 export default story;
