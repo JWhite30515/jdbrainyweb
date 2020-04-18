@@ -2,6 +2,7 @@ import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
 import img from './Wacky-Costume-no-templates.png';
+//import img from './Wacky-Costume2-with-templates.png';
 
 const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
@@ -28,6 +29,21 @@ const a22 = require('./audio/SPS_1_22 Copy.mp3');
 const a23 = require('./audio/SPS_1_23 Copy.mp3');
 const a24 = require('./audio/SPS_1_24 Copy.mp3');
 const a25 = require('./audio/SPS_1_25 Copy.mp3');
+const a26 = require('./audio/SPS_1_26 Copy.mp3');
+const a27 = require('./audio/SPS_1_27 Copy.mp3');
+const a28 = require('./audio/SPS_1_28 Copy.mp3');
+const a29 = require('./audio/SPS_1_29 Copy.mp3');
+const a30 = require('./audio/SPS_1_30 Copy.mp3');
+const a31 = require('./audio/SPS_1_31 Copy.mp3');
+const a32 = require('./audio/SPS_1_32 Copy.mp3');
+const a33 = require('./audio/SPS_1_33 Copy.mp3');
+const a34 = require('./audio/SPS_1_34 Copy.mp3');
+const a35 = require('./audio/SPS_1_35 Copy.mp3');
+const a36 = require('./audio/SPS_1_36 Copy.mp3');
+const a37 = require('./audio/SPS_1_37 Copy.mp3');
+const a38 = require('./audio/SPS_1_38 Copy.mp3');
+const a39 = require('./audio/SPS_1_39 Copy.mp3');
+const a40 = require('./audio/SPS_1_40 Copy.mp3');
 
 const story: IStory = {
   title: 'The Wacky Costume Party',
@@ -281,8 +297,165 @@ const story: IStory = {
     {
       text: ` appeared in a Bigfoot Sasquatch costume! Which didn't scare...`,
       audio: a25,
+      wordCategories: WordCategory.FRIENDS
+    },{
+      text: ` Which didn’t scare `,
+      id: 2,
+       audio: a1,
+      wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 179,
+          left: 8,
+          width: 40,
+        }
+    },{
+      text: ` or `,
+      id: 3,
+      audio: a26,
+      wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 214,
+          left: 356,
+          width: 40,
+        }
+    },{
+      text: ` or `,
+      id: 4,
+      audio: a27,
+      wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 214,
+          left: 299,
+          width: 40,
+        }
+    },{
+      //3parter at the top
+      text:
+      ` they didn’t decide to befrightened—but those poor pets didn’t know they could decide,
+      and justgothowlishouslyscared without even thinking about it! The `,
+      audio: a28,
+      wordCategories: [
+        WordCategory.HEAD,
+        WordCategory.MIDDLE,
+        WordCategory.TAIL],
+        imgPos: {
+            top: 80,
+            left: 170,
+            width: 12.7, //51
+          }
+          //body 76,158,51
+          //head 70, 141,
+    },{
+      //3parter by cake
+      text: ` spilled the fruit punch bowl and the `,
+      audio: a29,
+      wordCategories:  [
+        WordCategory.HEAD,
+        WordCategory.MIDDLE,
+        WordCategory.TAIL,],
+      imgPos: { //tail
+          top: 34,
+          left: 29,
+          width: 13,
+        }
+        //body 33, 95,51
+        //head 33,81,51
+    },{
+      //3parter at bottom
+      text:
+      ` tumbled into the big party chocolate angel-food cake and the `,
+      audio: a30,
+      wordCategories: [
+        WordCategory.HEAD,
+        WordCategory.MIDDLE,
+        WordCategory.TAIL,],
+      imgPos: {
+          top: 189,
+          left: 121,
+          width: 12.7,
+          //body 176,109,
+          //head 163,97
+        }
+    },{
+      text:
+      `  knocked over the treats table and in all the commotion `,
+      id: 2,
+      audio: a31,
+      wordCategories: WordCategory.FRIENDS,
+    },{
+      //item being hid behind
+      text: ` hid behind the `,
+      audio: a32,
+      wordCategories:  [
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF],
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
+    },{
+      text: ` , and `,
+      id: 3,
+      audio: a33,
+      wordCategories: WordCategory.FRIENDS,
+    },{
+      text: ` peeeeked out of the`,
+      audio: a34,
+      wordCategories:  [
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF],
+        imgPos: {
+            top: 76,
+            left: 66,
+            width: 12.7,
+          }
+    },{
+      text: ` ,and `,
+      id: 4,
+      audio: a35,
+      wordCategories: WordCategory.FRIENDS,
+    },{
+      text: ` sneaked under the `,
+      audio: a36,
+      wordCategories: [
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF],
+        imgPos: {
+            top: 76,
+            left: 66,
+            width: 12.7,
+          }
+    },{
+      text: ` , and when the grown-ups rushed in `,
+      id: 5,
+      audio: a37,
+      wordCategories: WordCategory.FRIENDS,
+      imgPos: {
+          top: 76,
+          left: 66,
+          width: 12.7,
+        }
+    },{
+      text:
+      ` thought it was a very good time to hide in a costume, 
+      only maybe not in a BigfootSasquatch costume. And the grownups made `,
+      id: 5,
+      audio: a38,
+      wordCategories: WordCategory.FRIENDS,
+    },{
+      text:
+      ` keep that costume on and do all the work all alone to wipe up the fruit 
+      punch and clean up the spilled cake and tidy up the treats table. And `,
+      id: 5,
+      audio: a39,
+      wordCategories: WordCategory.FRIENDS,
+    },{
+      text:
+      ` decided not to decide again that it would be okay fun to decide to scare anybody, whether they decided to be scared or not `,
+      audio: a40,
       wordCategories: []
-    },
+    }
   ],
   img,
 }

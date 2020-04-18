@@ -66,7 +66,7 @@ const story: IStory = {
         WordCategory.TAIL,]
     },{
       //3parter by cake
-      text: `spilled the fruit punch bowl and the [J-H J-M J-T]`,
+      text: ` spilled the fruit punch bowl and the [J-H J-M J-T]`,
       audio: a5,
       wordCategories:  [
         WordCategory.HEAD,
