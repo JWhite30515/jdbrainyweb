@@ -97,6 +97,11 @@ const story: IStory = {
         WordCategory.TOYS,
       ],
       part: 1,
+      imgPos: {
+        top: 61,
+        left: 56,
+        width: 8,
+      }
     },
     {
       text:
@@ -106,6 +111,11 @@ const story: IStory = {
         WordCategory.TOYS,
       ],
       part: 1,
+      imgPos: {
+        top: 61,
+        left: 65,
+        width: 6
+      }
     },
     {
       text:
@@ -124,6 +134,11 @@ const story: IStory = {
         WordCategory.VEHICLES,
       ],
       part: 1,
+      imgPos: {
+        top: 85,
+        left: 63,
+        width: 8,
+      }
     },
     {
       text:
@@ -217,6 +232,18 @@ const story: IStory = {
       ],
       part: 1,
     },
+    {
+      text:
+        ` made the final step and then knew exactly how to create it!
+        Every morning on her way to the kitchen Mom opened the bedroom door to
+        politely say, “Wake up!”`,
+      audio: a17,
+      id: 1,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 1,
+    },
   ],
   parts: [
     {
@@ -227,12 +254,3 @@ const story: IStory = {
 }
 
 export default story;
-
-
-/* WordCategory.ANIMALS,
-        WordCategory.WATER_ANIMALS,
-        WordCategory.BIRDS,
-        WordCategory.THINGS,
-        WordCategory.HOUSE_STUFF,
-        WordCategory.TOYS,
-        WordCategory.TOOLS, */
