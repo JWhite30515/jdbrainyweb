@@ -90,7 +90,7 @@ function StoryPage(props: IStoryPageProps) {
         }
       });
 
-      // sectionAudio.autoplay = true;
+      sectionAudio.autoplay = true;
     }
   }, [currSectionIdx, currStory, playingSectionAudio]);
 
