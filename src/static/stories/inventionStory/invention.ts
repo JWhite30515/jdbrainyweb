@@ -1,5 +1,5 @@
-import { IStory } from '../../../redux/state/storyState';
-import { WordCategory } from '../../../redux/state/wordState';
+import {IStory} from '../../../redux/state/storyState';
+import {WordCategory} from '../../../redux/state/wordState';
 
 import img from './0Special_Inventions_1_without_templates.png';
 //import img from './Background-Special_Inventions_with_placeholders.png';
@@ -21,6 +21,23 @@ const a14 = require('./audio/SPS_2_14.mp3');
 const a15 = require('./audio/SPS_2_15.mp3');
 const a16 = require('./audio/SPS_2_16.mp3');
 const a17 = require('./audio/SPS_2_17.mp3');
+const a18 = require('./audio/SPS_2_18.mp3');
+const a19 = require('./audio/SPS_2_19.mp3');
+const a20 = require('./audio/SPS_2_20.mp3');
+const a21 = require('./audio/SPS_2_21.mp3');
+const a22 = require('./audio/SPS_2_22.mp3');
+const a23 = require('./audio/SPS_2_23.mp3');
+const a24 = require('./audio/SPS_2_24.mp3');
+const a25 = require('./audio/SPS_2_25.mp3');
+const a26 = require('./audio/SPS_2_26.mp3');
+const a27 = require('./audio/SPS_2_27.mp3');
+const a28 = require('./audio/SPS_2_28.mp3');
+const a29 = require('./audio/SPS_2_29.mp3');
+const a30 = require('./audio/SPS_2_30.mp3');
+const a31 = require('./audio/SPS_2_31.mp3');
+const a32 = require('./audio/SPS_2_32.mp3');
+const a33 = require('./audio/SPS_2_33.mp3');
+
 
 const story: IStory = {
   title: 'The Special Invention',
@@ -29,7 +46,7 @@ const story: IStory = {
     {
       text:
         `“Get dressed and come to breakfast right now!”  Mom called sweetly.  
-        “I will,”`,
+        “I will,” `,
       audio: a1,
       id: 1,
       wordCategories: [
@@ -40,7 +57,7 @@ const story: IStory = {
       text:
         ` said.
         “You said that twice already!  You’ll make me late for work.”
-        “Okay!”`,
+        “Okay!” `,
       audio: a2,
       id: 1,
       wordCategories: [
@@ -50,7 +67,7 @@ const story: IStory = {
     {
       text:
         ` said.	
-        Great ideas kept`,
+        Great ideas kept `,
       audio: a3,
       id: 1,
       wordCategories: [
@@ -155,6 +172,7 @@ const story: IStory = {
       text:
         ` thought about the`,
       audio: a12,
+      id: 2,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -170,6 +188,7 @@ const story: IStory = {
         ` part all through breakfast, and
         cogitated about the`,
       audio: a13,
+      id: 3,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -185,6 +204,7 @@ const story: IStory = {
         ` section on the way to school, and devised
         the`,
       audio: a14,
+      id: 4,
       wordCategories: [
         WordCategory.VEHICLES,
       ],
@@ -193,6 +213,7 @@ const story: IStory = {
       text:
         ` unit at school, and imagined the`,
       audio: a15,
+      id: 5,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -207,6 +228,7 @@ const story: IStory = {
       text:
         ` segment on the way home, and by after school snack time knew the`,
       audio: a16,
+      id: 6,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -221,13 +243,211 @@ const story: IStory = {
       text:
         ` made the final step and then knew exactly how to create it!
         Every morning on her way to the kitchen Mom opened the bedroom door to
-        politely say, “Wake up!”`,
+        politely say, “Wake up!” `,
       audio: a17,
       id: 1,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
     },
+    {
+      text:
+      ' tied a string to the door knob, so when the door opened it would drop a toy',
+      audio: a18,
+      id: 2,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' on a teeter-totter lever tossing a toy',
+      audio: a19,
+      id: 3,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' up in the air to flip over and land in a box on top of a toy',
+      audio: a20,
+      id: 4,
+      wordCategories: [
+        WordCategory.VEHICLES,
+      ],
+    },
+    {
+      text:
+      ' that would tip to roll down a ramp and knock loose the',
+      audio: a21,
+      id: 5,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' hooked to the stopper on an old plastic bottle filled with water that would start slowly trickling' +
+          ' into a bucket with its handle rubber-banded to a stick taped to a toy',
+      audio: a22,
+      id: 6,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' taped to a sharp pin on the end that would swing up to smack and pop a balloon that would for sure' +
+          ' startle awake even sleepy',
+      audio: a23,
+      id: 1,
+      wordCategories: [
+          WordCategory.FRIENDS,
+      ],
+    },
+    {
+      text:
+      ' Who could sleep after creating such a magnificatious, splendificatory, brilliastonishing, phenomitastic ' +
+          'invention?! Not',
+      audio: a24,
+      id: 1,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+    },
+    {
+      text:
+      ', not until very late. Too late. ',
+      audio: a25,
+      id: 1,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+    },
+    {
+      text:
+      ' didn’t wake when Mom opened the door and gently suggested, “Wake up!”  Didn’t notice the toy',
+      audio: a26,
+      id: 2,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' dropping on the teeter-totter lever that tossed the toy',
+      audio: a27,
+      id: 3,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' up into the air to flip and land on the',
+      audio: a28,
+      id: 4,
+      wordCategories: [
+        WordCategory.VEHICLES,
+      ],
+    },
+    {
+      text:
+      ' so hard that it slipped off the track but still bumped the',
+      audio: a29,
+      id: 5,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' loose, only smacking the stopper so hard the water didn’t trickle out but shot out like a ' +
+          'squirt gun and soaked a toy stuffed',
+      audio: a30,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+      ],
+    },
+    {
+      text:
+      ' on the edge of the shelf that got so wet heavy it fell on the cat that startled and screeched and ' +
+          'leaped up high and knocked its hindquarters into the',
+      audio: a31,
+      id: 6,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.THINGS,
+        WordCategory.HOUSE_STUFF,
+        WordCategory.TOYS,
+        WordCategory.TOOLS,
+      ],
+    },
+    {
+      text:
+      ' so the pin sharp stung the cat’s tail and it howled and claw snatched at the balloon that loud-popped ' +
+          'scaring the cat to twist land slap on guess-whose sleeping face.',
+      audio: a32,
+      id: 1,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+    },
+    {
+      text:
+      ' swiped the cat away and jolted straight up and looked at the disrupted contraption— and thought: ' +
+          '“Even if everything didn’t go exactly perfectly according to plan, my ' +
+          'stay-up-after-wake-up-in-the-morning invention worked!”  And it did!',
+      audio: a33,
+      wordCategories: [],
+    }
   ],
   img,
 }
