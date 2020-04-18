@@ -21,14 +21,17 @@ export interface ISection {
   part: number;
   text: string;
   audio: any;
-  id?: number;
+  id?: number | string;
   word?: IFriendWord | IWord;
   wordCategories: WordCategory[] | WordCategory;
-  imgPos?: {
+  imgPositions?: {
+    part: number;
     top: number;
     left: number;
     width?: number;
-  }
+    // degrees by which to rotate img CW
+    rotate?: number;
+  }[];
 }
 
 export const initialStoryState: IStoryState = {

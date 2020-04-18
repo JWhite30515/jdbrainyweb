@@ -90,7 +90,7 @@ function StoryPage(props: IStoryPageProps) {
         }
       });
 
-      sectionAudio.autoplay = true;
+      // sectionAudio.autoplay = true;
     }
   }, [currSectionIdx, currStory, playingSectionAudio]);
 
@@ -104,9 +104,13 @@ function StoryPage(props: IStoryPageProps) {
   const wordImgs: JSX.Element[] = [];
 
   currStory.sections.forEach((section, idx) => {
-    const { word, imgPos, part } = section;
+    const { word, imgPositions } = section;
+
+    if (!imgPositions) return;
+
+    const currImg = imgPositions.find(img => img.part === currPart.id);
   
-    if (word && word.img && imgPos && part === currPart.id) {
+    if (word && word.img && currImg) {
       wordImgs.push(
         <img
           key={`img_${idx}`}
@@ -114,9 +118,10 @@ function StoryPage(props: IStoryPageProps) {
           src={word.img}
           alt={word.text}
           style={{ 
-            top: `${imgPos.top}%`,
-            left: `${imgPos.left}%`,
-            maxWidth: imgPos.width ? `${imgPos.width}%` : '10%',
+            top: `${currImg.top}%`,
+            left: `${currImg.left}%`,
+            maxWidth: currImg.width ? `${currImg.width}%` : '10%',
+            transform: `rotate(${currImg.rotate}deg)`,
           }}
         />
       )

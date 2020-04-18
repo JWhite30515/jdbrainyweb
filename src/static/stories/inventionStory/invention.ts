@@ -97,11 +97,14 @@ const story: IStory = {
         WordCategory.TOYS,
       ],
       part: 1,
-      imgPos: {
-        top: 61,
-        left: 56,
-        width: 8,
-      }
+      imgPositions: [
+        {
+          top: 61,
+          left: 56,
+          width: 8,
+          part: 1,
+        }
+      ],
     },
     {
       text:
@@ -111,11 +114,14 @@ const story: IStory = {
         WordCategory.TOYS,
       ],
       part: 1,
-      imgPos: {
-        top: 61,
-        left: 65,
-        width: 6
-      }
+      imgPositions: [
+        {
+          top: 61,
+          left: 65,
+          width: 6,
+          part: 1,
+        }
+      ],
     },
     {
       text:
@@ -134,11 +140,14 @@ const story: IStory = {
         WordCategory.VEHICLES,
       ],
       part: 1,
-      imgPos: {
-        top: 85,
-        left: 63,
-        width: 8,
-      }
+      imgPositions: [
+        {
+          top: 85,
+          left: 63,
+          width: 8,
+          part: 1,
+        }
+      ],
     },
     {
       text:
@@ -213,7 +222,7 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
-        WordCategory.TOOLS, 
+        WordCategory.TOOLS,
       ],
       part: 1,
     },
@@ -228,7 +237,7 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
-        WordCategory.TOOLS, 
+        WordCategory.TOOLS,
       ],
       part: 1,
     },

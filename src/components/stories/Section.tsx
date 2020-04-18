@@ -28,9 +28,17 @@ export default function Section(props: ISectionProps) {
 
   if (sectionIdx <= currSectionIdx) sectionTextVisible = true;
 
-  if (word) {
-    const prevSection = sections[sectionIdx - 1];
-    if (prevSection && prevSection.word) {
+  // only need to make this check if sectionTextVisible is false
+  if (!sectionTextVisible) {
+
+    let wordsForPrevSectionsDefined = true;
+
+    // check that all previous sections before this section have
+    // their word defined
+    for (let i = 0; i < sectionIdx; i += 1) {
+      if (!sections[i].word) wordsForPrevSectionsDefined = false;
+    }
+    if (wordsForPrevSectionsDefined) {
       sectionTextVisible = true;
     }
   }

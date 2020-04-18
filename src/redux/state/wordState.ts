@@ -89,14 +89,7 @@ import axeImg from '../../static/words/img/axe.png';
 import rakeImg from '../../static/words/img/rake.png';
 import nailImg from '../../static/words/img/nail.png';
 import sawImg from '../../static/words/img/saw.png';
-import wigImg from '../../static/words/img/wig.png';
-import suitImg from '../../static/words/img/suit.png';
-import tieImg from '../../static/words/img/tie.png';
-import purseImg from '../../static/words/img/purse.png';
-import gloveImg from '../../static/words/img/glove.png';
 import ambulanceImg from '../../static/words/img/ambulance.png';
-import bugImg from '../../static/words/img/bug.png';
-import busImg from '../../static/words/img/bus.png';
 import carImg from '../../static/words/img/car.png';
 import babyImg from '../../static/words/img/baby.png';
 import boyImg from '../../static/words/img/boy.png';
@@ -140,6 +133,9 @@ import slideImg from '../../static/words/img/slide.png';
 import unicycleImg from '../../static/words/img/unicycle.png';
 import wagonImg from '../../static/words/img/wagon.png';
 import yoyoImg from '../../static/words/img/yoyo.png';
+import taxiImg from '../../static/words/img/taxi.png';
+import busImg from '../../static/words/img/bus.png';
+import carVehicleImg from '../../static/words/img/vehicles_car.png';
 
 // thing imgs
 import bagImg from '../../static/words/img/bag.png';
@@ -155,14 +151,8 @@ import glassImg from '../../static/words/img/glass.png';
 
 // segmented words audio
 const batAudio = require('../../static/words/audio/bat.mp3');
-//const bugAudio = require('../../static/words/audio/bug.mp3');
-// const catAudio = require('../../static/words/audio/cat.mp3');
-// const dogAudio = require('../../static/words/audio/dog.mp3');
-// const elfAudio = require('../../static/words/audio/elf.mp3');
 const flyAudio = require('../../static/words/audio/fly.mp3');
-// const foxAudio = require('../../static/words/audio/fox.mp3');
 const pigAudio = require('../../static/words/audio/pig.mp3');
-// const ramAudio = require('../../static/words/audio/Ram.mp3');
 
 // thing audio
 const bagAudio = require('../../static/words/audio/bag.mp3');
@@ -250,14 +240,10 @@ const slideAudio = require('../../static/words/audio/slide.mp3');
 const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
 const wagonAudio = require('../../static/words/audio/wagon.mp3');
 const carAudio = require('../../static/words/audio/car.mp3');
-
-const wigAudio = require('../../static/words/audio/wig.mp3');
-const suitAudio = require('../../static/words/audio/suit.mp3');
-const tieAudio = require('../../static/words/audio/tie.mp3');
-const purseAudio = require('../../static/words/audio/purse.mp3');
-const gloveAudio = require('../../static/words/audio/glove.mp3');
 const ambulanceAudio = require('../../static/words/audio/ambulance.mp3');
 const bugAudio = require('../../static/words/audio/bug.mp3');
+const taxiAudio = require('../../static/words/audio/taxi.mp3');
+const schoolBusAudio = require('../../static/words/audio/school_bus.mp3');
 
 const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
 
@@ -291,7 +277,7 @@ export enum WordCategory {
   MIDDLE = 'Middle',
   TAIL = 'Tail',
   BODY = 'Body',
-  PEOPLE_HEAD =  'People Head'
+  PEOPLE_HEAD =  'People Head',
 }
 
 export interface IWord extends IBaseWord {
@@ -304,6 +290,41 @@ export default interface IWordState {
 }
 
 const words: IWord[] = [
+  {
+    completed: false,
+    text: 'ambulance',
+    img: ambulanceImg,
+    audio: ambulanceAudio,
+    category: WordCategory.VEHICLES,
+  },
+  {
+    completed: false,
+    text: 'car',
+    img: carVehicleImg,
+    audio: carAudio,
+    category: WordCategory.VEHICLES,
+  },
+  {
+    completed: false,
+    text: 'jeep',
+    img: jeepImg,
+    audio: jeepAudio,
+    category: WordCategory.VEHICLES,
+  },
+  {
+    completed: false,
+    text: 'taxi',
+    img: taxiImg,
+    audio: taxiAudio,
+    category: WordCategory.VEHICLES,
+  },
+  {
+    completed: false,
+    text: 'school bus',
+    img: busImg,
+    audio: schoolBusAudio,
+    category: WordCategory.VEHICLES,
+  },
   {
     completed: false,
     text: 'ape',
@@ -1297,7 +1318,7 @@ const segmentedWords: IWord[] = [
     audio: placeholderAudio,
     category: WordCategory.BODY,
     completed: false,
-  }
+  },
 ];
 
 const allWords: IWord[] = words.concat(segmentedWords);
