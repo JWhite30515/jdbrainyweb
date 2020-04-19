@@ -61,7 +61,7 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       part: 1,
-      id: 1,
+      id: `A2`,
       wordCategories: WordCategory.FRIENDS,
     },
     {
@@ -92,7 +92,7 @@ const story: IStory = {
       text:
         ` big enough to sit and rock on and pretend to ride far away. The first request for`,
       audio: a4,
-      id: 2,
+      id: `B2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -119,7 +119,7 @@ const story: IStory = {
         ` to race across the floor and under chairs and tables and maybe chase a cat or scare
         bump somebody’s shoes from behind.`,
       audio: a7,
-      id: 3,
+      id: `C2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -156,13 +156,14 @@ const story: IStory = {
         sleepy memory didn’t remember very well, and — oh no! — at the very last minute
         poor timid Elmer had mistakenly loaded into Santa’s sleigh for`,
       audio: a10,
-      id: 1,
+      id: `A2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
     {
       text:
         ` -uh oh– a soft fluffy stuffed little`,
+      id: `R567`,
       audio: a11,
       wordCategories: [
         WordCategory.ANIMALS,
@@ -175,6 +176,7 @@ const story: IStory = {
       text:
         ` to carry and a big wooden`,
       audio: a12,
+      id: `S5671013`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -188,7 +190,7 @@ const story: IStory = {
       text:
         ` to ride, for`,
       audio: a13,
-      id: 2,
+      id: `B2`,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
     },
@@ -196,6 +198,7 @@ const story: IStory = {
       text:
         ` -uh uh oh– a RC`,
       audio: a14,
+      id: `V13`,
       wordCategories: [
         WordCategory.VEHICLES,
       ],
@@ -205,6 +208,7 @@ const story: IStory = {
       text:
         ` and`,
       audio: a15,
+      id: `W10`,
       wordCategories: [
         WordCategory.TOYS,
       ],
@@ -214,7 +218,7 @@ const story: IStory = {
       text:
         ` for`,
       audio: a16,
-      id: 3,
+      id: `C2`,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
     },
@@ -222,6 +226,7 @@ const story: IStory = {
       text:
         ` -uh no– one`,
       audio: a17,
+      id: `X1256710`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -235,6 +240,7 @@ const story: IStory = {
       text:
         ` and a pink sweater with a`,
       audio: a18,
+      id: `Y567`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -268,6 +274,20 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FOOD,
       ],
+      imgPositions: [
+        {
+          top: 67,
+          left: 62.5,
+          width: 6,
+          part: 1,
+        },
+        {
+          top: 59,
+          left: 64,
+          width: 8,
+          part: 2,
+        }
+      ],
       part: 2,
     },
     {
@@ -277,7 +297,7 @@ const story: IStory = {
 	Elmer cried now.  Ashamed.  Ashamed Santa would treat him so nicely after he had failed the children and Santa and Christmas. “You know,” Santa said, “I didn’t bring three children the presents they asked for.”
 	Poor sad Elmer sobbed and wailed louder than ever.  “`,
       audio: a22,
-      id: 1,
+      id: `A2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -287,6 +307,7 @@ const story: IStory = {
       text:
         ` says that `,
       audio: a23,
+      id: `R567`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -298,6 +319,7 @@ const story: IStory = {
       text:
         ` is boring,” Santa said, “and wants nothing to do with it, but really, really likes the new `,
       audio: a24,
+      id: `S5671013`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -312,7 +334,7 @@ const story: IStory = {
         ` and rides it everywhere...even to the potty.
 	“And `,
       audio: a25,
-      id: 2,
+      id: `B2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -322,6 +344,7 @@ const story: IStory = {
       text:
         ` already has an old `,
       audio: a26,
+      id: `V13`,
       wordCategories: [
         WordCategory.VEHICLES,
       ],
@@ -331,6 +354,7 @@ const story: IStory = {
       text:
         `, and won’t play with the new one, but really likes the `,
       audio: a27,
+      id: `W10`,
       wordCategories: [
         WordCategory.TOYS,
       ],
@@ -340,7 +364,7 @@ const story: IStory = {
       text:
         ` which `,
       audio: a28,
-      id: 2,
+      id: `B2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -351,7 +375,7 @@ const story: IStory = {
         ` says is now the very favoritest bestest toy of all.
 	“`,
       audio: a29,
-      id: 3,
+      id: `C2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -361,6 +385,7 @@ const story: IStory = {
       text:
         ` likes her pretty new `,
       audio: a30,
+      id: `X1256710`,
       wordCategories: [
         WordCategory.CLOTHES,
         WordCategory.ANIMALS,
@@ -374,6 +399,7 @@ const story: IStory = {
       text:
         ` well enough, but her mother says she can’t take it outside yet. She liked her pink sweater with the `,
       audio: a31,
+      id: `Y567`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -391,7 +417,7 @@ const story: IStory = {
 	“Oh!”
 	“So `,
       audio: a32,
-      id: 1,
+      id: `A2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -401,7 +427,7 @@ const story: IStory = {
       text:
         ` and `,
       audio: a33,
-      id: 2,
+      id: `B2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -411,7 +437,7 @@ const story: IStory = {
       text:
         ` and `,
       audio: a34,
-      id: 3,
+      id: `C2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -423,7 +449,7 @@ const story: IStory = {
 	“Oh!!!”
 	“And `,
       audio: a35,
-      id: 1,
+      id: `A2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -433,7 +459,7 @@ const story: IStory = {
       text:
         ` and `,
       audio: a36,
-      id: 2,
+      id: `B2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
@@ -443,7 +469,7 @@ const story: IStory = {
       text:
         ` and `,
       audio: a37,
-      id: 3,
+      id: `C2`,
       wordCategories: [
         WordCategory.FRIENDS,
       ],
