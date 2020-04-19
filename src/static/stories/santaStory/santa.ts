@@ -22,7 +22,26 @@ const a15 = require('./audio/SPS_3_15.mp3');
 const a16 = require('./audio/SPS_3_16.mp3');
 const a17 = require('./audio/SPS_3_17.mp3');
 const a18 = require('./audio/SPS_3_18.mp3');
-
+const a19 = require('./audio/SPS_3_19.mp3');
+const a20 = require('./audio/SPS_3_20.mp3');
+const a21 = require('./audio/SPS_3_21.mp3');
+const a22 = require('./audio/SPS_3_22.mp3');
+const a23 = require('./audio/SPS_3_23.mp3');
+const a24 = require('./audio/SPS_3_24.mp3');
+const a25 = require('./audio/SPS_3_25.mp3');
+const a26 = require('./audio/SPS_3_26.mp3');
+const a27 = require('./audio/SPS_3_27.mp3');
+const a28 = require('./audio/SPS_3_28.mp3');
+const a29 = require('./audio/SPS_3_29.mp3');
+const a30 = require('./audio/SPS_3_30.mp3');
+const a31 = require('./audio/SPS_3_31.mp3');
+const a32 = require('./audio/SPS_3_32.mp3');
+const a33 = require('./audio/SPS_3_33.mp3');
+const a34 = require('./audio/SPS_3_34.mp3');
+const a35 = require('./audio/SPS_3_35.mp3');
+const a36 = require('./audio/SPS_3_36.mp3');
+const a37 = require('./audio/SPS_3_37.mp3');
+const a38 = require('./audio/SPS_3_38.mp3');
 
 const story: IStory = {
   title: 'Santa\'s Mixed-Up Helper-Elf',
@@ -42,7 +61,7 @@ const story: IStory = {
         Their letter she sent from them to Santa said that`,
       audio: a1,
       part: 1,
-      id: 1,
+      id: `A2`,
       wordCategories: WordCategory.FRIENDS,
     },
     {
@@ -73,7 +92,7 @@ const story: IStory = {
       text:
         ` big enough to sit and rock on and pretend to ride far away. The first request for`,
       audio: a4,
-      id: 2,
+      id: `B2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -100,7 +119,7 @@ const story: IStory = {
         ` to race across the floor and under chairs and tables and maybe chase a cat or scare
         bump somebody’s shoes from behind.`,
       audio: a7,
-      id: 3,
+      id: `C2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -119,7 +138,7 @@ const story: IStory = {
     },
     {
       text:
-        ` to show off and look pretty with, and a pretty white sweater with a picture of her very 
+        ` to show off and look pretty with, and a pretty white sweater with a picture of her very
         favorite animal, a`,
       audio: a9,
       wordCategories: [
@@ -131,19 +150,20 @@ const story: IStory = {
     },
     {
       text:
-        ` Timid helper-elf Elmer felt terribly, horribly awful that he’d found the list so 
-        late and quickly raced around Santa’s big toy warehouse to gather the gifts, but 
-        poor Elmer’s sleepy eyes didn’t read the list’s words very well, and poor Elmer’s 
-        sleepy memory didn’t remember very well, and — oh no! — at the very last minute 
+        ` Timid helper-elf Elmer felt terribly, horribly awful that he’d found the list so
+        late and quickly raced around Santa’s big toy warehouse to gather the gifts, but
+        poor Elmer’s sleepy eyes didn’t read the list’s words very well, and poor Elmer’s
+        sleepy memory didn’t remember very well, and — oh no! — at the very last minute
         poor timid Elmer had mistakenly loaded into Santa’s sleigh for`,
       audio: a10,
-      id: 1,
+      id: `A2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
     {
       text:
         ` -uh oh– a soft fluffy stuffed little`,
+      id: `R567`,
       audio: a11,
       wordCategories: [
         WordCategory.ANIMALS,
@@ -156,6 +176,7 @@ const story: IStory = {
       text:
         ` to carry and a big wooden`,
       audio: a12,
+      id: `S5671013`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -169,14 +190,15 @@ const story: IStory = {
       text:
         ` to ride, for`,
       audio: a13,
-      id: 2,
+      id: `B2`,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
     },
     {
       text:
-        ` -uh uh oh– a RC`,
+        ` -uh uh oh– an RC`,
       audio: a14,
+      id: `V13`,
       wordCategories: [
         WordCategory.VEHICLES,
       ],
@@ -186,6 +208,7 @@ const story: IStory = {
       text:
         ` and`,
       audio: a15,
+      id: `W10`,
       wordCategories: [
         WordCategory.TOYS,
       ],
@@ -195,7 +218,7 @@ const story: IStory = {
       text:
         ` for`,
       audio: a16,
-      id: 3,
+      id: `C2`,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
     },
@@ -203,6 +226,7 @@ const story: IStory = {
       text:
         ` -uh no– one`,
       audio: a17,
+      id: `X1256710`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
@@ -216,11 +240,249 @@ const story: IStory = {
       text:
         ` and a pink sweater with a`,
       audio: a18,
+      id: `Y567`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      part: 2,
+    },
+    {
+      text:
+        ` Santa, just a tiny bit late as usual, loudly called out ‘Hi Ho’ and his team of reindeer swooshed off into the sky just at the very moment when poor timid Elmer looked at that list one more time—uh oh— and discovered —oh no!— he had made a mistake on every …  single … gift.  Elmer crumpled down on the floor and wanted to cry, because nothing hurts and saddens and breaks a helper-elf’s heart more than not making a child happy.  And sometimes they just can’t.  Poor Elmer felt so terrible he didn’t even want to think about it, and after a few minutes of feeling sad and horrible and not liking himself at all, the tired, exhausted little helper elf nodded off to sleep.
+	On Christmas morning poor timid Elmer woke up late, not on the warehouse floor where he’d fallen asleep, but in his own proper top bunk-bed bed.  Santa held a tray with `,
+      audio: a19,
+      wordCategories: [
+        WordCategory.FOOD,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and`,
+      audio: a20,
+      wordCategories: [
+        WordCategory.FOOD,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and`,
+      audio: a21,
+      wordCategories: [
+        WordCategory.FOOD,
+      ],
+      imgPositions: [
+        {
+          top: 67,
+          left: 62.5,
+          width: 6,
+          part: 1,
+        },
+        {
+          top: 59,
+          left: 64,
+          width: 8,
+          part: 2,
+        }
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` ---  Elmer’s favorite breakfast.
+	“Well, Elmer—” Santa began.
+	Elmer cried now.  Ashamed.  Ashamed Santa would treat him so nicely after he had failed the children and Santa and Christmas. “You know,” Santa said, “I didn’t bring three children the presents they asked for.”
+	Poor sad Elmer sobbed and wailed louder than ever.  “`,
+      audio: a22,
+      id: `A2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` says that `,
+      audio: a23,
+      id: `R567`,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` is boring,” Santa said, “and wants nothing to do with it, but really, really likes the new `,
+      audio: a24,
+      id: `S5671013`,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.TOYS,
+        WordCategory.VEHICLES,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and rides it everywhere...even to the potty.
+	“And `,
+      audio: a25,
+      id: `B2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` already has an old `,
+      audio: a26,
+      id: `V13`,
+      wordCategories: [
+        WordCategory.VEHICLES,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        `, and won’t play with the new one, but really likes the `,
+      audio: a27,
+      id: `W10`,
+      wordCategories: [
+        WordCategory.TOYS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` which `,
+      audio: a28,
+      id: `B2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` says is now the very favoritest bestest toy of all.
+	“`,
+      audio: a29,
+      id: `C2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` likes her pretty new `,
+      audio: a30,
+      id: `X1256710`,
+      wordCategories: [
+        WordCategory.CLOTHES,
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+        WordCategory.TOYS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` well enough, but her mother says she can’t take it outside yet. She liked her pink sweater with the `,
+      audio: a31,
+      id: `Y567`,
+      wordCategories: [
+        WordCategory.ANIMALS,
+        WordCategory.WATER_ANIMALS,
+        WordCategory.BIRDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` only okay until everyone said how pretty it is, and now it’s almost the only top she ever wants to wear anywhere.”
+	“Ohhhh.”  Elmer said.
+	“But—the boss at the shelter said she’s sorry, but there’s just not enough room and each child can keep only one present.”
+	“Oh.....” Elmer said.
+	“But three new children came to the shelter.  They didn’t have a home for Santa to visit Christmas Eve and on Christmas Day they found no presents at all.”
+	“Oh!”
+	“So `,
+      audio: a32,
+      id: `A2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and `,
+      audio: a33,
+      id: `B2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and `,
+      audio: a34,
+      id: `C2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` gave their extra gifts to those three children who were very surprised, and very, very happy and excited to get them!”
+	“Oh!!!”
+	“And `,
+      audio: a35,
+      id: `A2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and `,
+      audio: a36,
+      id: `B2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` and `,
+      audio: a37,
+      id: `C2`,
+      wordCategories: [
+        WordCategory.FRIENDS,
+      ],
+      part: 2,
+    },
+    {
+      text:
+        ` discovered what you and I have always known.”
+	“Oh?”
+“That getting a gift feels wonderful, but giving to someone who really needs it feels even better.”
+	“Oh.”  Elmer said.  “Ohhhh.”`,
+      audio: a38,
+      wordCategories: [],
       part: 2,
     },
   ],
