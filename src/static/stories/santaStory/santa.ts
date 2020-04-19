@@ -196,7 +196,7 @@ const story: IStory = {
     },
     {
       text:
-        ` -uh uh oh– a RC`,
+        ` -uh uh oh– an RC`,
       audio: a14,
       id: `V13`,
       wordCategories: [
