@@ -1,5 +1,5 @@
-import {IStory} from '../../../redux/state/storyState';
-import {WordCategory} from '../../../redux/state/wordState';
+import { IStory } from '../../../redux/state/storyState';
+import { WordCategory } from '../../../redux/state/wordState';
 
 import img1 from './0Special_Inventions_1_without_templates.png';
 import img2 from './0Special_Inventions_2_without_template.png';

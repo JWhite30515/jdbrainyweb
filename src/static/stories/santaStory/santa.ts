@@ -150,7 +150,7 @@ const story: IStory = {
     },
     {
       text:
-        ` Timid helper-elf Elmer felt terribly, horribly awful that he’d found the list so
+        `. Timid helper-elf Elmer felt terribly, horribly awful that he’d found the list so
         late and quickly raced around Santa’s big toy warehouse to gather the gifts, but
         poor Elmer’s sleepy eyes didn’t read the list’s words very well, and poor Elmer’s
         sleepy memory didn’t remember very well, and — oh no! — at the very last minute
@@ -372,8 +372,7 @@ const story: IStory = {
     },
     {
       text:
-        ` says is now the very favoritest bestest toy of all.
-	“`,
+        ` says is now the very favoritest bestest toy of all.`,
       audio: a29,
       id: `C2`,
       wordCategories: [
