@@ -151,7 +151,7 @@ const story: IStory = {
     },
     {
       text:
-        ` Interesting inventions. Helpful inventions!
+        `. Interesting inventions. Helpful inventions!
         Wonderful inventions!!`,
       audio: a10,
       id: 1,
