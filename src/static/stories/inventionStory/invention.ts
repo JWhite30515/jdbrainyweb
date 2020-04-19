@@ -2,6 +2,7 @@ import {IStory} from '../../../redux/state/storyState';
 import {WordCategory} from '../../../redux/state/wordState';
 
 import img1 from './0Special_Inventions_1_without_templates.png';
+import img2 from './0Special_Inventions_2_without_template.png';
 
 const a1 = require('./audio/SPS_2_1.mp3');
 const a2 = require('./audio/SPS_2_2.mp3');
@@ -120,6 +121,12 @@ const story: IStory = {
           left: 56,
           width: 8,
           part: 1,
+        },
+        {
+          top: 62,
+          left: 56,
+          width: 8,
+          part: 2,
         }
       ],
     },
@@ -137,6 +144,12 @@ const story: IStory = {
           left: 65,
           width: 6,
           part: 1,
+        },
+        {
+          top: 59,
+          left: 64,
+          width: 8,
+          part: 2,
         }
       ],
     },
@@ -289,6 +302,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 17,
+          left: 69,
+          width: 8,
+          part: 2,
+        }
+      ],
     },
     {
       text:
@@ -304,6 +326,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 34,
+          left: 55,
+          width: 8,
+          part: 2,
+        }
+      ],
     },
     {
       text:
@@ -312,6 +343,15 @@ const story: IStory = {
       id: 4,
       wordCategories: [
         WordCategory.VEHICLES,
+      ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 11,
+          left: 46,
+          width: 8,
+          part: 2,
+        }
       ],
     },
     {
@@ -327,6 +367,15 @@ const story: IStory = {
         WordCategory.HOUSE_STUFF,
         WordCategory.TOYS,
         WordCategory.TOOLS,
+      ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 14,
+          left: 26,
+          width: 8,
+          part: 2,
+        }
       ],
     },
     {
@@ -344,6 +393,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 20,
+          left: 1,
+          width: 8,
+          part: 2,
+        }
+      ],
     },
     {
       text:
@@ -354,6 +412,7 @@ const story: IStory = {
       wordCategories: [
           WordCategory.FRIENDS,
       ],
+      part: 2,
     },
     {
       text:
@@ -364,6 +423,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 2,
     },
     {
       text:
@@ -373,6 +433,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 2,
     },
     {
       text:
@@ -388,6 +449,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
     },
     {
       text:
@@ -403,6 +465,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
     },
     {
       text:
@@ -412,6 +475,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      part: 2,
     },
     {
       text:
@@ -427,6 +491,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
     },
     {
       text:
@@ -437,6 +502,15 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
+      ],
+      part: 2,
+      imgPositions: [
+        {
+          top: 22,
+          left: 31,
+          width: 8,
+          part: 2,
+        }
       ],
     },
     {
@@ -454,6 +528,7 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
       ],
+      part: 2,
     },
     {
       text:
@@ -464,6 +539,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
+      part: 2,
     },
     {
       text:
@@ -472,12 +548,17 @@ const story: IStory = {
           'stay-up-after-wake-up-in-the-morning invention worked!”  And it did!',
       audio: a33,
       wordCategories: [],
+      part: 2,
     }
   ],
   parts: [
     {
       backgroundImg: img1,
       id: 1,
+    },
+    {
+      backgroundImg: img2,
+      id: 2,
     }
   ]
 }
