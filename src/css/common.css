@@ -67,11 +67,10 @@
 }
 
 .story-text {
-  /* width: 1000px; */
   font-size: 28px;
   font-family: 'Comic Sans MS', 'Comic Sans', serif;
-  /* width: 800px; */
-  width: 40%;
+  max-height: 240px;
+  overflow: auto;
 }
 
 .separator-bottom {
@@ -84,4 +83,15 @@
 
 .separator-right {
   border-right: solid 0.8px #e2e2ea;
+}
+
+.background-img {
+  max-height: 400px;
+  max-width: 600px;
+  margin: 0 0 20px 0;
+}
+
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse;
 }

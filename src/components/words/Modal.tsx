@@ -30,7 +30,7 @@ export default function Modal(props: IModalProps) {
             />
           </div>
         </div>
-        <div className="flex-row" style={{ maxHeight: '80%', alignItems: 'flex-start' }}>
+        <div className="flex-row" style={{ maxHeight: '75%', alignItems: 'flex-start' }}>
           {props.children}
         </div>
         {footerElement &&

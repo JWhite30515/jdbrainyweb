@@ -134,7 +134,7 @@ export function WordModal(props: IWordModalProps) {
                       setCurrSectionIdx(currSectionIdx + 1);
                     }
                   }}
-                  style={{ margin: '20px' }}
+                  style={{ flex: '0.5', margin: '20px' }}
                 >
                   <h1>{word.text}</h1>
                   <img

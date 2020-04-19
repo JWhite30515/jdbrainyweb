@@ -128,6 +128,9 @@ function StoryPage(props: IStoryPageProps) {
     }
   });
 
+  let storyTextClassName = 'story-text card-item';
+  if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
+
   return (
     <Switch>
       <Route
@@ -137,7 +140,7 @@ function StoryPage(props: IStoryPageProps) {
         <div className="flex-column">
           {showFriendModal &&
             <FriendModal
-              currStoryId={currStory.id}
+              currStory={currStory}
               currSectionIdx={currSectionIdx}
               setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
               setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
@@ -157,27 +160,29 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <h1>{currStory.title}</h1>
-          <div className="flex-row" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
-            <div className="parent" style={{ width: '50%' }}>
+          <div className="flex-column" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
+            <div className="parent">
               <img
-                style={{ width: '100%', margin: '20px 0' }}
+                className="background-img"
                 src={currPart.backgroundImg}
                 alt={currStory.title}
               />
               {wordImgs}
             </div>
-            <div className="card-item story-text">
-              {currStory.sections.map((section, idx) =>
-                <Section
-                  currSectionIdx={currSectionIdx}
-                  key={`section_${idx}`}
-                  sections={currStory.sections}
-                  sectionIdx={idx}
-                  setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-                  setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-                  setShowWordModal={(open: boolean) => setShowWordModal(open)}
-                />
-              )}
+            <div className={storyTextClassName}>
+              <div>
+                {currStory.sections.map((section, idx) =>
+                  <Section
+                    currSectionIdx={currSectionIdx}
+                    key={`section_${idx}`}
+                    sections={currStory.sections}
+                    sectionIdx={idx}
+                    setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                    setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
+                    setShowWordModal={(open: boolean) => setShowWordModal(open)}
+                  />
+                )}
+              </div>
             </div>
           </div>
         </div>

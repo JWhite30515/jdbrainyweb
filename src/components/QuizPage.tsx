@@ -157,7 +157,7 @@ function QuizPage(props: IQuizPageProps) {
             >
               <h1>{option.text}</h1>
               <img
-                className={'card-img'}
+                className={option.completed ? 'card-img' : 'card-img grayscale'}
                 style={{ maxWidth: '120px' }}
                 src={option.img}
                 alt={option.text}
