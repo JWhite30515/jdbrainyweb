@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
 
 import Section from './Section';
@@ -36,6 +36,8 @@ function StoryPage(props: IStoryPageProps) {
   const [showWordModal, setShowWordModal] = useState(false);
   const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
 
+  const history = useHistory();
+
   useEffect(() => {
     if (currSectionIdx !== 0) {
       if (wordAudio) {
@@ -56,9 +58,11 @@ function StoryPage(props: IStoryPageProps) {
     const { sections } = currStory;
 
     if (sections.length === 0) return;
+
+    let sectionAudio: HTMLAudioElement | null = new Audio(sections[currSectionIdx].audio);
+  
     if (playingSectionAudio) {
       const currSection = sections[currSectionIdx];
-      const sectionAudio = new Audio(sections[currSectionIdx].audio);
       sectionAudio.addEventListener('ended', () => {
         setPlayingSectionAudio(false);
         if (currSection.word) {
@@ -92,7 +96,19 @@ function StoryPage(props: IStoryPageProps) {
 
       sectionAudio.autoplay = true;
     }
-  }, [currSectionIdx, currStory, playingSectionAudio]);
+    
+    history.listen(() => {
+      if (wordAudio) {
+        wordAudio.pause();
+        setWordAudio(null);
+      }
+      if (sectionAudio) {
+        setPlayingSectionAudio(false);
+        sectionAudio.pause();
+        sectionAudio = null;
+      }
+    });
+  }, [currSectionIdx, currStory, playingSectionAudio, history, wordAudio]);
 
   if (!currStory) return <div>No story selected</div>
 
@@ -109,7 +125,7 @@ function StoryPage(props: IStoryPageProps) {
     if (!imgPositions) return;
 
     const currImg = imgPositions.find(img => img.part === currPart.id);
-  
+
     if (word && word.img && currImg) {
       wordImgs.push(
         <img
@@ -117,7 +133,7 @@ function StoryPage(props: IStoryPageProps) {
           className="image"
           src={word.img}
           alt={word.text}
-          style={{ 
+          style={{
             top: `${currImg.top}%`,
             left: `${currImg.left}%`,
             maxWidth: currImg.width ? `${currImg.width}%` : '10%',
@@ -175,9 +191,11 @@ function StoryPage(props: IStoryPageProps) {
                   <Section
                     currSectionIdx={currSectionIdx}
                     key={`section_${idx}`}
+                    playingSectionAudio={playingSectionAudio}
                     sections={currStory.sections}
                     sectionIdx={idx}
                     setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                    setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
                     setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
                     setShowWordModal={(open: boolean) => setShowWordModal(open)}
                   />

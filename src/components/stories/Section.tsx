@@ -5,19 +5,23 @@ import { WordCategory } from '../../redux/state/wordState';
 
 export interface ISectionProps {
   currSectionIdx: number;
+  playingSectionAudio: boolean;
   sections: ISection[];
   sectionIdx: number;
   setCurrSectionIdx(idx: number): void;
   setShowFriendModal(open: boolean): void;
   setShowWordModal(open: boolean): void;
+  setPlayingSectionAudio(playing: boolean): void;
 }
 
 export default function Section(props: ISectionProps) {
   const {
     currSectionIdx,
+    playingSectionAudio,
     sections,
     sectionIdx,
     setCurrSectionIdx,
+    setPlayingSectionAudio,
     setShowFriendModal,
     setShowWordModal,
   } = props;
@@ -54,9 +58,11 @@ export default function Section(props: ISectionProps) {
           </span>
           {!isLastSection &&
             <span
-              className="clickable"
+              className={!playingSectionAudio ? 'clickable' : ''}
               key={`word-${sectionIdx}`}
               onClick={() => {
+                if (playingSectionAudio) return;
+
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
                   setShowFriendModal(true);
@@ -68,7 +74,7 @@ export default function Section(props: ISectionProps) {
                 } else {
                   setShowWordModal(true);
                 }
-
+                setPlayingSectionAudio(false);
               }}
             >
               <b>{word ? word.text : '____'}</b>

@@ -71,6 +71,7 @@ function FriendModal(props: IFriendModalProps) {
 
       setWordAudio(wordAudio);
       setCurrSectionIdx(currSectionIdx + 1);
+      setPlayingSectionAudio(false);
     }
   },
     [
@@ -121,6 +122,7 @@ function FriendModal(props: IFriendModalProps) {
 
                   setWordAudio(wordAudio);
                   setCurrSectionIdx(currSectionIdx + 1);
+                  setPlayingSectionAudio(false);
                 }}
                 style={{ margin: '20px' }}
               >

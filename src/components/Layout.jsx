@@ -10,7 +10,7 @@ import '../css/common.css';
 export default function Layout(props) {
   const history = useHistory();
   return (
-    <div>
+    <React.Fragment>
       <div className="nav light-green-back">
         <IoMdArrowRoundBack
           size={'3em'}
@@ -22,6 +22,6 @@ export default function Layout(props) {
         </Link>
       </div>
       {props.children}
-    </div>
+    </React.Fragment>
   );
 }
