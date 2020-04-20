@@ -25,6 +25,7 @@ export interface ICategorizedWord {
 export interface IWordModalProps {
   currStory: IStory;
   currSectionIdx: number;
+  sectionAudio: HTMLAudioElement | null;
   words: IWord[];
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void;
   setCurrSectionIdx(idx: number): void;
@@ -38,6 +39,7 @@ export function WordModal(props: IWordModalProps) {
   const {
     currStory,
     currSectionIdx,
+    sectionAudio,
     words,
     selectWord,
     setCurrSectionIdx,
@@ -136,6 +138,8 @@ export function WordModal(props: IWordModalProps) {
                       setWordAudio(wordAudio);
                       setCurrSectionIdx(currSectionIdx + 1);
                       setPlayingSectionAudio(false);
+
+                      if (sectionAudio) sectionAudio.pause();
                     }
                   }}
                   style={{ flex: '0.5', margin: '20px' }}

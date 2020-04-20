@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -22,6 +22,7 @@ export interface IFriendModalProps {
   friends: IFriendWord[];
   imgs: any[];
   names: IName[];
+  sectionAudio: HTMLAudioElement | null;
   createFriend(friend: IFriendWord): void;
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void,
   setCurrSectionIdx(idx: number): void;
@@ -37,6 +38,7 @@ function FriendModal(props: IFriendModalProps) {
     friends,
     imgs,
     names,
+    sectionAudio,
     createFriend,
     selectWord,
     setCurrSectionIdx,
@@ -48,10 +50,28 @@ function FriendModal(props: IFriendModalProps) {
   const [currImg, setCurrImg] = useState<any | null>(null);
   const [currName, setCurrName] = useState<IName | null>(null);
 
+  const createAndSetWordAudio = useCallback((audio: HTMLAudioElement) => {
+    setShowFriendModal(false);
+    audio.addEventListener('ended', () => {
+      setPlayingSectionAudio(true);
+    });
+
+    setWordAudio(audio);
+    setCurrSectionIdx(currSectionIdx + 1);
+    setPlayingSectionAudio(false);
+
+    if (sectionAudio) sectionAudio.pause();
+  }, [
+    currSectionIdx,
+    setShowFriendModal,
+    setPlayingSectionAudio,
+    setWordAudio,
+    setCurrSectionIdx,
+    sectionAudio,
+  ]);
+
   useEffect(() => {
     if (currImg && currName) {
-      setShowFriendModal(false);
-
       const newFriendWord: IFriendWord = {
         audio: currName.audio,
         gender: currName.gender,
@@ -65,26 +85,18 @@ function FriendModal(props: IFriendModalProps) {
       selectWord(newFriendWord, currStory.id, currSectionIdx);
 
       const wordAudio = new Audio(newFriendWord.audio);
-      wordAudio.addEventListener('ended', () => {
-        setPlayingSectionAudio(true);
-      });
 
-      setWordAudio(wordAudio);
-      setCurrSectionIdx(currSectionIdx + 1);
-      setPlayingSectionAudio(false);
+      createAndSetWordAudio(wordAudio);
     }
   },
     [
+      createAndSetWordAudio,
       currSectionIdx,
       currStory,
       createFriend,
       currImg,
       currName,
       selectWord,
-      setCurrSectionIdx,
-      setPlayingSectionAudio,
-      setShowFriendModal,
-      setWordAudio
     ]
   );
 
@@ -112,17 +124,11 @@ function FriendModal(props: IFriendModalProps) {
               <Card
                 key={`friend_${idx}`}
                 onClick={() => {
-                  setShowFriendModal(false);
                   selectWord(friend, currStory.id, currSectionIdx);
 
                   const wordAudio = new Audio(friend.audio);
-                  wordAudio.addEventListener('ended', () => {
-                    setPlayingSectionAudio(true);
-                  });
 
-                  setWordAudio(wordAudio);
-                  setCurrSectionIdx(currSectionIdx + 1);
-                  setPlayingSectionAudio(false);
+                  createAndSetWordAudio(wordAudio);
                 }}
                 style={{ margin: '20px' }}
               >

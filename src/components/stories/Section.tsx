@@ -5,7 +5,6 @@ import { WordCategory } from '../../redux/state/wordState';
 
 export interface ISectionProps {
   currSectionIdx: number;
-  playingSectionAudio: boolean;
   sections: ISection[];
   sectionIdx: number;
   setCurrSectionIdx(idx: number): void;
@@ -17,7 +16,6 @@ export interface ISectionProps {
 export default function Section(props: ISectionProps) {
   const {
     currSectionIdx,
-    playingSectionAudio,
     sections,
     sectionIdx,
     setCurrSectionIdx,
@@ -58,10 +56,9 @@ export default function Section(props: ISectionProps) {
           </span>
           {!isLastSection &&
             <span
-              className={!playingSectionAudio ? 'clickable' : ''}
+              className="clickable"
               key={`word-${sectionIdx}`}
               onClick={() => {
-                if (playingSectionAudio) return;
 
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
