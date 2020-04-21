@@ -111,7 +111,7 @@ const story: IStory = {
     {
       text: ` convinced`,
       audio: a6,
-      id: 'friend_1',
+      id: 'friend_0',
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -127,7 +127,7 @@ const story: IStory = {
     {
       text: ` decided that`,
       audio: a8,
-      id: 'friend_1',
+      id: 'friend_0',
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -389,7 +389,7 @@ const story: IStory = {
     {
       text: ` tail part. And a wonderful time was had by all — until`,
       audio: a24,
-      id: 1,
+      id: 'friend_0',
       wordCategories: WordCategory.FRIENDS,
       part: 1,
     },
@@ -415,7 +415,7 @@ const story: IStory = {
     },{
       // pet of friend 1
       text:
-        ` they didn’t decide to befrightened—but those poor pets didn’t know they could decide,
+        ` they didn’t decide to be frightened—but those poor pets didn’t know they could decide,
       and just got howlishouslyscared without even thinking about it! The `,
       audio: a28,
       wordCategories: [WordCategory.HEAD],
@@ -517,11 +517,6 @@ const story: IStory = {
       id: 'friend_0',
       audio: a37,
       wordCategories: WordCategory.FRIENDS,
-      imgPositions: [{
-          top: 76,
-          left: 66,
-          part: 2,
-        }],
       part: 2,
     },{
       text:

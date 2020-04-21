@@ -20,7 +20,6 @@ export interface IQuizPageProps {
   currSectionIdx: number;
   currStoryId: number;
   quizWord: IWord;
-  sectionAudio: HTMLAudioElement | null;
   words: IWord[];
   masterWord: (word: IWord) => void;
   selectWord: (word: IWord | IFriendWord, storyId: number, currSectionIdx: number) => void;
@@ -34,7 +33,6 @@ function QuizPage(props: IQuizPageProps) {
     currSectionIdx,
     currStoryId,
     quizWord,
-    sectionAudio,
     words,
     masterWord,
     selectWord,
@@ -54,7 +52,7 @@ function QuizPage(props: IQuizPageProps) {
 
   useEffect(() => {
     quizWordAudio.addEventListener('ended', () => {
-      if (score === 3) {
+      if (score >= 3) {
         history.push(`/stories/${currStoryId}`);
         const newWord = { ...quizWord, completed: true };
 
@@ -73,7 +71,6 @@ function QuizPage(props: IQuizPageProps) {
 
         setCurrSectionIdx(currSectionIdx + 1);
         setWordAudio(wordAudio);
-        if (sectionAudio) sectionAudio.pause();
       }
     });
     quizWordAudio.play();
@@ -85,7 +82,6 @@ function QuizPage(props: IQuizPageProps) {
     quizWord,
     quizWordAudio,
     score,
-    sectionAudio,
     selectWord,
     setCurrSectionIdx,
     setPlayingSectionAudio,

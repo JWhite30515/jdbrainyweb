@@ -125,6 +125,7 @@ export function WordModal(props: IWordModalProps) {
 
                     setShowWordModal(false);
                     if (!word.completed) {
+                      if (sectionAudio) sectionAudio.pause();
                       setQuizWord(word);
                       history.push(`${path}/quiz`);
                     } else {

@@ -38,7 +38,6 @@ const a31 = require('./audio/SPS_2_31.mp3');
 const a32 = require('./audio/SPS_2_32.mp3');
 const a33 = require('./audio/SPS_2_33.mp3');
 
-
 const story: IStory = {
   title: 'The Special Invention',
   id: 3,

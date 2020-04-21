@@ -207,7 +207,6 @@ function StoryPage(props: IStoryPageProps) {
             currSectionIdx={currSectionIdx}
             currStoryId={currStory.id}
             quizWord={quizWord}
-            sectionAudio={sectionAudio}
             setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
             setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
             setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
