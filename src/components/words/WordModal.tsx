@@ -25,6 +25,7 @@ export interface ICategorizedWord {
 export interface IWordModalProps {
   currStory: IStory;
   currSectionIdx: number;
+  sectionAudio: HTMLAudioElement | null;
   words: IWord[];
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void;
   setCurrSectionIdx(idx: number): void;
@@ -38,6 +39,7 @@ export function WordModal(props: IWordModalProps) {
   const {
     currStory,
     currSectionIdx,
+    sectionAudio,
     words,
     selectWord,
     setCurrSectionIdx,
@@ -116,10 +118,14 @@ export function WordModal(props: IWordModalProps) {
             currCategorizedWord.words.map((word, idx) => {
               return (
                 <Card
+                  disabled={word.audio === null}
                   key={`word_card_${idx}`}
                   onClick={() => {
+                    if (word.audio === null) return;
+
                     setShowWordModal(false);
                     if (!word.completed) {
+                      if (sectionAudio) sectionAudio.pause();
                       setQuizWord(word);
                       history.push(`${path}/quiz`);
                     } else {
@@ -132,6 +138,9 @@ export function WordModal(props: IWordModalProps) {
 
                       setWordAudio(wordAudio);
                       setCurrSectionIdx(currSectionIdx + 1);
+                      setPlayingSectionAudio(false);
+
+                      if (sectionAudio) sectionAudio.pause();
                     }
                   }}
                   style={{ flex: '0.5', margin: '20px' }}

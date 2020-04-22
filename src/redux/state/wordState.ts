@@ -245,7 +245,7 @@ const bugAudio = require('../../static/words/audio/bug.mp3');
 const taxiAudio = require('../../static/words/audio/taxi.mp3');
 const schoolBusAudio = require('../../static/words/audio/school_bus.mp3');
 
-const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
+// const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
 
 export interface IBaseWord {
   text: string;
@@ -336,14 +336,14 @@ const words: IWord[] = [
     completed: false,
     text: 'bear',
     img: bearImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.ANIMALS,
   },
   {
     completed: false,
     text: 'burger',
     img: burgerImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.FOOD,
   },
   {
@@ -357,7 +357,7 @@ const words: IWord[] = [
     completed: false,
     text: 'clothes',
     img: clothesImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.CLOTHES
   },
   {
@@ -385,7 +385,7 @@ const words: IWord[] = [
     completed: false,
     text: 'box',
     img: boxImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.THINGS
   },
   {
@@ -630,7 +630,7 @@ const words: IWord[] = [
     completed: false,
     text: 'jay',
     img: jayImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BIRDS,
   },
   {
@@ -715,7 +715,7 @@ const words: IWord[] = [
     text: 'dancer',
     img: dancerImg,
     // audio: dancerAudio,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE,
   },
   {
@@ -779,7 +779,7 @@ const words: IWord[] = [
     text: 'lip',
     img: lipImg,
     // audio: lipAudio,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY_PARTS,
   },
   {
@@ -829,7 +829,7 @@ const words: IWord[] = [
     text: 'zoo',
     img: zooImg,
     // audio: zooAudio,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY_PARTS,
   },
   {
@@ -914,7 +914,7 @@ const words: IWord[] = [
     text: 'squares',
     img: squaresImg,
     //audio: squaresAudio,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HOUSE_STUFF,
   },
   {
@@ -977,7 +977,7 @@ const words: IWord[] = [
     completed: false,
     text: 'yoyo',
     img: yoyoImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.TOYS,
   },
 ];
@@ -986,21 +986,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'ant',
     img: antheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'ant',
     img: antmiddleImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'ant',
     img: anttailImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.TAIL,
     completed: false,
   },
@@ -1070,49 +1070,49 @@ const segmentedWords: IWord[] = [
   {
     text: 'cop',
     img: copheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'cop',
     img: copbodyImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY,
     completed: false,
   },
   {
     text: 'cub',
     img: cubheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'cub',
     img: cubmiddleImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'cub',
     img: cubtailImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'doctor',
     img: docheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'doctor',
     img: docbodyImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY,
     completed: false,
   },
@@ -1154,21 +1154,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'elk',
     img: elkheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'elk',
     img: elkmiddleImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'elk',
     img: elktailImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.TAIL,
     completed: false,
   },
@@ -1217,49 +1217,49 @@ const segmentedWords: IWord[] = [
   {
     text: 'gal',
     img: galbodyImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY,
     completed: false,
   },
   {
     text: 'gal',
     img: galheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'hen',
     img: henheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'hen',
     img: henmiddleImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'hen',
     img: hentailImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.TAIL,
     completed: false,
   },
   {
     text: 'kid',
     img: kidheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'kid',
     img: kidbodyImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY,
     completed: false,
   },
@@ -1308,14 +1308,14 @@ const segmentedWords: IWord[] = [
   {
     text: 'referee',
     img: refheadImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.PEOPLE_HEAD,
     completed: false,
   },
   {
     text: 'referee',
     img: refbodyImg,
-    audio: placeholderAudio,
+    audio: null,
     category: WordCategory.BODY,
     completed: false,
   },

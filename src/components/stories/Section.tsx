@@ -10,6 +10,7 @@ export interface ISectionProps {
   setCurrSectionIdx(idx: number): void;
   setShowFriendModal(open: boolean): void;
   setShowWordModal(open: boolean): void;
+  setPlayingSectionAudio(playing: boolean): void;
 }
 
 export default function Section(props: ISectionProps) {
@@ -18,6 +19,7 @@ export default function Section(props: ISectionProps) {
     sections,
     sectionIdx,
     setCurrSectionIdx,
+    setPlayingSectionAudio,
     setShowFriendModal,
     setShowWordModal,
   } = props;
@@ -57,6 +59,7 @@ export default function Section(props: ISectionProps) {
               className="clickable"
               key={`word-${sectionIdx}`}
               onClick={() => {
+
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
                   setShowFriendModal(true);
@@ -68,7 +71,7 @@ export default function Section(props: ISectionProps) {
                 } else {
                   setShowWordModal(true);
                 }
-
+                setPlayingSectionAudio(false);
               }}
             >
               <b>{word ? word.text : '____'}</b>

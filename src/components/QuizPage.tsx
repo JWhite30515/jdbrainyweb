@@ -24,7 +24,6 @@ export interface IQuizPageProps {
   masterWord: (word: IWord) => void;
   selectWord: (word: IWord | IFriendWord, storyId: number, currSectionIdx: number) => void;
   setCurrSectionIdx: (idx: number) => void;
-  setFromQuiz: (fromQuiz: boolean) => void;
   setPlayingSectionAudio: (playing: boolean) => void;
   setWordAudio: (audio: HTMLAudioElement) => void;
 }
@@ -38,7 +37,6 @@ function QuizPage(props: IQuizPageProps) {
     masterWord,
     selectWord,
     setCurrSectionIdx,
-    setFromQuiz,
     setPlayingSectionAudio,
     setWordAudio,
   } = props;
@@ -54,7 +52,7 @@ function QuizPage(props: IQuizPageProps) {
 
   useEffect(() => {
     quizWordAudio.addEventListener('ended', () => {
-      if (score === 3) {
+      if (score >= 3) {
         history.push(`/stories/${currStoryId}`);
         const newWord = { ...quizWord, completed: true };
 
@@ -65,8 +63,10 @@ function QuizPage(props: IQuizPageProps) {
 
         // separate audio instantion to add different onEnded event listener
         const wordAudio = new Audio(newWord.audio);
+        wordAudio.addEventListener('ended', () => {
+          setPlayingSectionAudio(true);
+        });
 
-        setFromQuiz(true);
         setPlayingSectionAudio(false);
 
         setCurrSectionIdx(currSectionIdx + 1);
@@ -84,7 +84,6 @@ function QuizPage(props: IQuizPageProps) {
     score,
     selectWord,
     setCurrSectionIdx,
-    setFromQuiz,
     setPlayingSectionAudio,
     setWordAudio,
   ]);
