@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
+import { FaQuestionCircle } from 'react-icons/fa';
 import { IoIosStar, IoIosStarOutline, IoIosVolumeHigh } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -42,9 +43,10 @@ function QuizPage(props: IQuizPageProps) {
   } = props;
 
   const history = useHistory();
+  const filteredWords = useMemo(() => filterDuplicateWords(words), [words]);
 
   const [score, setScore] = useState(0);
-  const [options, setOptions] = useState(randomizeOptions(quizWord, words));
+  const [options, setOptions] = useState(randomizeOptions(quizWord, filteredWords));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
 
@@ -125,10 +127,14 @@ function QuizPage(props: IQuizPageProps) {
 
   return (
     <div className="flex-column">
+      <div className="info-text-header light-green-back">
+        <FaQuestionCircle size='3em' style={{ margin: '20px 10px 20px 0' }} />
+        <h1>Select the correct sight-word</h1>
+      </div>
       <div className="flex-row star-row">
         {starRatings}
       </div>
-      <div className="flex-row">
+      <div className="quiz-container">
         {options.map((option, idx) => {
           return (
             <Card
@@ -149,16 +155,10 @@ function QuizPage(props: IQuizPageProps) {
                   setHasStreak(false);
                   setScore(0);
                 }
-                setOptions(randomizeOptions(quizWord, words));
+                setOptions(randomizeOptions(quizWord, filteredWords));
               }}
             >
               <h1>{option.text}</h1>
-              <img
-                className={option.completed ? 'card-img' : 'card-img grayscale'}
-                style={{ maxWidth: '120px' }}
-                src={option.img}
-                alt={option.text}
-              />
             </Card>
           );
         })}
@@ -169,6 +169,25 @@ function QuizPage(props: IQuizPageProps) {
     </div>
   );
 }
+
+const filterDuplicateWords = (words: IWord[]) => {
+  const filteredWords: IWord[] = [];
+
+  for (const word of words) {
+    let isDuplicate = false;
+    for (const filteredWord of filteredWords) {
+      if (word.text === filteredWord.text) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) filteredWords.push(word);
+  }
+
+  return filteredWords;
+}
+
 
 const randomizeOptions = (word: IWord | null, words: IWord[]): IWord[] => {
   if (!word) return [];

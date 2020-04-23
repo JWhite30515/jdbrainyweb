@@ -66,13 +66,6 @@
   filter: grayscale(80%);
 }
 
-.story-text {
-  font-size: 28px;
-  font-family: 'Comic Sans MS', 'Comic Sans', serif;
-  max-height: 240px;
-  overflow: auto;
-}
-
 .separator-bottom {
   border-bottom: solid 0.8px #e2e2ea;
 }
@@ -85,17 +78,7 @@
   border-right: solid 0.8px #e2e2ea;
 }
 
-.background-img {
-  max-height: 400px;
-  max-width: 600px;
-  margin: 0 0 20px 0;
-}
-
 .flex-column-reverse {
   display: flex;
   flex-direction: column-reverse;
-}
-
-.highlighted {
-  background-color: #FFFF00;
 }

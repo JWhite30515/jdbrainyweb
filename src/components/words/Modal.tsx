@@ -25,7 +25,7 @@ export default function Modal(props: IModalProps) {
             <IoMdCloseCircle
               className="clickable"
               onClick={() => setModalOpen(false)}
-              style={{ paddingRight: '10px' }}
+              style={{ paddingRight: '20px' }}
               size={'3em'}
             />
           </div>

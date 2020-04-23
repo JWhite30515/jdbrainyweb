@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import { FaCompressArrowsAlt, FaExpandArrowsAlt } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
@@ -33,8 +34,11 @@ function StoryPage(props: IStoryPageProps) {
   const [quizWord, setQuizWord] = useState({} as IWord);
   const [showFriendModal, setShowFriendModal] = useState(false);
   const [showWordModal, setShowWordModal] = useState(false);
-  const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
   const [sectionAudio, setSectionAudio] = useState<HTMLAudioElement | null>(null);
+  const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
+
+  const [storyImgExpanded, setStoryImgExpanded] = useState(false);
+  const [storyTextExpanded, setStoryTextExpanded] = useState(false);
 
   const history = useHistory();
 
@@ -53,7 +57,7 @@ function StoryPage(props: IStoryPageProps) {
     if (sections.length === 0) return;
 
     let sectionAudio: HTMLAudioElement | null = new Audio(sections[currSectionIdx].audio);
-  
+
     if (playingSectionAudio) {
       const currSection = sections[currSectionIdx];
       sectionAudio.addEventListener('ended', () => {
@@ -96,7 +100,7 @@ function StoryPage(props: IStoryPageProps) {
       setSectionAudio(sectionAudio);
       sectionAudio.autoplay = true;
     }
-    
+
     return history.listen(() => {
       if (wordAudio) {
         wordAudio.pause();
@@ -144,8 +148,9 @@ function StoryPage(props: IStoryPageProps) {
     }
   });
 
-  let storyTextClassName = 'story-text card-item';
+  let storyTextClassName = 'story-text';
   if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
+  if (storyTextExpanded) storyTextClassName += ' expanded-height';
 
   console.log(showFriendModal);
   console.log(showWordModal);
@@ -182,30 +187,72 @@ function StoryPage(props: IStoryPageProps) {
           }
           <h1>{currStory.title}</h1>
           <div className="flex-column" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
-            <div className="parent">
-              <img
-                className="background-img"
-                src={currPart.backgroundImg}
-                alt={currStory.title}
-              />
-              {wordImgs}
-            </div>
-            <div className={storyTextClassName}>
-              <div>
-                {currStory.sections.map((section, idx) =>
-                  <Section
-                    currSectionIdx={currSectionIdx}
-                    key={`section_${idx}`}
-                    sections={currStory.sections}
-                    sectionIdx={idx}
-                    setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-                    setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
-                    setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-                    setShowWordModal={(open: boolean) => setShowWordModal(open)}
+            {!storyTextExpanded &&
+              <div className="parent">
+                <img
+                  className={storyImgExpanded ? 'background-img expanded' : 'background-img'}
+                  src={currPart.backgroundImg}
+                  alt={currStory.title}
+                />
+                {!storyImgExpanded &&
+                  <FaExpandArrowsAlt
+                    className="background-img-icon"
+                    onClick={() => {
+                      setStoryImgExpanded(true);
+                    }}
+                    size='5%'
                   />
-                )}
+                }
+                {storyImgExpanded &&
+                  <FaCompressArrowsAlt
+                    className="background-img-icon"
+                    onClick={() => {
+                      setStoryImgExpanded(false);
+                    }}
+                    size='5%'
+                  />
+                }
+                {wordImgs}
               </div>
-            </div>
+            }
+            {!storyImgExpanded &&
+              <div className="flex-row card-item">
+                <div className={storyTextClassName}>
+                  <div>
+                  {currStory.sections.map((section, idx) =>
+                    <Section
+                      currSectionIdx={currSectionIdx}
+                      key={`section_${idx}`}
+                      sections={currStory.sections}
+                      sectionIdx={idx}
+                      setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                      setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+                      setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
+                      setShowWordModal={(open: boolean) => setShowWordModal(open)}
+                    />
+                  )}
+                  </div>
+                </div>
+                {!storyTextExpanded &&
+                  <FaExpandArrowsAlt
+                    className="story-icon"
+                    size="1.5em"
+                    onClick={() => {
+                      setStoryTextExpanded(true);
+                    }}
+                  />
+                }
+                {storyTextExpanded &&
+                  <FaCompressArrowsAlt
+                    className="story-icon"
+                    size="1.5em"
+                    onClick={() => {
+                      setStoryTextExpanded(false);
+                    }}
+                  />
+                }
+              </div>
+            }
           </div>
         </div>
       </Route>
