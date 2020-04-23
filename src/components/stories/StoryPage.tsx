@@ -68,7 +68,13 @@ function StoryPage(props: IStoryPageProps) {
           });
           wordAudio.play();
         } else {
-          if (currSectionIdx !== sections.length - 1) {
+          // show word modals if (a) is not last section
+          // and (b) is not a section with an already defined word
+          if (
+            currSectionIdx !== sections.length - 1 &&
+            currSection.word === undefined
+          ) {
+            console.log('whens this getting set');
             if (
               currSection.wordCategories === WordCategory.FRIENDS
             ) {
@@ -140,6 +146,9 @@ function StoryPage(props: IStoryPageProps) {
 
   let storyTextClassName = 'story-text card-item';
   if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
+
+  console.log(showFriendModal);
+  console.log(showWordModal);
 
   return (
     <Switch>

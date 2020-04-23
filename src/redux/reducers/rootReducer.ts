@@ -21,12 +21,8 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
 
       if (!updatedStory) return { ...state };
 
-      console.log(currSectionIdx);
-
       const updatedSection = { ...updatedStory.sections[currSectionIdx] };
-
       updatedSection.word = word;
-
       const updatedSections = [...updatedStory.sections];
   
       // if word has an id, set all sections with that id to have that word
@@ -45,8 +41,6 @@ const storyReducer: Reducer<IStoryState, AnyAction> = (
       let updatedStories = [...state.stories];
       updatedStories.splice(storyIdx, 1, updatedStory)
 
-      console.log('here are the updated stories\n');
-      console.log(updatedStories);
       return {
         ...state,
         stories: updatedStories,

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { IoIosHome } from 'react-icons/io';
 // import { IoMdArrowRoundBack } from 'react-icons/io';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../css/layout.css';
 import '../css/common.css';

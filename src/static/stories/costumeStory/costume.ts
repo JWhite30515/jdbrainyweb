@@ -2,7 +2,7 @@ import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
 import img1 from './Wacky-Costume-no-templates.png';
-import img2 from './Wacky-Costume2-with-templates.png';
+import img2 from './Wacky-Costume2-no-templates.png';
 
 const a1 = require('./audio/SPS_1_1 Copy.mp3');
 const a2 = require('./audio/SPS_1_2 Copy.mp3');
@@ -169,12 +169,21 @@ const story: IStory = {
         WordCategory.HEAD,
       ],
       id: 'pet_1',
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 37,
           left: 30.6,
           width: 12.7,
           part: 1,
-        }],
+        },
+        {
+          top: 19,
+          left: 41.5,
+          rotate: 25,
+          width: 12.7,
+          part: 2,
+        },
+      ],
       part: 1,
     },
     {
@@ -183,18 +192,21 @@ const story: IStory = {
       wordCategories: [
         WordCategory.MIDDLE,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 37,
           left: 30.6,
           width: 12.7,
           part: 1,
-        },{
-          top: 22,
-          left: 41,
-          width: 12.7,
+        },
+        {
+          top: 19,
+          left: 41.5,
           rotate: 25,
+          width: 12.7,
           part: 2,
-        }],
+        }
+      ],
       part: 1,
     },
     {
@@ -203,18 +215,21 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TAIL,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 37,
           left: 30.6,
           width: 12.7,
           part: 1,
-        },{
-          top: 22,
-          left: 41,
-          width: 12.7,
+        },
+        {
+          top: 19,
+          left: 41.5,
           rotate: 25,
+          width: 12.7,
           part: 2,
-        }],
+        }
+      ],
       part: 1,
     },
     {
@@ -233,16 +248,19 @@ const story: IStory = {
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 31,
           left: 76,
           part: 1,
-        },{
+        },
+        {
           top: 68,
           left: 73,
           rotate: 345,
           part: 2,
-        }],
+        }
+      ],
       part: 1,
     },
     // animal with parts 2
@@ -259,7 +277,15 @@ const story: IStory = {
           left: 77.4,
           width: 12.7,
           part: 1,
-        }],
+        },
+        {
+          top: 30,
+          left: 28.5,
+          rotate: -20,
+          part: 2,
+          width: 12.7,
+        }
+      ],
       part: 1,
     },
     {
@@ -268,18 +294,21 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TAIL,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 60,
           left: 77.4,
           width: 12.7,
           part: 1,
-        },{
-          top: 31,
-          left: 27,
-          width: 12.7,
-          rotate: -15,
+        },
+        {
+          top: 30,
+          left: 28.5,
+          rotate: -20,
           part: 2,
-        }],
+          width: 12.7,
+        }
+      ],
       part: 1,
     },
     {
@@ -294,13 +323,15 @@ const story: IStory = {
           left: 77.4,
           width: 12.7,
           part: 1,
-        },{
-          top: 31,
-          left: 27,
-          width: 12.7,
-          rotate: 345,
+        },
+        {
+          top: 30,
+          left: 28.5,
+          rotate: -20,
           part: 2,
-        }],
+          width: 12.7,
+        }
+      ],
       part: 1,
     },
     {
@@ -318,16 +349,19 @@ const story: IStory = {
         WordCategory.PEOPLE,
         WordCategory.PRETEND,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 40,
           left: 88,
           part: 1,
-        },{
+        },
+        {
           top: 67,
           left: 88,
           rotate: 380,
           part: 2,
-        }],
+        }
+      ],
       part: 1,
     },
     // animal parts 3
@@ -344,7 +378,15 @@ const story: IStory = {
           left: 66,
           width: 12.7,
           part: 1,
-        }],
+        },
+        {
+          top: 53,
+          left: 31,
+          rotate: 43,
+          part: 2,
+          width: 12.7,
+        }
+      ],
       part: 1,
     },
     {
@@ -353,37 +395,44 @@ const story: IStory = {
       wordCategories: [
         WordCategory.MIDDLE,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 76,
           left: 66,
           width: 12.7,
           part: 1,
-        },{
-          top: 53.2,
-          left: 30.1,
-          width: 12.7,
-          rotate: 45,
+        },
+        {
+          top: 53,
+          left: 31,
+          rotate: 43,
           part: 2,
-        }],
+          width: 12.7,
+        }
+      ],
       part: 1,
-    },{
+    },
+    {
       text: ` tummy parts and a`,
       audio: a23,
       wordCategories: [
         WordCategory.TAIL,
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 76,
           left: 66,
           width: 12.7,
           part: 1,
-        },{
-          top: 53.4,
-          left: 29.95,
-          width: 12.7,
-          rotate: 45,
+        },
+        {
+          top: 53,
+          left: 31,
+          rotate: 43,
           part: 2,
-        }],
+          width: 12.7,
+        }
+      ],
       part: 1,
     },
     {
@@ -400,67 +449,56 @@ const story: IStory = {
       wordCategories: WordCategory.FRIENDS,
       part: 2,
       id: 'friend_1',
-    },{
+    },
+    {
       text: ` or `,
       audio: a26,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
       id: 'friend_2'
-    },{
+    },
+    {
       text: ` or `,
       audio: a27,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
       id: 'friend_3',
-    },{
+    },
+    {
       // pet of friend 1
       text:
         ` they didn’t decide to be frightened—but those poor pets didn’t know they could decide,
       and just got howlishouslyscared without even thinking about it! The `,
       audio: a28,
       wordCategories: [WordCategory.HEAD],
-      imgPositions: [{
-          top: 22.4,
-          left: 42.1,
-          rotate: 25,
-          part: 2,
-        }],
       part: 2,
       id: 'pet_1',
-      
-    },{
+
+    },
+    {
       text: ` spilled the fruit punch bowl and the `,
       audio: a29,
       wordCategories: [WordCategory.HEAD],
-      imgPositions: [{
-          top: 32,
-          left: 27.8,
-          rotate: -15,
-          part: 2,
-        }],
       part: 2,
       id: 'pet_2',
-    },{
+    },
+    {
       text:
         ` tumbled into the big party chocolate angel-food cake and the `,
       audio: a30,
       wordCategories: [WordCategory.HEAD],
-      imgPositions: [{
-          top: 54,
-          left: 30.95,
-          rotate: 45,
-          part: 2,
-        }],
       id: 'pet_3',
       part: 2,
-    },{
+    },
+    {
       text:
         `  knocked over the treats table and in all the commotion `,
       id: 'friend_1',
       audio: a31,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       //item being hid behind
       text: ` hid behind the `,
       audio: a32,
@@ -468,57 +506,69 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 76,
           left: 2,
           part: 2,
-        }],
+        }
+      ],
       part: 2,
-    },{
+    },
+    {
       text: `, and `,
       id: 'friend_2',
       audio: a33,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       text: ` peeeeked out of the`,
       audio: a34,
       wordCategories: [
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 76,
-          left: 74,
+          left: 52,
           part: 2,
-        }],
+        }
+      ],
       part: 2,
-    },{
+    },
+    {
       text: `, and `,
       id: 'friend_3',
       audio: a35,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       text: ` sneaked under the `,
       audio: a36,
       wordCategories: [
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF
       ],
-      imgPositions: [{
+      imgPositions: [
+        {
           top: 50,
           left: 82,
           part: 2,
-        }],
+        }
+      ],
       part: 2,
-    },{
+    },
+    {
       text: `, and when the grown-ups rushed in `,
       id: 'friend_0',
       audio: a37,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       text:
         ` thought it was a very good time to hide in a costume, 
       only maybe not in a Bigfoot Sasquatch costume. And the grownups made `,
@@ -526,7 +576,8 @@ const story: IStory = {
       audio: a38,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       text:
         ` keep that costume on and do all the work all alone to wipe up the fruit 
       punch and clean up the spilled cake and tidy up the treats table. And `,
@@ -534,7 +585,8 @@ const story: IStory = {
       audio: a39,
       wordCategories: WordCategory.FRIENDS,
       part: 2,
-    },{
+    },
+    {
       text:
         ` decided not to decide again that it would be okay fun to decide to scare anybody, whether they decided to be scared or not.`,
       audio: a40,

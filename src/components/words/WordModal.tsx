@@ -90,26 +90,29 @@ export function WordModal(props: IWordModalProps) {
     >
       <div
         className="flex-column flex-start separator-right"
-        style={{ flex: 1, height: '100%' }}
+        style={{ flex: 1, height: '100%'}}
       >
         <h1>Categories</h1>
-        {wordsCategorized.map((categorizedWord, idx) => {
-          let catClass = 'category-card clickable flex-column separator-bottom';
-          if (currCategory === categorizedWord.category) catClass += ' category-selected';
-          if (idx === 0) catClass += ' separator-top';
+        <div style={{ overflow: 'scroll', width: '100%' }}>    
+          {wordsCategorized.map((categorizedWord, idx) => {
+            let catClass = 'category-card clickable flex-column separator-bottom';
+            if (currCategory === categorizedWord.category) catClass += ' category-selected';
+            if (idx === 0) catClass += ' separator-top';
 
-          return (
-            <div
-              className={catClass}
-              key={`${categorizedWord.category}_${idx}`}
-              onClick={() => setCurrCategory(categorizedWord.category)}
-            >
-              <h2>
-                {categorizedWord.category}
-              </h2>
-            </div>
-          );
-        })}
+            return (
+              <div
+                className={catClass}
+                key={`${categorizedWord.category}_${idx}`}
+                onClick={() => setCurrCategory(categorizedWord.category)}
+              >
+                <h2>
+                  {categorizedWord.category}
+                </h2>
+              </div>
+            );
+          })}
+
+        </div>
       </div>
       <div className="flex-column" style={{ flex: 2, maxHeight: '100%' }}>
         <h1>Words</h1>

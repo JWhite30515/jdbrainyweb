@@ -46,17 +46,20 @@ export default function Section(props: ISectionProps) {
   }
 
   const isLastSection = (sectionIdx === sections.length - 1);
+  const sectionHighlighted = (sectionIdx === currSectionIdx);
 
   return (
     <React.Fragment>
       {sectionTextVisible &&
         <React.Fragment>
-          <span>
+          <span
+            className={sectionHighlighted ? 'highlighted' : ''}
+          >
             {text + (isLastSection ? '' : ' ')}
           </span>
           {!isLastSection &&
             <span
-              className="clickable"
+              className={sectionHighlighted ? 'clickable highlighted' : 'clickable'}
               key={`word-${sectionIdx}`}
               onClick={() => {
 

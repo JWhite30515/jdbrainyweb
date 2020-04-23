@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img1 from './Santas-Elf-picture_1.png';
+import img1 from './Santas-ElF1-no_landings.png';
 import img2 from './Santas-Elf-picture_2.png';
 
 const a1 = require('./audio/SPS_3_1.mp3');

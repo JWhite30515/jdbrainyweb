@@ -2,7 +2,7 @@ import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
 import img1 from './0Special_Inventions_1_without_templates.png';
-import img2 from './0Special_Inventions_2_without_template.png';
+import img2 from './Background-Special_Inventions_without_templates.png';
 
 const a1 = require('./audio/SPS_2_1.mp3');
 const a2 = require('./audio/SPS_2_2.mp3');
@@ -122,7 +122,7 @@ const story: IStory = {
           part: 1,
         },
         {
-          top: 62,
+          top: 61,
           left: 56,
           width: 8,
           part: 2,
@@ -139,14 +139,14 @@ const story: IStory = {
       part: 1,
       imgPositions: [
         {
-          top: 61,
+          top: 59,
           left: 65,
-          width: 6,
+          width: 8,
           part: 1,
         },
         {
           top: 59,
-          left: 64,
+          left: 65,
           width: 8,
           part: 2,
         }
@@ -175,6 +175,12 @@ const story: IStory = {
           left: 63,
           width: 8,
           part: 1,
+        },
+        {
+          top: 85,
+          left: 63,
+          width: 8,
+          part: 2,
         }
       ],
     },
@@ -304,7 +310,7 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 17,
+          top: 13,
           left: 69,
           width: 8,
           part: 2,
@@ -328,7 +334,7 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 34,
+          top: 30,
           left: 55,
           width: 8,
           part: 2,
@@ -346,10 +352,11 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 11,
+          top: 7,
           left: 46,
           width: 8,
           part: 2,
+          rotate: -20,
         }
       ],
     },
@@ -370,7 +377,7 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 14,
+          top: 10,
           left: 26,
           width: 8,
           part: 2,
@@ -395,7 +402,7 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 20,
+          top: 16,
           left: 1,
           width: 8,
           part: 2,
@@ -505,7 +512,7 @@ const story: IStory = {
       part: 2,
       imgPositions: [
         {
-          top: 22,
+          top: 18,
           left: 31,
           width: 8,
           part: 2,

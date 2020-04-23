@@ -56,8 +56,6 @@ function QuizPage(props: IQuizPageProps) {
         history.push(`/stories/${currStoryId}`);
         const newWord = { ...quizWord, completed: true };
 
-        console.log(`Quiz word ${newWord.text} mastered!`);
-
         masterWord(newWord);
         selectWord(newWord, currStoryId, currSectionIdx);
 
