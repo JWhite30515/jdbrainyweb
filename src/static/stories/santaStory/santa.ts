@@ -347,7 +347,7 @@ const story: IStory = {
     },
     {
       text:
-        ` -uh no– one`,
+        ` -oh no– one`,
       audio: a17,
       id: `X1256710`,
       wordCategories: [
