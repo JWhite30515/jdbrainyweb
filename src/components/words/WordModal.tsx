@@ -52,11 +52,12 @@ export function WordModal(props: IWordModalProps) {
   const history = useHistory();
   const { path } = useRouteMatch();
 
+  const currSection = currStory.sections[currSectionIdx];
+
   const wordsCategorized = useMemo(() => {
     const wordsCategorizedMap = new Map<WordCategory, IWord[]>();
     const wordsCategorized: ICategorizedWord[] = [];
 
-    const currSection = currStory.sections[currSectionIdx];
     const categories = currSection.wordCategories;
 
     words.forEach((word) => {
@@ -72,11 +73,36 @@ export function WordModal(props: IWordModalProps) {
     });
 
     wordsCategorizedMap.forEach((value, key) => {
-      wordsCategorized.push({ category: key, words: value });
+      const checkForDuplicates = currSection.duplicateId !== undefined;
+      const filteredWords: IWord[] = [];
+
+      if (checkForDuplicates) {
+        // find word that cannot have a duplicate
+        let wordToFilter: IWord | IFriendWord | null = null;
+        for (const section of currStory.sections) {
+          if (section.word && section.id === currSection.duplicateId) {
+            wordToFilter = section.word;
+            break;
+          }
+        }
+        if (wordToFilter !== null) {
+          for (const word of value) {
+            if (word.text !== wordToFilter.text) {
+              filteredWords.push(word);
+            }
+          }
+        }
+      }
+      wordsCategorized.push(
+        { 
+          category: key,
+          words: checkForDuplicates ? filteredWords : value
+        },
+      );
     });
 
     return wordsCategorized;
-  }, [currSectionIdx, currStory, words]);
+  }, [currSection, currStory, words]);
 
   const [currCategory, setCurrCategory] = useState(wordsCategorized.length ?
     wordsCategorized[0].category : null);

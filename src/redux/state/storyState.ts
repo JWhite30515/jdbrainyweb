@@ -32,6 +32,8 @@ export interface ISection {
     // degrees by which to rotate img CW
     rotate?: number;
   }[];
+  // id of word in story that this section's word cannot match
+  duplicateId?: number | string;
 }
 
 export const initialStoryState: IStoryState = {

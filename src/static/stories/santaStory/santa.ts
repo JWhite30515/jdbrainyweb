@@ -2,7 +2,8 @@ import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
 import img1 from './Santas-ElF1-no_landings.png';
-import img2 from './Santas-Elf-picture_2.png';
+import img2 from './Santas-Elf-2-no_landings.png';
+import img3 from './Santas-Elf3-no_landings.png';
 
 const a1 = require('./audio/SPS_3_1.mp3');
 const a2 = require('./audio/SPS_3_2.mp3');
@@ -63,6 +64,20 @@ const story: IStory = {
       part: 1,
       id: `A2`,
       wordCategories: WordCategory.FRIENDS,
+      imgPositions: [
+        {
+          top: 63,
+          left: 20,
+          part: 1,
+          width: 14,
+        },
+        {
+          top: 35,
+          left: 15,
+          part: 3,
+          width: 14,
+        },
+      ]
     },
     {
       text:
@@ -73,7 +88,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      id: 'person_1_present_1',
       part: 1,
+      imgPositions: [
+        {
+          top: 29,
+          left: 10,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -86,7 +109,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES,
       ],
+      id: 'person_1_present_2',
       part: 1,
+      imgPositions: [
+        {
+          top: 37,
+          left: 24,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -95,6 +126,20 @@ const story: IStory = {
       id: `B2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
+      imgPositions: [
+        {
+          top: 57,
+          left: 44,
+          part: 1,
+          width: 14,
+        },
+        {
+          top: 37,
+          left: 47,
+          part: 3,
+          width: 14,
+        },
+      ]
     },
     {
       text:
@@ -103,7 +148,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      id: 'person_2_present_1',
       part: 1,
+      imgPositions: [
+        {
+          top: 19,
+          left: 44,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -112,7 +165,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      id: 'person_2_present_2',
       part: 1,
+      imgPositions: [
+        {
+          top: 14,
+          left: 60,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -122,6 +183,20 @@ const story: IStory = {
       id: `C2`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
+      imgPositions: [
+        {
+          top: 63,
+          left: 68,
+          part: 1,
+          width: 14,
+        },
+        {
+          top: 33,
+          left: 76,
+          part: 3,
+          width: 14,
+        },
+      ]
     },
     {
       text:
@@ -134,7 +209,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.CLOTHES,
       ],
+      id: 'person_3_present_1',
       part: 1,
+      imgPositions: [
+        {
+          top: 43,
+          left: 70,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -146,7 +229,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      id: 'person_3_present_2',
       part: 1,
+      imgPositions: [
+        {
+          top: 29,
+          left: 82,
+          part: 1,
+        }
+      ]
     },
     {
       text:
@@ -170,7 +261,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      imgPositions: [
+        {
+          top: 45,
+          left: 34,
+          part: 2,
+        },
+      ],
       part: 2,
+      duplicateId: 'person_1_present_1'
     },
     {
       text:
@@ -184,7 +283,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES,
       ],
+      imgPositions: [
+        {
+          top: 66,
+          left: 34,
+          part: 2,
+        }
+      ],
       part: 2,
+      duplicateId: 'person_1_present_2'
     },
     {
       text:
@@ -202,7 +309,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
+      imgPositions: [
+        {
+          top: 45,
+          left: 51,
+          part: 2,
+        }
+      ],
       part: 2,
+      duplicateId: 'person_2_present_2'
     },
     {
       text:
@@ -212,7 +327,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
+      imgPositions: [
+        {
+          top: 67,
+          left: 48,
+          part: 2,
+        }
+      ],
       part: 2,
+      duplicateId: 'person_2_present_1'
     },
     {
       text:
@@ -234,7 +357,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.CLOTHES,
       ],
+      imgPositions: [
+        {
+          top: 66,
+          left: 61,
+          part: 2,
+        }
+      ],
       part: 2,
+      duplicateId: 'person_3_present_1'
     },
     {
       text:
@@ -246,11 +377,19 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
+      imgPositions: [
+        {
+          top: 47,
+          left: 64,
+          part: 2,
+        }
+      ],
       part: 2,
+      duplicateId: 'person_3_present_2'
     },
     {
       text:
-        ` Santa, just a tiny bit late as usual, loudly called out ‘Hi Ho’ and his team of reindeer swooshed off into the sky just at the very moment when poor timid Elmer looked at that list one more time—uh oh— and discovered —oh no!— he had made a mistake on every …  single … gift.  Elmer crumpled down on the floor and wanted to cry, because nothing hurts and saddens and breaks a helper-elf’s heart more than not making a child happy.  And sometimes they just can’t.  Poor Elmer felt so terrible he didn’t even want to think about it, and after a few minutes of feeling sad and horrible and not liking himself at all, the tired, exhausted little helper elf nodded off to sleep.
+        `. Santa, just a tiny bit late as usual, loudly called out ‘Hi Ho’ and his team of reindeer swooshed off into the sky just at the very moment when poor timid Elmer looked at that list one more time—uh oh— and discovered —oh no!— he had made a mistake on every …  single … gift.  Elmer crumpled down on the floor and wanted to cry, because nothing hurts and saddens and breaks a helper-elf’s heart more than not making a child happy.  And sometimes they just can’t.  Poor Elmer felt so terrible he didn’t even want to think about it, and after a few minutes of feeling sad and horrible and not liking himself at all, the tired, exhausted little helper elf nodded off to sleep.
 	On Christmas morning poor timid Elmer woke up late, not on the warehouse floor where he’d fallen asleep, but in his own proper top bunk-bed bed.  Santa held a tray with `,
       audio: a19,
       wordCategories: [
@@ -274,20 +413,6 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FOOD,
       ],
-      imgPositions: [
-        {
-          top: 67,
-          left: 62.5,
-          width: 6,
-          part: 1,
-        },
-        {
-          top: 59,
-          left: 64,
-          width: 8,
-          part: 2,
-        }
-      ],
       part: 2,
     },
     {
@@ -301,7 +426,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -313,7 +438,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 65,
+          left: 3,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_1_present_1'
     },
     {
       text:
@@ -327,7 +460,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 78,
+          left: 19,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_1_present_2'
     },
     {
       text:
@@ -338,7 +479,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -348,7 +489,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.VEHICLES,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 67,
+          left: 36,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_2_present_2'
     },
     {
       text:
@@ -358,7 +507,15 @@ const story: IStory = {
       wordCategories: [
         WordCategory.TOYS,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 76,
+          left: 52,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_2_present_1'
     },
     {
       text:
@@ -368,7 +525,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -378,7 +535,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -392,7 +549,15 @@ const story: IStory = {
         WordCategory.BIRDS,
         WordCategory.TOYS,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 66,
+          left: 69,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_3_present_1'
     },
     {
       text:
@@ -404,7 +569,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS,
       ],
-      part: 2,
+      imgPositions: [
+        {
+          top: 76,
+          left: 86,
+          part: 3,
+        }
+      ],
+      part: 3,
+      duplicateId: 'person_3_present_2'
     },
     {
       text:
@@ -420,7 +593,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -430,7 +603,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -440,7 +613,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -452,7 +625,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -462,7 +635,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -472,7 +645,7 @@ const story: IStory = {
       wordCategories: [
         WordCategory.FRIENDS,
       ],
-      part: 2,
+      part: 3,
     },
     {
       text:
@@ -482,7 +655,7 @@ const story: IStory = {
 	“Oh.”  Elmer said.  “Ohhhh.”`,
       audio: a38,
       wordCategories: [],
-      part: 2,
+      part: 3,
     },
   ],
   parts: [
@@ -493,6 +666,10 @@ const story: IStory = {
     {
       backgroundImg: img2,
       id: 2,
+    },
+    {
+      backgroundImg: img3,
+      id: 3,
     }
   ]
 };
