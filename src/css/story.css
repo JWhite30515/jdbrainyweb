@@ -19,12 +19,12 @@
 .background-img {
   max-height: 400px;
   max-width: 600px;
-  margin: 0 0 20px 0;
+  margin-bottom: 30px;
 }
 
 .expanded {
-  max-height: 900px;
-  max-width: 900px;
+  max-height: 950px;
+  max-width: 950px;
 }
 
 @media (max-width: 800px) {

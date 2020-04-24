@@ -121,7 +121,7 @@ export function WordModal(props: IWordModalProps) {
         <h1>Categories</h1>
         <div style={{ overflow: 'scroll', width: '100%' }}>    
           {wordsCategorized.map((categorizedWord, idx) => {
-            let catClass = 'category-card clickable flex-column separator-bottom';
+            let catClass = 'category-card clickable flex-column separator-bottom-category';
             if (currCategory === categorizedWord.category) catClass += ' category-selected';
             if (idx === 0) catClass += ' separator-top';
 
@@ -137,7 +137,6 @@ export function WordModal(props: IWordModalProps) {
               </div>
             );
           })}
-
         </div>
       </div>
       <div className="modal-item" style={{ flex: 2, maxHeight: '100%' }}>

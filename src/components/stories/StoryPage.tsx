@@ -18,10 +18,11 @@ import '../../css/story.css';
 
 export interface IStoryPageProps {
   stories: IStory[];
+  setHeader(header: string): void;
 }
 
 function StoryPage(props: IStoryPageProps) {
-  const { stories } = props;
+  const { stories, setHeader } = props;
 
   const history = useHistory();
   const { id } = useParams();
@@ -121,6 +122,8 @@ function StoryPage(props: IStoryPageProps) {
 
   if (!currStory) return <div>No story selected</div>
 
+  setHeader(currStory.title);
+
   const currSection = currStory.sections[currSectionIdx];
   const currPart = currStory.parts.find(part => part.id === currSection.part);
 
@@ -187,7 +190,6 @@ function StoryPage(props: IStoryPageProps) {
               setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
-          <h1>{currStory.title}</h1>
           <div className="flex-column" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
             {!storyTextExpanded &&
               <div className="parent">

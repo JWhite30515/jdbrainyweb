@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,24 +11,27 @@ import Layout from './Layout';
 import WelcomePage from './WelcomePage';
 
 function App() {
+  const [header, setHeader] = useState('');
   return (
     <Router>
       <Switch>
         <Route exact path='/'>
           <WelcomePage />
         </Route>
-        <Layout>
-          <Route 
+        <Layout header={header}>
+          <Route
             exact
             path='/stories'
-          >
-            <StorySelectPage />
-          </Route>
+            render={() =>
+              <StorySelectPage setHeader={(header: string) => setHeader(header)} />
+            }
+          />
           <Route
             path='/stories/:id'
-          >
-            <StoryPage />
-          </Route>
+            render={() =>
+              <StoryPage setHeader={(header: string) => setHeader(header)} />
+            }
+          />
         </Layout>
       </Switch>
     </Router>

@@ -12,13 +12,15 @@ import '../../css/common.css';
 
 export interface IStorySelectPageProps {
   stories: IStory[];
+  setHeader(header: string): void;
 }
 
 function StorySelectPage(props: IStorySelectPageProps) {
-  const { stories } = props;
+  const { stories, setHeader } = props;
+  setHeader('Stories');
+
   return (
     <React.Fragment>
-      <h1>Stories</h1>
       <div className="flex-row-wrap-container space-between list-row">
         {stories.map((story, idx) => {
           return (

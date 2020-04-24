@@ -36,6 +36,7 @@
   flex-direction: row;
   display: flex;
   justify-content: space-between;
+  height: 100%;
 }
 
 .modal-item {
@@ -48,6 +49,10 @@
 
 .separator-bottom {
   border-bottom: none;
+}
+
+.separator-bottom-category {
+  border-bottom: solid 0.8px #e2e2ea;
 }
 
 @media (max-width: 800px) {
