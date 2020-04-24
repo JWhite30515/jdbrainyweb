@@ -7,6 +7,7 @@ import IRootState from '../../redux/state/rootState';
 import { IStory } from '../../redux/state/storyState';
 
 import Card from '../common/Card';
+
 import '../../css/common.css';
 
 export interface IStorySelectPageProps {
@@ -18,10 +19,10 @@ function StorySelectPage(props: IStorySelectPageProps) {
   return (
     <React.Fragment>
       <h1>Stories</h1>
-      <div className="list-row flex-row">
+      <div className="flex-row-wrap-container space-between list-row">
         {stories.map((story, idx) => {
           return (
-            <Card style={{ flex: '0.3' }} key={`story_card_${idx}`}>
+            <Card storyCard style={{ flex: '33%' }} key={`story_card_${idx}`}>
               <h2>{story.title}</h2>
               <img
                 className="card-img"

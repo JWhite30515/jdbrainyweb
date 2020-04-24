@@ -109,7 +109,7 @@ function FriendModal(props: IFriendModalProps) {
     >
       {/* pick old friend column */}
       <div
-        className="flex-column separator-right"
+        className="modal-item separator-right separator-bottom"
         style={{ flex: 1, height: '100%', justifyContent: 'flex-start' }}
       >
         <h1>Choose an Old Friend</h1>
@@ -144,7 +144,7 @@ function FriendModal(props: IFriendModalProps) {
         </div>
       </div>
       <div
-        className="flex-column flex-start separator-right"
+        className="modal-item separator-right separator-bottom"
         style={{ flex: 1, height: '100%' }}
       >
         <h1>Choose a New Friend</h1>
@@ -170,8 +170,8 @@ function FriendModal(props: IFriendModalProps) {
         </div>
       </div>
       <div
-        className="flex-column"
-        style={{ flex: 1, maxHeight: '100%' }}
+        className="modal-item separator-bottom"
+        style={{ flex: 1 }}
       >
         <h1>Choose a Name</h1>
         <div className="flex-row wrap-overflow separator-top">

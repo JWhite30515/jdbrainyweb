@@ -23,14 +23,15 @@ export interface IStoryPageProps {
 function StoryPage(props: IStoryPageProps) {
   const { stories } = props;
 
+  const history = useHistory();
   const { id } = useParams();
-
   const basePath = `/stories/${id}`;
 
   const currStory = stories.find(story => story.id === Number(id));
 
   const [currSectionIdx, setCurrSectionIdx] = useState(0);
   const [playingSectionAudio, setPlayingSectionAudio] = useState(true);
+  const [playingWordAudio, setPlayingWordAudio] = useState(false);
   const [quizWord, setQuizWord] = useState({} as IWord);
   const [showFriendModal, setShowFriendModal] = useState(false);
   const [showWordModal, setShowWordModal] = useState(false);
@@ -40,11 +41,13 @@ function StoryPage(props: IStoryPageProps) {
   const [storyImgExpanded, setStoryImgExpanded] = useState(false);
   const [storyTextExpanded, setStoryTextExpanded] = useState(false);
 
-  const history = useHistory();
-
   useEffect(() => {
     if (currSectionIdx !== 0) {
       if (wordAudio) {
+        setPlayingWordAudio(true);
+        wordAudio.addEventListener('ended', () => {
+          setPlayingWordAudio(false);
+        })
         wordAudio.autoplay = true;
       }
     }
@@ -62,6 +65,8 @@ function StoryPage(props: IStoryPageProps) {
       const currSection = sections[currSectionIdx];
       sectionAudio.addEventListener('ended', () => {
         setPlayingSectionAudio(false);
+
+        // if this section has a word, play that word's audio, move to next section
         if (currSection.word) {
           const wordAudio = new Audio(currSection.word.audio);
           wordAudio.addEventListener('ended', () => {
@@ -78,7 +83,6 @@ function StoryPage(props: IStoryPageProps) {
             currSectionIdx !== sections.length - 1 &&
             currSection.word === undefined
           ) {
-            console.log('whens this getting set');
             if (
               currSection.wordCategories === WordCategory.FRIENDS
             ) {
@@ -101,6 +105,7 @@ function StoryPage(props: IStoryPageProps) {
       sectionAudio.autoplay = true;
     }
 
+    // prevent audio from playing when navigate away from story page
     return history.listen(() => {
       if (wordAudio) {
         wordAudio.pause();
@@ -151,9 +156,6 @@ function StoryPage(props: IStoryPageProps) {
   let storyTextClassName = 'story-text';
   if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
   if (storyTextExpanded) storyTextClassName += ' expanded-height';
-
-  console.log(showFriendModal);
-  console.log(showWordModal);
 
   return (
     <Switch>
@@ -223,6 +225,8 @@ function StoryPage(props: IStoryPageProps) {
                     <Section
                       currSectionIdx={currSectionIdx}
                       key={`section_${idx}`}
+                      playingSectionAudio={playingSectionAudio}
+                      playingWordAudio={playingWordAudio}
                       sections={currStory.sections}
                       sectionIdx={idx}
                       setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}

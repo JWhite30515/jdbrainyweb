@@ -45,10 +45,10 @@ function QuizPage(props: IQuizPageProps) {
   const history = useHistory();
   const filteredWords = useMemo(() => filterDuplicateWords(words), [words]);
 
-  const [score, setScore] = useState(0);
-  const [options, setOptions] = useState(randomizeOptions(quizWord, filteredWords));
   const [hasStreak, setHasStreak] = useState(false);
   const [maxScore, setMaxScore] = useState(0);
+  const [options, setOptions] = useState(randomizeOptions(quizWord, filteredWords));
+  const [score, setScore] = useState(0);
 
   const quizWordAudio = new Audio(quizWord.audio);
 
@@ -139,8 +139,12 @@ function QuizPage(props: IQuizPageProps) {
           return (
             <Card
               key={`quiz_card_${idx}`}
+              clickDisabled={score >= 3}
               isQuizCard
               onClick={() => {
+                // prevent user from clicking on quiz word option if they've
+                // mastered word
+                if (score >= 3) return;
                 if (option.text === quizWord.text) {
                   if (hasStreak) {
                     // increment points if make consecutive correct answer

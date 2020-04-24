@@ -115,7 +115,7 @@ export function WordModal(props: IWordModalProps) {
       setModalOpen={(open: boolean) => setShowWordModal(open)}
     >
       <div
-        className="flex-column flex-start separator-right"
+        className="modal-item separator-right separator-bottom"
         style={{ flex: 1, height: '100%'}}
       >
         <h1>Categories</h1>
@@ -140,7 +140,7 @@ export function WordModal(props: IWordModalProps) {
 
         </div>
       </div>
-      <div className="flex-column" style={{ flex: 2, maxHeight: '100%' }}>
+      <div className="modal-item" style={{ flex: 2, maxHeight: '100%' }}>
         <h1>Words</h1>
         <div className="flex-row wrap-overflow separator-top">
           {currCategorizedWord &&

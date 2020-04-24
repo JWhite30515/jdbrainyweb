@@ -5,6 +5,8 @@ import { WordCategory } from '../../redux/state/wordState';
 
 export interface ISectionProps {
   currSectionIdx: number;
+  playingSectionAudio: boolean;
+  playingWordAudio: boolean;
   sections: ISection[];
   sectionIdx: number;
   setCurrSectionIdx(idx: number): void;
@@ -16,6 +18,8 @@ export interface ISectionProps {
 export default function Section(props: ISectionProps) {
   const {
     currSectionIdx,
+    playingSectionAudio,
+    playingWordAudio,
     sections,
     sectionIdx,
     setCurrSectionIdx,
@@ -26,27 +30,19 @@ export default function Section(props: ISectionProps) {
 
   const { text, word } = sections[sectionIdx];
 
-  let sectionTextVisible = false;
-
-  if (sectionIdx <= currSectionIdx) sectionTextVisible = true;
-
-  // only need to make this check if sectionTextVisible is false
-  if (!sectionTextVisible) {
-
-    let wordsForPrevSectionsDefined = true;
-
-    // check that all previous sections before this section have
-    // their word defined
-    for (let i = 0; i < sectionIdx; i += 1) {
-      if (!sections[i].word) wordsForPrevSectionsDefined = false;
-    }
-    if (wordsForPrevSectionsDefined) {
-      sectionTextVisible = true;
-    }
-  }
-
   const isLastSection = (sectionIdx === sections.length - 1);
   const sectionHighlighted = (sectionIdx === currSectionIdx);
+  const sectionTextVisible = sectionIdx <= currSectionIdx;
+
+  let wordSpanClass = '';
+  if (sectionHighlighted) wordSpanClass += ' highlighted';
+
+  if (
+    sectionIdx === currSectionIdx ||
+    (!playingSectionAudio && !playingWordAudio)
+  ) {
+    wordSpanClass += ' clickable';
+  }
 
   return (
     <React.Fragment>
@@ -59,9 +55,16 @@ export default function Section(props: ISectionProps) {
           </span>
           {!isLastSection &&
             <span
-              className={sectionHighlighted ? 'clickable highlighted' : 'clickable'}
+              className={wordSpanClass}
               key={`word-${sectionIdx}`}
               onClick={() => {
+                // only disable onclick if audio is playing AND section is not currSection
+                if (
+                  (playingSectionAudio || playingWordAudio) &&
+                  !(sectionIdx === currSectionIdx)
+                ) {
+                  return;
+                }
 
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {

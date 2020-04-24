@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import { IoMdCloseCircle } from 'react-icons/io';
 
+import '../../css/modal.css';
+
 export interface IModalProps {
   children: any;
   footerElement?: JSX.Element;
@@ -30,7 +32,7 @@ export default function Modal(props: IModalProps) {
             />
           </div>
         </div>
-        <div className="flex-row" style={{ maxHeight: '75%', alignItems: 'flex-start' }}>
+        <div className="modal-body" style={{ maxHeight: '75%', alignItems: 'flex-start' }}>
           {props.children}
         </div>
         {footerElement &&

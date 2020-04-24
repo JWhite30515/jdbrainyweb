@@ -82,3 +82,30 @@
   display: flex;
   flex-direction: column-reverse;
 }
+
+.flex-row-wrap-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.story-card {
+  max-width: 25%;
+}
+
+@media (max-width: 1000px) {
+  .story-card {
+    max-width: 80%;
+  }
+  .flex-row-wrap-container {
+    flex-direction: column;
+    overflow: auto;
+    max-height: 100%;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+}
