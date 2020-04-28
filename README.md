@@ -1,5 +1,53 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Release Notes
+### Release 1.0.0 for Expo Presentation Features
+- 3 fully customizable stories with audio and background images
+- Words with image and audio for 20+ types of sight words
+   - Includes customizable friend characters
+- Quizzes to learn sight words
+- Automatic story audio and text progression
+- All story text and word text is read aloud to the user
+- User progress is locally stored for any given browser session
+- Word category for customizable animals with three parts- head, middle, and tail
+
+### Missing Features
+- Word-by-word highlighting of text matched with story audio
+- Some words are missing audio, client needs to add create and add missing audio
+files
+
+## Install Guide
+### Prerequisites
+- An Internet browser and Internet connection to access:
+  - Node.js website for the installation of Node
+  - The repo for our application source code
+- Must have Node.js installed on the device on which you wish to build the application
+  - https://nodejs.org/en/
+  - Verify installation of a node by running `node -v` in the command line
+- No steps necessary for installation of actual application
+
+### Dependent Libraries
+- Third-party dependencies are handled in step (2b) of Build Instructions
+
+### Download, Build and Run Instructions
+1. Clone or download the source code from our Github repository:
+    1. https://github.com/JWhite30515/jdbrainyweb
+    1. To clone, run `git clone https://github.com/JWhite30515/jdbrainyweb.git` in the directory where you want the source code to be stored
+    1. To download:
+        1. Click on the green “Clone or download” on our Github repository page
+        1. Click on “Download ZIP” to download a zip file of our source code
+1. Navigate into the directory where you cloned/downloaded the source code
+    1. E.g. `cd ~/Desktop/jdbrainyweb`
+    1. Run `npm i` from that directory to install `node_modules`, an automatically
+generated folder of the third-party dependencies our app uses
+1. Run `npm run start` to compile and run the application
+1. If the application compiles successfully, you can see it running on `localhost:3000` in the
+browser of your choice
+
+### Troubleshooting
+- If unable to run `npm` commands, verify node is installed by running `node -v` on the
+command line
+
 ## Available Scripts
 
 ### IMPORTANT
