@@ -92,7 +92,7 @@ const story: IStory = {
         {
           top: 37,
           left: 24,
-          part: 1,
+          part: 2,
         }
       ]
     },
@@ -103,11 +103,11 @@ const story: IStory = {
       audio: a4,
       id: `E`,
       wordCategories: WordCategory.FOOD,
-      part: 1,
+      part: 2,
       imgPositions: [{
           top: 37,
           left: 47,
-          part: 3,
+          part: 2,
           width: 14,
       }]
     },{
@@ -515,8 +515,7 @@ const story: IStory = {
       id: `Kk`,
       wordCategories: WordCategory.FOOD,
       part: 6,
-    },
-    {
+    },{
       text:
         ` for dinner? Would you ever tell
         anyone about your strange and wonderful pet dinosaur `,
@@ -546,12 +545,25 @@ const story: IStory = {
       part: 6,
     },
   ],
-  parts: [
-    {
+  parts: [{
       backgroundImg: img1,
       id: 1,
-    }
-  ]
+    },{
+      backgroundImg: img1,
+      id: 2,
+    },{
+      backgroundImg: img1,
+      id: 3,
+    },{
+      backgroundImg: img1,
+      id: 4,
+    },{
+      backgroundImg: img1,
+      id: 5,
+    },{
+      backgroundImg: img1,
+      id: 6,
+    }]
 };
 
 export default story;

@@ -229,7 +229,7 @@ const story: IStory = {
           scale: .85,
           part: 1,
         }]
-      },{
+    },{
       text:
         ` stand up straight on the first one, and then turn all around,
          then turn around the opposite way, and then helped the`,
@@ -260,7 +260,7 @@ const story: IStory = {
           scale: .5,
           part: 1,
         }],
-      },{
+    },{
       text:
         ` to the back of the `,
       audio: a19,
@@ -272,7 +272,7 @@ const story: IStory = {
           left: 55.5,
           part: 1,
         }]
-      },{
+    },{
       text:
         ` so it could ride, and then showed the `,
       audio: a20,
@@ -320,7 +320,7 @@ const story: IStory = {
           scale: .95,
           part: 1,
         }]
-      },{
+    },{
       text:
         ` to wear as a hat and a toy `,
       audio: a24,
@@ -339,7 +339,7 @@ const story: IStory = {
           scale: .55,
           part: 1,
         }]
-      },{
+    },{
       text:
         ` for one shoe and a toy `,
       audio: a25,
