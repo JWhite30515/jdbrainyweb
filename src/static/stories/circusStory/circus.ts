@@ -55,8 +55,7 @@ const story: IStory = {
           width: 15,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` had been too sick to go to the circus, so all the friends decided to have a special kid circus just for `,
       audio: a2,
@@ -64,8 +63,7 @@ const story: IStory = {
       id: 'A1',
       part: 1,
       imgPositions: []
-    },
-    {
+    },{
       text:
         `, though they let other kids come to watch, and grownups too.`,
       audio: a3,
@@ -79,8 +77,7 @@ const story: IStory = {
           scale: .98,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` handed out special colored tickets and everyone in the audience 
         had to put one ticket in the basket so `,
@@ -89,8 +86,7 @@ const story: IStory = {
       wordCategories: [],
       part: 1,
       imgPositions: []
-    },
-    {
+    },{
       text:
         ` could count the attendance and know how many people had come. For stilts, `,
       audio: a5,
@@ -102,8 +98,7 @@ const story: IStory = {
           left: 37,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` got two tin cans the very same size and made holes to put strings through 
         and tie tight over both shoes, and then `,
@@ -112,8 +107,7 @@ const story: IStory = {
       id: 'C1',
       part: 1,
       imgPositions: []
-    },
-    {
+    },{
       text:
         ` stood on top of the can-stilts and walked slowly and carefully around every one, 
         and even walked up some steps and back down again. To be an acrobat`,
@@ -127,8 +121,7 @@ const story: IStory = {
           part: 1,
           width: 14,
         }]
-    },
-    {
+      },{
       text:
         ` jumped off a box painted like some `,
       audio: a8,
@@ -148,8 +141,7 @@ const story: IStory = {
           scale: .85,
           part: 1,
         }],
-    },
-    {
+      },{
       text:
         ` to land on a teeter-totter thing that flipped this `,
       audio: a9,
@@ -167,8 +159,7 @@ const story: IStory = {
           left: 58,
           part: 1,
         }]
-    },
-    {
+    },{
       text:
         ` in a loopy-loop that flipped over `,
       audio: a10,
@@ -180,8 +171,7 @@ const story: IStory = {
           left: 46.5,
           part: 1,
         }]
-    },
-    {
+    },{
       text:
         ` and landed in a net with `,
       id: `F1`,
@@ -193,8 +183,7 @@ const story: IStory = {
           left: 18,
           part: 1,
         }]
-    },
-    {
+     },{
       text:
         ` standing ready to catch it if it missed. To be wild animal trainers `,
       audio: a12,
@@ -206,8 +195,7 @@ const story: IStory = {
           left: 48,
           part: 1,
         }]
-    },
-    {
+    },{
       text:
         ` and `,
       audio: a13,
@@ -219,8 +207,7 @@ const story: IStory = {
           left: 73,
           part: 1,
         }]
-    },
-    {
+    },{
       text:
         ` got three boxes, and `,
       audio: a14,
@@ -228,8 +215,7 @@ const story: IStory = {
       wordCategories: WordCategory.FRIENDS,
       imgPositions: [],
       part: 1,
-    },
-    {
+    },{
       text:
         ` helped the `,
       audio: a15,
@@ -243,8 +229,7 @@ const story: IStory = {
           scale: .85,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` stand up straight on the first one, and then turn all around,
          then turn around the opposite way, and then helped the`,
@@ -252,8 +237,7 @@ const story: IStory = {
       id: `N`,
       wordCategories: WordCategory.ANIMALS,
       part: 1,
-    },
-    {
+    },{
       text:
         ` jump from the first box to the second then the third, and back again.
         And `,
@@ -262,8 +246,7 @@ const story: IStory = {
       wordCategories: WordCategory.FRIENDS,
       imgPositions: [],
       part: 1,
-    },
-    {
+    },{
       text:
         ` tied a little `,
       audio: a18,
@@ -277,8 +260,7 @@ const story: IStory = {
           scale: .5,
           part: 1,
         }],
-    },
-    {
+      },{
       text:
         ` to the back of the `,
       audio: a19,
@@ -290,16 +272,14 @@ const story: IStory = {
           left: 55.5,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` so it could ride, and then showed the `,
       audio: a20,
       id: 'P',
       wordCategories: WordCategory.ANIMALS,
       part: 1,
-    },
-    {
+    },{
       text:
         ` how to run curving all around the boxes, between, in and out,
          and round and round, and then with the `,
@@ -307,8 +287,7 @@ const story: IStory = {
       id:'Q',
       wordCategories: WordCategory.ANIMALS,
       part: 1,
-    },
-    {
+    },{
       text:
         ` rider hop up and leap completely over the top of all three boxes. `,
       audio: a22,
@@ -322,8 +301,7 @@ const story: IStory = {
           scale: .95,          
           part: 1,
         }]
-    },
-    {
+    },{
       text:
         ` got there late, but brought face paint to be a clown put on and a goofy `,
       audio: a23,
@@ -342,8 +320,7 @@ const story: IStory = {
           scale: .95,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` to wear as a hat and a toy `,
       audio: a24,
@@ -362,8 +339,7 @@ const story: IStory = {
           scale: .55,
           part: 1,
         }]
-    },
-    {
+      },{
       text:
         ` for one shoe and a toy `,
       audio: a25,
@@ -382,8 +358,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         ` for the other, then did funny walks
          and somersaults and pretended to be afraid of the `,
@@ -398,8 +373,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         ` and the `,
       audio: a27,
@@ -413,8 +387,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         ` and spread legs wide for them to run under
          and kept tumbling over and over trying to catch them. `,
@@ -427,8 +400,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         ` practiced and practiced and surprised everyone by juggling one `,
       audio: a29,
@@ -447,8 +419,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         ` and one `,
       audio: a30,
@@ -467,8 +438,7 @@ const story: IStory = {
             part: 1,
           }],
         part: 1,
-    },
-    {
+    },{
       text:
         ` and one `,
       audio: a31,
@@ -487,8 +457,7 @@ const story: IStory = {
           part: 1,
         }],
       part: 1,
-    },
-    {
+    },{
       text:
         `, and only dropped them four times in three tries!
         The friends all had the most wonderfulest increduliciousest
@@ -497,8 +466,7 @@ const story: IStory = {
       id: `A1`,
       wordCategories: WordCategory.FRIENDS,
       part: 1,
-    },
-    {
+    },{
       text:
         ` especially enjoyed the friends’ circus extra more than anybody
          because the friend’s circus was mostly, particularly,

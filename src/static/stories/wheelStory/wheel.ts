@@ -1,9 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img1 from './Santas-ElF1-no_landings.png';
-import img2 from './Santas-Elf-2-no_landings.png';
-import img3 from './Santas-Elf3-no_landings.png';
+import img1 from './blank.png';
 
 const a1 = require('./audio/SPS_4_1.mp3');
 const a2 = require('./audio/SPS_4_2.mp3');
@@ -48,23 +46,16 @@ const story: IStory = {
       audio: a1,
       part: 1,
       id: `A`,
-      wordCategories: [WordCategory.TOYS,WordCategory.VEHICLES],      
-      imgPositions: [
-        {
+      wordCategories: [
+        WordCategory.TOYS,
+        WordCategory.VEHICLES],      
+      imgPositions: [{
           top: 63,
           left: 20,
           part: 1,
-          width: 14,
-        },
-        {
-          top: 35,
-          left: 15,
-          part: 3,
-          width: 14,
-        },
-      ]
-    },
-    {
+          width: 14
+      }]
+    },{
       text:
         ` with wheels. Suppose one night a tricky, magical, mischievous `,
       audio: a2,
@@ -73,19 +64,15 @@ const story: IStory = {
         WordCategory.PRETEND,
         WordCategory.WATER_ANIMALS,
         WordCategory.ANIMALS,
-        WordCategory.BIRDS
-      ],
+        WordCategory.BIRDS],
       id: 'C',
       part: 1,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 29,
           left: 10,
           part: 1,
-        }
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` enchanted the wheels with strange super powers so you could ride
         anywhere in the whole wide world, or out of the world. Anywhere— but the
@@ -98,8 +85,7 @@ const story: IStory = {
         WordCategory.PRETEND,
         WordCategory.WATER_ANIMALS,
         WordCategory.ANIMALS,
-        WordCategory.BIRDS
-      ],
+        WordCategory.BIRDS],
       id: 'D',
       part: 1,
       imgPositions: [
@@ -118,22 +104,13 @@ const story: IStory = {
       id: `E`,
       wordCategories: WordCategory.FOOD,
       part: 1,
-      imgPositions: [
-        {
-          top: 57,
-          left: 44,
-          part: 1,
-          width: 14,
-        },
-        {
+      imgPositions: [{
           top: 37,
           left: 47,
           part: 3,
           width: 14,
-        },
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` and offered to share—would you eat some?
         Would you fly up and way over some. `,
@@ -142,19 +119,15 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.VEHICLES,
         WordCategory.PLACES,
-        WordCategory.OUTDOORS
-      ],
+        WordCategory.OUTDOORS],
       id: 'G',
       part: 2,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 19,
           left: 44,
           part: 1,
-        }
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` and then far above
         some big `,
@@ -163,19 +136,15 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.VEHICLES,
         WordCategory.PLACES,
-        WordCategory.OUTDOORS
-      ],
+        WordCategory.OUTDOORS],
       id: 'J',
       part: 2,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 14,
           left: 60,
           part: 1,
-        }
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` and over lots of sea water to a desert island? If your
         magical wheels glided fast over the sea waves, what would the water spray feel
@@ -184,22 +153,13 @@ const story: IStory = {
       id: `Ka`,
       wordCategories: WordCategory.BODY_PARTS,
       part: 2,
-      imgPositions: [
-        {
-          top: 63,
-          left: 68,
-          part: 1,
-          width: 14,
-        },
-        {
+      imgPositions: [{
           top: 33,
           left: 76,
           part: 3,
           width: 14,
-        },
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` and `,
       audio: a8,
@@ -208,15 +168,12 @@ const story: IStory = {
       ],
       id: 'Kb',
       part: 2,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 43,
           left: 70,
           part: 1,
-        }
-      ]
-    },
-    {
+      }]
+    },{
       text:
         ` and `,
       audio: a9,
@@ -225,15 +182,12 @@ const story: IStory = {
       ],
       id: 'Kc',
       part: 2,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 29,
           left: 82,
           part: 1,
-        }
-      ]
-    },
-    {
+      }]
+    },{
       text:
         `? On the beach would you walk barefoot
         in warm squishy sand and look for a lost `,
@@ -245,8 +199,7 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF],
       part: 2,
-    },
-    {
+    },{
       text:
         ` washed ashore by the
         surf and waves, or maybe dig in the sand to find some lost `,
@@ -258,37 +211,29 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF],
       part: 2,
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 45,
           left: 34,
           part: 2,
-        },
-      ],
-      duplicateId: 'person_1_present_1'
-    },
-    {
+      }],
+    },{
       text:
-        `.Maybe your wheels would dive you deep under the salty water to watch some lazy `,
+        `. Maybe your wheels would dive you deep
+         under the salty water to watch some lazy `,
       audio: a12,
       id: `N`,
       wordCategories: [
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.PRETEND,
-        WordCategory.PEOPLE,
-      ],
-      imgPositions: [
-        {
+        WordCategory.PEOPLE],
+      imgPositions: [{
           top: 66,
           left: 34,
           part: 2,
-        }
-      ],
+      }],
       part: 3,
-      duplicateId: 'person_1_present_2'
-    },
-    {
+    },{
       text:
         ` swim by. Some huge `,
       audio: a13,
@@ -299,11 +244,9 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
         WordCategory.CLOTHES,
-        WordCategory.VEHICLES,
-      ],
+        WordCategory.VEHICLES],
       part: 3,
-    },
-    {
+    },{
       text:
         ` bigger than a
         bus might float past an octopus swirling its eight arms that never tangle, and a big`,
@@ -316,19 +259,15 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.TOOLS,
         WordCategory.CLOTHES,
-        WordCategory.VEHICLES,
-      ],
-      imgPositions: [
-        {
+        WordCategory.VEHICLES],
+      imgPositions: [{
           top: 45,
           left: 51,
           part: 3,
-        }
-      ],
+      }],
       part: 3,
       duplicateId: 'person_2_present_2'
-    },
-    {
+    },{
       text:
         ` leap high out of the water and splash back down, and
         you’d feel the underwater splashy waves on your body—and maybe see a strange
@@ -348,8 +287,7 @@ const story: IStory = {
       ],
       part: 3,
       duplicateId: 'person_2_present_1'
-    },
-    {
+    },{
       text:
         ` Your enchanted wheels might fly you so high in the sky that you could feel
         the cool swirly wind on your `,
@@ -357,8 +295,7 @@ const story: IStory = {
       id: `S`,
       wordCategories: WordCategory.BODY_PARTS,
       part: 4,
-    },
-    {
+    },{
       text:
         ` and your `,
       audio: a17,
@@ -373,8 +310,7 @@ const story: IStory = {
       ],
       part: 4,
       duplicateId: 'person_3_present_1'
-    },
-    {
+    },{
       text:
         `might blow away, and you’d
         float through a cloud shaped like a soft `,
@@ -401,25 +337,21 @@ const story: IStory = {
         }
       ],
       part: 4,
-      duplicateId: 'person_3_present_2'
-    },
-    {
+    },{
       text:
         ` or glide through misty damp fog. You could hold out your `,
       audio: a19,
       id: 'W',
       wordCategories: WordCategory.BODY_PARTS,
       part: 4,
-    },
-    {
+    },{
       text:
         ` and a little `,
       audio: a20,
       id: 'X',
       wordCategories: WordCategory.BIRDS,
       part: 4,
-    },
-    {
+    },{
       text:
         `flying by could sit there to rest, cock its eye in your direction, and wonder what
         kind of bird you might be.
@@ -441,8 +373,7 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
-    },
-    {
+    },{
       text:
         ` or some `,
       audio: a22,
@@ -461,8 +392,7 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
-    },
-    {
+    },{
       text:
         ` or a ginorimous `,
       audio: a23,
@@ -480,17 +410,13 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 65,
           left: 3,
           part: 3,
-        }
-      ],
+      }],
       part: 5,
-      duplicateId: 'person_1_present_1'
-    },
-    {
+    },{
       text:
         `. You could travel so far back you hear
         nothing but silence until you pick up two rocks, maybe one kind of `,
@@ -509,17 +435,13 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 78,
           left: 19,
           part: 3,
-        }
-      ],
+      }],
       part: 5,
-      duplicateId: 'person_1_present_2'
-    },
-    {
+    },{
       text:
         `-like, another kind of `,
       audio: a25,
@@ -538,8 +460,7 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
-    },
-    {
+    },{
       text:
         ` already has an old -like, and hit them together to hear the
         echoes echoes echoes click farther farther farther awaaaaaay.
@@ -552,17 +473,13 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 67,
           left: 36,
           part: 3,
-        }
-      ],
+      }],
       part: 5,
-      duplicateId: 'person_2_present_2'
-    },
-    {
+    },{
       text:
         `, and won’t play with the new one, but really likes , or maybe a hiding `,
       audio: a27,
@@ -572,17 +489,13 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 76,
           left: 52,
           part: 3,
-        }
-      ],
+      }],
       part: 5,
-      duplicateId: 'person_2_present_1'
-    },
-    {
+    },{
       text:
         `. Would you ride far, far back in time and visit the dinosaurs, and maybe
         bring back a little baby dinosaur `,
@@ -594,8 +507,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
       part: 6,
-    },
-    {
+    },{
       text:
         ` to be your pet? Would you hide it
         under your bed and secretly feed it some `,
@@ -615,17 +527,13 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [
-        {
+      imgPositions: [{
           top: 66,
           left: 69,
           part: 3,
-        }
-      ],
+      }],
       part: 3,
-      duplicateId: 'person_3_present_1'
-    },
-    {
+    },{
       text:
         `, or just keep
         it hidden and secret?
@@ -642,26 +550,6 @@ const story: IStory = {
     {
       backgroundImg: img1,
       id: 1,
-    },
-    {
-      backgroundImg: img2,
-      id: 2,
-    },
-    {
-      backgroundImg: img3,
-      id: 3,
-    },
-    {
-      backgroundImg: img1,
-      id: 4,
-    },
-    {
-      backgroundImg: img2,
-      id: 5,
-    },
-    {
-      backgroundImg: img3,
-      id: 6,
     }
   ]
 };
