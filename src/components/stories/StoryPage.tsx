@@ -149,7 +149,7 @@ function StoryPage(props: IStoryPageProps) {
             top: `${currImg.top}%`,
             left: `${currImg.left}%`,
             maxWidth: currImg.width ? `${currImg.width}%` : '10%',
-            transform: `rotate(${currImg.rotate}deg)`,
+            transform: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
           }}
         />
       )
