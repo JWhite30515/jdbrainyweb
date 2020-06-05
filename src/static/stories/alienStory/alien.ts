@@ -1,6 +1,13 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
+import img1 from './Space-Alien1.png';
+import img2 from './Space-Alien2.png';
+import img3 from './Space-Alien3.png';
+import img4 from './Space-Alien4.png';
+import img5 from './Space-Alien5.png';
+//-no_landings
+
 const a1 = require('./audio/SPS_5_1.mp3');
 const a2 = require('./audio/SPS_5_2.mp3');
 const a3 = require('./audio/SPS_5_3.mp3');
@@ -34,13 +41,6 @@ const a30 = require('./audio/SPS_5_30.mp3');
 const a31 = require('./audio/SPS_5_31.mp3');
 const a32 = require('./audio/SPS_5_32.mp3');
 
-import img1 from './Space-Alien1.png';
-import img2 from './Space-Alien2.png';
-import img3 from './Space-Alien3.png';
-import img4 from './Space-Alien4.png';
-import img5 from './Space-Alien5.png';
-//-no_landings
-
 const story: IStory = {
 	id: 6,
 	title: 'The Space Alien',
@@ -53,10 +53,30 @@ const story: IStory = {
 			id: `A1`,
 			wordCategories: WordCategory.FRIENDS,
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
-					width: 15,
-					part: 1
+				top: 54,
+				left: 9.5,
+				width: 15,
+				part: 1
+			},{
+				top: 6,
+				left: 9.5,
+				width: 15,
+				part: 2
+			},{
+				top: 6,
+				left: 9.5,
+				width: 15,
+				part: 3
+			},{
+				top: 32,
+				left: 6.5,
+				width: 15,
+				part: 4
+			},{
+				top: 13,
+				left: 14,
+				width: 15,
+				part: 5
 			}]
 		},{
 			text:
@@ -66,11 +86,30 @@ const story: IStory = {
 			id: `C1`,
 			wordCategories: WordCategory.FRIENDS,
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
-					width: 15,
-					part: 1
-			}]
+				top: 52,
+				left: 73.5,
+				width: 15,
+				part: 1
+			},{
+				top: 7,
+				left: 73.5,
+				width: 15,
+				part: 2
+			},{
+				top: 7,
+				left: 73.5,
+				width: 15,
+				part: 3
+			},{
+				top: 31,
+				left: 75.5,
+				width: 15,
+				part: 4
+			},{
+				top: 13,
+				left: 61,
+				width: 15,
+				part: 5			}]
 		},{
 			text:
 			` made a tent to camp out in the backyard. They griped and whined and complained 
@@ -104,7 +143,7 @@ const story: IStory = {
 			imgPositions: []
 		},{
 			text:
-				`. “Maybe some  `,
+				`. “Maybe some `,
 			audio: a6,
 			part: 1,
 			id: `AA1`,
@@ -114,15 +153,15 @@ const story: IStory = {
 				WordCategory.PRETEND,
 				WordCategory.ANIMALS],
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
+					top: 13,
+					left: 12.5,
 					width: 15,
 					part: 1,
 				}]
 		},{
 			text:
-				` .”
-				“Or a maybe some kind of “ `,
+				`.”
+				“Or a maybe some kind of `,
 			audio: a7,
 			part: 1,
 			id: `BB1`,
@@ -132,14 +171,14 @@ const story: IStory = {
 				WordCategory.PRETEND,
 				WordCategory.ANIMALS],
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
+					top: 14,
+					left: 74.5,
 					width: 15,
 					part: 1,
 			}]
 		},{
 			text:
-				` ,” guessed `,
+				`,” guessed `,
 			audio: a8,
 			part: 1,
 			id: `C1`,
@@ -156,9 +195,9 @@ const story: IStory = {
 			pictures but I need more.”
 			“Show us.”
 			Space Alien punched a shiny elbow button and twisted a fancy shoulder
-			dial, and Space Alien’s tummy screen displayed a glowy  `,
+			dial, and Space Alien’s tummy screen displayed a glowy `,
 			audio: a9,
-			part: 1,
+			part: 2,
 			id: `CC1`,
 			wordCategories: [
 				WordCategory.THINGS,
@@ -167,19 +206,18 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
-					width: 15,
-					part: 2
+				top: 31,
+				left: 47,
+				width: 9,
+				part: 2
 			}]
 		},
 		//PART 2
 		{
 			text:
-			`.
-			“That’s a strange looking earth planet `,
+			` “That’s a strange looking earth planet `,
 			audio: a10,
-			part: 1,
+			part: 2,
 			id: `DD1`,
 			wordCategories: [
 				WordCategory.THINGS,
@@ -188,7 +226,7 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-					top: 62,
+					top: 72,
 					left: 44.5,
 					width: 15,
 					part: 2
@@ -198,7 +236,7 @@ const story: IStory = {
 			`.”
 			“Nope. Actually, a pretty nice `,
 			audio: a11,
-			part: 1,
+			part: 2,
 			id: `CC1`,
 			wordCategories: WordCategory.FRIENDS,
 			imgPositions: []
@@ -220,7 +258,7 @@ const story: IStory = {
 				`. It makes me want to `,
 			audio: a13,
 			part: 2,
-			id: `A1`,
+			id: `GG1`,
 			wordCategories: [
 				WordCategory.DESCRIBE,
 				WordCategory.COLORS],
@@ -241,11 +279,11 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
-					width: 15,
-					part: 3,
-				}]
+				top: 35,
+				left: 43.5,
+				width: 9,
+				part: 3
+			}]
 		},{
 			text:
 				`?”
@@ -260,11 +298,11 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-					top: 62,
-					left: 44.5,
-					width: 15,
-					part: 3,
-			}]
+				top: 72,
+				left: 44.5,
+				width: 15,
+				part: 3
+		}]
 		},{
 			text:
 				`.”
@@ -276,7 +314,7 @@ const story: IStory = {
 				lots of things—some toys, some real.
 				"`,
 			audio: a16,
-			part: 3,
+			part: 4,
 			id: `KK1`,
 			wordCategories: [
 				WordCategory.THINGS,
@@ -285,8 +323,8 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-				top: 62,
-				left: 44.5,
+				top: 10,
+				left: 20.5,
 				width: 15,
 				part: 4,
 			}]
@@ -306,7 +344,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 11,
+				left: 66.5,
+				width: 15,
+				part: 4,
+			}]
 		},{
 			text:
 			`. Absolutely positively!”
@@ -320,7 +363,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 69,
+				left: 66.5,
+				width: 15,
+				part: 4,
+			}]
 		},{
 			text:
 			`.”
@@ -364,10 +412,10 @@ const story: IStory = {
 		},{
 			text:
 			``,
-			audio: [],
+			audio: null,
 			part: 4,
 			id: `A1`,
-			wordCategories: WordCategory.FRIENDS,
+			wordCategories: [],
 			imgPositions: []
 		},{
 			text:
@@ -393,8 +441,8 @@ const story: IStory = {
 			id: `SS1`,
 			wordCategories: WordCategory.OUTDOORS,
 			imgPositions: [{
-				top: 62,
-				left: 44.5,
+				top: 70,
+				left: 71.5,
 				width: 15,
 				part: 5
 		}]
@@ -408,7 +456,12 @@ const story: IStory = {
 			part: 5,
 			id: `TT1`,
 			wordCategories: WordCategory.OUTDOORS,
-			imgPositions: []
+			imgPositions: [{
+				top: 66,
+				left: 49.5,
+				width: 20,
+				part: 5
+		}]
 		},{
 			text:
 			`, curly-cueing around some `,
@@ -421,7 +474,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 70,
+				left: 12.5,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			` and nearly
@@ -435,7 +493,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 70,
+				left: 32.5,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			` Space Alien snapped picture
@@ -449,7 +512,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 52,
+				left: 13,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			` and `,
@@ -462,7 +530,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 52,
+				left: 32,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			` and `,
@@ -475,7 +548,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 52,
+				left: 52,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			` and `,
@@ -488,7 +566,12 @@ const story: IStory = {
 				WordCategory.TOOLS,
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
-			imgPositions: []
+			imgPositions: [{
+				top: 52,
+				left: 71,
+				width: 15,
+				part: 5
+		}]
 		},{
 			text:
 			`.

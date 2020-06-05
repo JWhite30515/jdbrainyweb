@@ -1,7 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img1 from './blank.png';
+import img1 from './Blank.png';
 
 const a1 = require('./audio/SPS_4_1.mp3');
 const a2 = require('./audio/SPS_4_2.mp3');
@@ -50,10 +50,10 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES],      
       imgPositions: [{
-          top: 63,
-          left: 20,
+          top: 16 ,
+          left: 11,
           part: 1,
-          width: 14
+          width: 20
       }]
     },{
       text:
@@ -68,9 +68,10 @@ const story: IStory = {
       id: 'C',
       part: 1,
       imgPositions: [{
-          top: 29,
-          left: 10,
+          top: 16,
+          left: 64,
           part: 1,
+          width: 20
       }]
     },{
       text:
@@ -92,7 +93,8 @@ const story: IStory = {
         {
           top: 37,
           left: 24,
-          part: 2,
+          part: 1,
+          width: 20
         }
       ]
     },
@@ -105,10 +107,10 @@ const story: IStory = {
       wordCategories: WordCategory.FOOD,
       part: 2,
       imgPositions: [{
-          top: 37,
-          left: 47,
+          top: 18,
+          left: 16,
           part: 2,
-          width: 14,
+          width: 20,
       }]
     },{
       text:
@@ -124,8 +126,9 @@ const story: IStory = {
       part: 2,
       imgPositions: [{
           top: 19,
-          left: 44,
-          part: 1,
+          left: 66,
+          part: 2,
+          width: 20
       }]
     },{
       text:
@@ -140,9 +143,10 @@ const story: IStory = {
       id: 'J',
       part: 2,
       imgPositions: [{
-          top: 14,
+          top: 50,
           left: 60,
-          part: 1,
+          part: 2,
+          width: 20
       }]
     },{
       text:
@@ -154,9 +158,9 @@ const story: IStory = {
       wordCategories: WordCategory.BODY_PARTS,
       part: 2,
       imgPositions: [{
-          top: 33,
-          left: 76,
-          part: 3,
+          top: 48,
+          left: 23,
+          part: 2,
           width: 14,
       }]
     },{
@@ -171,7 +175,8 @@ const story: IStory = {
       imgPositions: [{
           top: 43,
           left: 70,
-          part: 1,
+          part: 2,
+          width: 20
       }]
     },{
       text:
@@ -185,7 +190,8 @@ const story: IStory = {
       imgPositions: [{
           top: 29,
           left: 82,
-          part: 1,
+          part: 2,
+          width: 20
       }]
     },{
       text:
@@ -199,6 +205,12 @@ const story: IStory = {
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF],
       part: 2,
+      imgPositions: [{
+          top: 45,
+          left: 34,
+          part: 2,
+          width: 20
+      }],
     },{
       text:
         ` washed ashore by the
@@ -215,6 +227,7 @@ const story: IStory = {
           top: 45,
           left: 34,
           part: 2,
+          width: 20
       }],
     },{
       text:
@@ -227,11 +240,12 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.PRETEND,
         WordCategory.PEOPLE],
-      imgPositions: [{
-          top: 66,
-          left: 34,
-          part: 2,
-      }],
+        imgPositions: [{
+          top: 16,
+          left: 64,
+          part: 3,
+          width: 20
+        }],
       part: 3,
     },{
       text:
@@ -246,6 +260,12 @@ const story: IStory = {
         WordCategory.CLOTHES,
         WordCategory.VEHICLES],
       part: 3,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 3,
+        width: 20
+      }],
     },{
       text:
         ` bigger than a
@@ -260,13 +280,13 @@ const story: IStory = {
         WordCategory.TOOLS,
         WordCategory.CLOTHES,
         WordCategory.VEHICLES],
-      imgPositions: [{
-          top: 45,
-          left: 51,
-          part: 3,
-      }],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 3,
+            width: 20
+        }],
       part: 3,
-      duplicateId: 'person_2_present_2'
     },{
       text:
         ` leap high out of the water and splash back down, and
@@ -278,15 +298,13 @@ const story: IStory = {
         WordCategory.PRETEND,
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS],
-      imgPositions: [
-        {
-          top: 67,
-          left: 48,
-          part: 2,
-        }
-      ],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 3,
+            width: 20
+        }],
       part: 3,
-      duplicateId: 'person_2_present_1'
     },{
       text:
         ` Your enchanted wheels might fly you so high in the sky that you could feel
@@ -295,21 +313,25 @@ const story: IStory = {
       id: `S`,
       wordCategories: WordCategory.BODY_PARTS,
       part: 4,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 4,
+        width: 20
+      }],
     },{
       text:
         ` and your `,
       audio: a17,
       id: `U`,
       wordCategories: WordCategory.CLOTHES,
-      imgPositions: [
-        {
-          top: 66,
-          left: 61,
-          part: 2,
-        }
-      ],
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 4,
+        width: 20
+      }],
       part: 4,
-      duplicateId: 'person_3_present_1'
     },{
       text:
         `might blow away, and you’d
@@ -329,13 +351,12 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      imgPositions: [
-        {
-          top: 47,
-          left: 64,
-          part: 2,
-        }
-      ],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 4,
+            width: 20
+        }],
       part: 4,
     },{
       text:
@@ -344,6 +365,12 @@ const story: IStory = {
       id: 'W',
       wordCategories: WordCategory.BODY_PARTS,
       part: 4,
+      imgPositions: [{
+          top: 45,
+          left: 34,
+          part: 4,
+          width: 20
+      }],
     },{
       text:
         ` and a little `,
@@ -351,6 +378,12 @@ const story: IStory = {
       id: 'X',
       wordCategories: WordCategory.BIRDS,
       part: 4,
+      imgPositions: [{
+          top: 45,
+          left: 34,
+          part: 4,
+          width: 20
+      }],
     },{
       text:
         `flying by could sit there to rest, cock its eye in your direction, and wonder what
@@ -373,6 +406,12 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 5,
+        width: 20
+      }],
     },{
       text:
         ` or some `,
@@ -392,6 +431,12 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 5,
+        width: 20
+      }],
     },{
       text:
         ` or a ginorimous `,
@@ -410,11 +455,12 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      imgPositions: [{
-          top: 65,
-          left: 3,
-          part: 3,
-      }],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 5,
+            width: 20
+        }],
       part: 5,
     },{
       text:
@@ -435,11 +481,12 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      imgPositions: [{
-          top: 78,
-          left: 19,
-          part: 3,
-      }],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 5,
+            width: 20
+        }],
       part: 5,
     },{
       text:
@@ -460,6 +507,12 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       part: 5,
+      imgPositions: [{
+          top: 45,
+          left: 34,
+          part: 5,
+          width: 20
+      }],
     },{
       text:
         ` already has an old -like, and hit them together to hear the
@@ -473,11 +526,12 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [{
-          top: 67,
-          left: 36,
-          part: 3,
-      }],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 5,
+            width: 20
+        }],
       part: 5,
     },{
       text:
@@ -489,11 +543,12 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [{
-          top: 76,
-          left: 52,
-          part: 3,
-      }],
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 5,
+            width: 20
+        }],
       part: 5,
     },{
       text:
@@ -507,6 +562,12 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
       part: 6,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 2,
+        width: 20
+      }],
     },{
       text:
         ` to be your pet? Would you hide it
@@ -515,6 +576,12 @@ const story: IStory = {
       id: `Kk`,
       wordCategories: WordCategory.FOOD,
       part: 6,
+      imgPositions: [{
+        top: 16,
+        left: 64,
+        part: 6,
+        width: 20
+      }],
     },{
       text:
         ` for dinner? Would you ever tell
@@ -526,12 +593,13 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      imgPositions: [{
-          top: 66,
-          left: 69,
-          part: 3,
-      }],
-      part: 3,
+        imgPositions: [{
+            top: 45,
+            left: 34,
+            part: 6,
+            width: 20
+        }],
+      part: 6,
     },{
       text:
         `, or just keep
