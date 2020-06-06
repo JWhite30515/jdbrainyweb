@@ -6,8 +6,9 @@ import img2 from './Space-Alien2-no_landings.png';
 import img3 from './Space-Alien3-no_landings.png';
 import img4 from './Space-Alien4-no_landings.png';
 import img5 from './Space-Alien5-no-landings.png';
-//-no_landings
 
+
+const phAudio = require('./audio/phAudio.mp3');
 const a1 = require('./audio/SPS_5_1.mp3');
 const a2 = require('./audio/SPS_5_2.mp3');
 const a3 = require('./audio/SPS_5_3.mp3');
@@ -40,7 +41,6 @@ const a29 = require('./audio/SPS_5_29.mp3');
 const a30 = require('./audio/SPS_5_30.mp3');
 const a31 = require('./audio/SPS_5_31.mp3');
 const a32 = require('./audio/SPS_5_32.mp3');
-const phAudio = require('./audio/phAudio.mp3');
 
 const story: IStory = {
 	id: 6,
