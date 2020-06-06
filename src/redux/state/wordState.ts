@@ -193,20 +193,27 @@ const glassAudio = require('../../static/words/audio/glass.mp3');
 //audio imports
 const apeAudio = require('../../static/words/audio/ape.mp3');
 const balanceAudio = require('../../static/words/audio/balance.mp3');
+const burgerAudio = require('../../static/words/audio/burger.mp3');
 const catAudio = require('../../static/words/audio/cat.mp3');
+const clothesAudio = require('../../static/words/audio/clothes.mp3');
 const cowAudio = require('../../static/words/audio/cow.mp3');
+const cubAudio = require('../../static/words/audio/cub.mp3');
 const cutAudio = require('../../static/words/audio/cut.mp3');
 const cryAudio = require('../../static/words/audio/cry.mp3');
 const camelAudio = require('../../static/words/audio/camel.mp3');
+const dancerAudio = require('../../static/words/audio/dancer.mp3');
 const digAudio = require('../../static/words/audio/dig.mp3');
 const dogAudio = require('../../static/words/audio/dog.mp3');
 const dogsAudio = require('../../static/words/audio/dogs.mp3');
+const elkAudio = require('../../static/words/audio/elk.mp3');
 const fallAudio = require('../../static/words/audio/fall.mp3');
 const fishAudio = require('../../static/words/audio/fish.mp3');
 const foxAudio = require('../../static/words/audio/fox.mp3');
 const goatAudio = require('../../static/words/audio/goat.mp3');
+const henAudio = require('../../static/words/audio/hen.mp3');
 const hitAudio = require('../../static/words/audio/hit.mp3');
 const hugAudio = require('../../static/words/audio/hug.mp3');
+const jayAudio = require('../../static/words/audio/jay.mp3');
 const jumpAudio = require('../../static/words/audio/jump.mp3');
 const kittenAudio = require('../../static/words/audio/kitten.mp3');
 //const lickAudio = require('../../static/words/audio/lick.mp3');
@@ -529,7 +536,7 @@ const words: IWord[] = [
     completed: false,
     text: 'burger',
     img: burgerImg,
-    audio: null,
+    audio: burgerAudio,
     category: WordCategory.FOOD,
   },
   {
@@ -543,7 +550,7 @@ const words: IWord[] = [
     completed: false,
     text: 'clothes',
     img: clothesImg,
-    audio: null,
+    audio: clothesAudio,
     category: WordCategory.CLOTHES
   },
   {
@@ -823,7 +830,7 @@ const words: IWord[] = [
     completed: false,
     text: 'jay',
     img: jayImg,
-    audio: null,
+    audio: jayAudio,
     category: WordCategory.BIRDS,
   },
   {
@@ -907,8 +914,7 @@ const words: IWord[] = [
     completed: false,
     text: 'dancer',
     img: dancerImg,
-    // audio: dancerAudio,
-    audio: null,
+    audio: dancerAudio,
     category: WordCategory.PEOPLE,
   },
   {
@@ -1001,28 +1007,28 @@ const words: IWord[] = [
     text: 'beaver',
     img: beaverImg,
     audio: beaverAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.WATER_ANIMALS,
   },
   {
     completed: false,
     text: 'bridge',
     img: bridgeImg,
     audio: bridgeAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
     text: 'volcano',
     img: volcanoImg,
     audio: volcanoAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
     text: 'zoo',
     img: zooImg,
     audio: zooAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
@@ -1276,21 +1282,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'cub',
     img: cubheadImg,
-    audio: null,
+    audio: cubAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'cub',
     img: cubmiddleImg,
-    audio: null,
+    audio: cubAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'cub',
     img: cubtailImg,
-    audio: null,
+    audio: cubAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
@@ -1346,21 +1352,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'elk',
     img: elkheadImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'elk',
     img: elkmiddleImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'elk',
     img: elktailImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.TAIL,
     completed: false,
   },
@@ -1423,21 +1429,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'hen',
     img: henheadImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'hen',
     img: henmiddleImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'hen',
     img: hentailImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.TAIL,
     completed: false,
   },

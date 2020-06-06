@@ -89,14 +89,12 @@ const story: IStory = {
         WordCategory.BIRDS],
       id: 'D',
       part: 1,
-      imgPositions: [
-        {
-          top: 37,
-          left: 24,
+      imgPositions: [{
+          top: 55,
+          left: 18,
           part: 1,
           width: 20
-        }
-      ]
+        }]
     },
     {
       text:
@@ -105,11 +103,11 @@ const story: IStory = {
       audio: a4,
       id: `E`,
       wordCategories: WordCategory.FOOD,
-      part: 2,
+      part: 1,
       imgPositions: [{
-          top: 18,
-          left: 16,
-          part: 2,
+          top: 55,
+          left: 56,
+          part: 1,
           width: 20,
       }]
     },{
@@ -125,8 +123,8 @@ const story: IStory = {
       id: 'G',
       part: 2,
       imgPositions: [{
-          top: 19,
-          left: 66,
+          top: 6,
+          left: 10,
           part: 2,
           width: 20
       }]
@@ -143,8 +141,8 @@ const story: IStory = {
       id: 'J',
       part: 2,
       imgPositions: [{
-          top: 50,
-          left: 60,
+          top: 7,
+          left: 68,
           part: 2,
           width: 20
       }]
@@ -158,10 +156,10 @@ const story: IStory = {
       wordCategories: WordCategory.BODY_PARTS,
       part: 2,
       imgPositions: [{
-          top: 48,
-          left: 23,
+          top: 28,
+          left: 6,
           part: 2,
-          width: 14,
+          width: 20,
       }]
     },{
       text:
@@ -173,8 +171,8 @@ const story: IStory = {
       id: 'Kb',
       part: 2,
       imgPositions: [{
-          top: 43,
-          left: 70,
+          top: 28,
+          left: 36,
           part: 2,
           width: 20
       }]
@@ -188,8 +186,8 @@ const story: IStory = {
       id: 'Kc',
       part: 2,
       imgPositions: [{
-          top: 29,
-          left: 82,
+          top: 35,
+          left: 72,
           part: 2,
           width: 20
       }]
@@ -206,8 +204,8 @@ const story: IStory = {
         WordCategory.HOUSE_STUFF],
       part: 2,
       imgPositions: [{
-          top: 45,
-          left: 34,
+          top: 56,
+          left: 26,
           part: 2,
           width: 20
       }],
@@ -224,8 +222,8 @@ const story: IStory = {
         WordCategory.HOUSE_STUFF],
       part: 2,
       imgPositions: [{
-          top: 45,
-          left: 34,
+          top: 56,
+          left: 28,
           part: 2,
           width: 20
       }],
@@ -262,7 +260,7 @@ const story: IStory = {
       part: 3,
       imgPositions: [{
         top: 16,
-        left: 64,
+        left: 10,
         part: 3,
         width: 20
       }],
@@ -281,8 +279,8 @@ const story: IStory = {
         WordCategory.CLOTHES,
         WordCategory.VEHICLES],
         imgPositions: [{
-            top: 45,
-            left: 34,
+            top: 56,
+            left: 10,
             part: 3,
             width: 20
         }],
@@ -298,12 +296,12 @@ const story: IStory = {
         WordCategory.PRETEND,
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS],
-        imgPositions: [{
-            top: 45,
-            left: 34,
-            part: 3,
-            width: 20
-        }],
+      imgPositions: [{
+        top: 45,
+        left: 34,
+        part: 3,
+        width: 20
+      }],
       part: 3,
     },{
       text:
@@ -315,7 +313,7 @@ const story: IStory = {
       part: 4,
       imgPositions: [{
         top: 16,
-        left: 64,
+        left: 10,
         part: 4,
         width: 20
       }],
@@ -334,7 +332,7 @@ const story: IStory = {
       part: 4,
     },{
       text:
-        `might blow away, and you’d
+        ` might blow away, and you’d
         float through a cloud shaped like a soft `,
       audio: a18,
       id: `V`,
@@ -366,8 +364,8 @@ const story: IStory = {
       wordCategories: WordCategory.BODY_PARTS,
       part: 4,
       imgPositions: [{
-          top: 45,
-          left: 34,
+          top: 56,
+          left: 10,
           part: 4,
           width: 20
       }],
@@ -379,14 +377,14 @@ const story: IStory = {
       wordCategories: WordCategory.BIRDS,
       part: 4,
       imgPositions: [{
-          top: 45,
-          left: 34,
+          top: 56,
+          left: 64,
           part: 4,
           width: 20
       }],
     },{
       text:
-        `flying by could sit there to rest, cock its eye in your direction, and wonder what
+        ` flying by could sit there to rest, cock its eye in your direction, and wonder what
         kind of bird you might be.
         Your magical wheels could roll you deep down into underground caves
         where all around you’d see nothing but rocks shaped like a little `,
@@ -407,8 +405,8 @@ const story: IStory = {
         WordCategory.OUTDOORS],
       part: 5,
       imgPositions: [{
-        top: 16,
-        left: 64,
+        top: 5,
+        left: 13,
         part: 5,
         width: 20
       }],
@@ -432,8 +430,8 @@ const story: IStory = {
         WordCategory.OUTDOORS],
       part: 5,
       imgPositions: [{
-        top: 16,
-        left: 64,
+        top: 5,
+        left: 37,
         part: 5,
         width: 20
       }],
@@ -456,8 +454,8 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
         imgPositions: [{
-            top: 45,
-            left: 34,
+            top: 5,
+            left: 64,
             part: 5,
             width: 20
         }],
@@ -482,8 +480,8 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
         imgPositions: [{
-            top: 45,
-            left: 34,
+            top: 33,
+            left: 24,
             part: 5,
             width: 20
         }],
@@ -508,8 +506,8 @@ const story: IStory = {
         WordCategory.OUTDOORS],
       part: 5,
       imgPositions: [{
-          top: 45,
-          left: 34,
+          top: 33,
+          left: 51,
           part: 5,
           width: 20
       }],
@@ -527,15 +525,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
         imgPositions: [{
-            top: 45,
-            left: 34,
+            top: 62,
+            left: 24,
             part: 5,
             width: 20
         }],
       part: 5,
     },{
       text:
-        `, and won’t play with the new one, but really likes , or maybe a hiding `,
+        `, and won’t play with the new one, but really likes, or maybe a hiding `,
       audio: a27,
       id: `Gg`,
       wordCategories: [
@@ -544,8 +542,8 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
         imgPositions: [{
-            top: 45,
-            left: 34,
+            top: 62,
+            left: 51,
             part: 5,
             width: 20
         }],
@@ -563,9 +561,9 @@ const story: IStory = {
         WordCategory.BIRDS],
       part: 6,
       imgPositions: [{
-        top: 16,
-        left: 64,
-        part: 2,
+        top: 22,
+        left: 14,
+        part: 6,
         width: 20
       }],
     },{
@@ -577,8 +575,8 @@ const story: IStory = {
       wordCategories: WordCategory.FOOD,
       part: 6,
       imgPositions: [{
-        top: 16,
-        left: 64,
+        top: 22,
+        left: 63,
         part: 6,
         width: 20
       }],
@@ -593,12 +591,7 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-        imgPositions: [{
-            top: 45,
-            left: 34,
-            part: 6,
-            width: 20
-        }],
+        imgPositions: [],
       part: 6,
     },{
       text:

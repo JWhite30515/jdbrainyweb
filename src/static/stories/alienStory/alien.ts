@@ -1,11 +1,11 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img1 from './Space-Alien1.png';
-import img2 from './Space-Alien2.png';
-import img3 from './Space-Alien3.png';
-import img4 from './Space-Alien4.png';
-import img5 from './Space-Alien5.png';
+import img1 from './Space-Alien1-no_landings.png';
+import img2 from './Space-Alien2-no_landings.png';
+import img3 from './Space-Alien3-no_landings.png';
+import img4 from './Space-Alien4-no_landings.png';
+import img5 from './Space-Alien5-no-landings.png';
 //-no_landings
 
 const a1 = require('./audio/SPS_5_1.mp3');
@@ -40,6 +40,7 @@ const a29 = require('./audio/SPS_5_29.mp3');
 const a30 = require('./audio/SPS_5_30.mp3');
 const a31 = require('./audio/SPS_5_31.mp3');
 const a32 = require('./audio/SPS_5_32.mp3');
+const phAudio = require('./audio/phAudio.mp3');
 
 const story: IStory = {
 	id: 6,
@@ -411,8 +412,8 @@ const story: IStory = {
 			imgPositions: []
 		},{
 			text:
-			``,
-			audio: null,
+			`." `,
+			audio: phAudio,
 			part: 4,
 			id: `A1`,
 			wordCategories: [],
