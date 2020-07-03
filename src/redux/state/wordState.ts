@@ -50,17 +50,28 @@ import refbodyImg from '../../static/words/Segimg/Ref-Body.png';
 
 //image imports
 import apeImg from '../../static/words/img/ape.png';
+import balanceImg from '../../static/words/img/balance.png';
 import bearImg from '../../static/words/img/bear.png';
 import burgerImg from '../../static/words/img/burger.png';
 import catImg from '../../static/words/img/cat.png';
 import clothesImg from '../../static/words/img/clothes.png';
 import cowImg from '../../static/words/img/cow.png';
 import camelImg from '../../static/words/img/camel.png';
+import cryImg from '../../static/words/img/cry.png';
+import cutImg from '../../static/words/img/cut.png';
+import digImg from '../../static/words/img/dig.png';
 import dogImg from '../../static/words/img/dog.png';
 import dogsImg from '../../static/words/img/dog.png';
+import fallImg from '../../static/words/img/fall.png';
+import fishImg from '../../static/words/img/fish.png';
 import foxImg from '../../static/words/img/fox.png';
 import goatImg from '../../static/words/img/goat.png';
+import hitImg from '../../static/words/img/hit.png';
+import hugImg from '../../static/words/img/hug.png';
+import jumpImg from '../../static/words/img/jump.png';
 import kittenImg from '../../static/words/img/kitten.png';
+import lickImg from '../../static/words/img/lick.png';
+import loveImg from '../../static/words/img/love.png';
 import moleImg from '../../static/words/img/mole.png';
 import mothImg from '../../static/words/img/moth.png';
 import mouseImg from '../../static/words/img/mouse.png';
@@ -77,7 +88,9 @@ import iceImg from '../../static/words/img/ice.png';
 import nutsImg from '../../static/words/img/nuts.png';
 import plumImg from '../../static/words/img/plum.png';
 import rainbowImg from '../../static/words/img/rainbow.png';
+import seeImg from '../../static/words/img/see.png';
 import silverImg from '../../static/words/img/silver.png';
+import singImg from '../../static/words/img/sing.png';
 import teaImg from '../../static/words/img/tea.png';
 import treeImg from '../../static/words/img/tree.png';
 import wallImg from '../../static/words/img/wall.png';
@@ -137,6 +150,17 @@ import taxiImg from '../../static/words/img/taxi.png';
 import busImg from '../../static/words/img/bus.png';
 import carVehicleImg from '../../static/words/img/vehicles_car.png';
 
+//descibe imgs
+import afraidImg from '../../static/words/img/afraid.png';
+import darkImg from '../../static/words/img/dark.png';
+import fiveImg from '../../static/words/img/5.png';
+import hotImg from '../../static/words/img/hot.png';
+import oldImg from '../../static/words/img/old.png';
+import quietImg from '../../static/words/img/quiet.png';
+import sixImg from '../../static/words/img/six.png';
+import sixteenImg from '../../static/words/img/sixteen.png';
+import sleepyImg from '../../static/words/img/sleepy.png';
+
 // thing imgs
 import bagImg from '../../static/words/img/bag.png';
 import bedImg from '../../static/words/img/bed.png';
@@ -148,6 +172,7 @@ import forkImg from '../../static/words/img/fork.png';
 import fridgeImg from '../../static/words/img/fridge.png';
 import fringeImg from '../../static/words/img/fringe.png';
 import glassImg from '../../static/words/img/glass.png';
+import redImg from '../../static/words/img/red.png';
 
 // segmented words audio
 const batAudio = require('../../static/words/audio/bat.mp3');
@@ -167,14 +192,32 @@ const glassAudio = require('../../static/words/audio/glass.mp3');
 
 //audio imports
 const apeAudio = require('../../static/words/audio/ape.mp3');
+const balanceAudio = require('../../static/words/audio/balance.mp3');
+const burgerAudio = require('../../static/words/audio/burger.mp3');
 const catAudio = require('../../static/words/audio/cat.mp3');
+const clothesAudio = require('../../static/words/audio/clothes.mp3');
 const cowAudio = require('../../static/words/audio/cow.mp3');
+const cubAudio = require('../../static/words/audio/cub.mp3');
+const cutAudio = require('../../static/words/audio/cut.mp3');
+const cryAudio = require('../../static/words/audio/cry.mp3');
 const camelAudio = require('../../static/words/audio/camel.mp3');
+const dancerAudio = require('../../static/words/audio/dancer.mp3');
+const digAudio = require('../../static/words/audio/dig.mp3');
 const dogAudio = require('../../static/words/audio/dog.mp3');
 const dogsAudio = require('../../static/words/audio/dogs.mp3');
+const elkAudio = require('../../static/words/audio/elk.mp3');
+const fallAudio = require('../../static/words/audio/fall.mp3');
+const fishAudio = require('../../static/words/audio/fish.mp3');
 const foxAudio = require('../../static/words/audio/fox.mp3');
 const goatAudio = require('../../static/words/audio/goat.mp3');
+const henAudio = require('../../static/words/audio/hen.mp3');
+const hitAudio = require('../../static/words/audio/hit.mp3');
+const hugAudio = require('../../static/words/audio/hug.mp3');
+const jayAudio = require('../../static/words/audio/jay.mp3');
+const jumpAudio = require('../../static/words/audio/jump.mp3');
 const kittenAudio = require('../../static/words/audio/kitten.mp3');
+//const lickAudio = require('../../static/words/audio/lick.mp3');
+const loveAudio = require('../../static/words/audio/love.mp3');
 const moleAudio = require('../../static/words/audio/mole.mp3');
 const mothAudio = require('../../static/words/audio/moth.mp3');
 const mouseAudio = require('../../static/words/audio/mouse.mp3');
@@ -236,6 +279,8 @@ const tubaAudio = require('../../static/words/audio/tuba.mp3');
 const zipperAudio = require('../../static/words/audio/zipper.mp3');
 const ballAudio = require('../../static/words/audio/ball.mp3');
 const jeepAudio = require('../../static/words/audio/jeep.mp3');
+//const seeAudio = require('../../static/words/audio/see.mp3');
+const singAudio = require('../../static/words/audio/sing.mp3');
 const slideAudio = require('../../static/words/audio/slide.mp3');
 const unicycleAudio = require('../../static/words/audio/unicycle.mp3');
 const wagonAudio = require('../../static/words/audio/wagon.mp3');
@@ -243,9 +288,22 @@ const carAudio = require('../../static/words/audio/car.mp3');
 const ambulanceAudio = require('../../static/words/audio/ambulance.mp3');
 const bugAudio = require('../../static/words/audio/bug.mp3');
 const taxiAudio = require('../../static/words/audio/taxi.mp3');
+const redAudio = require('../../static/words/audio/red.mp3');
+const grizzlyAudio = require('../../static/words/audio/grizzly bear.mp3');
 const schoolBusAudio = require('../../static/words/audio/school_bus.mp3');
+const zooAudio = require('../../static/words/audio/zoo.mp3');
 
-// const placeholderAudio = require('../../static/words/audio/placeholder.mp3');
+const afraidAudio = require('../../static/words/audio/afraid.mp3');
+const darkAudio = require('../../static/words/audio/dark.mp3');
+const fiveAudio = require('../../static/words/audio/five.mp3');
+const hotAudio = require('../../static/words/audio/hot.mp3');
+const oldAudio = require('../../static/words/audio/old.mp3');
+const quietAudio = require('../../static/words/audio/quiet.mp3');
+const sixAudio = require('../../static/words/audio/six.mp3');
+const sixteenAudio = require('../../static/words/audio/sixteen.mp3');
+const sleepyAudio = require('../../static/words/audio/sleepy.mp3');
+
+const phAudio = require('../../static/words/audio/placeholder.mp3');
 
 export interface IBaseWord {
   text: string;
@@ -292,6 +350,60 @@ export default interface IWordState {
 const words: IWord[] = [
   {
     completed: false,
+    text: 'afraid',
+    img: afraidImg,
+    audio: afraidAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'dark',
+    img: darkImg,
+    audio: darkAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'five',
+    img: fiveImg,
+    audio: fiveAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'hot',
+    img: hotImg,
+    audio: hotAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'old',
+    img: oldImg,
+    audio: oldAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'quiet',
+    img: quietImg,
+    audio: quietAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'six',
+    img: sixImg,
+    audio: sixAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'sleepy',
+    img: sleepyImg,
+    audio: sleepyAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
+    text: 'sixteen',
+    img: sixteenImg,
+    audio: sixteenAudio,
+    category: WordCategory.DESCRIBE,
+  },{
+    completed: false,
     text: 'ambulance',
     img: ambulanceImg,
     audio: ambulanceAudio,
@@ -310,22 +422,103 @@ const words: IWord[] = [
     img: jeepImg,
     audio: jeepAudio,
     category: WordCategory.VEHICLES,
-  },
-  {
+  },{
     completed: false,
     text: 'taxi',
     img: taxiImg,
     audio: taxiAudio,
     category: WordCategory.VEHICLES,
-  },
-  {
+  },{
     completed: false,
     text: 'school bus',
     img: busImg,
     audio: schoolBusAudio,
     category: WordCategory.VEHICLES,
-  },
-  {
+  },{
+    completed: false,
+    text: 'balance',
+    img: balanceImg,
+    audio: balanceAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'cry',
+    img: cryImg,
+    audio: cryAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'cut',
+    img: cutImg,
+    audio: cutAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'dig',
+    img: digImg,
+    audio: digAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'fall',
+    img: fallImg,
+    audio: fallAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'fish',
+    img: fishImg,
+    audio: fishAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'fly',
+    img: null,
+    audio: flyAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'hit',
+    img: hitImg,
+    audio: hitAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'hug',
+    img: hugImg,
+    audio: hugAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'jump',
+    img: jumpImg,
+    audio: jumpAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'lick',
+    img: lickImg,
+    audio: phAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'love',
+    img: loveImg,
+    audio: loveAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'see',
+    img: seeImg,
+    audio: phAudio,
+    category: WordCategory.DOING,
+  },{
+    completed: false,
+    text: 'sing',
+    img: singImg,
+    audio: singAudio,
+    category: WordCategory.DOING,
+  },{
     completed: false,
     text: 'ape',
     img: apeImg,
@@ -336,14 +529,14 @@ const words: IWord[] = [
     completed: false,
     text: 'bear',
     img: bearImg,
-    audio: null,
+    audio: grizzlyAudio,
     category: WordCategory.ANIMALS,
   },
   {
     completed: false,
     text: 'burger',
     img: burgerImg,
-    audio: null,
+    audio: burgerAudio,
     category: WordCategory.FOOD,
   },
   {
@@ -357,7 +550,7 @@ const words: IWord[] = [
     completed: false,
     text: 'clothes',
     img: clothesImg,
-    audio: null,
+    audio: clothesAudio,
     category: WordCategory.CLOTHES
   },
   {
@@ -593,6 +786,13 @@ const words: IWord[] = [
   },
   {
     completed: false,
+    text: 'red',
+    img: redImg,
+    audio: redAudio,
+    category: WordCategory.COLORS,
+  },
+  {
+    completed: false,
     text: 'silver',
     img: silverImg,
     audio: silverAudio,
@@ -630,7 +830,7 @@ const words: IWord[] = [
     completed: false,
     text: 'jay',
     img: jayImg,
-    audio: null,
+    audio: jayAudio,
     category: WordCategory.BIRDS,
   },
   {
@@ -714,8 +914,7 @@ const words: IWord[] = [
     completed: false,
     text: 'dancer',
     img: dancerImg,
-    // audio: dancerAudio,
-    audio: null,
+    audio: dancerAudio,
     category: WordCategory.PEOPLE,
   },
   {
@@ -808,29 +1007,28 @@ const words: IWord[] = [
     text: 'beaver',
     img: beaverImg,
     audio: beaverAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.WATER_ANIMALS,
   },
   {
     completed: false,
     text: 'bridge',
     img: bridgeImg,
     audio: bridgeAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
     text: 'volcano',
     img: volcanoImg,
     audio: volcanoAudio,
-    category: WordCategory.BODY_PARTS,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
     text: 'zoo',
     img: zooImg,
-    // audio: zooAudio,
-    audio: null,
-    category: WordCategory.BODY_PARTS,
+    audio: zooAudio,
+    category: WordCategory.PLACES,
   },
   {
     completed: false,
@@ -1084,22 +1282,27 @@ const segmentedWords: IWord[] = [
   {
     text: 'cub',
     img: cubheadImg,
-    audio: null,
+    audio: cubAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'cub',
     img: cubmiddleImg,
-    audio: null,
+    audio: cubAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'cub',
     img: cubtailImg,
+<<<<<<< HEAD
     audio: null,
     category: WordCategory.TAIL,
+=======
+    audio: cubAudio,
+    category: WordCategory.HEAD,
+>>>>>>> e98166a3d80ca7ef174ccb124c695ec1873ed7ef
     completed: false,
   },
   {
@@ -1154,21 +1357,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'elk',
     img: elkheadImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'elk',
     img: elkmiddleImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'elk',
     img: elktailImg,
-    audio: null,
+    audio: elkAudio,
     category: WordCategory.TAIL,
     completed: false,
   },
@@ -1231,21 +1434,21 @@ const segmentedWords: IWord[] = [
   {
     text: 'hen',
     img: henheadImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.HEAD,
     completed: false,
   },
   {
     text: 'hen',
     img: henmiddleImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.MIDDLE,
     completed: false,
   },
   {
     text: 'hen',
     img: hentailImg,
-    audio: null,
+    audio: henAudio,
     category: WordCategory.TAIL,
     completed: false,
   },
