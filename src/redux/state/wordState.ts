@@ -1099,7 +1099,7 @@ const segmentedWords: IWord[] = [
     text: 'cub',
     img: cubtailImg,
     audio: null,
-    category: WordCategory.HEAD,
+    category: WordCategory.TAIL,
     completed: false,
   },
   {

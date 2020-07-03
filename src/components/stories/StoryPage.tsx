@@ -200,7 +200,7 @@ function StoryPage(props: IStoryPageProps) {
                 />
                 {!storyImgExpanded &&
                   <FaExpandArrowsAlt
-                    className="background-img-icon"
+                    className="background-img-icon clickable"
                     onClick={() => {
                       setStoryImgExpanded(true);
                     }}
@@ -209,7 +209,7 @@ function StoryPage(props: IStoryPageProps) {
                 }
                 {storyImgExpanded &&
                   <FaCompressArrowsAlt
-                    className="background-img-icon"
+                    className="background-img-icon clickable"
                     onClick={() => {
                       setStoryImgExpanded(false);
                     }}
@@ -241,7 +241,7 @@ function StoryPage(props: IStoryPageProps) {
                 </div>
                 {!storyTextExpanded &&
                   <FaExpandArrowsAlt
-                    className="story-icon"
+                    className="story-icon clickable"
                     size="1.5em"
                     onClick={() => {
                       setStoryTextExpanded(true);
@@ -250,7 +250,7 @@ function StoryPage(props: IStoryPageProps) {
                 }
                 {storyTextExpanded &&
                   <FaCompressArrowsAlt
-                    className="story-icon"
+                    className="story-icon clickable"
                     size="1.5em"
                     onClick={() => {
                       setStoryTextExpanded(false);
