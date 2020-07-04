@@ -36,6 +36,8 @@ export interface ISection {
     rotate?: number;
     //rate by which img is enlarged/minimized
     scale?: number;
+    boxShadow?: string;
+
   }[];
   // id of word in story that this section's word cannot match
   duplicateId?: number | string;

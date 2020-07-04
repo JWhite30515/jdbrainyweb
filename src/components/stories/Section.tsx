@@ -31,11 +31,13 @@ export default function Section(props: ISectionProps) {
   const { text, word } = sections[sectionIdx];
 
   const isLastSection = (sectionIdx === sections.length - 1);
-  const sectionHighlighted = (sectionIdx === currSectionIdx);
+  //const sectionHighlighted = (sectionIdx === currSectionIdx);
   const sectionTextVisible = sectionIdx <= currSectionIdx;
 
   let wordSpanClass = '';
-  if (sectionHighlighted) wordSpanClass += ' highlighted';
+  //if (sectionHighlighted) wordSpanClass += ' highlighted';
+  //replace first span @57 with <span className={sectionHighlighted ? 'highlighted' : ''} >
+  //to highlight whole of read current part
 
   if (
     sectionIdx === currSectionIdx ||
@@ -48,9 +50,8 @@ export default function Section(props: ISectionProps) {
     <React.Fragment>
       {sectionTextVisible &&
         <React.Fragment>
-          <span
-            className={sectionHighlighted ? 'highlighted' : ''}
-          >
+          
+          <span>
             {text + (isLastSection ? '' : ' ')}
           </span>
           {!isLastSection &&
@@ -80,7 +81,12 @@ export default function Section(props: ISectionProps) {
                 setPlayingSectionAudio(false);
               }}
             >
-              <b>{word ? word.text : '____'}</b>
+              <b>
+                {word ? word.text : 
+                <span 
+                  style={{ backgroundColor: 'yellow'}} > '____' 
+                </span>}
+              </b>
             </span>
           }
         </React.Fragment>

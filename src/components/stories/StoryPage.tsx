@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { FaCompressArrowsAlt, FaExpandArrowsAlt } from 'react-icons/fa';
+import { FaCompressArrowsAlt, FaExpandArrowsAlt,  } from 'react-icons/fa';
+import { IoIosPause } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
@@ -53,6 +54,24 @@ function StoryPage(props: IStoryPageProps) {
       }
     }
   }, [currSectionIdx, wordAudio]);
+
+  /**
+  useEffect(() => {
+    var myAudio = sectionAudio;
+    var isPaused = false;
+    function togglePausePlay() {
+      if (myAudio != null && isPaused!) {
+        isPaused = true;
+        return myAudio.pause();
+      } else if (myAudio != null && isPaused) {
+        isPaused = false;
+        return myAudio.play()
+      }
+    };
+    {<IoIosPause className = "background-img-icon"
+      onClick={()=>{togglePausePlay()}}/>}
+  });
+  */
 
   useEffect(() => {
     if (!currStory) return;
@@ -149,7 +168,8 @@ function StoryPage(props: IStoryPageProps) {
             top: `${currImg.top}%`,
             left: `${currImg.left}%`,
             maxWidth: currImg.width ? `${currImg.width}%` : '10%',
-            transform: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
+            scale: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
+            boxShadow: `0px 0px 10px ${currImg.boxShadow}`,
           }}
         />
       )
@@ -157,9 +177,10 @@ function StoryPage(props: IStoryPageProps) {
   });
 
   let storyTextClassName = 'story-text';
-  if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
+  if (currSectionIdx !== 0) storyTextClassName += ' flex-row-reverse';
   if (storyTextExpanded) storyTextClassName += ' expanded-height';
 
+  // change line 195 to flex column for image on top of text and change nowrap to wrap
   return (
     <Switch>
       <Route
@@ -190,7 +211,7 @@ function StoryPage(props: IStoryPageProps) {
               setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
-          <div className="flex-column" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
+          <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
             {!storyTextExpanded &&
               <div className="parent">
                 <img
