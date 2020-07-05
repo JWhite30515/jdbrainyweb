@@ -91,15 +91,36 @@ function QuizPage(props: IQuizPageProps) {
   if (!quizWord || !quizWord.audio) return <div>Error rendering quiz</div>
 
   const starRatings = [];
+  //const ct = 1;
   for (let i = 0; i < score; i += 1) {
-    starRatings.push(
-      <IoIosStar
-        key={starRatings.length}
-        color="#ffb621"
-        // if they are middle most, increase size
-        size={starRatings.length === 1 ? '5em' : '3em'}
-      />
-    );
+    if (i === 0) {
+      starRatings.push(
+        <IoIosStar
+          key={starRatings.length}
+          color="#ffb621"
+          // if they are middle most, increase size
+          size={'4em'}
+        />
+      );      
+    } else if (i === 1) {
+      starRatings.push(
+        <IoIosStar
+          key={starRatings.length}
+          color="#ffb621"
+          // if they are middle most, increase size
+          size={'5em'}
+        />
+      );
+    } else {
+      starRatings.push(
+        <IoIosStar
+          key={starRatings.length}
+          color="#ffb621"
+          // if they are middle most, increase size
+          size={'6em'}
+        />
+      );
+    }
   }
   if (maxScore > score) {
     const difference = maxScore - score;
@@ -108,7 +129,7 @@ function QuizPage(props: IQuizPageProps) {
         <IoIosStar
           key={starRatings.length}
           color="#0000ff"
-          size={starRatings.length === 1 ? '5em' : '3em'}
+          size={'4em'}
         />
       );
     }
@@ -119,7 +140,7 @@ function QuizPage(props: IQuizPageProps) {
         <IoIosStarOutline
           key={starRatings.length}
           color="#0000ff"
-          size={starRatings.length === 1 ? '5em' : '3em'}
+          size={'4em'}
         />
       );
     }
