@@ -42,6 +42,7 @@ function StoryPage(props: IStoryPageProps) {
 
   const [storyImgExpanded, setStoryImgExpanded] = useState(false);
   const [storyTextExpanded, setStoryTextExpanded] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     if (currSectionIdx !== 0) {
@@ -180,7 +181,7 @@ function StoryPage(props: IStoryPageProps) {
   if (currSectionIdx !== 0) storyTextClassName += ' flex-row-reverse';
   if (storyTextExpanded) storyTextClassName += ' expanded-height';
 
-  // change line 195 to flex column for image on top of text and change nowrap to wrap
+  // change line 215 to flex column for image on top of text and change nowrap to wrap
   return (
     <Switch>
       <Route
@@ -212,34 +213,53 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
-            {!storyTextExpanded &&
-              <div className="parent">
-                <img
-                  className={storyImgExpanded ? 'background-img expanded' : 'background-img'}
-                  src={currPart.backgroundImg}
-                  alt={currStory.title}
+              <div className ="parent">
+                <IoIosPause 
+                  className="pause-audio"
+                  onClick={() => {
+                    if (!isPaused) {
+                      if (sectionAudio) {
+                        sectionAudio?.pause();
+                        setIsPaused(true); 
+                      }            
+                    } else if (isPaused) {
+                      if (sectionAudio) {
+                        sectionAudio?.play();
+                        setIsPaused(false);
+                      }
+                    }
+                  }}
+                  size = "5%"
                 />
-                {!storyImgExpanded &&
-                  <FaExpandArrowsAlt
-                    className="background-img-icon"
-                    onClick={() => {
-                      setStoryImgExpanded(true);
-                    }}
-                    size='5%'
+                </div>
+              {!storyTextExpanded &&
+                <div className="parent">
+                  <img
+                    className={storyImgExpanded ? 'background-img expanded' : 'background-img'}
+                    src={currPart.backgroundImg}
+                    alt={currStory.title}
                   />
-                }
-                {storyImgExpanded &&
-                  <FaCompressArrowsAlt
-                    className="background-img-icon"
-                    onClick={() => {
-                      setStoryImgExpanded(false);
-                    }}
-                    size='5%'
-                  />
-                }
-                {wordImgs}
-              </div>
-            }
+                  {!storyImgExpanded &&
+                    <FaExpandArrowsAlt
+                      className="background-img-icon"
+                      onClick={() => {
+                        setStoryImgExpanded(true);
+                      }}
+                      size='5%'
+                    />
+                  }
+                  {storyImgExpanded &&
+                    <FaCompressArrowsAlt
+                      className="background-img-icon"
+                      onClick={() => {
+                        setStoryImgExpanded(false);
+                      }}
+                      size='5%'
+                    />
+                  }
+                  {wordImgs}
+                </div>
+              }
             {!storyImgExpanded &&
               <div className="flex-row card-item">
                 <div className={storyTextClassName}>
