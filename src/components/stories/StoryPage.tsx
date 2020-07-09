@@ -213,25 +213,7 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
-              <div className ="parent">
-                <IoIosPause 
-                  className="pause-audio"
-                  onClick={() => {
-                    if (!isPaused) {
-                      if (sectionAudio) {
-                        sectionAudio?.pause();
-                        setIsPaused(true); 
-                      }            
-                    } else if (isPaused) {
-                      if (sectionAudio) {
-                        sectionAudio?.play();
-                        setIsPaused(false);
-                      }
-                    }
-                  }}
-                  size = "5%"
-                />
-                </div>
+             
               {!storyTextExpanded &&
                 <div className="parent">
                   <img
@@ -280,24 +262,45 @@ function StoryPage(props: IStoryPageProps) {
                   )}
                   </div>
                 </div>
-                {!storyTextExpanded &&
-                  <FaExpandArrowsAlt
-                    className="story-icon"
-                    size="1.5em"
-                    onClick={() => {
-                      setStoryTextExpanded(true);
-                    }}
-                  />
-                }
-                {storyTextExpanded &&
-                  <FaCompressArrowsAlt
-                    className="story-icon"
-                    size="1.5em"
-                    onClick={() => {
-                      setStoryTextExpanded(false);
-                    }}
-                  />
-                }
+                  <div className="flex-column">
+                    <div className ="parent">
+                      <IoIosPause 
+                        className="pause-audio"
+                        size = "1.75em"
+                        onClick={() => {
+                          if (!isPaused) {
+                            if (sectionAudio) {
+                              sectionAudio?.pause();
+                              setIsPaused(true); 
+                            }            
+                          } else if (isPaused) {
+                            if (sectionAudio) {
+                              sectionAudio?.play();
+                              setIsPaused(false);
+                            }
+                          }
+                        }}
+                    />
+                  </div>
+                    {!storyTextExpanded &&
+                      <FaExpandArrowsAlt
+                        className="story-icon"
+                        size="1.5em"
+                        onClick={() => {
+                          setStoryTextExpanded(true);
+                        }}
+                      />
+                    }
+                    {storyTextExpanded &&
+                      <FaCompressArrowsAlt
+                        className="story-icon"
+                        size="1.5em"
+                        onClick={() => {
+                          setStoryTextExpanded(false);
+                        }}
+                      />
+                    }
+                </div>
               </div>
             }
           </div>

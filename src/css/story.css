@@ -23,6 +23,10 @@
   margin-bottom: 30px;
 }
 
+.pause-audio{
+  align-content: center;
+}
+
 .expanded {
   max-height: 950px;
   max-width: 950px;
@@ -51,7 +55,7 @@
 
 .story-icon {
   flex-shrink: 0.1;
-  align-self: start;
+  align-self: center;
 }
 
 .shrink {
