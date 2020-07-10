@@ -32,7 +32,7 @@
   max-width: 950px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .background-img {
     max-width: 300px;
   }

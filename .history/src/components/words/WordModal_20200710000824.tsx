@@ -17,8 +17,6 @@ import '../../css/common.css';
 import '../../css/layout.css';
 import '../../css/modal.css';
 
-import { AudioState } from '../stories/StoryPage';	
-
 export interface ICategorizedWord {
   category: WordCategory;
   words: IWord[];
@@ -27,22 +25,28 @@ export interface ICategorizedWord {
 export interface IWordModalProps {
   currStory: IStory;
   currSectionIdx: number;
+  sectionAudio: HTMLAudioElement | null;
   words: IWord[];
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void;
-  setAudioState(audioState: string): void;	
+  setCurrSectionIdx(idx: number): void;
+  setPlayingSectionAudio(playing: boolean): void;
   setQuizWord(word: IWord): void;
   setShowWordModal(open: boolean): void;
+  setWordAudio(audio: HTMLAudioElement): void;
 }
 
 export function WordModal(props: IWordModalProps) {
   const {
     currStory,
     currSectionIdx,
+    sectionAudio,
     words,
     selectWord,
-    setAudioState,
+    setCurrSectionIdx,
+    setPlayingSectionAudio,
     setQuizWord,
     setShowWordModal,
+    setWordAudio,
   } = props;
 
   const history = useHistory();
@@ -149,11 +153,22 @@ export function WordModal(props: IWordModalProps) {
 
                     setShowWordModal(false);
                     if (!word.completed) {
+                      if (sectionAudio) sectionAudio.pause();
                       setQuizWord(word);
                       history.push(`${path}/quiz`);
                     } else {
                       selectWord(word, currStory.id, currSectionIdx);
-                      setAudioState(AudioState.PLAYING_WORD);
+
+                      const wordAudio = new Audio(word.audio);
+                      wordAudio.addEventListener('ended', () => {
+                        setPlayingSectionAudio(true);
+                      });
+
+                      setWordAudio(wordAudio);
+                      setCurrSectionIdx(currSectionIdx + 1);
+                      setPlayingSectionAudio(false);
+
+                      if (sectionAudio) sectionAudio.pause();
                     }
                   }}
                   style={{ flex: '0.5', margin: '20px' }}

@@ -22,6 +22,7 @@ export interface IFriendModalProps {
   friends: IFriendWord[];
   imgs: any[];
   names: IName[];
+  sectionAudio: HTMLAudioElement | null;
   createFriend(friend: IFriendWord): void;
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void,
   setAudioState(audioState: string): void;	
@@ -35,6 +36,7 @@ function FriendModal(props: IFriendModalProps) {
     friends,
     imgs,
     names,
+    sectionAudio,
     createFriend,
     selectWord,
     setAudioState,
@@ -43,6 +45,26 @@ function FriendModal(props: IFriendModalProps) {
 
   const [currImg, setCurrImg] = useState<any | null>(null);
   const [currName, setCurrName] = useState<IName | null>(null);
+
+  const createAndSetWordAudio = useCallback((audio: HTMLAudioElement) => {
+    setShowFriendModal(false);
+    audio.addEventListener('ended', () => {
+      setPlayingSectionAudio(true);
+    });
+
+    setWordAudio(audio);
+    setCurrSectionIdx(currSectionIdx + 1);
+    setPlayingSectionAudio(false);
+
+    if (sectionAudio) sectionAudio.pause();
+  }, [
+    currSectionIdx,
+    setShowFriendModal,
+    setPlayingSectionAudio,
+    setWordAudio,
+    setCurrSectionIdx,
+    sectionAudio,
+  ]);
 
   useEffect(() => {
     if (currImg && currName) {
@@ -58,19 +80,19 @@ function FriendModal(props: IFriendModalProps) {
       // update this section's word to be the newly created friend word
       selectWord(newFriendWord, currStory.id, currSectionIdx);
 
-      setShowFriendModal(false);	
-      setAudioState(AudioState.PLAYING_WORD);	
+      const wordAudio = new Audio(newFriendWord.audio);
+
+      createAndSetWordAudio(wordAudio);
     }
   },
     [
+      createAndSetWordAudio,
       currSectionIdx,
       currStory,
+      createFriend,
       currImg,
       currName,
-      createFriend,
       selectWord,
-      setAudioState,	
-      setShowFriendModal,
     ]
   );
 
@@ -99,8 +121,10 @@ function FriendModal(props: IFriendModalProps) {
                 key={`friend_${idx}`}
                 onClick={() => {
                   selectWord(friend, currStory.id, currSectionIdx);
-                  setShowFriendModal(false);	
-                  setAudioState(AudioState.PLAYING_WORD);
+
+                  const wordAudio = new Audio(friend.audio);
+
+                  createAndSetWordAudio(wordAudio);
                 }}
                 style={{ margin: '20px' }}
               >
