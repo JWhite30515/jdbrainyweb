@@ -22,6 +22,11 @@ export interface IStoryPageProps {
   setHeader(header: string): void;
 }
 
+export const AudioState = {
+  PLAYING_SECTION: 'playingSection',
+  PLAYING_WORD: 'playingWord',
+}
+
 function StoryPage(props: IStoryPageProps) {
   const { stories, setHeader } = props;
 
@@ -31,6 +36,7 @@ function StoryPage(props: IStoryPageProps) {
 
   const currStory = stories.find(story => story.id === Number(id));
 
+  const [audioState, setAudioState] = useState(AudioState.PLAYING_SECTION);
   const [currSectionIdx, setCurrSectionIdx] = useState(0);
   const [playingSectionAudio, setPlayingSectionAudio] = useState(true);
   const [playingWordAudio, setPlayingWordAudio] = useState(false);
@@ -193,23 +199,17 @@ function StoryPage(props: IStoryPageProps) {
             <FriendModal
               currStory={currStory}
               currSectionIdx={currSectionIdx}
-              sectionAudio={sectionAudio}
-              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+              setAudioState={(audioState: string) => setAudioState(audioState)}
               setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
           {showWordModal &&
             <WordModal
               currStory={currStory}
               currSectionIdx={currSectionIdx}
-              sectionAudio={sectionAudio}
-              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+              setAudioState={(audioState: string) => setAudioState(audioState)}
               setQuizWord={(word: IWord) => setQuizWord(word)}
               setShowWordModal={(open: boolean) => setShowWordModal(open)}
-              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
           <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
