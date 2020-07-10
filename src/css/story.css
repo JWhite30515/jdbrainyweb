@@ -8,7 +8,7 @@
 
 .image {
   position: absolute;
-  box-shadow: yellow;
+  box-shadow: rgba(255, 255, 0, 0.473);
 }
 
 .background-img-icon {

@@ -213,7 +213,6 @@ function StoryPage(props: IStoryPageProps) {
             />
           }
           <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
-             
               {!storyTextExpanded &&
                 <div className="parent">
                   <img
