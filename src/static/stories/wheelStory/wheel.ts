@@ -1,7 +1,15 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
-import img1 from './Blank.png';
+import img1 from './MW-1.png';
+import img2 from './MW-2.png';
+import img3 from './MW-3.png';
+import img4 from './MW-4.png';
+import img5 from './MW-5.png';
+import img6 from './MW-6.png';
+import img7 from './MW-7.png';
+import img8 from './MW-8.png';
+import img9 from './MW-9.png';
 
 const a1 = require('./audio/SPS_4_1.mp3');
 const a2 = require('./audio/SPS_4_2.mp3');
@@ -50,11 +58,16 @@ const story: IStory = {
         WordCategory.TOYS,
         WordCategory.VEHICLES],      
       imgPositions: [{
-          top: 16 ,
-          left: 11,
+          top: 42,
+          left: 40,
           part: 1,
-          width: 20
-      }]
+          width: 25
+      },{
+        top: 42,
+        left: 40,
+        part: 2,
+        width: 25
+    }]
     },{
       text:
         ` with wheels. Suppose one night a tricky, magical, mischievous `,
@@ -90,10 +103,10 @@ const story: IStory = {
       id: 'D',
       part: 1,
       imgPositions: [{
-          top: 55,
-          left: 18,
-          part: 1,
-          width: 20
+        top: 45,
+        left: 50,
+        part: 2,
+        width: 30
         }]
     },
     {
@@ -103,17 +116,19 @@ const story: IStory = {
       audio: a4,
       id: `E`,
       wordCategories: WordCategory.FOOD,
-      part: 1,
+      part: 2,
       imgPositions: [{
-          top: 55,
-          left: 56,
-          part: 1,
-          width: 20,
+        top: 33,
+        left: 17,
+        part: 2,
+        width: 42
       }]
-    },{
+    },
+    //Part 3
+    {
       text:
         ` and offered to share—would you eat some?
-        Would you fly up and way over some. `,
+        Would you fly up and way over some `,
       audio: a5,
       wordCategories: [
         WordCategory.THINGS,
@@ -123,10 +138,10 @@ const story: IStory = {
       id: 'G',
       part: 2,
       imgPositions: [{
-          top: 6,
+          top: 60,
           left: 10,
-          part: 2,
-          width: 20
+          part: 3,
+          width: 30
       }]
     },{
       text:
@@ -139,12 +154,12 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
       id: 'J',
-      part: 2,
+      part: 3,
       imgPositions: [{
-          top: 7,
-          left: 68,
-          part: 2,
-          width: 20
+        top: 59,
+        left: 61,
+        part: 3,
+        width: 30
       }]
     },{
       text:
@@ -154,13 +169,13 @@ const story: IStory = {
       audio: a7,
       id: `Ka`,
       wordCategories: WordCategory.BODY_PARTS,
-      part: 2,
-      imgPositions: [{
-          top: 28,
-          left: 6,
-          part: 2,
-          width: 20,
-      }]
+      part: 3,
+      imgPositions: [/**{
+        top: 28,
+        left: 6,
+        part: 3,
+        width: 20,
+      }*/]
     },{
       text:
         ` and `,
@@ -169,13 +184,13 @@ const story: IStory = {
         WordCategory.BODY_PARTS
       ],
       id: 'Kb',
-      part: 2,
-      imgPositions: [{
-          top: 28,
-          left: 36,
-          part: 2,
-          width: 20
-      }]
+      part: 3,
+      imgPositions: [/**{
+        top: 28,
+        left: 36,
+        part: 3,
+        width: 20
+      }*/]
     },{
       text:
         ` and `,
@@ -184,14 +199,16 @@ const story: IStory = {
         WordCategory.BODY_PARTS
       ],
       id: 'Kc',
-      part: 2,
-      imgPositions: [{
-          top: 35,
-          left: 72,
-          part: 2,
-          width: 20
-      }]
-    },{
+      part: 3,
+      imgPositions: [/**{
+        top: 35,
+        left: 72,
+        part: 3,
+        width: 20
+      }*/]
+    },
+    //Part 4
+    {
       text:
         `? On the beach would you walk barefoot
         in warm squishy sand and look for a lost `,
@@ -202,12 +219,12 @@ const story: IStory = {
         WordCategory.CLOTHES,
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF],
-      part: 2,
+      part: 3,
       imgPositions: [{
-          top: 56,
-          left: 26,
-          part: 2,
-          width: 20
+        top: 30,
+        left: 26,
+        part: 4,
+        width: 27
       }],
     },{
       text:
@@ -220,14 +237,16 @@ const story: IStory = {
         WordCategory.CLOTHES,
         WordCategory.THINGS,
         WordCategory.HOUSE_STUFF],
-      part: 2,
+      part: 4,
       imgPositions: [{
-          top: 56,
-          left: 28,
-          part: 2,
-          width: 20
+        top: 65,
+        left: 50,
+        part: 4,
+        width: 20
       }],
-    },{
+    },
+    //Part 5
+    {
       text:
         `. Maybe your wheels would dive you deep
          under the salty water to watch some lazy `,
@@ -238,13 +257,13 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.PRETEND,
         WordCategory.PEOPLE],
+      part: 4,
         imgPositions: [{
-          top: 16,
-          left: 64,
-          part: 3,
-          width: 20
-        }],
-      part: 3,
+          top: 11,
+          left: 40,
+          part: 5,
+          width: 25
+        }]
     },{
       text:
         ` swim by. Some huge `,
@@ -257,12 +276,12 @@ const story: IStory = {
         WordCategory.TOOLS,
         WordCategory.CLOTHES,
         WordCategory.VEHICLES],
-      part: 3,
+      part: 5,
       imgPositions: [{
-        top: 16,
-        left: 10,
-        part: 3,
-        width: 20
+        top: 62,
+        left: 46,
+        part: 5,
+        width: 30
       }],
     },{
       text:
@@ -279,17 +298,17 @@ const story: IStory = {
         WordCategory.CLOTHES,
         WordCategory.VEHICLES],
         imgPositions: [{
-            top: 56,
-            left: 10,
-            part: 3,
-            width: 20
+          top: 39,
+          left: 2,
+          part: 5,
+          width: 25
         }],
-      part: 3,
+      part: 5,
     },{
       text:
         ` leap high out of the water and splash back down, and
         you’d feel the underwater splashy waves on your body—and maybe see a strange
-        sea`,
+        sea-`,
       audio: a15,
       id: `R`,
       wordCategories: [
@@ -297,39 +316,41 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS],
       imgPositions: [{
-        top: 45,
-        left: 34,
-        part: 3,
-        width: 20
+        top: 63,
+        left: 1,
+        part: 5,
+        width: 25
       }],
-      part: 3,
-    },{
+      part: 5,
+    },
+    //Part 6
+    {
       text:
         ` Your enchanted wheels might fly you so high in the sky that you could feel
         the cool swirly wind on your `,
       audio: a16,
       id: `S`,
       wordCategories: WordCategory.BODY_PARTS,
-      part: 4,
-      imgPositions: [{
+      part: 5,
+      imgPositions: [/**{
         top: 16,
         left: 10,
-        part: 4,
+        part: 6,
         width: 20
-      }],
+      }*/],
     },{
       text:
         ` and your `,
       audio: a17,
       id: `U`,
       wordCategories: WordCategory.CLOTHES,
-      imgPositions: [{
+      imgPositions: [/**{
         top: 16,
         left: 64,
-        part: 4,
+        part: 6,
         width: 20
-      }],
-      part: 4,
+      }*/],
+      part: 6,
     },{
       text:
         ` might blow away, and you’d
@@ -349,40 +370,42 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-        imgPositions: [{
+        imgPositions: [/**{
             top: 45,
             left: 34,
-            part: 4,
+            part: 6,
             width: 20
-        }],
-      part: 4,
+        }*/],
+      part: 6,
     },{
       text:
         ` or glide through misty damp fog. You could hold out your `,
       audio: a19,
       id: 'W',
       wordCategories: WordCategory.BODY_PARTS,
-      part: 4,
-      imgPositions: [{
+      part: 6,
+      imgPositions: [/**{
           top: 56,
           left: 10,
-          part: 4,
+          part: 6,
           width: 20
-      }],
+      }*/],
     },{
       text:
         ` and a little `,
       audio: a20,
       id: 'X',
       wordCategories: WordCategory.BIRDS,
-      part: 4,
+      part: 6,
       imgPositions: [{
-          top: 56,
+          top: 23,
           left: 64,
-          part: 4,
-          width: 20
+          part: 6,
+          width: 30
       }],
-    },{
+    },
+    //Part 7
+    {
       text:
         ` flying by could sit there to rest, cock its eye in your direction, and wonder what
         kind of bird you might be.
@@ -403,11 +426,11 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      part: 5,
+      part: 6,
       imgPositions: [{
-        top: 5,
+        top: 66,
         left: 13,
-        part: 5,
+        part: 7,
         width: 20
       }],
     },{
@@ -428,12 +451,12 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      part: 5,
+      part: 7,
       imgPositions: [{
-        top: 5,
+        top: 57,
         left: 37,
-        part: 5,
-        width: 20
+        part: 7,
+        width: 24
       }],
     },{
       text:
@@ -454,13 +477,15 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
         imgPositions: [{
-            top: 5,
+            top: 55,
             left: 64,
-            part: 5,
-            width: 20
+            part: 7,
+            width: 30
         }],
-      part: 5,
-    },{
+      part: 7,
+    },
+    //Part 8
+    {
       text:
         `. You could travel so far back you hear
         nothing but silence until you pick up two rocks, maybe one kind of `,
@@ -480,12 +505,12 @@ const story: IStory = {
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
         imgPositions: [{
-            top: 33,
-            left: 24,
-            part: 5,
-            width: 20
+            top: 49,
+            left: 16,
+            part: 8,
+            width: 12
         }],
-      part: 5,
+      part: 7,
     },{
       text:
         `-like, another kind of `,
@@ -504,16 +529,16 @@ const story: IStory = {
         WordCategory.VEHICLES,
         WordCategory.PLACES,
         WordCategory.OUTDOORS],
-      part: 5,
+      part: 8,
       imgPositions: [{
-          top: 33,
+          top: 59,
           left: 51,
-          part: 5,
-          width: 20
+          part: 8,
+          width: 12
       }],
     },{
       text:
-        ` already has an old -like, and hit them together to hear the
+        `-like, and hit them together to hear the
         echoes echoes echoes click farther farther farther awaaaaaay.
         Would you see any creatures at all in a deep cave? If you had a flashlight maybe
         you’d see a dark `,
@@ -525,12 +550,12 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
         imgPositions: [{
-            top: 62,
-            left: 24,
-            part: 5,
+            top: 2,
+            left: 46,
+            part: 8,
             width: 20
         }],
-      part: 5,
+      part: 8,
     },{
       text:
         `, and won’t play with the new one, but really likes, or maybe a hiding `,
@@ -542,13 +567,15 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
         imgPositions: [{
-            top: 62,
-            left: 51,
-            part: 5,
+            top: 2,
+            left: 74,
+            part: 8,
             width: 20
         }],
-      part: 5,
-    },{
+      part: 8,
+    },
+    //Part 9
+    {
       text:
         `. Would you ride far, far back in time and visit the dinosaurs, and maybe
         bring back a little baby dinosaur `,
@@ -559,11 +586,11 @@ const story: IStory = {
         WordCategory.ANIMALS,
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
-      part: 6,
+      part: 8,
       imgPositions: [{
-        top: 22,
-        left: 14,
-        part: 6,
+        top: 45,
+        left: 39,
+        part: 9,
         width: 20
       }],
     },{
@@ -573,12 +600,12 @@ const story: IStory = {
       audio: a29,
       id: `Kk`,
       wordCategories: WordCategory.FOOD,
-      part: 6,
+      part: 9,
       imgPositions: [{
-        top: 22,
-        left: 63,
-        part: 6,
-        width: 20
+        top: 63,
+        left: 45,
+        part: 9,
+        width: 28
       }],
     },{
       text:
@@ -592,7 +619,7 @@ const story: IStory = {
         WordCategory.WATER_ANIMALS,
         WordCategory.BIRDS],
         imgPositions: [],
-      part: 6,
+      part: 9,
     },{
       text:
         `, or just keep
@@ -603,27 +630,36 @@ const story: IStory = {
         be the very best most magical ride of all.`,
       audio: a31,
       wordCategories: [],
-      part: 6,
+      part: 9,
     },
   ],
   parts: [{
       backgroundImg: img1,
       id: 1,
     },{
-      backgroundImg: img1,
+      backgroundImg: img2,
       id: 2,
     },{
-      backgroundImg: img1,
+      backgroundImg: img3,
       id: 3,
     },{
-      backgroundImg: img1,
+      backgroundImg: img4,
       id: 4,
     },{
-      backgroundImg: img1,
+      backgroundImg: img5,
       id: 5,
     },{
-      backgroundImg: img1,
+      backgroundImg: img6,
       id: 6,
+    },{
+      backgroundImg: img7,
+      id: 7,
+    },{
+      backgroundImg: img8,
+      id: 8,
+    },{
+      backgroundImg: img9,
+      id: 9,
     }]
 };
 

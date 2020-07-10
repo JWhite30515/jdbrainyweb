@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { FaCompressArrowsAlt, FaExpandArrowsAlt } from 'react-icons/fa';
+import { FaCompressArrowsAlt, FaExpandArrowsAlt,  } from 'react-icons/fa';
+import { IoIosPause, IoIosPlay } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
@@ -41,9 +42,28 @@ function StoryPage(props: IStoryPageProps) {
   const [showWordModal, setShowWordModal] = useState(false);
   const [storyImgExpanded, setStoryImgExpanded] = useState(false);
   const [storyTextExpanded, setStoryTextExpanded] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const currAudio = useRef<HTMLAudioElement | null>(currStory ? new Audio(currStory.sections[currSectionIdx].audio) : null);
   const currUrl = useRef<any>(history.location);
+
+  /**
+  useEffect(() => {
+    var myAudio = sectionAudio;
+    var isPaused = false;
+    function togglePausePlay() {
+      if (myAudio != null && isPaused!) {
+        isPaused = true;
+        return myAudio.pause();
+      } else if (myAudio != null && isPaused) {
+        isPaused = false;
+        return myAudio.play()
+      }
+    };
+    {<IoIosPause className = "background-img-icon"
+      onClick={()=>{togglePausePlay()}}/>}
+  });
+  */
 
   useEffect(() => {
     if (!currStory || !currAudio.current || currUrl.current.pathname !== history.location.pathname) return;
@@ -136,7 +156,8 @@ function StoryPage(props: IStoryPageProps) {
             top: `${currImg.top}%`,
             left: `${currImg.left}%`,
             maxWidth: currImg.width ? `${currImg.width}%` : '10%',
-            transform: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
+            scale: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
+            boxShadow: `0px 0px 10px ${currImg.boxShadow}`,
           }}
         />
       )
@@ -144,9 +165,10 @@ function StoryPage(props: IStoryPageProps) {
   });
 
   let storyTextClassName = 'story-text';
-  if (currSectionIdx !== 0) storyTextClassName += ' flex-column-reverse';
+  if (currSectionIdx !== 0) storyTextClassName += ' flex-row-reverse';
   if (storyTextExpanded) storyTextClassName += ' expanded-height';
 
+  // change line 215 to flex column for image on top of text and change nowrap to wrap
   return (
     <Switch>
       <Route
@@ -171,7 +193,7 @@ function StoryPage(props: IStoryPageProps) {
               setShowWordModal={(open: boolean) => setShowWordModal(open)}
             />
           }
-          <div className="flex-column" style={{ margin: '0 10%', flexWrap: 'wrap' }}>
+          <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
             {!storyTextExpanded &&
               <div className="parent">
                 <img
@@ -181,7 +203,7 @@ function StoryPage(props: IStoryPageProps) {
                 />
                 {!storyImgExpanded &&
                   <FaExpandArrowsAlt
-                    className="background-img-icon clickable"
+                    className="background-img-icon"
                     onClick={() => {
                       setStoryImgExpanded(true);
                     }}
@@ -190,7 +212,7 @@ function StoryPage(props: IStoryPageProps) {
                 }
                 {storyImgExpanded &&
                   <FaCompressArrowsAlt
-                    className="background-img-icon clickable"
+                    className="background-img-icon"
                     onClick={() => {
                       setStoryImgExpanded(false);
                     }}
@@ -204,37 +226,65 @@ function StoryPage(props: IStoryPageProps) {
               <div className="flex-row card-item">
                 <div className={storyTextClassName}>
                   <div>
-                  {currStory.sections.map((section, idx) =>
-                    <Section
-                      currSectionIdx={currSectionIdx}
-                      key={`section_${idx}`}
-                      sections={currStory.sections}
-                      sectionIdx={idx}
-                      setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-                      setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-                      setShowWordModal={(open: boolean) => setShowWordModal(open)}
-                    />
-                  )}
+                    {currStory.sections.map((section, idx) =>
+                      <Section
+                        currSectionIdx={currSectionIdx}
+                        key={`section_${idx}`}
+                        sections={currStory.sections}
+                        sectionIdx={idx}
+                        setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                        setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
+                        setShowWordModal={(open: boolean) => setShowWordModal(open)}
+                      />
+                    )}
                   </div>
                 </div>
-                {!storyTextExpanded &&
-                  <FaExpandArrowsAlt
-                    className="story-icon clickable"
-                    size="1.5em"
-                    onClick={() => {
-                      setStoryTextExpanded(true);
-                    }}
-                  />
-                }
-                {storyTextExpanded &&
-                  <FaCompressArrowsAlt
-                    className="story-icon clickable"
-                    size="1.5em"
-                    onClick={() => {
-                      setStoryTextExpanded(false);
-                    }}
-                  />
-                }
+                <div className="flex-column">
+                  <div className ="parent">
+                    {isPaused &&
+                      <IoIosPlay 
+                        className="pause-audio"
+                        size = "1.75em"
+                        onClick={() => {
+                          if (currAudio.current) {
+                            currAudio.current.play();
+                            setIsPaused(false);
+                          }
+                        }}
+                      />  
+                    }
+                    {!isPaused &&
+                      <IoIosPause 
+                        className="pause-audio"
+                        size = "1.75em"
+                        onClick={() => {
+                          if (currAudio.current) {
+                            currAudio.current.pause();
+                            setIsPaused(true);
+                          }
+                        }}
+                      />  
+                    }
+                  </div>
+                  {!storyTextExpanded &&
+                    <FaExpandArrowsAlt
+                      className="story-icon"
+                      size="1.5em"
+                      onClick={() => {
+                        setStoryTextExpanded(true);
+                      }}
+                    />
+                  }
+                  {storyTextExpanded &&
+                    <FaCompressArrowsAlt
+                      className="story-icon"
+                      size="1.5em"
+                      onClick={() => {
+                        setStoryTextExpanded(false);
+                      }}
+                    />
+                  }
+                </div>
               </div>
             }
           </div>

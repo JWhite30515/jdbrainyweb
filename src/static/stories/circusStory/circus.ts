@@ -53,7 +53,8 @@ const story: IStory = {
           top: 62,
           left: 44.5,
           width: 15,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
       },{
       text:
@@ -75,7 +76,8 @@ const story: IStory = {
           left: 85,
           rotate: 0,
           scale: .98,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
       },{
       text:
@@ -96,7 +98,8 @@ const story: IStory = {
       imgPositions: [{
           top: 6,
           left: 37,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
       },{
       text:
@@ -118,8 +121,9 @@ const story: IStory = {
       imgPositions: [{
           top: 13,
           left: 86,
-          part: 1,
           width: 14,
+          boxShadow: 'yellow',
+          part: 1
         }]
       },{
       text:
@@ -139,7 +143,8 @@ const story: IStory = {
           left: 88,
           rotate: 0,
           scale: .85,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       },{
       text:
@@ -157,7 +162,8 @@ const story: IStory = {
       imgPositions: [{
           top: 40,
           left: 58,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -169,7 +175,8 @@ const story: IStory = {
       imgPositions: [{
           top: 40,
           left: 46.5,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -181,7 +188,8 @@ const story: IStory = {
       imgPositions: [{
           top: 35,
           left: 18,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
      },{
       text:
@@ -193,7 +201,8 @@ const story: IStory = {
       imgPositions: [{
           top: 8,
           left: 48,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -205,7 +214,8 @@ const story: IStory = {
       imgPositions: [{
           top: 10,
           left: 73,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -227,7 +237,8 @@ const story: IStory = {
           left: 63,
           rotate: 0,
           scale: .85,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -258,7 +269,8 @@ const story: IStory = {
           left: 55.5,
           rotate: 0,
           scale: .5,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
     },{
       text:
@@ -270,7 +282,8 @@ const story: IStory = {
       imgPositions: [{
           top: 19,
           left: 55.5,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -298,8 +311,9 @@ const story: IStory = {
           top: 16,
           left: 23.5,
           rotate: 0,
-          scale: .95,          
-          part: 1,
+          scale: .95,
+          boxShadow: 'yellow',      
+          part: 1
         }]
     },{
       text:
@@ -318,7 +332,8 @@ const story: IStory = {
           left: 23.5,
           rotate: 0,
           scale: .95,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -337,7 +352,8 @@ const story: IStory = {
           left: 21.5,
           rotate: 0,
           scale: .55,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }]
     },{
       text:
@@ -355,7 +371,8 @@ const story: IStory = {
           left: 25.5,
           rotate: 0,
           scale: .55,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{
@@ -370,7 +387,8 @@ const story: IStory = {
       imgPositions: [{
           top: 53,
           left: 37,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{
@@ -384,7 +402,8 @@ const story: IStory = {
       imgPositions: [ {
           top: 49,
           left: 9,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{
@@ -397,7 +416,8 @@ const story: IStory = {
       imgPositions: [{
           top: 57,
           left: 23.5,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{
@@ -416,7 +436,8 @@ const story: IStory = {
           left: 17,
           rotate: 0,
           scale: .65,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{
@@ -435,7 +456,8 @@ const story: IStory = {
             left: 23.5,
             rotate: 0,
             scale: .65,
-            part: 1,
+            boxShadow: 'yellow',
+            part: 1
           }],
         part: 1,
     },{
@@ -454,7 +476,8 @@ const story: IStory = {
           left: 29,
           rotate: 0,
           scale: .65,
-          part: 1,
+          boxShadow: 'yellow',
+          part: 1
         }],
       part: 1,
     },{

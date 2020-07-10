@@ -17,22 +17,23 @@ const a5 = require('./audio/SPS_5_5.mp3');
 const a6 = require('./audio/SPS_5_6.mp3');
 const a7 = require('./audio/SPS_5_7.mp3');
 const a8 = require('./audio/SPS_5_8.mp3');
-const a9 = require('./audio/SPS_5_9.mp3');
-const a10 = require('./audio/SPS_5_10.mp3');
+const a9 = require('./audio/SPS_5_9_R.mp3');
+const a10 = require('./audio/SPS_5_10_R.mp3');
 const a11 = require('./audio/SPS_5_11.mp3');
-const a12 = require('./audio/SPS_5_12.mp3');
-const a13 = require('./audio/SPS_5_13.mp3');
-const a14 = require('./audio/SPS_5_14.mp3');
+const a12 = require('./audio/SPS_5_12_R.mp3');
+const a13 = require('./audio/SPS_5_13 b.mp3');
+const a14 = require('./audio/SPS_5_14_R.mp3');
 const a15 = require('./audio/SPS_5_15.mp3');
-const a16 = require('./audio/SPS_5_16.mp3');
-const a17 = require('./audio/SPS_5_17.mp3');
-const a18 = require('./audio/SPS_5_18.mp3');
+const a16 = require('./audio/SPS_5_16_R.mp3');
+//const a17a = require('./audio/SPS_5_17A.mp3');
+const a17 = require('./audio/SPS_5_17_R.mp3');
+const a18 = require('./audio/SPS_5_18_R.mp3');
 const a19 = require('./audio/SPS_5_19.mp3');
 const a20 = require('./audio/SPS_5_20.mp3');
-const a21 = require('./audio/SPS_5_21.mp3');
-const a22 = require('./audio/SPS_5_22.mp3');
+const a21 = require('./audio/SPS_5_21_R.mp3');
+const a22 = require('./audio/SPS_5_22_R.mp3');
 const a23 = require('./audio/SPS_5_23.mp3');
-const a24 = require('./audio/SPS_5_24.mp3');
+const a24 = require('./audio/SPS_5_24_R.mp3');
 const a25 = require('./audio/SPS_5_25.mp3');
 const a26 = require('./audio/SPS_5_26.mp3');
 const a27 = require('./audio/SPS_5_27.mp3');
@@ -40,7 +41,7 @@ const a28 = require('./audio/SPS_5_28.mp3');
 const a29 = require('./audio/SPS_5_29.mp3');
 const a30 = require('./audio/SPS_5_30.mp3');
 const a31 = require('./audio/SPS_5_31.mp3');
-const a32 = require('./audio/SPS_5_32.mp3');
+const a32 = require('./audio/SPS_5_32_R.mp3');
 
 const story: IStory = {
 	id: 6,
@@ -57,26 +58,27 @@ const story: IStory = {
 				top: 54,
 				left: 9.5,
 				width: 15,
-				part: 1
+				part: 1,
+
 			},{
 				top: 6,
-				left: 9.5,
-				width: 15,
+				left: -3.5,
+				width: 30,
 				part: 2
 			},{
 				top: 6,
 				left: 9.5,
-				width: 15,
+				width: 25,
 				part: 3
 			},{
 				top: 32,
 				left: 6.5,
-				width: 15,
+				width: 25,
 				part: 4
 			},{
-				top: 13,
+				top: 9,
 				left: 14,
-				width: 15,
+				width: 18,
 				part: 5
 			}]
 		},{
@@ -94,22 +96,22 @@ const story: IStory = {
 			},{
 				top: 7,
 				left: 73.5,
-				width: 15,
+				width: 30,
 				part: 2
 			},{
 				top: 7,
 				left: 73.5,
-				width: 15,
+				width: 25,
 				part: 3
 			},{
 				top: 31,
 				left: 75.5,
-				width: 15,
+				width: 25,
 				part: 4
 			},{
-				top: 13,
+				top: 9,
 				left: 61,
-				width: 15,
+				width: 18,
 				part: 5			}]
 		},{
 			text:
@@ -207,9 +209,9 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-				top: 31,
-				left: 47,
-				width: 9,
+				top: 24,
+				left: 43,
+				width: 17,
 				part: 2
 			}]
 		},
@@ -227,9 +229,9 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-					top: 72,
+					top: 62,
 					left: 44.5,
-					width: 15,
+					width: 20,
 					part: 2
 			}]
 		},{
@@ -280,9 +282,9 @@ const story: IStory = {
 				WordCategory.PLACES,
 				WordCategory.OUTDOORS],
 			imgPositions: [{
-				top: 35,
-				left: 43.5,
-				width: 9,
+				top: 32,
+				left: 42,
+				width: 12,
 				part: 3
 			}]
 		},{
@@ -331,8 +333,7 @@ const story: IStory = {
 			}]
 		},
 		//PART 4
-		{
-			text:
+		{text:
 			`, I’m sure! My big brother told me.
 			Big brother must have been teasing. Guess this.”
 			“`,

@@ -32,13 +32,15 @@ export default function Section(props: ISectionProps) {
   if (sectionIsCurrent) wordSpanClass += ' highlighted';
   if (sectionTextVisible || sectionIsCurrent) wordSpanClass += ' clickable';
 
+  //if (sectionHighlighted) wordSpanClass += ' highlighted';
+  //replace first span @57 with <span className={sectionHighlighted ? 'highlighted' : ''} >
+  //to highlight whole of read current part
+
   return (
     <React.Fragment>
       {sectionTextVisible &&
         <React.Fragment>
-          <span
-            className={sectionIsCurrent ? 'highlighted' : ''}
-          >
+          <span>
             {text + (isLastSection ? '' : ' ')}
           </span>
           {!isLastSection &&
@@ -61,7 +63,12 @@ export default function Section(props: ISectionProps) {
                 }
               }}
             >
-              <b>{word ? word.text : '____'}</b>
+              <b>
+                {word ? word.text : 
+                <span 
+                  style={{ backgroundColor: 'yellow'}} > '____' 
+                </span>}
+              </b>
             </span>
           }
         </React.Fragment>

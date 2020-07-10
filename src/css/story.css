@@ -8,6 +8,7 @@
 
 .image {
   position: absolute;
+  box-shadow: yellow;
 }
 
 .background-img-icon {
@@ -20,6 +21,10 @@
   max-height: 400px;
   max-width: 600px;
   margin-bottom: 30px;
+}
+
+.pause-audio{
+  align-content: center;
 }
 
 .expanded {
@@ -50,7 +55,7 @@
 
 .story-icon {
   flex-shrink: 0.1;
-  align-self: start;
+  align-self: center;
 }
 
 .shrink {
