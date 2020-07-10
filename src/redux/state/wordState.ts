@@ -1296,8 +1296,8 @@ const segmentedWords: IWord[] = [
   {
     text: 'cub',
     img: cubtailImg,
-    audio: cubAudio,
-    category: WordCategory.HEAD,
+    audio: null,
+    category: WordCategory.TAIL,
     completed: false,
   },
   {

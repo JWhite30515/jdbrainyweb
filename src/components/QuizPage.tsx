@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 
 import IRootState from '../redux/state/rootState';
+import { AudioState } from './stories/StoryPage';
 import { masterWord } from '../redux/actions/wordActions';
 import { selectWord } from '../redux/actions/storyActions';
 import { IFriendWord } from '../redux/state/friendState';
@@ -24,9 +25,7 @@ export interface IQuizPageProps {
   words: IWord[];
   masterWord: (word: IWord) => void;
   selectWord: (word: IWord | IFriendWord, storyId: number, currSectionIdx: number) => void;
-  setCurrSectionIdx: (idx: number) => void;
-  setPlayingSectionAudio: (playing: boolean) => void;
-  setWordAudio: (audio: HTMLAudioElement) => void;
+  setAudioState: (audioState: string) => void;
 }
 
 function QuizPage(props: IQuizPageProps) {
@@ -37,9 +36,7 @@ function QuizPage(props: IQuizPageProps) {
     words,
     masterWord,
     selectWord,
-    setCurrSectionIdx,
-    setPlayingSectionAudio,
-    setWordAudio,
+    setAudioState,
   } = props;
 
   const history = useHistory();
@@ -61,16 +58,7 @@ function QuizPage(props: IQuizPageProps) {
         masterWord(newWord);
         selectWord(newWord, currStoryId, currSectionIdx);
 
-        // separate audio instantion to add different onEnded event listener
-        const wordAudio = new Audio(newWord.audio);
-        wordAudio.addEventListener('ended', () => {
-          setPlayingSectionAudio(true);
-        });
-
-        setPlayingSectionAudio(false);
-
-        setCurrSectionIdx(currSectionIdx + 1);
-        setWordAudio(wordAudio);
+        setAudioState(AudioState.PLAYING_WORD);
       }
     });
     quizWordAudio.play();
@@ -78,14 +66,12 @@ function QuizPage(props: IQuizPageProps) {
     currSectionIdx,
     currStoryId,
     history,
-    masterWord,
     quizWord,
     quizWordAudio,
     score,
     selectWord,
-    setCurrSectionIdx,
-    setPlayingSectionAudio,
-    setWordAudio,
+    masterWord,
+    setAudioState,
   ]);
 
   if (!quizWord || !quizWord.audio) return <div>Error rendering quiz</div>

@@ -267,6 +267,7 @@ function StoryPage(props: IStoryPageProps) {
                         className="pause-audio"
                         size = "1.75em"
                         onClick={() => {
+                          //pause function
                           if (!isPaused) {
                             if (sectionAudio) {
                               sectionAudio?.pause();
