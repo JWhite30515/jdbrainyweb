@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { FaCompressArrowsAlt, FaExpandArrowsAlt,  } from 'react-icons/fa';
-import { IoIosPause } from 'react-icons/io';
+import { IoIosPause, IoIosPlay } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Route, Switch } from 'react-router';
@@ -22,39 +22,30 @@ export interface IStoryPageProps {
   setHeader(header: string): void;
 }
 
+export const AudioState = {
+  PLAYING_SECTION: 'playingSection',
+  PLAYING_WORD: 'playingWord',
+}
+
 function StoryPage(props: IStoryPageProps) {
   const { stories, setHeader } = props;
 
-  const history = useHistory();
   const { id } = useParams();
   const basePath = `/stories/${id}`;
-
   const currStory = stories.find(story => story.id === Number(id));
+  const history = useHistory();
 
+  const [audioState, setAudioState] = useState(AudioState.PLAYING_SECTION);
   const [currSectionIdx, setCurrSectionIdx] = useState(0);
-  const [playingSectionAudio, setPlayingSectionAudio] = useState(true);
-  const [playingWordAudio, setPlayingWordAudio] = useState(false);
   const [quizWord, setQuizWord] = useState({} as IWord);
   const [showFriendModal, setShowFriendModal] = useState(false);
   const [showWordModal, setShowWordModal] = useState(false);
-  const [sectionAudio, setSectionAudio] = useState<HTMLAudioElement | null>(null);
-  const [wordAudio, setWordAudio] = useState<HTMLAudioElement | null>(null);
-
   const [storyImgExpanded, setStoryImgExpanded] = useState(false);
   const [storyTextExpanded, setStoryTextExpanded] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  useEffect(() => {
-    if (currSectionIdx !== 0) {
-      if (wordAudio) {
-        setPlayingWordAudio(true);
-        wordAudio.addEventListener('ended', () => {
-          setPlayingWordAudio(false);
-        })
-        wordAudio.autoplay = true;
-      }
-    }
-  }, [currSectionIdx, wordAudio]);
+  const currAudio = useRef<HTMLAudioElement | null>(currStory ? new Audio(currStory.sections[currSectionIdx].audio) : null);
+  const currUrl = useRef<any>(history.location);
 
   /**
   useEffect(() => {
@@ -75,70 +66,66 @@ function StoryPage(props: IStoryPageProps) {
   */
 
   useEffect(() => {
-    if (!currStory) return;
-    const { sections } = currStory;
+    if (!currStory || !currAudio.current || currUrl.current.pathname !== history.location.pathname) return;
 
-    if (sections.length === 0) return;
+    if (showFriendModal || showWordModal) {
+      currAudio.current.pause();
+      return;
+    }
+    const currSection = currStory.sections[currSectionIdx];
 
-    let sectionAudio: HTMLAudioElement | null = new Audio(sections[currSectionIdx].audio);
+    if (!currAudio.current.ended) currAudio.current.pause();
 
-    if (playingSectionAudio) {
-      const currSection = sections[currSectionIdx];
-      sectionAudio.addEventListener('ended', () => {
-        setPlayingSectionAudio(false);
-
-        // if this section has a word, play that word's audio, move to next section
-        if (currSection.word) {
-          const wordAudio = new Audio(currSection.word.audio);
-          wordAudio.addEventListener('ended', () => {
-            if (currSectionIdx < sections.length - 1) {
-              setCurrSectionIdx(currSectionIdx + 1);
-            }
-            setPlayingSectionAudio(true);
-          });
-          wordAudio.play();
-        } else {
-          // show word modals if (a) is not last section
-          // and (b) is not a section with an already defined word
+    if (audioState === AudioState.PLAYING_SECTION) {
+      currAudio.current = new Audio(currSection.audio);
+      currAudio.current.addEventListener('ended', () => {
+        setAudioState(AudioState.PLAYING_WORD);
+        // Only show friend/word modal if current word is undefined and this is not the last section
+        if (
+          currSection.word === undefined &&
+          currSectionIdx !== currStory.sections.length - 1
+        ) {
           if (
-            currSectionIdx !== sections.length - 1 &&
-            currSection.word === undefined
+            currSection.wordCategories === WordCategory.FRIENDS
           ) {
+            setShowFriendModal(true);
+          } else {
             if (
-              currSection.wordCategories === WordCategory.FRIENDS
+              currSection.wordCategories.length &&
+              currSection.wordCategories[0] === WordCategory.FRIENDS
             ) {
               setShowFriendModal(true);
             } else {
-              if (
-                currSection.wordCategories.length &&
-                currSection.wordCategories[0] === WordCategory.FRIENDS
-              ) {
-                setShowFriendModal(true);
-              } else {
-                setShowWordModal(true);
-              }
+              setShowWordModal(true);
             }
           }
         }
-      });
+      })
+      currAudio.current.autoplay = true;
+    
+    } else if (audioState === AudioState.PLAYING_WORD) {
+      if (!currSection.word) return;
 
-      setSectionAudio(sectionAudio);
-      sectionAudio.autoplay = true;
+      setShowFriendModal(false);
+      setShowWordModal(false);
+      currAudio.current = new Audio(currSection.word.audio);
+      currAudio.current.addEventListener('ended', () => {
+        setAudioState(AudioState.PLAYING_SECTION);
+
+        // Only increment sectionIdx if this is not the last section
+        if (currSectionIdx !== currStory.sections.length - 1) setCurrSectionIdx(currSectionIdx + 1);
+      });
+      currAudio.current.autoplay = true;
     }
 
-    // prevent audio from playing when navigate away from story page
-    return history.listen(() => {
-      if (wordAudio) {
-        wordAudio.pause();
-        setWordAudio(null);
-      }
-      if (sectionAudio) {
-        setPlayingSectionAudio(false);
-        sectionAudio.pause();
-        sectionAudio = null;
-      }
-    });
-  }, [currSectionIdx, currStory, playingSectionAudio, history, wordAudio]);
+    const dismount = () => {
+      history.listen(() => {
+        if (currAudio.current) currAudio.current.pause();
+      });
+    }
+
+    return dismount;
+  }, [audioState, currSectionIdx, currStory, history, showFriendModal, showWordModal]);
 
   if (!currStory) return <div>No story selected</div>
 
@@ -193,112 +180,110 @@ function StoryPage(props: IStoryPageProps) {
             <FriendModal
               currStory={currStory}
               currSectionIdx={currSectionIdx}
-              sectionAudio={sectionAudio}
-              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+              setAudioState={(audioState: string) => setAudioState(audioState)}
               setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
           {showWordModal &&
             <WordModal
               currStory={currStory}
               currSectionIdx={currSectionIdx}
-              sectionAudio={sectionAudio}
-              setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-              setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
+              setAudioState={(audioState: string) => setAudioState(audioState)}
               setQuizWord={(word: IWord) => setQuizWord(word)}
               setShowWordModal={(open: boolean) => setShowWordModal(open)}
-              setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
             />
           }
           <div className="flex-row" style={{ margin: '0 5%' ,flexWrap: 'nowrap' }}> 
-              {!storyTextExpanded &&
-                <div className="parent">
-                  <img
-                    className={storyImgExpanded ? 'background-img expanded' : 'background-img'}
-                    src={currPart.backgroundImg}
-                    alt={currStory.title}
+            {!storyTextExpanded &&
+              <div className="parent">
+                <img
+                  className={storyImgExpanded ? 'background-img expanded' : 'background-img'}
+                  src={currPart.backgroundImg}
+                  alt={currStory.title}
+                />
+                {!storyImgExpanded &&
+                  <FaExpandArrowsAlt
+                    className="background-img-icon"
+                    onClick={() => {
+                      setStoryImgExpanded(true);
+                    }}
+                    size='5%'
                   />
-                  {!storyImgExpanded &&
-                    <FaExpandArrowsAlt
-                      className="background-img-icon"
-                      onClick={() => {
-                        setStoryImgExpanded(true);
-                      }}
-                      size='5%'
-                    />
-                  }
-                  {storyImgExpanded &&
-                    <FaCompressArrowsAlt
-                      className="background-img-icon"
-                      onClick={() => {
-                        setStoryImgExpanded(false);
-                      }}
-                      size='5%'
-                    />
-                  }
-                  {wordImgs}
-                </div>
-              }
+                }
+                {storyImgExpanded &&
+                  <FaCompressArrowsAlt
+                    className="background-img-icon"
+                    onClick={() => {
+                      setStoryImgExpanded(false);
+                    }}
+                    size='5%'
+                  />
+                }
+                {wordImgs}
+              </div>
+            }
             {!storyImgExpanded &&
               <div className="flex-row card-item">
                 <div className={storyTextClassName}>
                   <div>
-                  {currStory.sections.map((section, idx) =>
-                    <Section
-                      currSectionIdx={currSectionIdx}
-                      key={`section_${idx}`}
-                      playingSectionAudio={playingSectionAudio}
-                      playingWordAudio={playingWordAudio}
-                      sections={currStory.sections}
-                      sectionIdx={idx}
-                      setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-                      setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
-                      setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
-                      setShowWordModal={(open: boolean) => setShowWordModal(open)}
-                    />
-                  )}
+                    {currStory.sections.map((section, idx) =>
+                      <Section
+                        currSectionIdx={currSectionIdx}
+                        key={`section_${idx}`}
+                        sections={currStory.sections}
+                        sectionIdx={idx}
+                        setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
+                        setShowFriendModal={(open: boolean) => setShowFriendModal(open)}
+                        setShowWordModal={(open: boolean) => setShowWordModal(open)}
+                      />
+                    )}
                   </div>
                 </div>
-                  <div className="flex-column">
-                    <div className ="parent">
+                <div className="flex-column">
+                  <div className ="parent">
+                    {isPaused &&
+                      <IoIosPlay 
+                        className="pause-audio"
+                        size = "1.75em"
+                        onClick={() => {
+                          if (currAudio.current) {
+                            currAudio.current.play();
+                            setIsPaused(false);
+                          }
+                        }}
+                      />  
+                    }
+                    {!isPaused &&
                       <IoIosPause 
                         className="pause-audio"
                         size = "1.75em"
                         onClick={() => {
-                          if (!isPaused) {
-                            if (sectionAudio) {
-                              sectionAudio?.pause();
-                              setIsPaused(true); 
-                            }            
-                          } else if (isPaused) {
-                            if (sectionAudio) {
-                              sectionAudio?.play();
-                              setIsPaused(false);
-                            }
+                          if (currAudio.current) {
+                            currAudio.current.pause();
+                            setIsPaused(true);
                           }
                         }}
-                    />
+                      />  
+                    }
                   </div>
-                    {!storyTextExpanded &&
-                      <FaExpandArrowsAlt
-                        className="story-icon"
-                        size="1.5em"
-                        onClick={() => {
-                          setStoryTextExpanded(true);
-                        }}
-                      />
-                    }
-                    {storyTextExpanded &&
-                      <FaCompressArrowsAlt
-                        className="story-icon"
-                        size="1.5em"
-                        onClick={() => {
-                          setStoryTextExpanded(false);
-                        }}
-                      />
-                    }
+                  {!storyTextExpanded &&
+                    <FaExpandArrowsAlt
+                      className="story-icon"
+                      size="1.5em"
+                      onClick={() => {
+                        setStoryTextExpanded(true);
+                      }}
+                    />
+                  }
+                  {storyTextExpanded &&
+                    <FaCompressArrowsAlt
+                      className="story-icon"
+                      size="1.5em"
+                      onClick={() => {
+                        setStoryTextExpanded(false);
+                      }}
+                    />
+                  }
                 </div>
               </div>
             }
@@ -312,9 +297,7 @@ function StoryPage(props: IStoryPageProps) {
             currSectionIdx={currSectionIdx}
             currStoryId={currStory.id}
             quizWord={quizWord}
-            setCurrSectionIdx={(idx: number) => setCurrSectionIdx(idx)}
-            setPlayingSectionAudio={(playing: boolean) => setPlayingSectionAudio(playing)}
-            setWordAudio={(audio: HTMLAudioElement) => setWordAudio(audio)}
+            setAudioState={(audioState: string) => setAudioState(audioState)}
           />
         }
       />

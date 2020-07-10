@@ -19,7 +19,7 @@ export default function Modal(props: IModalProps) {
       <div className="modal-content">
         <div
           className="nav light-green-back flex-row"
-          style={{ height: footerElement ? '10%' : '20%' }}
+          style={{ height: footerElement ? '10%' : '20%', marginBottom: '0' }}
         >
           <span style={{ flex: 1 }} />
           <h1 style={{ flex: 1 }}>{title}</h1>

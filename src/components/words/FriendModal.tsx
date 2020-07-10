@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -15,6 +15,7 @@ import { IWord, WordCategory } from '../../redux/state/wordState';
 import '../../css/common.css';
 import '../../css/layout.css';
 import '../../css/modal.css';
+import { AudioState } from '../stories/StoryPage';
 
 export interface IFriendModalProps {
   currSectionIdx: number;
@@ -22,13 +23,10 @@ export interface IFriendModalProps {
   friends: IFriendWord[];
   imgs: any[];
   names: IName[];
-  sectionAudio: HTMLAudioElement | null;
   createFriend(friend: IFriendWord): void;
   selectWord(word: IWord | IFriendWord, storyId: number, currSectionIdx: number): void,
-  setCurrSectionIdx(idx: number): void;
-  setPlayingSectionAudio(playing: boolean): void;
+  setAudioState(audioState: string): void;
   setShowFriendModal(open: boolean): void;
-  setWordAudio(audio: HTMLAudioElement): void;
 }
 
 function FriendModal(props: IFriendModalProps) {
@@ -38,37 +36,14 @@ function FriendModal(props: IFriendModalProps) {
     friends,
     imgs,
     names,
-    sectionAudio,
     createFriend,
     selectWord,
-    setCurrSectionIdx,
-    setPlayingSectionAudio,
+    setAudioState,
     setShowFriendModal,
-    setWordAudio,
   } = props;
 
   const [currImg, setCurrImg] = useState<any | null>(null);
   const [currName, setCurrName] = useState<IName | null>(null);
-
-  const createAndSetWordAudio = useCallback((audio: HTMLAudioElement) => {
-    setShowFriendModal(false);
-    audio.addEventListener('ended', () => {
-      setPlayingSectionAudio(true);
-    });
-
-    setWordAudio(audio);
-    setCurrSectionIdx(currSectionIdx + 1);
-    setPlayingSectionAudio(false);
-
-    if (sectionAudio) sectionAudio.pause();
-  }, [
-    currSectionIdx,
-    setShowFriendModal,
-    setPlayingSectionAudio,
-    setWordAudio,
-    setCurrSectionIdx,
-    sectionAudio,
-  ]);
 
   useEffect(() => {
     if (currImg && currName) {
@@ -84,19 +59,19 @@ function FriendModal(props: IFriendModalProps) {
       // update this section's word to be the newly created friend word
       selectWord(newFriendWord, currStory.id, currSectionIdx);
 
-      const wordAudio = new Audio(newFriendWord.audio);
-
-      createAndSetWordAudio(wordAudio);
+      setShowFriendModal(false);
+      setAudioState(AudioState.PLAYING_WORD);
     }
   },
     [
-      createAndSetWordAudio,
       currSectionIdx,
       currStory,
-      createFriend,
       currImg,
       currName,
+      createFriend,
       selectWord,
+      setAudioState,
+      setShowFriendModal,
     ]
   );
 
@@ -125,10 +100,8 @@ function FriendModal(props: IFriendModalProps) {
                 key={`friend_${idx}`}
                 onClick={() => {
                   selectWord(friend, currStory.id, currSectionIdx);
-
-                  const wordAudio = new Audio(friend.audio);
-
-                  createAndSetWordAudio(wordAudio);
+                  setShowFriendModal(false);
+                  setAudioState(AudioState.PLAYING_WORD);
                 }}
                 style={{ margin: '20px' }}
               >
