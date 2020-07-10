@@ -5,51 +5,39 @@ import { WordCategory } from '../../redux/state/wordState';
 
 export interface ISectionProps {
   currSectionIdx: number;
-  playingSectionAudio: boolean;
-  playingWordAudio: boolean;
   sections: ISection[];
   sectionIdx: number;
   setCurrSectionIdx(idx: number): void;
   setShowFriendModal(open: boolean): void;
   setShowWordModal(open: boolean): void;
-  setPlayingSectionAudio(playing: boolean): void;
 }
 
 export default function Section(props: ISectionProps) {
   const {
     currSectionIdx,
-    playingSectionAudio,
-    playingWordAudio,
     sections,
     sectionIdx,
     setCurrSectionIdx,
-    setPlayingSectionAudio,
     setShowFriendModal,
     setShowWordModal,
   } = props;
 
   const { text, word } = sections[sectionIdx];
 
-  const isLastSection = (sectionIdx === sections.length - 1);
-  const sectionHighlighted = (sectionIdx === currSectionIdx);
+  const isLastSection = sectionIdx === sections.length - 1;
+  const sectionIsCurrent = sectionIdx === currSectionIdx;
   const sectionTextVisible = sectionIdx <= currSectionIdx;
 
   let wordSpanClass = '';
-  if (sectionHighlighted) wordSpanClass += ' highlighted';
-
-  if (
-    sectionIdx === currSectionIdx ||
-    (!playingSectionAudio && !playingWordAudio)
-  ) {
-    wordSpanClass += ' clickable';
-  }
+  if (sectionIsCurrent) wordSpanClass += ' highlighted';
+  if (sectionTextVisible || sectionIsCurrent) wordSpanClass += ' clickable';
 
   return (
     <React.Fragment>
       {sectionTextVisible &&
         <React.Fragment>
           <span
-            className={sectionHighlighted ? 'highlighted' : ''}
+            className={sectionIsCurrent ? 'highlighted' : ''}
           >
             {text + (isLastSection ? '' : ' ')}
           </span>
@@ -58,14 +46,8 @@ export default function Section(props: ISectionProps) {
               className={wordSpanClass}
               key={`word-${sectionIdx}`}
               onClick={() => {
-                // only disable onclick if audio is playing AND section is not currSection
-                if (
-                  (playingSectionAudio || playingWordAudio) &&
-                  !(sectionIdx === currSectionIdx)
-                ) {
-                  return;
-                }
-
+                // only clickable if either current section, or previous section than currSection
+                if (!sectionIsCurrent && !sectionTextVisible) return;
                 setCurrSectionIdx(sectionIdx);
                 if (sections[sectionIdx].wordCategories === WordCategory.FRIENDS) {
                   setShowFriendModal(true);
@@ -77,7 +59,6 @@ export default function Section(props: ISectionProps) {
                 } else {
                   setShowWordModal(true);
                 }
-                setPlayingSectionAudio(false);
               }}
             >
               <b>{word ? word.text : '____'}</b>
