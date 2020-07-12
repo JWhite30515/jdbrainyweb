@@ -53,7 +53,6 @@ const story: IStory = {
           top: 62,
           left: 44.5,
           width: 15,
-          boxShadow: 'yellow',
           part: 1
         }]
       },{

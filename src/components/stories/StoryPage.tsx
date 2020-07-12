@@ -47,24 +47,6 @@ function StoryPage(props: IStoryPageProps) {
   const currAudio = useRef<HTMLAudioElement | null>(currStory ? new Audio(currStory.sections[currSectionIdx].audio) : null);
   const currUrl = useRef<any>(history.location);
 
-  /**
-  useEffect(() => {
-    var myAudio = sectionAudio;
-    var isPaused = false;
-    function togglePausePlay() {
-      if (myAudio != null && isPaused!) {
-        isPaused = true;
-        return myAudio.pause();
-      } else if (myAudio != null && isPaused) {
-        isPaused = false;
-        return myAudio.play()
-      }
-    };
-    {<IoIosPause className = "background-img-icon"
-      onClick={()=>{togglePausePlay()}}/>}
-  });
-  */
-
   useEffect(() => {
     if (!currStory || !currAudio.current || currUrl.current.pathname !== history.location.pathname) return;
 
@@ -157,7 +139,8 @@ function StoryPage(props: IStoryPageProps) {
             left: `${currImg.left}%`,
             maxWidth: currImg.width ? `${currImg.width}%` : '10%',
             scale: `rotate(${currImg.rotate}deg) scale(${currImg.scale})`,
-            boxShadow: `0px 0px 10px ${currImg.boxShadow}`,
+            //boxShadow: `0px 0px 10px ${currImg.boxShadow}`,
+            boxShadow: idx === currSectionIdx ? `0px 0px 25px ${currImg.boxShadow}` : 'none'
           }}
         />
       )
