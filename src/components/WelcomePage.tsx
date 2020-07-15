@@ -10,7 +10,11 @@ export default function WelcomePage() {
   return (
     <div className="flex-column welcome-page">
       <h1>Brainy Make-a-Story Web</h1>
-      <img src={logoImg} style={{ maxWidth: '50%', maxHeight: '50%' }} alt='logo' />
+      <div>
+      <Link to='/stories'>
+      <img src={logoImg} style={{ maxWidth: '500%', maxHeight: '50%' }} alt='logo' />
+      </Link>
+      </div>
       <button className="light-green-back">
         <Link to='/stories'>
           Start
