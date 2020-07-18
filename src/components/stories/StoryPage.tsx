@@ -222,51 +222,51 @@ function StoryPage(props: IStoryPageProps) {
                     )}
                   </div>
                 </div>
-                <div className="flex-column">
-                  <div className ="parent">
-                    {isPaused &&
-                      <IoIosPlay 
-                        className="pause-audio"
-                        size = "1.75em"
-                        onClick={() => {
-                          if (currAudio.current) {
-                            currAudio.current.play();
-                            setIsPaused(false);
-                          }
-                        }}
-                      />  
-                    }
-                    {!isPaused &&
-                      <IoIosPause 
-                        className="pause-audio"
-                        size = "1.75em"
-                        onClick={() => {
-                          if (currAudio.current) {
-                            currAudio.current.pause();
-                            setIsPaused(true);
-                          }
-                        }}
-                      />  
-                    }
-                  </div>
-                  {!storyTextExpanded &&
-                    <FaExpandArrowsAlt
-                      className="story-icon"
-                      size="1.5em"
+              <div className="flex-column">
+                <div className ="parent">
+                  {isPaused &&
+                    <IoIosPlay 
+                      className="pause-audio"
+                      size = "1.75em"
                       onClick={() => {
-                        setStoryTextExpanded(true);
+                        if (currAudio.current) {
+                          currAudio.current.play();
+                          setIsPaused(false);
+                        }
                       }}
                     />
                   }
-                  {storyTextExpanded &&
-                    <FaCompressArrowsAlt
-                      className="story-icon"
-                      size="1.5em"
+                  {!isPaused &&
+                    <IoIosPause 
+                      className="pause-audio"
+                      size = "1.75em"
                       onClick={() => {
-                        setStoryTextExpanded(false);
+                        if (currAudio.current) {
+                          currAudio.current.pause();
+                          setIsPaused(true);
+                        }
                       }}
-                    />
+                    />  
                   }
+                </div>
+                {!storyTextExpanded &&
+                  <FaExpandArrowsAlt
+                    className="story-icon"
+                    size="1.5em"
+                    onClick={() => {
+                      setStoryTextExpanded(true);
+                    }}
+                  />
+                }
+                {storyTextExpanded &&
+                  <FaCompressArrowsAlt
+                    className="story-icon"
+                    size="1.5em"
+                    onClick={() => {
+                      setStoryTextExpanded(false);
+                    }}
+                  />
+                }
                 </div>
               </div>
             }

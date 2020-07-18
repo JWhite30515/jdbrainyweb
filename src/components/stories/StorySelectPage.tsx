@@ -24,7 +24,7 @@ function StorySelectPage(props: IStorySelectPageProps) {
       <div className="flex-row-wrap-container space-between list-row">
         {stories.map((story, idx) => {
           return (
-            <Card storyCard style={{ flex: '33%' }} key={`story_card_${idx}`}>
+            <Card storyCard style={{ flex: '30%' }} key={`story_card_${idx}`}>
               <h2>{story.title}</h2>
               <img
                 className="card-img"
