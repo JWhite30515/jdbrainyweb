@@ -2,9 +2,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Release Notes
 ### Release 1.1.0
-- 6 fully customizable stories with audio and background images
-- Pause and PLay functionality for story audio
-- Increased image sizes and for both story and word images
+- 6 fully customizable stories with audio and background images available
+- Pause and Play functionality for story audio, with pause/play button
+- Increased image sizes for both story and word images
+- Various CSS changes for readability of story and overall app
+- Missing images and audio added for words that did not work
 ### Release 1.0.0 for Expo Presentation Features
 - 3 fully customizable stories with audio and background images
 - Words with image and audio for 20+ types of sight words
