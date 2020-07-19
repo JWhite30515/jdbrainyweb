@@ -4,6 +4,7 @@
   position: relative;
   top: 0;
   left: 0;
+  margin-top: 100px;
 }
 
 .image {
@@ -14,7 +15,7 @@
 .background-img-icon {
   position: absolute;
   top: 1.5%;
-  left: 95%;
+  left: 94%;
 }
 
 .background-img {
@@ -44,9 +45,10 @@
 }
 
 .story-text {
-  font-size: 28px;
+  font-size: 40px;
   font-family: 'Comic Sans MS', 'Comic Sans', serif;
   max-height: 240px;
+  margin-left: 32px;
   overflow: auto;
 }
 
