@@ -1,6 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Release Notes
+### Release 1.1.0
+- 6 fully customizable stories with audio and background images
+- Pause and PLay functionality for story audio
+- Increased image sizes and for both story and word images
 ### Release 1.0.0 for Expo Presentation Features
 - 3 fully customizable stories with audio and background images
 - Words with image and audio for 20+ types of sight words
