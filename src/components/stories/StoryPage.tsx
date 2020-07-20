@@ -206,7 +206,7 @@ function StoryPage(props: IStoryPageProps) {
               </div>
             }
             {!storyImgExpanded &&
-              <div className="flex-row card-item-story">
+              <div className="flex-row card-item">
                 <div className={storyTextClassName}>
                   <div>
                     {currStory.sections.map((section, idx) =>
