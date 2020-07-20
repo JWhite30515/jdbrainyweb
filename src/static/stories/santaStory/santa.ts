@@ -1,6 +1,7 @@
 import { IStory } from '../../../redux/state/storyState';
 import { WordCategory } from '../../../redux/state/wordState';
 
+import img0 from './Santas_Mixed-Up_Elf.jpg';
 import img1 from './Santas-ElF1-no_landings.png';
 import img2 from './Santas-Elf-2-no_landings.png';
 import img3 from './Santas-Elf3-no_landings.png';
@@ -659,6 +660,10 @@ const story: IStory = {
     },
   ],
   parts: [
+    {
+      backgroundImg: img0,
+      id: 0,
+    },
     {
       backgroundImg: img1,
       id: 1,

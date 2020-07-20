@@ -557,7 +557,10 @@ const story: IStory = {
       part: 2,
     }
   ],
-  parts: [
+  parts: [{
+      backgroundImg: img1,
+      id: 0,
+    },
     {
       backgroundImg: img1,
       id: 1,

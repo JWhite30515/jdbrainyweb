@@ -635,6 +635,9 @@ const story: IStory = {
   ],
   parts: [{
       backgroundImg: img1,
+      id: 0,
+    },{
+      backgroundImg: img1,
       id: 1,
     },{
       backgroundImg: img2,

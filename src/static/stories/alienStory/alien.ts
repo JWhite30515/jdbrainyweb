@@ -593,7 +593,10 @@ const story: IStory = {
 			imgPositions: []
 		},
 	],
-	parts: [
+	parts: [{
+			backgroundImg: img1,
+			id: 0,
+	  	},
 		{
 			backgroundImg: img1,
 			id: 1,

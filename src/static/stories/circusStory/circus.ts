@@ -505,7 +505,10 @@ const story: IStory = {
       wordCategories: [],
       part: 1,
     }],
-  parts: [
+  parts: [{
+      backgroundImg: img1,
+      id: 0,
+    },
     {
       backgroundImg: img1,
       id: 1,
