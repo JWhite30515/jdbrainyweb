@@ -81,6 +81,8 @@ const story: IStory = {
 				width: 18,
 				part: 5
 			}]
+			// flag could be added here for when the story has begun
+			// and could be placed more along the way for progress
 		},{
 			text:
 			` and `,
@@ -591,6 +593,7 @@ const story: IStory = {
 			id: ``,
 			wordCategories: [],
 			imgPositions: []
+			//flag could be added here to denote that story has been completed
 		},
 	],
 	parts: [{
